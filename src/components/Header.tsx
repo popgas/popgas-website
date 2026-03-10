@@ -23,19 +23,23 @@ export default function Header() {
         className="hidden md:block"
         style={{
           backgroundColor: "#f5f5f5",
-          borderBottom: "1px solid #e8e8e8",
         }}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-0">
           {/* Social icons - left side */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center">
             <a
               href="https://www.instagram.com/popgas.app"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="transition-opacity hover:opacity-70"
-              style={{ color: "#666666" }}
+              className="flex items-center justify-center transition-opacity hover:opacity-70"
+              style={{
+                color: "#666666",
+                width: "40px",
+                height: "40px",
+                borderRight: "1px solid #e0e0e0",
+              }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -51,8 +55,13 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className="transition-opacity hover:opacity-70"
-              style={{ color: "#666666" }}
+              className="flex items-center justify-center transition-opacity hover:opacity-70"
+              style={{
+                color: "#666666",
+                width: "40px",
+                height: "40px",
+                borderRight: "1px solid #e0e0e0",
+              }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -66,10 +75,16 @@ export default function Header() {
           </div>
 
           {/* Contact info - right side */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center">
             <span
               className="flex items-center gap-1.5"
-              style={{ fontSize: "13px", fontWeight: 400, color: "#666666" }}
+              style={{
+                fontSize: "13px",
+                fontWeight: 400,
+                color: "#666666",
+                padding: "0 20px",
+                borderLeft: "1px solid #e0e0e0",
+              }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -83,7 +98,13 @@ export default function Header() {
             </span>
             <span
               className="flex items-center gap-1.5"
-              style={{ fontSize: "13px", fontWeight: 400, color: "#666666" }}
+              style={{
+                fontSize: "13px",
+                fontWeight: 400,
+                color: "#666666",
+                padding: "0 20px",
+                borderLeft: "1px solid #e0e0e0",
+              }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +119,13 @@ export default function Header() {
             </span>
             <span
               className="flex items-center gap-1.5"
-              style={{ fontSize: "13px", fontWeight: 400, color: "#666666" }}
+              style={{
+                fontSize: "13px",
+                fontWeight: 400,
+                color: "#666666",
+                padding: "0 20px",
+                borderLeft: "1px solid #e0e0e0",
+              }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -119,8 +146,8 @@ export default function Header() {
       </div>
 
       {/* Main header - sticky */}
-      <header className="sticky top-0 z-50 bg-white shadow-sm">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+      <header className="sticky top-0 z-50 bg-white">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4">
           {/* Logo */}
           <Link href="/">
             <Image

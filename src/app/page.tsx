@@ -8,8 +8,8 @@ export default function Home() {
         className="relative bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: "url('/images/hero-bg.png')",
-          paddingTop: "120px",
-          paddingBottom: "100px",
+          paddingTop: "180px",
+          paddingBottom: "140px",
         }}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -45,8 +45,8 @@ export default function Home() {
                     fontWeight: 700,
                     textTransform: "uppercase",
                     letterSpacing: "0.75px",
-                    color: "#ffffff",
-                    backgroundColor: "#729E2F",
+                    color: "#729E2F",
+                    backgroundColor: "transparent",
                     textDecoration: "none",
                   }}
                 >
@@ -70,8 +70,8 @@ export default function Home() {
                     fontWeight: 700,
                     textTransform: "uppercase",
                     letterSpacing: "0.75px",
-                    color: "#ffffff",
-                    backgroundColor: "#729E2F",
+                    color: "#729E2F",
+                    backgroundColor: "transparent",
                     textDecoration: "none",
                   }}
                 >
@@ -86,11 +86,11 @@ export default function Home() {
 
             {/* YouTube Video */}
             <div className="flex flex-1 items-center justify-center">
-              <div className="w-full max-w-[560px] overflow-hidden rounded-lg shadow-xl">
+              <div className="w-full max-w-[560px] overflow-hidden">
                 <div className="relative" style={{ paddingBottom: "56.25%" }}>
                   <iframe
                     className="absolute inset-0 h-full w-full"
-                    src="https://www.youtube.com/embed/Tt6e39DwdXs"
+                    src="https://www.youtube.com/embed/SuBDcF_PlPc?feature=oembed"
                     title="PopGas - Vídeo Explicativo"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
