@@ -58,6 +58,17 @@ const staticPosts = [
     imageUrl: null,
   },
   {
+    id: "7",
+    title: "Como deletar minha conta no aplicativo PopGás",
+    slug: "como-deletar-minha-conta-no-aplicativo",
+    excerpt:
+      "Saiba como deletar sua conta no aplicativo PopGás de forma simples e rápida. Confira o passo a passo completo.",
+    category: "Informativos",
+    publishedAt: new Date("2026-03-10"),
+    sticky: false,
+    imageUrl: null,
+  },
+  {
     id: "6",
     title: "Promoção Dia das Mães",
     slug: "promocao-dia-das-maes",

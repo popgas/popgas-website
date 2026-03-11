@@ -93,6 +93,43 @@ const blogPosts = [
     sticky: false,
   },
   {
+    title: "Como deletar minha conta no aplicativo PopGás",
+    slug: "como-deletar-minha-conta-no-aplicativo",
+    excerpt:
+      "Saiba como deletar sua conta no aplicativo PopGás de forma simples e rápida. Confira o passo a passo completo.",
+    content: `<p>Se você deseja deletar sua conta no aplicativo PopGás, siga o passo a passo abaixo. O processo é simples e pode ser feito diretamente pelo aplicativo.</p>
+
+<h3>Passo 1: Acesse os Detalhes da Conta</h3>
+<p>Abra o aplicativo PopGás e acesse a tela de <strong>Detalhes da Conta</strong>.</p>
+
+<h3>Passo 2: Encontre a seção "Deletar Conta"</h3>
+<p>Role a tela até o final. Você verá uma seção destacada em vermelho com o título <strong>"Deletar Conta"</strong>.</p>
+
+<h3>Passo 3: Clique em "Quero deletar minha conta"</h3>
+<p>Toque no botão <strong>"Quero deletar minha conta"</strong> para iniciar o processo de exclusão.</p>
+
+<h3>Passo 4: Confirme a exclusão</h3>
+<p>Uma tela de confirmação será exibida com a seguinte mensagem:</p>
+<blockquote>"Ao deletar sua conta você perderá todo seu histórico de pedidos, indicações e saldo do programa Renda PopGás."</blockquote>
+<p>Para confirmar, digite a palavra <strong>"deletar"</strong> no campo indicado e toque no botão <strong>"Deletar minha conta"</strong>.</p>
+
+<h3>O que acontece após a exclusão?</h3>
+<p>Após confirmar a exclusão, sua conta será deletada e você será desconectado automaticamente do aplicativo. Os seguintes dados serão removidos:</p>
+<ul>
+<li>Seus dados pessoais (nome, telefone, e-mail, CPF, data de nascimento)</li>
+<li>Histórico de pedidos</li>
+<li>Indicações e saldo do programa Renda PopGás</li>
+<li>Endereços cadastrados</li>
+</ul>
+
+<p><strong>Importante:</strong> Esta ação é irreversível. Uma vez deletada, não será possível recuperar sua conta ou os dados associados a ela.</p>
+
+<p>Se tiver dúvidas ou precisar de ajuda, entre em contato com nosso suporte pelo WhatsApp.</p>`,
+    category: "Informativos",
+    publishedAt: new Date("2026-03-10"),
+    sticky: false,
+  },
+  {
     title: "Horário de Funcionamento - Carnaval 2024",
     slug: "horario-de-funcionamento-carnaval-2024",
     excerpt:
