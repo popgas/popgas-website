@@ -82,10 +82,105 @@ export default function TermosEntregadoresPage() {
             de transporte ou desempenho de parceiros independentes.
           </p>
 
-          <h2>7. Resolução de Disputas</h2>
+          <h2>7. Política de Privacidade</h2>
+          <p>
+            A PopGás está comprometida com a proteção da privacidade dos
+            Entregadores Parceiros, em conformidade com a Lei Geral de Proteção
+            de Dados (LGPD — Lei nº 13.709/2018). Durante o uso do aplicativo,
+            são coletados os seguintes dados:
+          </p>
+          <ul>
+            <li>Nome completo, e-mail, telefone e CPF/CNPJ</li>
+            <li>Informações de veículo e seguro</li>
+            <li>
+              Dados de localização em tempo real (GPS), coletados
+              continuamente durante o período de trabalho para rastreamento de
+              entregas e otimização de rotas
+            </li>
+            <li>Dados do dispositivo (modelo, sistema operacional, versão do app)</li>
+            <li>Histórico de entregas e desempenho</li>
+            <li>Dados de pagamento (chaves Pix, dados bancários)</li>
+          </ul>
+
+          <h2>7.1. Retenção de Dados</h2>
+          <p>
+            Os dados pessoais dos Entregadores são retidos pelos seguintes
+            períodos:
+          </p>
+          <ul>
+            <li>
+              <strong>Dados cadastrais (nome, e-mail, telefone, CPF/CNPJ,
+              dados de veículo):</strong> mantidos enquanto o vínculo como
+              Entregador Parceiro estiver ativo. Após o desligamento, os dados
+              são removidos em até 30 (trinta) dias, exceto quando houver
+              obrigação legal de retenção.
+            </li>
+            <li>
+              <strong>Dados de localização (GPS):</strong> coletados em tempo
+              real durante o período de trabalho e retidos no servidor por até
+              90 (noventa) dias para fins de auditoria, resolução de disputas
+              e otimização de rotas. Após esse período, os dados são
+              anonimizados ou excluídos.
+            </li>
+            <li>
+              <strong>Histórico de entregas e desempenho:</strong> mantido por
+              até 5 (cinco) anos para fins de cumprimento de obrigações
+              fiscais e trabalhistas.
+            </li>
+            <li>
+              <strong>Dados de pagamento:</strong> mantidos enquanto o vínculo
+              estiver ativo e removidos em até 30 (trinta) dias após o
+              desligamento, exceto dados necessários para cumprimento de
+              obrigações fiscais.
+            </li>
+            <li>
+              <strong>Tokens de autenticação e notificação:</strong> invalidados
+              e removidos imediatamente no momento do logout. O token de
+              notificação push (FCM) é desvinculado do servidor ao encerrar a
+              sessão.
+            </li>
+          </ul>
+
+          <h2>7.2. Exclusão de Dados</h2>
+          <p>
+            O Entregador Parceiro pode solicitar a exclusão de seus dados
+            pessoais a qualquer momento, entrando em contato pelo e-mail{" "}
+            <a
+              href="mailto:contato@popgas.com.br"
+              className="underline hover:opacity-70"
+            >
+              contato@popgas.com.br
+            </a>
+            . Após a solicitação, os dados serão excluídos em até 30 (trinta)
+            dias, ressalvados os dados que devam ser mantidos por obrigação
+            legal ou regulatória.
+          </p>
+
+          <h2>7.3. Direitos do Titular dos Dados</h2>
+          <p>
+            Em conformidade com a LGPD, o Entregador Parceiro tem direito a
+            confirmar a existência de tratamento, acessar seus dados,
+            solicitar correção, anonimização, bloqueio ou eliminação de dados,
+            solicitar portabilidade e revogar o consentimento a qualquer
+            momento, por meio do e-mail{" "}
+            <a
+              href="mailto:contato@popgas.com.br"
+              className="underline hover:opacity-70"
+            >
+              contato@popgas.com.br
+            </a>
+            .
+          </p>
+
+          <h2>8. Resolução de Disputas</h2>
           <p>
             Regido pelas leis brasileiras; disputas sujeitas à jurisdição de
             Uberlândia, Minas Gerais.
+          </p>
+
+          <hr className="my-8 border-gray-200" />
+          <p className="text-sm italic">
+            Última atualização: 28 de Março de 2026
           </p>
         </div>
       </section>

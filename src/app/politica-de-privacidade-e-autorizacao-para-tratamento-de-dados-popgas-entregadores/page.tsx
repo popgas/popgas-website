@@ -65,14 +65,77 @@ export default function PoliticaPrivacidadeEntregadoresPage() {
             dados pessoais por e-mail ao Encarregado de Proteção de Dados (DPO).
           </p>
 
-          <h2>6. Segurança dos Dados</h2>
+          <h2>6. Retenção de Dados</h2>
           <p>
-            A PopGás implementa medidas de segurança apropriadas para proteger
-            contra acesso não autorizado, alteração, divulgação ou destruição das
-            informações coletadas.
+            Os dados pessoais dos Entregadores Parceiros são retidos pelos
+            seguintes períodos:
+          </p>
+          <ul>
+            <li>
+              <strong>Dados cadastrais (nome, telefone, e-mail, CPF/CNPJ,
+              dados de veículo e seguro):</strong> mantidos enquanto o
+              Entregador Parceiro estiver ativo na plataforma. Após o
+              desligamento, os dados são removidos em até 30 (trinta) dias,
+              exceto quando houver obrigação legal de retenção.
+            </li>
+            <li>
+              <strong>Dados de localização (GPS):</strong> coletados
+              continuamente durante o período de trabalho e retidos no
+              servidor por até 90 (noventa) dias para fins de auditoria,
+              resolução de disputas e otimização operacional. Após esse
+              período, os dados são anonimizados ou excluídos.
+            </li>
+            <li>
+              <strong>Histórico de entregas, desempenho e
+              verificação de antecedentes:</strong> mantido por até 5 (cinco)
+              anos para fins de cumprimento de obrigações fiscais,
+              trabalhistas e regulatórias.
+            </li>
+            <li>
+              <strong>Dados de pagamento (cartões e chaves Pix):</strong>{" "}
+              mantidos enquanto o vínculo estiver ativo. Removidos em até 30
+              (trinta) dias após o desligamento, exceto dados necessários para
+              cumprimento de obrigações fiscais.
+            </li>
+            <li>
+              <strong>Tokens de autenticação e notificação push
+              (FCM):</strong> invalidados e removidos imediatamente no momento
+              do logout ou desligamento.
+            </li>
+            <li>
+              <strong>Dados de uso e analytics:</strong> coletados de forma
+              agregada e anonimizada, retidos conforme as políticas dos
+              serviços de terceiros utilizados.
+            </li>
+          </ul>
+
+          <h2>6.1. Exclusão de Dados e Conta</h2>
+          <p>
+            O Entregador Parceiro pode solicitar a exclusão de sua conta e de
+            seus dados pessoais a qualquer momento, entrando em contato pelo
+            e-mail{" "}
+            <a
+              href="mailto:contato@popgas.com.br"
+              className="underline hover:opacity-70"
+            >
+              contato@popgas.com.br
+            </a>
+            . Após a solicitação, os dados serão excluídos em até 30 (trinta)
+            dias, ressalvados os dados que devam ser mantidos por obrigação
+            legal ou regulatória, conforme descrito na seção de retenção
+            acima.
           </p>
 
-          <h2>7. Contato</h2>
+          <h2>7. Segurança dos Dados</h2>
+          <p>
+            A PopGás implementa medidas de segurança técnicas e
+            organizacionais apropriadas para proteger contra acesso não
+            autorizado, alteração, divulgação ou destruição das informações
+            coletadas, incluindo criptografia de dados em trânsito e
+            controles de acesso aos servidores.
+          </p>
+
+          <h2>8. Contato</h2>
           <p>
             Localizada em Uberlândia, MG. Horário de funcionamento: Segunda a
             Domingo, das 8h às 21h.
@@ -86,6 +149,11 @@ export default function PoliticaPrivacidadeEntregadoresPage() {
             >
               contato@popgas.com.br
             </a>
+          </p>
+
+          <hr className="my-8 border-gray-200" />
+          <p className="text-sm italic">
+            Última atualização: 28 de Março de 2026
           </p>
         </div>
       </section>
