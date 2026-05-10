@@ -68,7 +68,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden -mt-[72px] pt-[72px]">
       <div aria-hidden className="absolute inset-0 -z-10 aurora-light" />
       <div aria-hidden className="absolute inset-0 -z-10 grain-light pointer-events-none" />
 
@@ -133,7 +133,7 @@ export function Hero() {
             </Link>
             <Link
               href="/planos"
-              className="inline-flex items-center justify-center px-6 py-4 text-[#0a1322] hover:text-[#0a1322] font-semibold text-[15px] tracking-tight"
+              className="inline-flex items-center justify-center px-7 py-4 border border-[rgba(15,19,34,0.15)] hover:border-[rgba(15,19,34,0.45)] bg-white/50 hover:bg-white/80 text-[#0a1322] font-semibold text-[15px] rounded-full transition-all tracking-tight backdrop-blur-sm"
             >
               Ver planos
             </Link>
