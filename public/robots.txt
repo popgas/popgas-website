@@ -1,0 +1,13 @@
+# *
+User-agent: *
+Allow: /
+
+# *
+User-agent: *
+Disallow: /api/
+
+# Host
+Host: https://popgas.com.br
+
+# Sitemaps
+Sitemap: https://popgas.com.br/sitemap.xml
