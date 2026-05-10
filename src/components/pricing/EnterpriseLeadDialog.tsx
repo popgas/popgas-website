@@ -60,7 +60,7 @@ export function EnterpriseLeadDialog({ trigger }: Props) {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>{trigger}</DialogTrigger>
+      <DialogTrigger render={trigger as React.ReactElement} />
       <DialogContent className="max-w-lg">
         <DialogHeader>
           <DialogTitle>Falar com vendas Enterprise</DialogTitle>
