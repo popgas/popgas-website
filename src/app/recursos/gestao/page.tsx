@@ -1,8 +1,30 @@
+// src/app/recursos/gestao/page.tsx
+import type { Metadata } from 'next';
+import { Container } from '@/components/shared/Container';
+import { Breadcrumb } from '@/components/recursos/Breadcrumb';
+import { ModuleHeroSplit } from '@/components/recursos/ModuleHeroSplit';
+import { FeatureList } from '@/components/recursos/FeatureList';
+import { ModuleSynergy } from '@/components/recursos/ModuleSynergy';
+import { FinalCta } from '@/components/home/FinalCta';
+import { gestaoContent } from '@/content/modules';
+
+export const metadata: Metadata = {
+  title: 'Gestão — Estoque + financeiro',
+  description: gestaoContent.hero.subtitle,
+};
+
 export default function Page() {
   return (
-    <div className="max-w-3xl mx-auto px-6 py-32 text-center">
-      <h1 className="text-3xl font-extrabold text-[#0f172a]">Em construção</h1>
-      <p className="text-[#475569] mt-3">Esta página será publicada em breve.</p>
-    </div>
+    <>
+      <div className="pt-8">
+        <Container>
+          <Breadcrumb items={[{ label: 'Recursos', href: '/recursos' }, { label: 'Gestão' }]} />
+        </Container>
+      </div>
+      <ModuleHeroSplit content={gestaoContent} ctaHref="/planos?preset=gestao-administrativa" reversed />
+      <FeatureList features={gestaoContent.features} />
+      {gestaoContent.synergies && <ModuleSynergy synergies={gestaoContent.synergies} />}
+      <FinalCta />
+    </>
   );
 }
