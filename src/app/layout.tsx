@@ -1,46 +1,41 @@
-import type { Metadata } from "next";
-import { Poppins, Geist } from "next/font/google";
-import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
-import { cn } from "@/lib/utils";
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-poppins",
-  display: "swap",
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+  weight: ['400', '500', '600', '700', '800', '900'],
 });
 
 export const metadata: Metadata = {
-  title: "PopGas - Entrega de Gás",
+  metadataBase: new URL('https://popgas.com.br'),
+  title: {
+    default: 'PopGás Sistema — ERP completo para revendas de gás',
+    template: '%s | PopGás Sistema',
+  },
   description:
-    "Entrega rápida de gás de cozinha em Uberlândia e região. Peça seu gás pelo site ou WhatsApp com a PopGas!",
-  icons: {
-    icon: [
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
-    ],
-    apple: "/apple-touch-icon.png",
+    'O ERP que automatiza sua revenda. Vendas, fiscal, WhatsApp e IA num só sistema. Comece com R$ 99,90/mês.',
+  openGraph: {
+    type: 'website',
+    locale: 'pt_BR',
+    siteName: 'PopGás Sistema',
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="pt-BR" className={cn("font-sans", geist.variable)}>
-      <body className={`${poppins.variable} font-[family-name:var(--font-poppins)] antialiased`}>
-        <Header />
-        {children}
-        <Footer />
-        <WhatsAppButton />
-      </body>
+    <html lang="pt-BR" className={inter.variable}>
+      <body>{children}</body>
     </html>
   );
 }
