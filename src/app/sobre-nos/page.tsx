@@ -1,102 +1,58 @@
-import type { Metadata } from "next";
+// src/app/sobre-nos/page.tsx
+import type { Metadata } from 'next';
+import { Container } from '@/components/shared/Container';
+import { FinalCta } from '@/components/home/FinalCta';
 
 export const metadata: Metadata = {
-  title: "Sobre Nós | PopGas",
-  description:
-    "Conheça a PopGas — uma das maiores empresas de gás de cozinha de Uberlândia, desde 2008.",
+  title: 'Sobre nós — PopGás Tecnologia',
+  description: 'Conheça a história, missão e o time da PopGás Comércio e Tecnologia.',
 };
 
 export default function SobreNosPage() {
   return (
-    <div className="min-h-screen bg-white font-[Poppins,sans-serif]">
-      <section className="mx-auto max-w-[1100px] px-4 py-[100px]">
-        <h1
-          className="mb-6 text-[28px] font-semibold"
-          style={{ color: "#24355A" }}
-        >
-          Quem Somos?
-        </h1>
-        <p
-          className="mb-12 leading-[25px]"
-          style={{ color: "#222222", fontSize: "15px" }}
-        >
-          A PopGas foi fundada em 2008 com sede na cidade de Uberlândia em Minas
-          Gerais. É uma das maiores da região em que atua e trabalha para crescer
-          em uma estrutura ampla para atender seus clientes, com ferramentas e
-          tecnologia de ponta.
-        </p>
-
-        <h2
-          className="mb-6 text-[24px] font-semibold"
-          style={{ color: "#24355A" }}
-        >
-          Nosso Propósito?
-        </h2>
-        <p
-          className="mb-12 leading-[25px]"
-          style={{ color: "#222222", fontSize: "15px" }}
-        >
-          Oferecer aos nossos clientes o melhor atendimento e a melhor
-          experiência na compra de gás de cozinha e seus acessórios.
-        </p>
-
-        <h2
-          className="mb-6 text-[24px] font-semibold"
-          style={{ color: "#24355A" }}
-        >
-          Localização
-        </h2>
-        <div
-          className="leading-[25px]"
-          style={{ color: "#222222", fontSize: "15px" }}
-        >
-          <p className="mb-4">
-            <strong>Endereço:</strong> R. João Balbino, 749, Santa Mônica,
-            Uberlândia – MG, CEP 38408-262
+    <>
+      <section className="py-16 md:py-24">
+        <Container className="max-w-3xl">
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-[-0.04em] leading-[1.05] text-[#0f172a] mb-6">
+            Tecnologia feita por quem entende de revenda.
+          </h1>
+          <p className="text-lg text-[#475569] leading-relaxed mb-8">
+            A PopGás Comércio e Tecnologia nasceu da operação real de uma distribuidora de gás. Cada funcionalidade do nosso ERP foi pensada para resolver um problema vivido em primeira mão — desde o caixa do entregador até a emissão fiscal.
           </p>
-          <p className="mb-4">
-            <strong>Telefone:</strong>{" "}
-            <a
-              href="tel:+553432387777"
-              className="underline hover:opacity-70"
-              style={{ color: "#222222" }}
-            >
-              (34) 3238-7777
-            </a>
+          <p className="text-base text-[#475569] leading-relaxed mb-8">
+            Hoje, mais de 200 distribuidoras em todo o Brasil rodam suas operações no PopGás Sistema, processando dezenas de milhares de pedidos por dia, com IA atendendo no WhatsApp e fechamento automático de caixa.
           </p>
-          <p className="mb-4">
-            <strong>E-mail:</strong>{" "}
-            <a
-              href="mailto:contato@popgas.com.br"
-              className="underline hover:opacity-70"
-              style={{ color: "#222222" }}
-            >
-              contato@popgas.com.br
-            </a>
-          </p>
-          <p className="mb-4">
-            <strong>Horário de Funcionamento:</strong>
-            <br />
-            Seg-Sáb 7h-21h
-            <br />
-            Dom/Feriados 8h-14h
-          </p>
-
-          {/* Google Maps Embed */}
-          <div className="mt-8">
-            <iframe
-              src="https://maps.google.com/maps?q=PopGas+-+Santa+M%C3%B4nica,+R.+Jo%C3%A3o+Balbino,+749,+Santa+M%C3%B4nica,+Uberl%C3%A2ndia+-+MG,+38408-262&t=&z=15&ie=UTF8&iwloc=&output=embed"
-              width="100%"
-              height="450"
-              style={{ border: 0, borderRadius: "7px" }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="PopGas - Santa Mônica - Google Maps"
-            />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 my-12">
+            {[
+              { v: '200+', l: 'Distribuidoras ativas' },
+              { v: '87K', l: 'Pedidos processados/dia' },
+              { v: '96%', l: 'Atendimento por IA' },
+              { v: '99,9%', l: 'SLA de uptime' },
+            ].map(s => (
+              <div key={s.l} className="p-5 bg-white border border-[#e2e8f0] rounded-xl">
+                <div className="text-3xl font-extrabold tracking-tight text-[#0f172a]">{s.v}</div>
+                <div className="text-sm text-[#475569] mt-1">{s.l}</div>
+              </div>
+            ))}
           </div>
-        </div>
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[#0f172a] mb-4">Onde estamos</h2>
+          <p className="text-base text-[#475569] mb-6">
+            <strong>POPGAS COMERCIO E TECNOLOGIA LTDA</strong><br />
+            CNPJ 10.262.307/0001-14<br />
+            R. João Balbino, 749 — Santa Mônica<br />
+            Uberlândia – MG · CEP 38408-262
+          </p>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d-48!2d-18.91!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0!2zMTjCsDU0JzM2LjAiUyA0OMKwMTUnMDAuMCJX"
+            width="100%"
+            height="320"
+            loading="lazy"
+            className="rounded-xl border border-[#e2e8f0]"
+            title="Localização PopGás"
+          />
+        </Container>
       </section>
-    </div>
+      <FinalCta />
+    </>
   );
 }
