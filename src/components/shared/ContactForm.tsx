@@ -1,13 +1,10 @@
-// src/components/shared/ContactForm.tsx
 'use client';
 
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import { cn } from '@/lib/utils';
 
 const schema = z.object({
   name: z.string().min(2, 'Nome obrigatório'),
@@ -19,6 +16,23 @@ const schema = z.object({
 });
 
 type FormData = z.infer<typeof schema>;
+
+const labelClass =
+  'block font-mono text-[10px] uppercase tracking-[1.5px] text-[rgba(15,19,34,0.55)] font-semibold mb-2';
+
+const inputClass =
+  'w-full border border-[rgba(15,19,34,0.14)] hover:border-[rgba(15,19,34,0.25)] rounded-[10px] px-3.5 py-3 ' +
+  'font-sans text-sm text-[#0a1322] bg-white tracking-[-0.005em] ' +
+  'placeholder:text-[rgba(15,19,34,0.40)] ' +
+  'transition-all outline-none ' +
+  'focus:border-[#0095cc] focus:ring-4 focus:ring-[rgba(0,149,204,0.10)] focus:hover:border-[#0095cc]';
+
+const selectClass = cn(
+  inputClass,
+  'appearance-none bg-no-repeat pr-9',
+  '[background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23475569%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27m6%209%206%206%206-6%27%2F%3E%3C%2Fsvg%3E")] ' +
+  '[background-position:right_14px_center]'
+);
 
 export function ContactForm({ defaultType = 'general' }: { defaultType?: FormData['type'] }) {
   const [submitted, setSubmitted] = useState(false);
@@ -37,7 +51,8 @@ export function ContactForm({ defaultType = 'general' }: { defaultType?: FormDat
   const onSubmit = async (data: FormData) => {
     setError(null);
     try {
-      const apiType = data.type === 'sales' ? 'GENERAL' : data.type === 'support' ? 'SUPPORT' : 'GENERAL';
+      const apiType =
+        data.type === 'sales' ? 'GENERAL' : data.type === 'support' ? 'SUPPORT' : 'GENERAL';
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -66,58 +81,105 @@ export function ContactForm({ defaultType = 'general' }: { defaultType?: FormDat
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 bg-white border border-[#e2e8f0] rounded-2xl p-6 md:p-8">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="bg-white border border-[rgba(15,19,34,0.08)] rounded-2xl p-6 md:p-8 space-y-4 shadow-[0_4px_14px_rgba(15,19,34,0.04)]"
+    >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <Label htmlFor="name">Nome *</Label>
-          <Input id="name" {...register('name')} />
-          {errors.name && <p className="text-xs text-red-600 mt-1">{errors.name.message}</p>}
-        </div>
-        <div>
-          <Label htmlFor="email">E-mail *</Label>
-          <Input id="email" type="email" {...register('email')} />
-          {errors.email && <p className="text-xs text-red-600 mt-1">{errors.email.message}</p>}
-        </div>
+        <Field>
+          <label htmlFor="name" className={labelClass}>Nome *</label>
+          <input
+            id="name"
+            type="text"
+            placeholder="Seu nome completo"
+            className={inputClass}
+            {...register('name')}
+          />
+          {errors.name && <ErrorMsg>{errors.name.message}</ErrorMsg>}
+        </Field>
+        <Field>
+          <label htmlFor="email" className={labelClass}>E-mail *</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="você@empresa.com.br"
+            className={inputClass}
+            {...register('email')}
+          />
+          {errors.email && <ErrorMsg>{errors.email.message}</ErrorMsg>}
+        </Field>
       </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <Label htmlFor="phone">Telefone</Label>
-          <Input id="phone" type="tel" {...register('phone')} />
-          {errors.phone && <p className="text-xs text-red-600 mt-1">{errors.phone.message}</p>}
-        </div>
-        <div>
-          <Label htmlFor="company">Empresa</Label>
-          <Input id="company" {...register('company')} />
-        </div>
+        <Field>
+          <label htmlFor="phone" className={labelClass}>Telefone</label>
+          <input
+            id="phone"
+            type="tel"
+            placeholder="(34) 99999-9999"
+            className={inputClass}
+            {...register('phone')}
+          />
+          {errors.phone && <ErrorMsg>{errors.phone.message}</ErrorMsg>}
+        </Field>
+        <Field>
+          <label htmlFor="company" className={labelClass}>Empresa</label>
+          <input
+            id="company"
+            type="text"
+            placeholder="Nome da revenda"
+            className={inputClass}
+            {...register('company')}
+          />
+        </Field>
       </div>
-      <div>
-        <Label htmlFor="type">Tipo</Label>
-        <select
-          id="type"
-          {...register('type')}
-          className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
-        >
+
+      <Field>
+        <label htmlFor="type" className={labelClass}>Tipo</label>
+        <select id="type" className={selectClass} {...register('type')}>
           <option value="general">Dúvida geral</option>
           <option value="sales">Quero conhecer/contratar</option>
           <option value="support">Sou cliente, preciso de suporte</option>
         </select>
-      </div>
-      <div>
-        <Label htmlFor="message">Mensagem *</Label>
+      </Field>
+
+      <Field>
+        <label htmlFor="message" className={labelClass}>Mensagem *</label>
         <textarea
           id="message"
-          {...register('message')}
           rows={5}
-          className="flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+          placeholder="Conte um pouco sobre sua operação..."
+          className={cn(inputClass, 'resize-y min-h-[110px] leading-[1.5]')}
+          {...register('message')}
         />
-        {errors.message && <p className="text-xs text-red-600 mt-1">{errors.message.message}</p>}
-      </div>
+        {errors.message && <ErrorMsg>{errors.message.message}</ErrorMsg>}
+      </Field>
+
       {error && (
-        <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-sm rounded">{error}</div>
+        <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg">
+          {error}
+        </div>
       )}
-      <Button type="submit" disabled={isSubmitting} className="w-full bg-[#0f172a] hover:bg-[#1a2845]">
-        {isSubmitting ? 'Enviando...' : 'Enviar mensagem'}
-      </Button>
+
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className="w-full bg-[#006085] hover:bg-[#0095cc] disabled:opacity-60 text-white font-bold text-sm tracking-[-0.01em] py-3.5 rounded-[10px] transition-colors shadow-[0_4px_14px_rgba(0,96,133,0.20)] mt-2"
+      >
+        {isSubmitting ? 'Enviando...' : 'Enviar mensagem →'}
+      </button>
     </form>
+  );
+}
+
+function Field({ children }: { children: React.ReactNode }) {
+  return <div>{children}</div>;
+}
+
+function ErrorMsg({ children }: { children: React.ReactNode }) {
+  return (
+    <p className="text-xs text-red-600 mt-1.5 font-medium" role="alert">
+      {children}
+    </p>
   );
 }
