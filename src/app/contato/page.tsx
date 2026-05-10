@@ -10,7 +10,23 @@ export const metadata: Metadata = {
   description: 'Tire dúvidas, solicite uma demonstração ou abra um ticket de suporte.',
 };
 
-export default function ContatoPage() {
+type ContactType = 'general' | 'sales' | 'support';
+
+function resolveType(tipo: string | string[] | undefined): ContactType {
+  const value = Array.isArray(tipo) ? tipo[0] : tipo;
+  if (value === 'sales' || value === 'case') return 'sales';
+  if (value === 'support' || value === 'suporte') return 'support';
+  return 'general';
+}
+
+export default async function ContatoPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ tipo?: string | string[] }>;
+}) {
+  const params = await searchParams;
+  const defaultType = resolveType(params.tipo);
+
   return (
     <section className="py-16 md:py-24">
       <Container>
@@ -55,7 +71,7 @@ export default function ContatoPage() {
                 </div>
               </div>
             </div>
-            <ContactForm />
+            <ContactForm defaultType={defaultType} />
           </div>
         </div>
       </Container>
