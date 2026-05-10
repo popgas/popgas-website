@@ -1,14 +1,29 @@
-import { Container } from '@/components/shared/Container';
+import { Hero } from '@/components/home/Hero';
+import { LogosStrip } from '@/components/home/LogosStrip';
+import { ProblemsSection } from '@/components/home/ProblemsSection';
+import { HowItWorks } from '@/components/home/HowItWorks';
+import { ModulesGrid } from '@/components/home/ModulesGrid';
+import { DemoVideo } from '@/components/home/DemoVideo';
+import { VerticalGas } from '@/components/home/VerticalGas';
+import { Testimonial } from '@/components/home/Testimonial';
+import { PricingTeaser } from '@/components/home/PricingTeaser';
+import { HomeFaqSection } from '@/components/home/HomeFaqSection';
+import { FinalCta } from '@/components/home/FinalCta';
 
 export default function Home() {
   return (
-    <Container className="py-32 text-center">
-      <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-[#0f172a] mb-4">
-        PopGás Sistema
-      </h1>
-      <p className="text-lg text-[#475569]">
-        Site em construção — em breve nova experiência.
-      </p>
-    </Container>
+    <>
+      <Hero />
+      <LogosStrip />
+      <ProblemsSection />
+      <HowItWorks />
+      <ModulesGrid />
+      <DemoVideo />
+      <VerticalGas />
+      <Testimonial />
+      <PricingTeaser />
+      <HomeFaqSection />
+      <FinalCta />
+    </>
   );
 }
