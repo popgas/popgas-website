@@ -32,18 +32,18 @@ export function Header() {
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 w-full transition-all',
+        'sticky top-0 z-50 w-full transition-all duration-200',
         scrolled
-          ? 'bg-white/85 backdrop-blur border-b border-[#e2e8f0]'
-          : 'bg-white border-b border-transparent'
+          ? 'bg-white/85 backdrop-blur-md border-b border-[rgba(15,19,34,0.06)]'
+          : 'bg-transparent border-b border-transparent'
       )}
     >
-      <div className="max-w-[1200px] mx-auto px-6 md:px-8 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center" aria-label="PopGás Sistema">
-          <Image src="/images/png_cor-principal.png" alt="PopGás Sistema" width={120} height={60} className="h-12 w-auto" />
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10 h-[72px] flex items-center justify-between">
+        <Link href="/" className="flex items-center shrink-0" aria-label="PopGás Sistema">
+          <Image src="/images/png_cor-principal.png" alt="PopGás Sistema" width={120} height={60} className="h-12 w-auto" priority />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-[#475569]">
+        <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-[rgba(15,19,34,0.62)]">
           <div
             className="relative"
             onMouseEnter={() => setRecursosOpen(true)}
@@ -51,42 +51,48 @@ export function Header() {
           >
             <Link
               href="/recursos"
-              className="flex items-center gap-1 hover:text-[#0f172a] transition-colors"
+              className="flex items-center gap-1 hover:text-[#0a1322] transition-colors py-2"
             >
               Recursos <ChevronDown className="w-3 h-3" />
             </Link>
             {recursosOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[320px] bg-white border border-[#e2e8f0] rounded-xl shadow-[0_8px_24px_rgba(15,23,42,0.08)] py-2">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-[320px] bg-white border border-[rgba(15,19,34,0.08)] rounded-2xl shadow-[0_12px_32px_rgba(15,23,42,0.08)] py-2">
                 {RECURSOS_DROPDOWN.map(item => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="block px-4 py-2 hover:bg-[#fafafa] transition-colors"
+                    className="block px-4 py-2.5 hover:bg-[#fafafa] transition-colors"
                   >
-                    <div className="text-sm font-semibold text-[#0f172a]">{item.label}</div>
-                    <div className="text-xs text-[#94a3b8]">{item.subtitle}</div>
+                    <div className="text-sm font-semibold text-[#0a1322]">{item.label}</div>
+                    <div className="text-xs text-[rgba(15,19,34,0.55)] mt-0.5">{item.subtitle}</div>
                   </Link>
                 ))}
               </div>
             )}
           </div>
-          <Link href="/planos" className="hover:text-[#0f172a] transition-colors">Planos</Link>
-          <Link href="/cases" className="hover:text-[#0f172a] transition-colors">Cases</Link>
-          <Link href="/blog" className="hover:text-[#0f172a] transition-colors">Blog</Link>
-          <Link href="/contato" className="hover:text-[#0f172a] transition-colors">Contato</Link>
+          <Link href="/planos" className="hover:text-[#0a1322] transition-colors">Planos</Link>
+          <Link href="/cases" className="hover:text-[#0a1322] transition-colors">Cases</Link>
+          <Link href="/blog" className="hover:text-[#0a1322] transition-colors">Blog</Link>
+          <Link href="/contato" className="hover:text-[#0a1322] transition-colors">Contato</Link>
         </nav>
 
         <div className="hidden lg:flex items-center gap-2">
-          <Link href={LOGIN_URL} className="px-4 py-2 text-sm font-medium text-[#475569] hover:text-[#0f172a] transition-colors">
+          <Link
+            href={LOGIN_URL}
+            className="px-4 py-2 text-sm font-medium text-[rgba(15,19,34,0.7)] hover:text-[#0a1322] transition-colors"
+          >
             Entrar
           </Link>
-          <Link href={ctaUrl} className="px-5 py-2.5 bg-[#24355A] hover:bg-[#1a2845] text-white text-sm font-semibold rounded-lg transition-colors">
+          <Link
+            href={ctaUrl}
+            className="px-5 py-2.5 bg-[#006085] hover:bg-[#0095cc] text-white text-[13px] font-bold rounded-full transition-colors tracking-tight shadow-[0_4px_14px_rgba(0,96,133,0.18),inset_0_1px_0_rgba(255,255,255,0.18)]"
+          >
             Começar grátis →
           </Link>
         </div>
 
         <button
-          className="lg:hidden text-[#0f172a]"
+          className="lg:hidden text-[#0a1322]"
           onClick={() => setMobileOpen(true)}
           aria-label="Abrir menu"
         >
@@ -96,37 +102,45 @@ export function Header() {
 
       {mobileOpen && (
         <div className="lg:hidden fixed inset-0 z-50 bg-white">
-          <div className="max-w-[1200px] mx-auto px-6 py-4 flex items-center justify-between border-b border-[#e2e8f0]">
+          <div className="max-w-[1280px] mx-auto px-6 py-4 flex items-center justify-between border-b border-[rgba(15,19,34,0.08)]">
             <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center" aria-label="PopGás Sistema">
               <Image src="/images/png_cor-principal.png" alt="PopGás Sistema" width={120} height={60} className="h-12 w-auto" />
             </Link>
             <button
               onClick={() => setMobileOpen(false)}
               aria-label="Fechar menu"
-              className="text-[#0f172a]"
+              className="text-[#0a1322]"
             >
               <X className="w-6 h-6" />
             </button>
           </div>
           <nav className="px-6 py-6 flex flex-col gap-1 text-base">
-            <details className="border-b border-[#e2e8f0] py-3">
-              <summary className="cursor-pointer font-semibold text-[#0f172a]">Recursos</summary>
+            <details className="border-b border-[rgba(15,19,34,0.08)] py-3">
+              <summary className="cursor-pointer font-semibold text-[#0a1322]">Recursos</summary>
               <div className="mt-2 ml-3 flex flex-col gap-2">
                 {RECURSOS_DROPDOWN.map(item => (
-                  <Link key={item.href} href={item.href} className="text-sm text-[#475569] py-1" onClick={() => setMobileOpen(false)}>
+                  <Link key={item.href} href={item.href} className="text-sm text-[rgba(15,19,34,0.62)] py-1" onClick={() => setMobileOpen(false)}>
                     {item.label}
                   </Link>
                 ))}
               </div>
             </details>
-            <Link href="/planos" onClick={() => setMobileOpen(false)} className="border-b border-[#e2e8f0] py-3 font-semibold text-[#0f172a]">Planos</Link>
-            <Link href="/cases" onClick={() => setMobileOpen(false)} className="border-b border-[#e2e8f0] py-3 font-semibold text-[#0f172a]">Cases</Link>
-            <Link href="/blog" onClick={() => setMobileOpen(false)} className="border-b border-[#e2e8f0] py-3 font-semibold text-[#0f172a]">Blog</Link>
-            <Link href="/contato" onClick={() => setMobileOpen(false)} className="border-b border-[#e2e8f0] py-3 font-semibold text-[#0f172a]">Contato</Link>
-            <Link href={LOGIN_URL} onClick={() => setMobileOpen(false)} className="mt-4 px-4 py-3 text-center text-base font-medium text-[#475569] border border-[#e2e8f0] rounded-lg">
+            <Link href="/planos" onClick={() => setMobileOpen(false)} className="border-b border-[rgba(15,19,34,0.08)] py-3 font-semibold text-[#0a1322]">Planos</Link>
+            <Link href="/cases" onClick={() => setMobileOpen(false)} className="border-b border-[rgba(15,19,34,0.08)] py-3 font-semibold text-[#0a1322]">Cases</Link>
+            <Link href="/blog" onClick={() => setMobileOpen(false)} className="border-b border-[rgba(15,19,34,0.08)] py-3 font-semibold text-[#0a1322]">Blog</Link>
+            <Link href="/contato" onClick={() => setMobileOpen(false)} className="border-b border-[rgba(15,19,34,0.08)] py-3 font-semibold text-[#0a1322]">Contato</Link>
+            <Link
+              href={LOGIN_URL}
+              onClick={() => setMobileOpen(false)}
+              className="mt-4 px-4 py-3 text-center text-base font-medium text-[rgba(15,19,34,0.7)] border border-[rgba(15,19,34,0.10)] rounded-full"
+            >
               Entrar
             </Link>
-            <Link href={ctaUrl} onClick={() => setMobileOpen(false)} className="mt-2 px-4 py-3 bg-[#24355A] text-white text-center text-base font-semibold rounded-lg">
+            <Link
+              href={ctaUrl}
+              onClick={() => setMobileOpen(false)}
+              className="mt-2 px-4 py-3 bg-[#006085] hover:bg-[#0095cc] text-white text-center text-base font-bold rounded-full transition-colors shadow-[0_4px_14px_rgba(0,96,133,0.18)]"
+            >
               Começar grátis →
             </Link>
           </nav>
