@@ -5,6 +5,8 @@ import { FeatureComparisonTable } from '@/components/pricing/FeatureComparisonTa
 import { EnterpriseCallout } from '@/components/pricing/EnterpriseCallout';
 import { PricingFaq } from '@/components/pricing/PricingFaq';
 import { FinalCta } from '@/components/home/FinalCta';
+import { JsonLd, productLd } from '@/components/seo/JsonLd';
+import { MODULES } from '@/lib/pricing';
 
 export const metadata: Metadata = {
   title: 'Planos — A partir de R$ 99,90/mês',
@@ -15,6 +17,11 @@ export const metadata: Metadata = {
 export default function PlanosPage() {
   return (
     <>
+      <JsonLd
+        data={productLd(
+          Object.values(MODULES).map(m => ({ name: m.name, price: m.monthlyPrice }))
+        )}
+      />
       <section className="pt-16 md:pt-24 pb-12 md:pb-16 bg-gradient-to-b from-[#fafafa] to-white">
         <Container className="max-w-3xl text-center">
           <div className="inline-block px-3 py-1.5 bg-[#dbeafe] text-[#1e40af] text-xs font-semibold uppercase tracking-wider rounded-full mb-5">

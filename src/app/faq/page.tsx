@@ -4,6 +4,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Container } from '@/components/shared/Container';
 import { FAQ_B2B } from '@/content/faq-b2b';
 import { FinalCta } from '@/components/home/FinalCta';
+import { JsonLd, faqPageLd } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Perguntas frequentes',
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
 export default function FaqPage() {
   return (
     <>
+      <JsonLd data={faqPageLd(FAQ_B2B.flatMap(c => c.items))} />
       <section className="pt-16 md:pt-24 pb-12">
         <Container className="max-w-3xl text-center">
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-[-0.04em] leading-[1.05] text-[#0f172a] mb-5">
