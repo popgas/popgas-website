@@ -1,115 +1,144 @@
-// src/components/home/ModulesGrid.tsx
 import Link from 'next/link';
-import { ShoppingCart, BarChart3, FileText, Sparkles } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { Container } from '@/components/shared/Container';
 import { SectionHeader } from '@/components/shared/SectionHeader';
 import { AnimatedReveal } from '@/components/shared/AnimatedReveal';
-import { MODULES, formatPrice } from '@/lib/pricing';
+import { MODULES, calculateTotal, formatPrice, type ModuleId } from '@/lib/pricing';
 import { cn } from '@/lib/utils';
 
-const ICON_MAP = {
-  'shopping-cart': ShoppingCart,
-  'bar-chart-3': BarChart3,
-  'file-text': FileText,
-  sparkles: Sparkles,
-};
-
-const MODULE_LINKS: Record<string, string> = {
-  essencial: '/recursos/essencial',
-  gestao: '/recursos/gestao',
-  fiscal: '/recursos/fiscal',
-  techia: '/recursos/tech-ia',
-};
+const MODULE_ORDER: ModuleId[] = ['essencial', 'gestao', 'fiscal', 'techia'];
 
 export function ModulesGrid() {
-  const modules = ['essencial', 'gestao', 'fiscal', 'techia'] as const;
+  const total = calculateTotal(MODULE_ORDER, 'monthly');
 
   return (
-    <section className="py-20 md:py-28">
+    <section className="py-20 md:py-28 bg-gradient-to-b from-[#fbfbfa] to-[#f1f5f9]">
       <Container>
         <SectionHeader
           eyebrow="Modular by design"
-          title="Comece simples. Cresça por módulo."
+          title={
+            <>
+              Comece simples. <em className="italic-accent">Cresça por módulo</em>.
+            </>
+          }
           subtitle="Sem upgrade forçado. Sem letra miúda."
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {modules.map((key, i) => {
-            const m = MODULES[key];
-            const Icon = ICON_MAP[m.icon as keyof typeof ICON_MAP];
-            const isPremium = m.isPremium;
-            return (
-              <AnimatedReveal key={key} delay={i * 0.07}>
-                <Link
-                  href={MODULE_LINKS[key]}
-                  className={cn(
-                    'block h-full p-7 rounded-2xl transition-all hover:-translate-y-1',
-                    isPremium
-                      ? 'gradient-bg-premium text-white shadow-[0_8px_24px_rgba(36,53,90,0.25)]'
-                      : 'bg-white border border-[#e2e8f0] hover:shadow-[0_8px_24px_rgba(15,23,42,0.08)]'
-                  )}
-                >
-                  {isPremium && (
-                    <div className="inline-block mb-3 px-2.5 py-1 bg-white/20 text-white text-[10px] font-bold tracking-wider rounded-full">
-                      PREMIUM
-                    </div>
-                  )}
-                  <div
-                    className={cn(
-                      'mb-5 text-xs font-bold tracking-wider uppercase',
-                      isPremium ? 'text-white/85' : 'text-[#06b6d4]'
-                    )}
-                  >
-                    {m.isBase ? 'PLANO BASE' : '+ MÓDULO'}
-                  </div>
-                  <div
-                    className={cn(
-                      'text-3xl font-extrabold tracking-tight mb-1',
-                      isPremium ? 'text-white' : 'text-[#0f172a]'
-                    )}
-                  >
-                    {m.isBase ? 'R$ ' : '+ R$ '}
-                    {formatPrice(m.monthlyPrice)}
-                    <span
-                      className={cn(
-                        'text-sm font-medium',
-                        isPremium ? 'text-white/85' : 'text-[#94a3b8]'
-                      )}
-                    >
-                      /mês
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 mt-5 mb-2">
-                    <div
-                      className={cn(
-                        'w-9 h-9 rounded-lg flex items-center justify-center',
-                        isPremium ? 'bg-white/20' : 'bg-[#fafafa]'
-                      )}
-                    >
-                      <Icon className={cn('w-4 h-4', isPremium ? 'text-white' : 'text-[#0f172a]')} />
-                    </div>
-                    <h3
-                      className={cn(
-                        'text-lg font-bold tracking-tight',
-                        isPremium ? 'text-white' : 'text-[#0f172a]'
-                      )}
-                    >
-                      {m.name}
-                    </h3>
-                  </div>
-                  <p
-                    className={cn(
-                      'text-sm leading-relaxed',
-                      isPremium ? 'text-white/85' : 'text-[#475569]'
-                    )}
-                  >
-                    {m.shortDescription}
-                  </p>
-                </Link>
-              </AnimatedReveal>
-            );
-          })}
-        </div>
+
+        <AnimatedReveal>
+          <div className="max-w-[920px] mx-auto bg-white rounded-3xl border border-[rgba(15,19,34,0.08)] shadow-[0_30px_60px_-20px_rgba(15,19,34,0.10)] overflow-hidden">
+            {/* Panel header */}
+            <div className="px-6 md:px-8 py-5 bg-[rgba(0,149,204,0.04)] border-b border-[rgba(15,19,34,0.06)] flex flex-col md:flex-row md:items-center md:justify-between gap-1.5">
+              <div className="font-mono text-[12px] uppercase tracking-[2px] font-semibold text-[#006085]">
+                Plataforma completa · 4 módulos
+              </div>
+              <div className="font-mono text-[10px] tracking-[1px] text-[rgba(15,19,34,0.5)]">
+                Selecione e veja o total →
+              </div>
+            </div>
+
+            {/* Module rows */}
+            {MODULE_ORDER.map(key => {
+              const m = MODULES[key];
+              const isPremium = m.isPremium ?? false;
+              const isBase = m.isBase;
+              return <ModuleRow key={key} module={m} isPremium={isPremium} isBase={isBase} />;
+            })}
+
+            {/* Total footer */}
+            <div className="px-6 md:px-8 py-6 bg-[#0a1322] text-white flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div>
+                <div className="font-mono text-[11px] uppercase tracking-[2px] text-white/55 mb-1">
+                  Plataforma completa
+                </div>
+                <div className="font-display text-3xl md:text-[32px] font-extrabold tracking-[-0.03em] leading-none">
+                  R$ {formatPrice(total)}
+                  <span className="text-base font-medium text-white/55 ml-1 tracking-normal">/mês</span>
+                </div>
+              </div>
+              <Link
+                href="/planos"
+                className="inline-flex items-center justify-center bg-white text-[#0a1322] px-6 py-3 rounded-full font-bold text-sm tracking-tight hover:scale-[1.02] transition-transform"
+              >
+                Personalizar planos →
+              </Link>
+            </div>
+          </div>
+        </AnimatedReveal>
       </Container>
     </section>
+  );
+}
+
+interface ModuleRowProps {
+  module: (typeof MODULES)[ModuleId];
+  isPremium: boolean;
+  isBase: boolean;
+}
+
+function ModuleRow({ module: m, isPremium, isBase }: ModuleRowProps) {
+  return (
+    <div
+      className={cn(
+        'border-b border-[rgba(15,19,34,0.06)] transition-colors px-5 md:px-8 py-5',
+        isPremium
+          ? 'bg-gradient-to-r from-[rgba(0,149,204,0.04)] to-[rgba(0,96,133,0.04)] hover:from-[rgba(0,149,204,0.06)] hover:to-[rgba(0,96,133,0.06)]'
+          : 'hover:bg-[rgba(0,149,204,0.02)]'
+      )}
+    >
+      <div className="flex items-start md:items-center gap-4 md:gap-6">
+        {/* Check icon */}
+        <div
+          className={cn(
+            'flex-shrink-0 w-[26px] h-[26px] rounded-lg flex items-center justify-center text-white font-bold',
+            isPremium
+              ? 'bg-gradient-to-br from-[#006085] to-[#0095cc] shadow-[0_0_0_3px_rgba(0,149,204,0.10)]'
+              : 'bg-[#006085]'
+          )}
+        >
+          <Check className="w-4 h-4" strokeWidth={3} />
+        </div>
+
+        {/* Right content: tag/name | description | price */}
+        <div className="flex-1 min-w-0 flex flex-col md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)_auto] gap-2 md:gap-6 md:items-center">
+          {/* Tag + Name */}
+          <div className="flex flex-col gap-1">
+            <div className="flex items-center gap-2 flex-wrap">
+              <span
+                className={cn(
+                  'font-mono text-[9px] uppercase tracking-[1.5px] font-semibold',
+                  isBase ? 'text-[#006085]' : 'text-[rgba(15,19,34,0.5)]'
+                )}
+              >
+                {isBase ? 'Plano Base' : '+ Módulo'}
+              </span>
+              {isPremium && (
+                <span className="bg-gradient-to-br from-[#006085] to-[#0095cc] text-white font-mono text-[8px] uppercase tracking-[1.5px] font-bold px-1.5 py-0.5 rounded">
+                  Premium
+                </span>
+              )}
+            </div>
+            <div className="font-display text-lg font-bold tracking-[-0.02em] text-[#0a1322]">
+              {m.name}
+            </div>
+          </div>
+
+          {/* Description */}
+          <p className="font-sans text-[13px] leading-[1.45] text-[rgba(15,19,34,0.6)] tracking-[-0.005em]">
+            {m.shortDescription}
+          </p>
+
+          {/* Price */}
+          <div className="md:text-right md:min-w-[130px]">
+            <span className="font-mono text-base md:text-[17px] font-semibold tracking-[-0.02em] text-[#0a1322]">
+              {isBase ? 'R$ ' : '+ R$ '}
+              {formatPrice(m.monthlyPrice)}
+            </span>
+            <span className="font-mono text-[10px] text-[rgba(15,19,34,0.5)] ml-1 md:ml-0 md:block md:mt-0.5 tracking-[0.5px]">
+              /mês
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
