@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Container } from '@/components/shared/Container';
-import { PricingCalculator } from '@/components/pricing/PricingCalculator';
+import { PricingPlanCards } from '@/components/pricing/PricingPlanCards';
 import { FeatureComparisonTable } from '@/components/pricing/FeatureComparisonTable';
 import { EnterpriseCallout } from '@/components/pricing/EnterpriseCallout';
 import { PricingFaq } from '@/components/pricing/PricingFaq';
@@ -11,7 +11,7 @@ import { MODULES } from '@/lib/pricing';
 export const metadata: Metadata = {
   title: 'Planos — A partir de R$ 99,90/mês',
   description:
-    'Comece com R$ 99,90/mês. Adicione módulos quando precisar. Sem cartão. Sem fidelidade.',
+    'Comece com R$ 99,90/mês. Sem cartão. Sem fidelidade. Migração assistida.',
 };
 
 export default function PlanosPage() {
@@ -22,23 +22,24 @@ export default function PlanosPage() {
           Object.values(MODULES).map(m => ({ name: m.name, price: m.monthlyPrice }))
         )}
       />
-      <section className="pt-16 md:pt-24 pb-12 md:pb-16 bg-gradient-to-b from-[#fafafa] to-white">
+      <section className="pt-16 md:pt-24 pb-12 md:pb-14 bg-gradient-to-b from-[#fbfbfa] to-white">
         <Container className="max-w-3xl text-center">
-          <div className="inline-block px-3 py-1.5 bg-[#dbeafe] text-[#1e40af] text-xs font-semibold uppercase tracking-wider rounded-full mb-5">
-            Planos modulares
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-6 bg-[rgba(0,149,204,0.06)] border border-[rgba(0,149,204,0.20)] rounded-full font-mono text-[11px] uppercase tracking-[0.4px] text-[#006085] font-semibold">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0095cc]" aria-hidden />
+            Planos PopGás
           </div>
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-[-0.04em] leading-[1.05] text-[#0f172a] mb-5">
-            Escolha o que cabe na sua operação.
+          <h1 className="font-display text-4xl md:text-6xl lg:text-[64px] font-extrabold tracking-[-0.05em] leading-[1.0] text-[#0a1322] mb-5">
+            Escolha o plano <em className="italic-accent">certo</em> pra sua operação.
           </h1>
-          <p className="text-lg text-[#475569]">
-            Comece com R$ 99,90/mês. Adicione módulos quando precisar.
+          <p className="text-base md:text-lg text-[rgba(15,19,34,0.62)] leading-[1.5] tracking-[-0.01em]">
+            Sem cartão. Sem fidelidade. Migração assistida.
           </p>
         </Container>
       </section>
 
-      <section className="pb-20 md:pb-28">
+      <section className="pb-20 md:pb-28 bg-gradient-to-b from-white to-[#fbfbfa]">
         <Container>
-          <PricingCalculator />
+          <PricingPlanCards />
         </Container>
       </section>
 
