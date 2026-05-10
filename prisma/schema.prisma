@@ -1,5 +1,6 @@
 generator client {
-  provider        = "prisma-client"
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
   output          = "../src/generated/prisma"
 }
 
@@ -12,7 +13,7 @@ model BlogPost {
   title       String
   slug        String   @unique
   excerpt     String?
-  content     String
+  content     String   @db.Text
   imageUrl    String?
   category    String   @default("Uncategorized")
   published   Boolean  @default(true)
@@ -20,34 +21,45 @@ model BlogPost {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   sticky      Boolean  @default(false)
-
-  @@map("blog_posts")
 }
 
 model FaqItem {
   id       String @id @default(cuid())
   question String
-  answer   String
+  answer   String @db.Text
+  category String @default("Geral")
+  audience String @default("b2b")
   order    Int    @default(0)
 
-  @@map("faq_items")
+  @@index([audience, category])
 }
 
 model ContactMessage {
-  id        String   @id @default(cuid())
+  id        String       @id @default(cuid())
   name      String
   email     String
   phone     String?
-  message   String
-  createdAt DateTime @default(now())
+  company   String?
+  cnpj      String?
+  message   String       @db.Text
+  type      ContactType  @default(GENERAL)
+  source    String?
+  modules   String?
+  billing   String?
+  createdAt DateTime     @default(now())
 
-  @@map("contact_messages")
+  @@index([type])
+  @@index([createdAt])
+}
+
+enum ContactType {
+  GENERAL
+  ENTERPRISE
+  SUPPORT
 }
 
 model SiteSettings {
   id    String @id @default(cuid())
   key   String @unique
   value String
-
-  @@map("site_settings")
 }
