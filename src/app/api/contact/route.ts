@@ -1,51 +1,46 @@
-import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/db";
+import { NextResponse } from 'next/server';
+import { z } from 'zod';
+import { prisma } from '@/lib/db';
 
-export async function POST(request: NextRequest) {
+const schema = z.object({
+  name: z.string().min(2),
+  email: z.string().email(),
+  phone: z.string().optional().nullable(),
+  company: z.string().optional().nullable(),
+  cnpj: z.string().optional().nullable(),
+  message: z.string().min(10),
+  type: z.enum(['GENERAL', 'ENTERPRISE', 'SUPPORT']).default('GENERAL'),
+  source: z.string().optional().nullable(),
+  modules: z.string().optional().nullable(),
+  billing: z.string().optional().nullable(),
+});
+
+export async function POST(req: Request) {
   try {
-    const body = await request.json();
-    const { name, email, phone, message } = body;
+    const body = await req.json();
+    const data = schema.parse(body);
 
-    // Validate required fields
-    if (!name || typeof name !== "string" || name.trim().length === 0) {
-      return NextResponse.json(
-        { error: "O campo nome é obrigatório." },
-        { status: 400 }
-      );
-    }
-
-    if (!email || typeof email !== "string" || !email.includes("@")) {
-      return NextResponse.json(
-        { error: "Um e-mail válido é obrigatório." },
-        { status: 400 }
-      );
-    }
-
-    if (!message || typeof message !== "string" || message.trim().length === 0) {
-      return NextResponse.json(
-        { error: "O campo mensagem é obrigatório." },
-        { status: 400 }
-      );
-    }
-
-    const contact = await prisma.contactMessage.create({
+    const message = await prisma.contactMessage.create({
       data: {
-        name: name.trim(),
-        email: email.trim(),
-        phone: phone?.trim() || null,
-        message: message.trim(),
+        ...data,
+        phone: data.phone ?? null,
+        company: data.company ?? null,
+        cnpj: data.cnpj ?? null,
+        source: data.source ?? null,
+        modules: data.modules ?? null,
+        billing: data.billing ?? null,
       },
     });
 
-    return NextResponse.json(
-      { success: true, id: contact.id, message: "Mensagem enviada com sucesso!" },
-      { status: 201 }
-    );
+    return NextResponse.json({ success: true, id: message.id });
   } catch (error) {
-    console.error("Error saving contact message:", error);
-    return NextResponse.json(
-      { error: "Erro ao enviar mensagem. Tente novamente mais tarde." },
-      { status: 500 }
-    );
+    if (error instanceof z.ZodError) {
+      return NextResponse.json(
+        { error: 'Validation failed', details: error.flatten() },
+        { status: 400 }
+      );
+    }
+    console.error('[/api/contact] error:', error);
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
