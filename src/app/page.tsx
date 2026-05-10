@@ -6,7 +6,6 @@ import { ModulesGrid } from '@/components/home/ModulesGrid';
 import { DemoVideo } from '@/components/home/DemoVideo';
 import { VerticalGas } from '@/components/home/VerticalGas';
 import { Testimonial } from '@/components/home/Testimonial';
-import { PricingTeaser } from '@/components/home/PricingTeaser';
 import { HomeFaqSection } from '@/components/home/HomeFaqSection';
 import { FinalCta } from '@/components/home/FinalCta';
 
@@ -21,7 +20,6 @@ export default function Home() {
       <DemoVideo />
       <VerticalGas />
       <Testimonial />
-      <PricingTeaser />
       <HomeFaqSection />
       <FinalCta />
     </>
