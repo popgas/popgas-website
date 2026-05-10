@@ -40,7 +40,7 @@ export function Header() {
     >
       <div className="max-w-[1200px] mx-auto px-6 md:px-8 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center" aria-label="PopGás Sistema">
-          <Image src="/images/png_cor-principal.png" alt="PopGás Sistema" width={120} height={60} className="h-10 w-auto" />
+          <Image src="/images/png_cor-principal.png" alt="PopGás Sistema" width={120} height={60} className="h-12 w-auto" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-[#475569]">
@@ -98,7 +98,7 @@ export function Header() {
         <div className="lg:hidden fixed inset-0 z-50 bg-white">
           <div className="max-w-[1200px] mx-auto px-6 py-4 flex items-center justify-between border-b border-[#e2e8f0]">
             <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center" aria-label="PopGás Sistema">
-              <Image src="/images/png_cor-principal.png" alt="PopGás Sistema" width={120} height={60} className="h-10 w-auto" />
+              <Image src="/images/png_cor-principal.png" alt="PopGás Sistema" width={120} height={60} className="h-12 w-auto" />
             </Link>
             <button
               onClick={() => setMobileOpen(false)}
