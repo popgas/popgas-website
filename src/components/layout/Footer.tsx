@@ -46,7 +46,7 @@ const COLUMNS = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-[#e2e8f0] bg-white pt-16 pb-8 mt-20">
+    <footer className="border-t border-[rgba(15,19,34,0.08)] pt-16 pb-8">
       <Container>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12">
           {COLUMNS.map(col => (
@@ -70,7 +70,7 @@ export function Footer() {
             </div>
           ))}
         </div>
-        <div className="border-t border-[#e2e8f0] pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div className="border-t border-[rgba(15,19,34,0.08)] pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <Image src="/logo.svg" alt="PopGás" width={28} height={28} />
             <div className="text-xs text-[#475569]">
