@@ -93,6 +93,17 @@ body {
   background-clip: text;
 }
 
+.italic-accent {
+  font-family: var(--font-instrument-serif), 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  background: linear-gradient(135deg, #006085 0%, #0095cc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  padding-right: 0.04em;
+}
+
 .gradient-bg-premium {
   background: linear-gradient(135deg, #24355A 0%, #0095cc 100%);
 }
