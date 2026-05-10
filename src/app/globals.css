@@ -1,22 +1,28 @@
 @import 'tailwindcss';
 
 @theme {
+  /* Brand palette — logo blue family */
   --color-brand-primary: #24355A;
   --color-brand-primary-2: #1a2845;
-  --color-brand-accent: #06b6d4;
-  --color-brand-accent-2: #0891b2;
+  --color-brand-accent: #0095cc;       /* logo blue brighter */
+  --color-brand-accent-deep: #006085;  /* logo blue from PNG */
+  --color-brand-accent-light: #38bdf8; /* sky for hover */
   --color-brand-success: #729E2F;
-  --color-foreground: #0f172a;
+
+  --color-foreground: #0a1322;
   --color-muted: #475569;
   --color-muted-light: #94a3b8;
-  --color-background: #fafafa;
+  --color-background: #fbfbfa;
   --color-card: #ffffff;
   --color-border: #e2e8f0;
   --color-border-subtle: #f1f5f9;
   --color-dark-section: #0f172a;
 
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-display: 'Inter', system-ui, sans-serif;
+  /* Typography — Geist + Geist Mono + Instrument Serif */
+  --font-sans: var(--font-geist), 'Geist', system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), 'Geist Mono', ui-monospace, monospace;
+  --font-serif: var(--font-instrument-serif), 'Instrument Serif', Georgia, serif;
+  --font-display: var(--font-geist), 'Geist', system-ui, sans-serif;
 
   --radius-sm: 6px;
   --radius-md: 8px;
@@ -27,6 +33,29 @@
   --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.05);
   --shadow-hover: 0 8px 24px rgba(15, 23, 42, 0.08);
   --shadow-hero: 0 60px 120px -30px rgba(15, 23, 42, 0.25);
+
+  /* Animations */
+  --animate-cursor-blink: caret-blink 1.05s steps(2, end) infinite;
+  --animate-pulse-cyan: pulse-cyan 2.4s ease-in-out infinite;
+  --animate-twinkle: twinkle 4s ease-in-out infinite;
+  --animate-marquee: marquee 32s linear infinite;
+}
+
+@keyframes caret-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+@keyframes pulse-cyan {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 0.55; transform: scale(1); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 :root {
@@ -58,12 +87,26 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #24355A 0%, #06b6d4 100%);
+  background: linear-gradient(135deg, #006085 0%, #0095cc 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-bg-premium {
-  background: linear-gradient(135deg, #24355A 0%, #06b6d4 100%);
+  background: linear-gradient(135deg, #24355A 0%, #0095cc 100%);
+}
+
+.aurora-light {
+  background:
+    radial-gradient(ellipse 75% 55% at 18% 0%, #dbeafe 0%, transparent 55%),
+    radial-gradient(ellipse 65% 60% at 88% 25%, #bae6fd 0%, transparent 60%),
+    radial-gradient(ellipse 80% 50% at 50% 95%, #cffafe 0%, transparent 65%);
+  opacity: 0.85;
+  filter: blur(48px);
+}
+
+.grain-light {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.32 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.10;
 }

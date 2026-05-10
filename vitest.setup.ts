@@ -14,6 +14,22 @@ Object.defineProperty(window, 'IntersectionObserver', {
   value: mockIntersectionObserver,
 });
 
+// jsdom doesn't implement matchMedia; components that gate on prefers-reduced-motion need it
+Object.defineProperty(window, 'matchMedia', {
+  writable: true,
+  configurable: true,
+  value: vi.fn().mockImplementation((query: string) => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: vi.fn(),
+    removeListener: vi.fn(),
+    addEventListener: vi.fn(),
+    removeEventListener: vi.fn(),
+    dispatchEvent: vi.fn(),
+  })),
+});
+
 afterEach(() => {
   cleanup();
 });
