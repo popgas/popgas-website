@@ -162,21 +162,37 @@ export function Hero() {
   );
 }
 
-function HeroMarquee() {
-  const items = (
-    <>
-      <span>Vendas</span><span className="text-[rgba(15,19,34,0.18)] mx-2">·</span>
-      <span>Fiscal</span><span className="text-[rgba(15,19,34,0.18)] mx-2">·</span>
-      <span>WhatsApp</span><span className="text-[rgba(15,19,34,0.18)] mx-2">·</span>
-      <span>IA</span><span className="text-[rgba(15,19,34,0.18)] mx-2">·</span>
-      <span className="text-[#006085] font-serif italic font-normal text-[17px] tracking-tight">R$ 99,90/mês</span>
-      <span className="text-[rgba(15,19,34,0.18)] mx-2">·</span>
-      <span>7 dias grátis</span><span className="text-[rgba(15,19,34,0.18)] mx-2">·</span>
-      <span>Sem cartão</span><span className="text-[rgba(15,19,34,0.18)] mx-2">·</span>
-      <span>Sem fidelidade</span><span className="text-[rgba(15,19,34,0.18)] mx-2">·</span>
-    </>
-  );
+const MARQUEE_ITEMS: { label: string; accent?: boolean }[] = [
+  { label: 'Vendas' },
+  { label: 'Fiscal' },
+  { label: 'WhatsApp' },
+  { label: 'IA' },
+  { label: 'R$ 99,90/mês', accent: true },
+  { label: '7 dias grátis' },
+  { label: 'Sem cartão' },
+  { label: 'Sem fidelidade' },
+];
 
+function MarqueeRow({ ariaHidden = false }: { ariaHidden?: boolean }) {
+  return (
+    <div className="flex items-center gap-7 pr-7" {...(ariaHidden ? { 'aria-hidden': true } : {})}>
+      {MARQUEE_ITEMS.map((item, i) => (
+        <span key={i} className="flex items-center gap-7">
+          {item.accent ? (
+            <span className="text-[#006085] font-serif italic font-normal text-[18px] leading-[15px] tracking-tight">
+              {item.label}
+            </span>
+          ) : (
+            <span>{item.label}</span>
+          )}
+          <span className="text-[rgba(15,19,34,0.22)] select-none" aria-hidden>·</span>
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function HeroMarquee() {
   return (
     <div
       className="relative overflow-hidden border-y border-[rgba(15,19,34,0.06)] py-[18px] bg-white/60 backdrop-blur-md"
@@ -186,11 +202,11 @@ function HeroMarquee() {
       }}
     >
       <div
-        className="flex whitespace-nowrap font-display font-semibold text-[15px] text-[rgba(15,19,34,0.55)] tracking-[-0.01em]"
+        className="flex whitespace-nowrap font-display font-semibold text-[15px] text-[rgba(15,19,34,0.55)] tracking-[-0.01em] leading-none"
         style={{ animation: 'marquee 32s linear infinite' }}
       >
-        <div className="flex items-center pr-9">{items}</div>
-        <div className="flex items-center pr-9" aria-hidden>{items}</div>
+        <MarqueeRow />
+        <MarqueeRow ariaHidden />
       </div>
     </div>
   );
