@@ -27,8 +27,8 @@ export function ModulesGrid() {
         <AnimatedReveal>
           <div className="max-w-[920px] mx-auto bg-white rounded-3xl border border-[rgba(15,19,34,0.08)] shadow-[0_30px_60px_-20px_rgba(15,19,34,0.10)] overflow-hidden">
             {/* Panel header */}
-            <div className="px-6 md:px-8 py-5 bg-[rgba(0,149,204,0.04)] border-b border-[rgba(15,19,34,0.06)] flex flex-col md:flex-row md:items-center md:justify-between gap-1.5">
-              <div className="font-mono text-[12px] uppercase tracking-[2px] font-semibold text-[#006085]">
+            <div className="px-6 md:px-8 py-5 bg-[rgba(132,160,40,0.05)] border-b border-[rgba(15,19,34,0.06)] flex flex-col md:flex-row md:items-center md:justify-between gap-1.5">
+              <div className="font-mono text-[12px] uppercase tracking-[2px] font-semibold text-[#4a7818]">
                 Plataforma completa · 4 módulos
               </div>
               <div className="font-mono text-[10px] tracking-[1px] text-[rgba(15,19,34,0.5)]">
@@ -81,8 +81,8 @@ function ModuleRow({ module: m, isPremium, isBase }: ModuleRowProps) {
       className={cn(
         'border-b border-[rgba(15,19,34,0.06)] transition-colors px-5 md:px-8 py-5',
         isPremium
-          ? 'bg-gradient-to-r from-[rgba(0,149,204,0.04)] to-[rgba(0,96,133,0.04)] hover:from-[rgba(0,149,204,0.06)] hover:to-[rgba(0,96,133,0.06)]'
-          : 'hover:bg-[rgba(0,149,204,0.02)]'
+          ? 'bg-gradient-to-r from-[rgba(132,160,40,0.05)] to-[rgba(74,120,24,0.05)] hover:from-[rgba(132,160,40,0.08)] hover:to-[rgba(74,120,24,0.07)]'
+          : 'hover:bg-[rgba(132,160,40,0.03)]'
       )}
     >
       <div className="flex items-start md:items-center gap-4 md:gap-6">
@@ -92,7 +92,7 @@ function ModuleRow({ module: m, isPremium, isBase }: ModuleRowProps) {
             'flex-shrink-0 w-[26px] h-[26px] rounded-lg flex items-center justify-center text-white font-bold',
             isPremium
               ? 'bg-gradient-to-br from-[#4a7818] to-[#64a028] shadow-[0_0_0_3px_rgba(132,160,40,0.12)]'
-              : 'bg-[#006085]'
+              : 'bg-[#4a7818]'
           )}
         >
           <Check className="w-4 h-4" strokeWidth={3} />
@@ -106,13 +106,13 @@ function ModuleRow({ module: m, isPremium, isBase }: ModuleRowProps) {
               <span
                 className={cn(
                   'font-mono text-[9px] uppercase tracking-[1.5px] font-semibold',
-                  isBase ? 'text-[#006085]' : 'text-[rgba(15,19,34,0.5)]'
+                  isBase ? 'text-[#4a7818]' : 'text-[rgba(15,19,34,0.5)]'
                 )}
               >
                 {isBase ? 'Plano Base' : '+ Módulo'}
               </span>
               {isPremium && (
-                <span className="bg-gradient-to-br from-[#006085] to-[#0095cc] text-white font-mono text-[8px] uppercase tracking-[1.5px] font-bold px-1.5 py-0.5 rounded">
+                <span className="bg-gradient-to-br from-[#4a7818] to-[#64a028] text-white font-mono text-[8px] uppercase tracking-[1.5px] font-bold px-1.5 py-0.5 rounded">
                   Premium
                 </span>
               )}

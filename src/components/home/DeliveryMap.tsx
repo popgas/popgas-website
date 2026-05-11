@@ -53,7 +53,7 @@ export function DeliveryMap() {
 
       DELIVERIES.forEach(d => {
         L.polyline([HUB, d.coords], {
-          color: d.active ? '#0095cc' : '#cbd5e1',
+          color: d.active ? '#64a028' : '#cbd5e1',
           weight: d.active ? 2.5 : 1.5,
           opacity: d.active ? 0.9 : 0.6,
           dashArray: d.active ? undefined : '4 4',

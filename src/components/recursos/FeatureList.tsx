@@ -137,8 +137,8 @@ export function FeatureList({
             const Icon = getIcon(f.icon);
             return (
               <AnimatedReveal key={i} delay={i * 0.04}>
-                <div className="h-full p-6 bg-white border border-[rgba(15,19,34,0.06)] rounded-2xl hover:border-[rgba(0,149,204,0.30)] hover:shadow-[0_4px_14px_rgba(0,149,204,0.08)] transition-all">
-                  <div className="w-10 h-10 rounded-lg bg-[rgba(0,149,204,0.08)] text-[#006085] flex items-center justify-center mb-4">
+                <div className="h-full p-6 bg-white border border-[rgba(15,19,34,0.06)] rounded-2xl hover:border-[rgba(132,160,40,0.30)] hover:shadow-[0_4px_14px_rgba(132,160,40,0.10)] transition-all">
+                  <div className="w-10 h-10 rounded-lg bg-[rgba(132,160,40,0.10)] text-[#4a7818] flex items-center justify-center mb-4">
                     <Icon className="w-5 h-5" strokeWidth={2} />
                   </div>
                   <h3 className="font-display font-bold text-[#0a1322] mb-2 text-base tracking-[-0.015em]">

@@ -14,8 +14,8 @@ export default function CasesPage() {
     <section className="py-16 md:py-24">
       <Container className="max-w-3xl">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-6 bg-[rgba(0,149,204,0.06)] border border-[rgba(0,149,204,0.20)] rounded-full font-mono text-[11px] uppercase tracking-[0.4px] text-[#006085] font-semibold">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#0095cc]" aria-hidden />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-6 bg-[rgba(132,160,40,0.08)] border border-[rgba(132,160,40,0.30)] rounded-full font-mono text-[11px] uppercase tracking-[0.4px] text-[#4a7818] font-semibold">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#64a028]" aria-hidden />
             Em breve
           </div>
           <h1 className="font-display text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-[-0.045em] leading-[1.05] text-[#0a1322] mb-4">
@@ -32,7 +32,7 @@ export default function CasesPage() {
           </p>
           <Link
             href="/contato?tipo=sales"
-            className="inline-flex items-center justify-center px-6 py-3 bg-[#006085] hover:bg-[#0095cc] text-white font-bold text-sm rounded-full transition-colors tracking-tight shadow-[0_4px_14px_rgba(0,96,133,0.20)]"
+            className="inline-flex items-center justify-center px-6 py-3 bg-[#64a028] hover:bg-[#84cc16] text-white font-bold text-sm rounded-full transition-colors tracking-tight shadow-[0_4px_14px_rgba(132,160,40,0.25)]"
           >
             Quero contar minha história →
           </Link>

@@ -33,6 +33,7 @@ import {
   MessageSquareText,
   Package,
   Percent,
+  Phone,
   Sparkles,
   Star,
   Truck,
@@ -73,6 +74,7 @@ const ICONS: Record<string, LucideIcon> = {
   'message-square-text': MessageSquareText,
   package: Package,
   percent: Percent,
+  phone: Phone,
   sparkles: Sparkles,
   star: Star,
   truck: Truck,
@@ -116,14 +118,14 @@ export function ResourcesMegaMenu({ onNavigate }: Props) {
                 'relative pb-2 font-mono text-[10px] font-semibold uppercase tracking-[1.5px] transition-colors cursor-pointer outline-none',
                 'focus-visible:text-[#0a1322]',
                 isActive
-                  ? 'text-[#006085]'
+                  ? 'text-[#4a7818]'
                   : 'text-[rgba(15,19,34,0.45)] hover:text-[#0a1322]'
               )}
             >
               {isActive && (
                 <span
                   aria-hidden
-                  className="absolute -top-[18px] left-0 right-0 h-[2px] bg-gradient-to-r from-[#006085] to-[#0095cc] rounded-[2px]"
+                  className="absolute -top-[18px] left-0 right-0 h-[2px] bg-gradient-to-r from-[#4a7818] to-[#64a028] rounded-[2px]"
                 />
               )}
               {tab.label}
@@ -152,7 +154,7 @@ export function ResourcesMegaMenu({ onNavigate }: Props) {
           <Link
             href={active.moduleHref}
             onClick={onNavigate}
-            className="inline-flex items-center gap-2 text-[#006085] text-[13px] font-semibold border-b-[1.5px] border-[#006085] pb-[3px] hover:gap-3 transition-all"
+            className="inline-flex items-center gap-2 text-[#4a7818] text-[13px] font-semibold border-b-[1.5px] border-[#4a7818] pb-[3px] hover:gap-3 transition-all"
           >
             {active.ctaLabel} →
           </Link>
@@ -168,7 +170,7 @@ export function ResourcesMegaMenu({ onNavigate }: Props) {
                 className="px-3.5 py-[14px] rounded-lg hover:bg-[rgba(15,19,34,0.03)] transition-colors"
               >
                 <div className="flex items-start gap-2.5 mb-1">
-                  <span className="w-[22px] h-[22px] text-[#006085] flex items-center justify-center pt-0.5 shrink-0">
+                  <span className="w-[22px] h-[22px] text-[#4a7818] flex items-center justify-center pt-0.5 shrink-0">
                     <Icon className="w-[18px] h-[18px]" strokeWidth={1.6} />
                   </span>
                   <span className="text-[14px] font-semibold text-[#0a1322] tracking-[-0.015em] leading-[1.25]">

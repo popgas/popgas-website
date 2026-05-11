@@ -99,11 +99,11 @@ export function PricingPlanCards() {
         ))}
       </div>
 
-      <div className="max-w-[1200px] mx-auto mt-9 px-6 py-5 bg-[rgba(0,149,204,0.04)] border border-dashed border-[rgba(0,149,204,0.30)] rounded-2xl text-center text-sm text-[rgba(15,19,34,0.78)]">
+      <div className="max-w-[1200px] mx-auto mt-9 px-6 py-5 bg-[rgba(132,160,40,0.05)] border border-dashed border-[rgba(132,160,40,0.30)] rounded-2xl text-center text-sm text-[rgba(15,19,34,0.78)]">
         Quer combinação diferente?{' '}
         <Link
           href="/contato?tipo=sales"
-          className="text-[#006085] font-bold border-b border-[#006085] hover:text-[#0095cc] hover:border-[#0095cc] transition-colors"
+          className="text-[#4a7818] font-bold border-b border-[#4a7818] hover:text-[#64a028] hover:border-[#64a028] transition-colors"
         >
           Fale com a gente para um plano sob medida →
         </Link>
@@ -179,7 +179,7 @@ function PlanCard({ plan, billing }: { plan: Plan; billing: BillingCycle }) {
       className={cn(
         'relative h-full bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 flex flex-col transition-all duration-200',
         plan.featured
-          ? 'border-2 border-[#0095cc] bg-gradient-to-b from-white to-[rgba(0,149,204,0.04)] shadow-[0_30px_60px_-20px_rgba(0,96,133,0.20)] lg:scale-[1.03] hover:lg:scale-[1.05] hover:-translate-y-1'
+          ? 'border-2 border-[#64a028] bg-gradient-to-b from-white to-[rgba(132,160,40,0.05)] shadow-[0_30px_60px_-20px_rgba(74,120,24,0.20)] lg:scale-[1.03] hover:lg:scale-[1.05] hover:-translate-y-1'
           : 'border border-[rgba(15,19,34,0.08)] shadow-[0_1px_3px_rgba(15,19,34,0.04)] hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(15,19,34,0.08)]'
       )}
     >
@@ -234,7 +234,7 @@ function PlanCard({ plan, billing }: { plan: Plan; billing: BillingCycle }) {
         className={cn(
           'block text-center py-3.5 px-5 rounded-xl font-bold text-sm tracking-[-0.01em] mb-7 transition-colors',
           plan.featured
-            ? 'bg-[#006085] hover:bg-[#0095cc] text-white shadow-[0_4px_14px_rgba(0,96,133,0.20)]'
+            ? 'bg-[#64a028] hover:bg-[#84cc16] text-white shadow-[0_4px_14px_rgba(132,160,40,0.25)]'
             : 'bg-white border border-[rgba(15,19,34,0.10)] hover:border-[#0a1322] text-[#0a1322]'
         )}
       >

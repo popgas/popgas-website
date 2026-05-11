@@ -32,8 +32,8 @@ export default async function ContatoPage({
       <Container>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10 sm:mb-12">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-5 sm:mb-6 bg-[rgba(0,149,204,0.06)] border border-[rgba(0,149,204,0.20)] rounded-full font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.4px] text-[#006085] font-semibold">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#0095cc]" aria-hidden />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-5 sm:mb-6 bg-[rgba(132,160,40,0.08)] border border-[rgba(132,160,40,0.30)] rounded-full font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.4px] text-[#4a7818] font-semibold">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#64a028]" aria-hidden />
               Contato
             </div>
             <h1 className="font-display text-[30px] sm:text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-[-0.045em] leading-[1.1] sm:leading-[1.05] text-[#0a1322] mb-3 sm:mb-4">
@@ -56,7 +56,7 @@ export default async function ContatoPage({
                 (34) 3238-7777
               </ChannelRow>
               <div className="flex gap-3">
-                <div className="w-10 h-10 rounded-lg bg-[rgba(0,149,204,0.06)] border border-[rgba(0,149,204,0.20)] flex items-center justify-center flex-shrink-0 text-[#006085]">
+                <div className="w-10 h-10 rounded-lg bg-[rgba(132,160,40,0.08)] border border-[rgba(132,160,40,0.30)] flex items-center justify-center flex-shrink-0 text-[#4a7818]">
                   <MapPin className="w-5 h-5" strokeWidth={2} />
                 </div>
                 <div>
@@ -90,7 +90,7 @@ interface ChannelRowProps {
 function ChannelRow({ icon: Icon, label, href, subtitle, children }: ChannelRowProps) {
   return (
     <div className="flex gap-3">
-      <div className="w-10 h-10 rounded-lg bg-[rgba(0,149,204,0.06)] border border-[rgba(0,149,204,0.20)] flex items-center justify-center flex-shrink-0 text-[#006085]">
+      <div className="w-10 h-10 rounded-lg bg-[rgba(132,160,40,0.08)] border border-[rgba(132,160,40,0.30)] flex items-center justify-center flex-shrink-0 text-[#4a7818]">
         <Icon className="w-5 h-5" strokeWidth={2} />
       </div>
       <div>
@@ -99,7 +99,7 @@ function ChannelRow({ icon: Icon, label, href, subtitle, children }: ChannelRowP
         </div>
         <a
           href={href}
-          className="text-base font-semibold text-[#0a1322] hover:text-[#0095cc] transition-colors"
+          className="text-base font-semibold text-[#0a1322] hover:text-[#64a028] transition-colors"
         >
           {children}
         </a>

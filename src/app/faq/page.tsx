@@ -17,8 +17,8 @@ export default function FaqPage() {
       <JsonLd data={faqPageLd(FAQ_B2B.flatMap(c => c.items))} />
       <section className="pt-16 md:pt-24 pb-12">
         <Container className="max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-6 bg-[rgba(0,149,204,0.06)] border border-[rgba(0,149,204,0.20)] rounded-full font-mono text-[11px] uppercase tracking-[0.4px] text-[#006085] font-semibold">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#0095cc]" aria-hidden />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-6 bg-[rgba(132,160,40,0.08)] border border-[rgba(132,160,40,0.30)] rounded-full font-mono text-[11px] uppercase tracking-[0.4px] text-[#4a7818] font-semibold">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#64a028]" aria-hidden />
             Central de ajuda
           </div>
           <h1 className="font-display text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-[-0.045em] leading-[1.05] text-[#0a1322] mb-4">

@@ -147,7 +147,7 @@ export function FeatureComparisonTable() {
 function FeatureGroupRows({ group }: { group: FeatureGroup }) {
   return (
     <>
-      <tr className="bg-gradient-to-r from-[rgba(0,149,204,0.04)] to-transparent border-b border-[rgba(15,19,34,0.06)]">
+      <tr className="bg-gradient-to-r from-[rgba(132,160,40,0.05)] to-transparent border-b border-[rgba(15,19,34,0.06)]">
         <td colSpan={5} className="px-5 md:px-7 py-4">
           <div className="flex items-baseline gap-3 flex-wrap">
             <h3 className="font-display text-[17px] font-bold text-[#0a1322] tracking-[-0.02em]">
@@ -162,7 +162,7 @@ function FeatureGroupRows({ group }: { group: FeatureGroup }) {
       {group.rows.map((row, i) => (
         <tr
           key={i}
-          className="border-b border-[rgba(15,19,34,0.04)] last:border-b-0 hover:bg-[rgba(0,149,204,0.02)]"
+          className="border-b border-[rgba(15,19,34,0.04)] last:border-b-0 hover:bg-[rgba(132,160,40,0.03)]"
         >
           <td className="px-4 md:px-7 py-3.5 text-[13px] md:text-[14px] text-[rgba(15,19,34,0.85)] leading-[1.4] tracking-[-0.005em] sticky left-0 bg-white z-[1] md:static shadow-[4px_0_6px_-4px_rgba(15,19,34,0.06)] md:shadow-none">
             {row.name}

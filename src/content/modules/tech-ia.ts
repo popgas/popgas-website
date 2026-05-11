@@ -24,7 +24,7 @@ export const techIaContent: ModuleContent = {
     { title: 'Dashboards em tempo real', description: 'Métricas de conversas, resoluções e custos de IA.', icon: 'activity' },
     { title: 'Logs de chamadas LLM', description: 'Registro detalhado de todas as chamadas à IA para debug e custo.', icon: 'file-search' },
     { title: 'Prompts versionados', description: 'Gestão de prompts com versionamento e rollback.', icon: 'git-branch' },
-    { title: 'Chamadas de emergência (Vonage)', description: 'VoIP integrado para situações críticas.', icon: 'phone' },
+    { title: 'PABX em Nuvem Integrado', description: 'Bina identifica cliente automaticamente, gravação de chamadas, IA pontua qualidade do atendimento, URA e áudios de espera.', icon: 'phone' },
   ],
   synergies: [
     { moduleKey: 'essencial', reason: 'IA cria pedidos via WhatsApp diretamente' },

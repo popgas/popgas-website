@@ -145,8 +145,8 @@ export default async function BlogPage() {
     <>
       <section className="pt-16 md:pt-20 pb-8">
         <Container className="max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-6 bg-[rgba(0,149,204,0.06)] border border-[rgba(0,149,204,0.20)] rounded-full font-mono text-[11px] uppercase tracking-[0.4px] text-[#006085] font-semibold">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#0095cc]" aria-hidden />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-6 bg-[rgba(132,160,40,0.08)] border border-[rgba(132,160,40,0.30)] rounded-full font-mono text-[11px] uppercase tracking-[0.4px] text-[#4a7818] font-semibold">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#64a028]" aria-hidden />
             Blog
           </div>
           <h1 className="font-display text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-[-0.045em] leading-[1.05] text-[#0a1322] mb-4">
@@ -170,7 +170,7 @@ export default async function BlogPage() {
                   <h2 className="font-display text-xl md:text-2xl font-bold tracking-[-0.02em] leading-[1.25] text-[#0a1322] mb-2">
                     <Link
                       href={`/blog/${post.slug}`}
-                      className="hover:text-[#0095cc] transition-colors"
+                      className="hover:text-[#64a028] transition-colors"
                     >
                       {post.title}
                     </Link>
@@ -179,11 +179,11 @@ export default async function BlogPage() {
                   <div className="flex items-center gap-2 flex-wrap font-mono text-[11px] text-[rgba(15,19,34,0.55)] mb-3 tracking-[0.5px]">
                     <span>{formatDate(new Date(post.publishedAt))}</span>
                     <span className="text-[rgba(15,19,34,0.25)]">·</span>
-                    <span className="text-[#006085] font-semibold uppercase">{post.category}</span>
+                    <span className="text-[#4a7818] font-semibold uppercase">{post.category}</span>
                     {post.sticky && (
                       <>
                         <span className="text-[rgba(15,19,34,0.25)]">·</span>
-                        <span className="font-semibold uppercase text-[#0095cc]">Destaque</span>
+                        <span className="font-semibold uppercase text-[#64a028]">Destaque</span>
                       </>
                     )}
                   </div>
@@ -196,7 +196,7 @@ export default async function BlogPage() {
 
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="inline-flex items-center gap-1 text-[13px] font-semibold text-[#006085] hover:text-[#0095cc] transition-colors"
+                    className="inline-flex items-center gap-1 text-[13px] font-semibold text-[#4a7818] hover:text-[#64a028] transition-colors"
                   >
                     Leia mais →
                   </Link>
@@ -213,16 +213,16 @@ export default async function BlogPage() {
                 {[2, 3].map(n => (
                   <span
                     key={n}
-                    className="inline-flex h-9 min-w-9 px-3 items-center justify-center text-[13px] cursor-pointer rounded-full border border-[rgba(15,19,34,0.10)] hover:border-[#0095cc] hover:text-[#006085] text-[#0a1322] transition-colors"
+                    className="inline-flex h-9 min-w-9 px-3 items-center justify-center text-[13px] cursor-pointer rounded-full border border-[rgba(15,19,34,0.10)] hover:border-[#64a028] hover:text-[#4a7818] text-[#0a1322] transition-colors"
                   >
                     {n}
                   </span>
                 ))}
                 <span className="text-[13px] px-2 text-[rgba(15,19,34,0.40)]">…</span>
-                <span className="inline-flex h-9 min-w-9 px-3 items-center justify-center text-[13px] cursor-pointer rounded-full border border-[rgba(15,19,34,0.10)] hover:border-[#0095cc] hover:text-[#006085] text-[#0a1322] transition-colors">
+                <span className="inline-flex h-9 min-w-9 px-3 items-center justify-center text-[13px] cursor-pointer rounded-full border border-[rgba(15,19,34,0.10)] hover:border-[#64a028] hover:text-[#4a7818] text-[#0a1322] transition-colors">
                   14
                 </span>
-                <span className="inline-flex h-9 px-4 items-center justify-center text-[13px] cursor-pointer rounded-full border border-[rgba(15,19,34,0.10)] hover:border-[#0095cc] hover:text-[#006085] text-[#0a1322] transition-colors ml-1">
+                <span className="inline-flex h-9 px-4 items-center justify-center text-[13px] cursor-pointer rounded-full border border-[rgba(15,19,34,0.10)] hover:border-[#64a028] hover:text-[#4a7818] text-[#0a1322] transition-colors ml-1">
                   Próxima →
                 </span>
               </nav>
@@ -234,7 +234,7 @@ export default async function BlogPage() {
                   <input
                     type="text"
                     placeholder="Pesquisar..."
-                    className="flex-1 border border-[rgba(15,19,34,0.14)] hover:border-[rgba(15,19,34,0.25)] rounded-[10px] px-3.5 py-2.5 text-[14px] outline-none focus:border-[#0095cc] focus:ring-4 focus:ring-[rgba(0,149,204,0.10)] transition-all text-[#0a1322] placeholder:text-[rgba(15,19,34,0.40)]"
+                    className="flex-1 border border-[rgba(15,19,34,0.14)] hover:border-[rgba(15,19,34,0.25)] rounded-[10px] px-3.5 py-2.5 text-[14px] outline-none focus:border-[#64a028] focus:ring-4 focus:ring-[rgba(132,160,40,0.12)] transition-all text-[#0a1322] placeholder:text-[rgba(15,19,34,0.40)]"
                   />
                   <button
                     type="submit"
@@ -252,7 +252,7 @@ export default async function BlogPage() {
                       key={cat}
                       className="border-b border-[rgba(15,19,34,0.06)] last:border-b-0"
                     >
-                      <span className="block py-[7px] text-[14px] leading-[22px] cursor-pointer transition-colors text-[rgba(15,19,34,0.78)] hover:text-[#0095cc]">
+                      <span className="block py-[7px] text-[14px] leading-[22px] cursor-pointer transition-colors text-[rgba(15,19,34,0.78)] hover:text-[#64a028]">
                         {cat}
                       </span>
                     </li>
@@ -269,7 +269,7 @@ export default async function BlogPage() {
                     >
                       <Link
                         href={page.href}
-                        className="block py-[7px] text-[14px] leading-[22px] transition-colors text-[rgba(15,19,34,0.78)] hover:text-[#0095cc]"
+                        className="block py-[7px] text-[14px] leading-[22px] transition-colors text-[rgba(15,19,34,0.78)] hover:text-[#64a028]"
                       >
                         {page.title}
                       </Link>

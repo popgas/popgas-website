@@ -87,7 +87,7 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #006085 0%, #0095cc 100%);
+  background: linear-gradient(135deg, #4a7818 0%, #64a028 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -97,7 +97,7 @@ body {
   font-family: var(--font-instrument-serif), 'Instrument Serif', Georgia, serif;
   font-style: italic;
   font-weight: 400;
-  background: linear-gradient(135deg, #006085 0%, #0095cc 100%);
+  background: linear-gradient(135deg, #4a7818 0%, #64a028 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -111,25 +111,25 @@ body {
   width: 14px; height: 14px;
   border-radius: 50%;
   background: white;
-  border: 2px solid #006085;
-  box-shadow: 0 0 0 3px rgba(0,149,204,0.18), 0 2px 6px rgba(15,19,34,0.10);
+  border: 2px solid #4a7818;
+  box-shadow: 0 0 0 3px rgba(132,160,40,0.20), 0 2px 6px rgba(15,19,34,0.10);
 }
 .pin-dot.active {
-  background: #006085;
-  box-shadow: 0 0 0 4px rgba(0,149,204,0.20), 0 0 16px rgba(0,149,204,0.5);
+  background: #4a7818;
+  box-shadow: 0 0 0 4px rgba(132,160,40,0.25), 0 0 16px rgba(132,160,40,0.55);
   animation: pulse-ring 2s ease-out infinite;
 }
 @keyframes pulse-ring {
-  0% { box-shadow: 0 0 0 0 rgba(0,149,204,0.5), 0 0 16px rgba(0,149,204,0.5); }
-  100% { box-shadow: 0 0 0 14px rgba(0,149,204,0), 0 0 16px rgba(0,149,204,0.5); }
+  0% { box-shadow: 0 0 0 0 rgba(132,160,40,0.55), 0 0 16px rgba(132,160,40,0.55); }
+  100% { box-shadow: 0 0 0 14px rgba(132,160,40,0), 0 0 16px rgba(132,160,40,0.55); }
 }
 .pin-hub {
   width: 24px; height: 24px;
-  background: linear-gradient(135deg, #006085, #0095cc);
+  background: linear-gradient(135deg, #4a7818, #64a028);
   border-radius: 8px;
   color: white;
   display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 0 0 4px white, 0 0 0 5px rgba(0,149,204,0.30), 0 8px 24px rgba(0,96,133,0.30);
+  box-shadow: 0 0 0 4px white, 0 0 0 5px rgba(132,160,40,0.35), 0 8px 24px rgba(74,120,24,0.30);
   font-family: var(--font-geist), sans-serif;
   font-weight: 800;
   font-size: 11px;
@@ -137,12 +137,12 @@ body {
 }
 .pin-tag {
   background: white;
-  border: 1px solid rgba(0,149,204,0.30);
+  border: 1px solid rgba(132,160,40,0.30);
   padding: 4px 8px;
   border-radius: 6px;
   font-family: var(--font-geist-mono), monospace;
   font-size: 9px;
-  color: #006085;
+  color: #4a7818;
   font-weight: 600;
   letter-spacing: 0.5px;
   box-shadow: 0 2px 8px rgba(15,19,34,0.06);
@@ -153,16 +153,16 @@ body {
 .leaflet-control-attribution { font-size: 9px !important; opacity: 0.5; }
 
 .gradient-bg-premium {
-  background: linear-gradient(135deg, #24355A 0%, #0095cc 100%);
+  background: linear-gradient(135deg, #3c6418 0%, #64a028 100%);
 }
 
 .aurora-light {
   background:
-    radial-gradient(ellipse 75% 55% at 18% 0%, #dbeafe 0%, transparent 55%),
-    radial-gradient(ellipse 65% 60% at 88% 25%, #bae6fd 0%, transparent 60%),
-    radial-gradient(ellipse 80% 50% at 50% 95%, #cffafe 0%, transparent 65%);
-  opacity: 0.85;
-  filter: blur(48px);
+    radial-gradient(ellipse 75% 55% at 18% 0%, #f7fee7 0%, transparent 55%),
+    radial-gradient(ellipse 65% 60% at 88% 25%, #ecfccb 0%, transparent 60%),
+    radial-gradient(ellipse 80% 50% at 50% 95%, #dcfce7 0%, transparent 65%);
+  opacity: 0.55;
+  filter: blur(56px);
 }
 
 .grain-light {

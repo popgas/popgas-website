@@ -1,8 +1,11 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
+import { Play } from 'lucide-react';
 import { Container } from '@/components/shared/Container';
+import { VideoModal } from '@/components/shared/VideoModal';
 import { buildSignupUrl } from '@/lib/pricing';
 
 const ROTATING_PHRASES = ['automatiza', 'digitaliza', 'moderniza', 'transforma', 'escala'];
@@ -74,15 +77,15 @@ export function Hero() {
 
       <div aria-hidden className="absolute inset-0 -z-[5] pointer-events-none">
         <span
-          className="absolute w-[4px] h-[4px] rounded-full bg-[#0095cc] shadow-[0_0_8px_rgba(0,149,204,0.45)]"
+          className="absolute w-[4px] h-[4px] rounded-full bg-[#84cc16] shadow-[0_0_6px_rgba(132,204,22,0.30)]"
           style={{ top: '25%', left: '15%', animation: 'twinkle 4s ease-in-out infinite', animationDelay: '0s' }}
         />
         <span
-          className="absolute w-[4px] h-[4px] rounded-full bg-[#0095cc] shadow-[0_0_8px_rgba(0,149,204,0.45)]"
+          className="absolute w-[4px] h-[4px] rounded-full bg-[#84cc16] shadow-[0_0_6px_rgba(132,204,22,0.30)]"
           style={{ top: '55%', right: '18%', animation: 'twinkle 4s ease-in-out infinite', animationDelay: '1.4s' }}
         />
         <span
-          className="absolute w-[4px] h-[4px] rounded-full bg-[#0095cc] shadow-[0_0_8px_rgba(0,149,204,0.45)]"
+          className="absolute w-[4px] h-[4px] rounded-full bg-[#84cc16] shadow-[0_0_6px_rgba(132,204,22,0.30)]"
           style={{ bottom: '28%', left: '60%', animation: 'twinkle 4s ease-in-out infinite', animationDelay: '2.8s' }}
         />
       </div>
@@ -91,7 +94,7 @@ export function Hero() {
         <Container className="text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/70 border border-[rgba(15,19,34,0.10)] rounded-full font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.4px] text-[rgba(15,19,34,0.78)] mb-6 sm:mb-9 backdrop-blur-md shadow-[0_1px_3px_rgba(15,19,34,0.04)]">
             <span
-              className="w-1.5 h-1.5 rounded-full bg-[#0095cc] shadow-[0_0_6px_rgba(0,149,204,0.4)]"
+              className="w-1.5 h-1.5 rounded-full bg-[#64a028] shadow-[0_0_6px_rgba(132,160,40,0.45)]"
               style={{ animation: 'pulse-cyan 2.4s ease-in-out infinite' }}
             />
             IA + WhatsApp em todos os planos com módulo Tech
@@ -127,13 +130,20 @@ export function Hero() {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-3.5 justify-center mb-10 sm:mb-12">
             <Link
               href={ctaUrl}
-              className="inline-flex items-center justify-center px-8 py-4 bg-[#006085] hover:bg-[#0095cc] text-white font-bold text-base rounded-full transition-colors tracking-tight shadow-[0_8px_24px_rgba(0,96,133,0.22),inset_0_1px_0_rgba(255,255,255,0.20)]"
+              className="inline-flex items-center justify-center px-8 py-4 bg-[#64a028] hover:bg-[#84cc16] text-white font-bold text-base rounded-full transition-colors tracking-tight shadow-[0_8px_24px_rgba(132,160,40,0.28),inset_0_1px_0_rgba(255,255,255,0.20)]"
             >
               Começar grátis →
             </Link>
+            <VideoModal
+              videoId="mnVJSrz9Jlo"
+              triggerClassName="inline-flex items-center justify-center gap-2 px-7 py-4 border border-[rgba(15,19,34,0.15)] hover:border-[rgba(15,19,34,0.45)] bg-white/50 hover:bg-white/80 text-[#0a1322] font-semibold text-[15px] rounded-full transition-all tracking-tight backdrop-blur-sm"
+            >
+              <Play className="w-4 h-4 fill-current" />
+              Assistir demonstração
+            </VideoModal>
             <Link
               href="/planos"
-              className="inline-flex items-center justify-center px-7 py-4 border border-[rgba(15,19,34,0.15)] hover:border-[rgba(15,19,34,0.45)] bg-white/50 hover:bg-white/80 text-[#0a1322] font-semibold text-[15px] rounded-full transition-all tracking-tight backdrop-blur-sm"
+              className="inline-flex items-center justify-center px-6 py-4 text-[rgba(15,19,34,0.70)] hover:text-[#0a1322] font-semibold text-[15px] tracking-tight transition-colors"
             >
               Ver planos
             </Link>
@@ -154,6 +164,29 @@ export function Hero() {
               <strong className="text-[#0a1322] font-bold">200+ revendas</strong> confiam no PopGás
             </span>
           </div>
+
+          <div className="relative mt-12 sm:mt-16 max-w-[1100px] mx-auto">
+            <div
+              aria-hidden
+              className="absolute -inset-x-6 -inset-y-10 sm:-inset-x-10 sm:-inset-y-16 rounded-[40px] pointer-events-none"
+              style={{
+                background:
+                  'radial-gradient(ellipse 80% 60% at 50% 60%, rgba(132,160,40,0.18), transparent 70%)',
+                filter: 'blur(40px)',
+              }}
+            />
+            <div className="relative rounded-2xl sm:rounded-[20px] overflow-hidden border border-[rgba(15,19,34,0.10)] bg-white shadow-[0_40px_80px_-20px_rgba(15,19,34,0.20),0_8px_24px_rgba(15,19,34,0.10)]">
+              <Image
+                src="/screenshots/parceiros/dashboard.png"
+                alt="Dashboard PopGás Sistema"
+                width={1920}
+                height={963}
+                priority
+                className="w-full h-auto block"
+                sizes="(min-width: 1100px) 1100px, 100vw"
+              />
+            </div>
+          </div>
         </Container>
       </div>
 
@@ -162,33 +195,25 @@ export function Hero() {
   );
 }
 
-const MARQUEE_ITEMS: { label: string; tone?: 'price' | 'success' }[] = [
-  { label: 'Vendas' },
-  { label: 'Fiscal' },
-  { label: 'WhatsApp' },
-  { label: 'IA' },
-  { label: 'R$ 99,90/mês', tone: 'price' },
-  { label: '7 dias grátis', tone: 'success' },
-  { label: 'Sem cartão' },
-  { label: 'Sem fidelidade' },
+const MARQUEE_ITEMS: string[] = [
+  'Vendas',
+  'Fiscal',
+  'WhatsApp',
+  'IA',
+  'R$ 99,90/mês',
+  '7 dias grátis',
+  'Sem cartão',
+  'Sem fidelidade',
 ];
 
 function MarqueeRow({ ariaHidden = false }: { ariaHidden?: boolean }) {
   return (
     <div className="flex items-center gap-7 pr-7" {...(ariaHidden ? { 'aria-hidden': true } : {})}>
-      {MARQUEE_ITEMS.map((item, i) => (
+      {MARQUEE_ITEMS.map((label, i) => (
         <span key={i} className="flex items-center gap-7">
-          {item.tone === 'price' ? (
-            <span className="text-[#006085] font-serif italic font-normal text-[18px] leading-[15px] tracking-tight">
-              {item.label}
-            </span>
-          ) : item.tone === 'success' ? (
-            <span className="text-[#4a7818] font-serif italic font-normal text-[18px] leading-[15px] tracking-tight">
-              {item.label}
-            </span>
-          ) : (
-            <span>{item.label}</span>
-          )}
+          <span className="text-[#4a7818] font-serif italic font-normal text-[18px] leading-[15px] tracking-tight">
+            {label}
+          </span>
           <span className="text-[rgba(15,19,34,0.22)] select-none" aria-hidden>·</span>
         </span>
       ))}

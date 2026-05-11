@@ -16,12 +16,12 @@ export function FinalCta() {
         className="absolute inset-0 -z-10"
         style={{
           background: `
-            radial-gradient(ellipse 75% 55% at 18% 100%, #dbeafe 0%, transparent 55%),
-            radial-gradient(ellipse 65% 60% at 88% 75%, #bae6fd 0%, transparent 60%),
-            radial-gradient(ellipse 80% 50% at 50% 5%, #cffafe 0%, transparent 65%)
+            radial-gradient(ellipse 75% 55% at 18% 100%, #f7fee7 0%, transparent 55%),
+            radial-gradient(ellipse 65% 60% at 88% 75%, #ecfccb 0%, transparent 60%),
+            radial-gradient(ellipse 80% 50% at 50% 5%, #dcfce7 0%, transparent 65%)
           `,
-          opacity: 0.85,
-          filter: 'blur(48px)',
+          opacity: 0.55,
+          filter: 'blur(56px)',
         }}
       />
       <div aria-hidden className="absolute inset-0 -z-10 grain-light pointer-events-none" />
@@ -29,8 +29,8 @@ export function FinalCta() {
       <Container className="text-center max-w-[920px]">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-9 bg-white/70 border border-[rgba(15,19,34,0.10)] rounded-full font-mono text-[11px] uppercase tracking-[0.4px] text-[rgba(15,19,34,0.78)] backdrop-blur-md shadow-[0_1px_3px_rgba(15,19,34,0.04)]">
           <span
-            className="w-1.5 h-1.5 rounded-full bg-[#0095cc]"
-            style={{ boxShadow: '0 0 6px rgba(0,149,204,0.4)', animation: 'pulse-cyan 2.4s ease-in-out infinite' }}
+            className="w-1.5 h-1.5 rounded-full bg-[#64a028]"
+            style={{ boxShadow: '0 0 6px rgba(132,160,40,0.45)', animation: 'pulse-cyan 2.4s ease-in-out infinite' }}
             aria-hidden
           />
           Última chamada
@@ -47,7 +47,7 @@ export function FinalCta() {
         <div className="flex flex-col sm:flex-row gap-3.5 justify-center items-center">
           <Link
             href={ctaUrl}
-            className="inline-flex items-center justify-center px-9 py-4 bg-[#006085] hover:bg-[#0095cc] text-white font-bold text-base rounded-full transition-colors tracking-tight shadow-[0_8px_24px_rgba(0,96,133,0.22),inset_0_1px_0_rgba(255,255,255,0.20)]"
+            className="inline-flex items-center justify-center px-9 py-4 bg-[#64a028] hover:bg-[#84cc16] text-white font-bold text-base rounded-full transition-colors tracking-tight shadow-[0_8px_24px_rgba(132,160,40,0.28),inset_0_1px_0_rgba(255,255,255,0.20)]"
           >
             Começar grátis →
           </Link>

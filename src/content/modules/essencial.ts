@@ -20,7 +20,8 @@ export const essencialContent: ModuleContent = {
     { title: 'Rastreamento em tempo real', description: 'Cliente acompanha o pedido com timeline visual de cada etapa.', icon: 'map-pin' },
     { title: 'Avaliação pós-entrega', description: 'Cliente avalia tempo de entrega e qualidade do entregador (1-5 estrelas).', icon: 'star' },
     { title: 'Programa de indicação multinível', description: 'Renda PopGás: 3 níveis de indicação com acúmulo automático de créditos.', icon: 'gift' },
-    { title: 'Push notifications', description: 'Envio segmentado para dispositivos cadastrados.', icon: 'bell' },
+    { title: 'Notificações WhatsApp automáticas', description: 'Confirmação de pedido e pagamento, saindo para entrega com rastreamento, entregador próximo, entregue e cancelamento — direto pelo WhatsApp do cliente.', icon: 'bell' },
+    { title: 'App do Entregador', description: 'Carregamentos, transferências, recebimento e lançamento de pedidos, acerto de contas, escala e premiações.', icon: 'truck' },
     { title: 'Histórico e frequência de compra', description: 'Visão completa de cada cliente para ações de retenção.', icon: 'history' },
   ],
   synergies: [

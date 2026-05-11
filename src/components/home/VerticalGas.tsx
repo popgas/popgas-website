@@ -31,8 +31,8 @@ export function VerticalGas() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-8 sm:gap-10 lg:gap-14 items-center">
           <AnimatedReveal>
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-5 sm:mb-6 bg-[rgba(0,149,204,0.06)] border border-[rgba(0,149,204,0.20)] rounded-full font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.4px] text-[#006085] font-semibold">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0095cc]" aria-hidden />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-5 sm:mb-6 bg-[rgba(132,160,40,0.08)] border border-[rgba(132,160,40,0.30)] rounded-full font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.4px] text-[#4a7818] font-semibold">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#64a028]" aria-hidden />
                 Vertical especializada
               </div>
               <h2 className="font-display text-[28px] sm:text-3xl md:text-5xl font-extrabold tracking-[-0.04em] leading-[1.05] text-[#0a1322] mb-4 sm:mb-5">
@@ -49,7 +49,7 @@ export function VerticalGas() {
               <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
                 <Link
                   href="/recursos/revendas-de-gas"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#006085] hover:bg-[#0095cc] text-white font-bold text-sm rounded-full transition-colors tracking-tight shadow-[0_4px_14px_rgba(0,96,133,0.20)]"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#64a028] hover:bg-[#84cc16] text-white font-bold text-sm rounded-full transition-colors tracking-tight shadow-[0_4px_14px_rgba(132,160,40,0.25)]"
                 >
                   Ver vertical completa <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -74,8 +74,8 @@ export function VerticalGas() {
 
 function FeatureRow({ icon: Icon, label }: { icon: LucideIcon; label: string }) {
   return (
-    <div className="group flex items-center gap-3.5 px-4 py-3.5 bg-white border border-[rgba(15,19,34,0.06)] rounded-xl hover:border-[rgba(0,149,204,0.30)] hover:shadow-[0_4px_14px_rgba(0,149,204,0.10)] hover:translate-x-1 transition-all duration-200">
-      <div className="w-9 h-9 flex-shrink-0 rounded-lg bg-[rgba(0,149,204,0.08)] text-[#006085] flex items-center justify-center">
+    <div className="group flex items-center gap-3.5 px-4 py-3.5 bg-white border border-[rgba(15,19,34,0.06)] rounded-xl hover:border-[rgba(132,160,40,0.30)] hover:shadow-[0_4px_14px_rgba(132,160,40,0.12)] hover:translate-x-1 transition-all duration-200">
+      <div className="w-9 h-9 flex-shrink-0 rounded-lg bg-[rgba(132,160,40,0.10)] text-[#4a7818] flex items-center justify-center">
         <Icon className="w-[18px] h-[18px]" strokeWidth={2} />
       </div>
       <div className="text-sm font-semibold text-[#0a1322] tracking-[-0.01em]">{label}</div>
@@ -87,7 +87,7 @@ function OperationalMockup() {
   return (
     <div className="bg-white border border-[rgba(15,19,34,0.08)] rounded-[20px] p-5 md:p-6 shadow-[0_30px_60px_-20px_rgba(15,19,34,0.10)]">
       <div className="flex items-center justify-between mb-4 pb-3.5 border-b border-[rgba(15,19,34,0.06)]">
-        <div className="font-mono text-[11px] uppercase tracking-[1.5px] font-semibold text-[#006085]">
+        <div className="font-mono text-[11px] uppercase tracking-[1.5px] font-semibold text-[#4a7818]">
           Operação · Hoje
         </div>
         <div className="flex items-center gap-1.5 font-mono text-[10px] text-[rgba(15,19,34,0.55)]">
@@ -113,7 +113,7 @@ function OperationalMockup() {
 
 function Kpi({ label, value, suffix }: { label: string; value: string; suffix?: string }) {
   return (
-    <div className="bg-[rgba(0,149,204,0.04)] rounded-[10px] p-3">
+    <div className="bg-[rgba(132,160,40,0.05)] rounded-[10px] p-3">
       <div className="font-mono text-[9px] uppercase tracking-[1px] text-[rgba(15,19,34,0.55)] mb-1">{label}</div>
       <div className="font-mono text-[22px] font-bold text-[#0a1322] tracking-[-0.025em] leading-none">
         {value}

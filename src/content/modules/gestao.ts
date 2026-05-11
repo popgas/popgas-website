@@ -24,6 +24,7 @@ export const gestaoContent: ModuleContent = {
     { title: 'Plano de contas e DRE', description: 'Estrutura contábil completa com demonstrativo gerencial.', icon: 'bar-chart-3' },
     { title: 'Acerto do entregador', description: 'Cálculo e conferência financeira do fechamento diário.', icon: 'calculator' },
     { title: 'Resumo diário de contas', description: 'Saldo diário automático de cada conta bancária.', icon: 'calendar' },
+    { title: '+30 relatórios e dashboards', description: 'Estoque, Financeiro, Vendas, Marketing e operação — controle total da revenda em um só lugar.', icon: 'bar-chart-3' },
   ],
   synergies: [
     { moduleKey: 'essencial', reason: 'Estoque baixa quando pedido é confirmado' },

@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import Image from 'next/image';
 import { Container } from '@/components/shared/Container';
 import { SectionHeader } from '@/components/shared/SectionHeader';
 import { AnimatedReveal } from '@/components/shared/AnimatedReveal';
@@ -17,11 +18,11 @@ const STEPS: Step[] = [
     description: (
       <>
         Wizard guiado preenche dados da empresa via{' '}
-        <strong className="text-[#006085] font-bold">CNPJ</strong>. Sem cartão de crédito. Trial de{' '}
-        <strong className="text-[#006085] font-bold">7 dias</strong>.
+        <strong className="text-[#4a7818] font-bold">CNPJ</strong>. Sem cartão de crédito. Trial de{' '}
+        <strong className="text-[#4a7818] font-bold">7 dias</strong>.
       </>
     ),
-    mock: <SignupMock />,
+    mock: <ScreenshotMock src="/screenshots/parceiros/app-web-cliente.png" alt="App web do cliente PopGás" />,
   },
   {
     n: '02',
@@ -29,7 +30,7 @@ const STEPS: Step[] = [
     description: (
       <>
         Nosso time importa seus dados (
-        <strong className="text-[#006085] font-bold">clientes, produtos, estoque</strong>) e configura sua operação.
+        <strong className="text-[#4a7818] font-bold">clientes, produtos, estoque</strong>) e configura sua operação.
       </>
     ),
     mock: <MigrationMock />,
@@ -39,15 +40,30 @@ const STEPS: Step[] = [
     title: 'Adiciona módulos quando precisar',
     description: (
       <>
-        Comece com o <strong className="text-[#006085] font-bold">Essencial</strong>. Ative{' '}
-        <strong className="text-[#006085] font-bold">Gestão</strong>,{' '}
-        <strong className="text-[#006085] font-bold">Fiscal</strong> e{' '}
-        <strong className="text-[#006085] font-bold">Tech & IA</strong> conforme a operação cresce.
+        Comece com o <strong className="text-[#4a7818] font-bold">Essencial</strong>. Ative{' '}
+        <strong className="text-[#4a7818] font-bold">Gestão</strong>,{' '}
+        <strong className="text-[#4a7818] font-bold">Fiscal</strong> e{' '}
+        <strong className="text-[#4a7818] font-bold">Tech & IA</strong> conforme a operação cresce.
       </>
     ),
-    mock: <ModulesMock />,
+    mock: <ScreenshotMock src="/screenshots/parceiros/financeiro.png" alt="Painel financeiro do PopGás" />,
   },
 ];
+
+function ScreenshotMock({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="w-full max-w-[280px] rounded-xl overflow-hidden border border-[rgba(15,19,34,0.08)] shadow-[0_8px_20px_rgba(15,19,34,0.08)] bg-white">
+      <Image
+        src={src}
+        alt={alt}
+        width={560}
+        height={350}
+        className="w-full h-auto block"
+        sizes="280px"
+      />
+    </div>
+  );
+}
 
 export function HowItWorks() {
   return (
@@ -70,7 +86,7 @@ export function HowItWorks() {
                 </div>
                 <div className="px-7 pt-6 pb-8 flex-1">
                   <div className="inline-flex items-center gap-2.5 mb-4">
-                    <div className="w-8 h-8 rounded-full border border-[rgba(0,149,204,0.30)] flex items-center justify-center" style={{ boxShadow: '0 0 0 4px white, 0 0 0 5px rgba(0,149,204,0.10)' }}>
+                    <div className="w-8 h-8 rounded-full border border-[rgba(132,160,40,0.30)] flex items-center justify-center" style={{ boxShadow: '0 0 0 4px white, 0 0 0 5px rgba(132,160,40,0.12)' }}>
                       <span className="font-serif italic font-normal text-[18px] leading-none italic-accent">
                         {s.n}
                       </span>
@@ -95,36 +111,6 @@ export function HowItWorks() {
   );
 }
 
-function SignupMock() {
-  return (
-    <div className="bg-white rounded-xl p-4 border border-[rgba(15,19,34,0.08)] shadow-[0_4px_14px_rgba(15,19,34,0.06)] w-full max-w-[280px]">
-      <FormField label="CNPJ" value="10.262.307/0001-14" filled />
-      <FormField label="Razão social" value="POPGAS COMERCIO E TEC..." filled />
-      <FormField label="E-mail" value="você@empresa.com.br" />
-    </div>
-  );
-}
-
-function FormField({ label, value, filled = false }: { label: string; value: string; filled?: boolean }) {
-  return (
-    <div className="flex flex-col gap-1 mb-3 last:mb-0">
-      <span className="font-mono text-[9px] uppercase tracking-[1px] text-[rgba(15,19,34,0.5)]">
-        {label}
-      </span>
-      <div
-        className={`flex items-center justify-between rounded-md px-2.5 py-2 font-mono text-[11px] text-[#0a1322] ${
-          filled
-            ? 'bg-[rgba(132,160,40,0.05)] border border-[rgba(132,160,40,0.40)]'
-            : 'bg-[#f8fafc] border border-[#e2e8f0]'
-        }`}
-      >
-        <span className="truncate">{value}</span>
-        {filled && <span className="text-[#64a028] font-bold ml-2">✓</span>}
-      </div>
-    </div>
-  );
-}
-
 function MigrationMock() {
   return (
     <div className="bg-white rounded-xl p-4 border border-[rgba(15,19,34,0.08)] shadow-[0_4px_14px_rgba(15,19,34,0.06)] w-full max-w-[280px]">
@@ -133,7 +119,7 @@ function MigrationMock() {
       <ProgressRow icon="now" label="Estoque (importando...)" />
       <ProgressRow icon="todo" iconText="4" label="Configuração" muted />
       <div className="bg-[rgba(15,19,34,0.08)] h-[4px] rounded-full mt-3 overflow-hidden">
-        <div className="h-full bg-gradient-to-r from-[#006085] to-[#0095cc] rounded-full" style={{ width: '65%' }} />
+        <div className="h-full bg-gradient-to-r from-[#4a7818] to-[#64a028] rounded-full" style={{ width: '65%' }} />
       </div>
     </div>
   );
@@ -156,7 +142,7 @@ function ProgressRow({
     icon === 'done'
       ? 'bg-[#64a028] text-white'
       : icon === 'now'
-        ? 'bg-[rgba(0,149,204,0.15)] border border-[#0095cc] text-[#006085] font-mono text-[9px] font-bold'
+        ? 'bg-[rgba(132,160,40,0.15)] border border-[#64a028] text-[#4a7818] font-mono text-[9px] font-bold'
         : 'bg-white border border-[rgba(15,19,34,0.15)] text-[rgba(15,19,34,0.4)] font-mono text-[9px]';
 
   return (
@@ -171,35 +157,3 @@ function ProgressRow({
   );
 }
 
-function ModulesMock() {
-  return (
-    <div className="bg-white rounded-xl p-3 border border-[rgba(15,19,34,0.08)] shadow-[0_4px_14px_rgba(15,19,34,0.06)] w-full max-w-[280px]">
-      <ModuleRow name="Essencial" price="R$ 99,90/mês" active />
-      <ModuleRow name="Gestão" price="+R$ 49,90" />
-      <ModuleRow name="Fiscal" price="+R$ 49,90" />
-      <ModuleRow name="Tech & IA" price="+R$ 199,90" />
-    </div>
-  );
-}
-
-function ModuleRow({ name, price, active = false }: { name: string; price: string; active?: boolean }) {
-  return (
-    <div
-      className={`flex items-center justify-between rounded-lg px-2.5 py-2 mb-1.5 last:mb-0 text-[11px] ${
-        active ? 'bg-[rgba(0,149,204,0.04)] border border-[rgba(0,149,204,0.4)]' : 'border border-[#e2e8f0]'
-      }`}
-    >
-      <span className="font-semibold text-[#0a1322] flex items-center gap-1.5">
-        {active ? (
-          <span className="w-3.5 h-3.5 rounded bg-[#006085] text-white inline-flex items-center justify-center text-[8px] font-bold">
-            ✓
-          </span>
-        ) : (
-          <span className="w-3.5 h-3.5 rounded border border-[rgba(15,19,34,0.20)] inline-block" />
-        )}
-        {name}
-      </span>
-      <span className="font-mono text-[10px] text-[rgba(15,19,34,0.55)]">{price}</span>
-    </div>
-  );
-}

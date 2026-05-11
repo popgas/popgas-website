@@ -58,14 +58,14 @@ function FaqRow({ item, isOpen, isLast, onToggle, id }: FaqRowProps) {
         onClick={onToggle}
         aria-expanded={isOpen}
         aria-controls={contentId}
-        className="w-full flex items-center justify-between gap-4 px-6 md:px-7 py-5 md:py-6 text-left hover:bg-[rgba(0,149,204,0.03)] transition-colors"
+        className="w-full flex items-center justify-between gap-4 px-6 md:px-7 py-5 md:py-6 text-left hover:bg-[rgba(132,160,40,0.04)] transition-colors"
       >
         <h3 className="font-display text-base md:text-lg font-semibold text-[#0a1322] tracking-[-0.015em] leading-snug">
           {item.question}
         </h3>
         <div
           className={cn(
-            'flex-shrink-0 w-8 h-8 rounded-full bg-[rgba(0,149,204,0.08)] text-[#006085] flex items-center justify-center transition-transform duration-300',
+            'flex-shrink-0 w-8 h-8 rounded-full bg-[rgba(132,160,40,0.10)] text-[#4a7818] flex items-center justify-center transition-transform duration-300',
             isOpen && 'rotate-180'
           )}
           aria-hidden
@@ -108,7 +108,7 @@ function renderAnswerWithEmphasis(answer: string, emphasize?: string[]): ReactNo
           result.push(
             <strong
               key={`em-${segIdx}-${i}-${phrase}`}
-              className="text-[#006085] font-semibold"
+              className="text-[#4a7818] font-semibold"
             >
               {phrase}
             </strong>

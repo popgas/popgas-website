@@ -25,7 +25,7 @@ const inputClass =
   'font-sans text-sm text-[#0a1322] bg-white tracking-[-0.005em] ' +
   'placeholder:text-[rgba(15,19,34,0.40)] ' +
   'transition-all outline-none ' +
-  'focus:border-[#0095cc] focus:ring-4 focus:ring-[rgba(0,149,204,0.10)] focus:hover:border-[#0095cc]';
+  'focus:border-[#64a028] focus:ring-4 focus:ring-[rgba(132,160,40,0.12)] focus:hover:border-[#64a028]';
 
 const selectClass = cn(
   inputClass,
@@ -164,7 +164,7 @@ export function ContactForm({ defaultType = 'general' }: { defaultType?: FormDat
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-[#006085] hover:bg-[#0095cc] disabled:opacity-60 text-white font-bold text-sm tracking-[-0.01em] py-3.5 rounded-[10px] transition-colors shadow-[0_4px_14px_rgba(0,96,133,0.20)] mt-2"
+        className="w-full bg-[#64a028] hover:bg-[#84cc16] disabled:opacity-60 text-white font-bold text-sm tracking-[-0.01em] py-3.5 rounded-[10px] transition-colors shadow-[0_4px_14px_rgba(132,160,40,0.25)] mt-2"
       >
         {isSubmitting ? 'Enviando...' : 'Enviar mensagem →'}
       </button>

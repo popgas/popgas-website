@@ -108,7 +108,7 @@ export function Header() {
           </Link>
           <Link
             href={ctaUrl}
-            className="px-5 py-2.5 bg-[#006085] hover:bg-[#0095cc] text-white text-[13px] font-bold rounded-full transition-colors tracking-tight shadow-[0_4px_14px_rgba(0,96,133,0.18),inset_0_1px_0_rgba(255,255,255,0.18)]"
+            className="px-5 py-2.5 bg-[#64a028] hover:bg-[#84cc16] text-white text-[13px] font-bold rounded-full transition-colors tracking-tight shadow-[0_4px_14px_rgba(132,160,40,0.25),inset_0_1px_0_rgba(255,255,255,0.18)]"
           >
             Começar grátis →
           </Link>
@@ -207,7 +207,7 @@ export function Header() {
             <Link
               href={ctaUrl}
               onClick={() => setMobileOpen(false)}
-              className="w-full px-4 py-3 bg-[#006085] hover:bg-[#0095cc] text-white text-center text-[15px] font-bold rounded-full transition-colors shadow-[0_4px_14px_rgba(0,96,133,0.18)]"
+              className="w-full px-4 py-3 bg-[#64a028] hover:bg-[#84cc16] text-white text-center text-[15px] font-bold rounded-full transition-colors shadow-[0_4px_14px_rgba(132,160,40,0.25)]"
             >
               Começar grátis →
             </Link>
