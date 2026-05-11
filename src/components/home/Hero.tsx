@@ -87,9 +87,9 @@ export function Hero() {
         />
       </div>
 
-      <div className="relative pt-20 md:pt-28 pb-16 md:pb-20">
+      <div className="relative pt-14 sm:pt-20 md:pt-28 pb-14 sm:pb-16 md:pb-20">
         <Container className="text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/70 border border-[rgba(15,19,34,0.10)] rounded-full font-mono text-[11px] uppercase tracking-[0.4px] text-[rgba(15,19,34,0.78)] mb-9 backdrop-blur-md shadow-[0_1px_3px_rgba(15,19,34,0.04)]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/70 border border-[rgba(15,19,34,0.10)] rounded-full font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.4px] text-[rgba(15,19,34,0.78)] mb-6 sm:mb-9 backdrop-blur-md shadow-[0_1px_3px_rgba(15,19,34,0.04)]">
             <span
               className="w-1.5 h-1.5 rounded-full bg-[#0095cc] shadow-[0_0_6px_rgba(0,149,204,0.4)]"
               style={{ animation: 'pulse-cyan 2.4s ease-in-out infinite' }}
@@ -97,17 +97,17 @@ export function Hero() {
             IA + WhatsApp em todos os planos com módulo Tech
           </div>
 
-          <h1 className="font-display font-extrabold tracking-[-0.05em] leading-[0.96] text-[#0a1322] max-w-[980px] mx-auto text-[44px] sm:text-6xl lg:text-[88px] mb-7">
+          <h1 className="font-display font-extrabold tracking-[-0.05em] leading-[0.96] text-[#0a1322] max-w-[980px] mx-auto text-[38px] sm:text-6xl lg:text-[88px] mb-6 sm:mb-7">
             O ERP que{' '}
             <span
               ref={wordRef}
-              className="inline-block min-w-[0.8ch] font-serif italic font-normal tracking-[-0.025em] bg-gradient-to-br from-[#006085] to-[#0095cc] bg-clip-text text-transparent"
+              className="inline-block min-w-[0.8ch] font-serif italic font-normal tracking-[-0.025em] bg-gradient-to-br from-[#4a7818] to-[#64a028] bg-clip-text text-transparent"
               style={{ paddingRight: '0.02em' }}
             >
               automatiza
             </span>
             <span
-              className="inline-block ml-0.5 font-display font-light text-[#0095cc]"
+              className="inline-block ml-0.5 font-display font-light text-[#64a028]"
               style={{ transform: 'translateY(-0.05em)', animation: 'caret-blink 1.05s steps(2, end) infinite' }}
             >
               |
@@ -116,15 +116,15 @@ export function Hero() {
             sua revenda.
           </h1>
 
-          <p className="text-base md:text-xl text-[rgba(15,19,34,0.62)] max-w-2xl mx-auto leading-[1.5] mb-11 font-normal tracking-[-0.01em]">
-            Vendas. Fiscal. WhatsApp. IA. Tudo modular. Comece com{' '}
-            <span className="text-[#006085] bg-[rgba(0,149,204,0.10)] px-2 py-0.5 rounded-md font-semibold ring-1 ring-inset ring-[rgba(0,149,204,0.22)] whitespace-nowrap">
+          <p className="text-[15px] sm:text-base md:text-xl text-[rgba(15,19,34,0.62)] max-w-2xl mx-auto leading-[1.5] mb-9 sm:mb-11 font-normal tracking-[-0.01em]">
+            Comece com{' '}
+            <span className="text-[#4a7818] bg-[rgba(132,160,40,0.12)] px-2 py-0.5 rounded-md font-semibold ring-1 ring-inset ring-[rgba(132,160,40,0.30)] whitespace-nowrap">
               R$ 99,90/mês
             </span>{' '}
             e escale conforme a operação cresce.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3.5 justify-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-3.5 justify-center mb-10 sm:mb-12">
             <Link
               href={ctaUrl}
               className="inline-flex items-center justify-center px-8 py-4 bg-[#006085] hover:bg-[#0095cc] text-white font-bold text-base rounded-full transition-colors tracking-tight shadow-[0_8px_24px_rgba(0,96,133,0.22),inset_0_1px_0_rgba(255,255,255,0.20)]"
@@ -162,13 +162,13 @@ export function Hero() {
   );
 }
 
-const MARQUEE_ITEMS: { label: string; accent?: boolean }[] = [
+const MARQUEE_ITEMS: { label: string; tone?: 'price' | 'success' }[] = [
   { label: 'Vendas' },
   { label: 'Fiscal' },
   { label: 'WhatsApp' },
   { label: 'IA' },
-  { label: 'R$ 99,90/mês', accent: true },
-  { label: '7 dias grátis' },
+  { label: 'R$ 99,90/mês', tone: 'price' },
+  { label: '7 dias grátis', tone: 'success' },
   { label: 'Sem cartão' },
   { label: 'Sem fidelidade' },
 ];
@@ -178,8 +178,12 @@ function MarqueeRow({ ariaHidden = false }: { ariaHidden?: boolean }) {
     <div className="flex items-center gap-7 pr-7" {...(ariaHidden ? { 'aria-hidden': true } : {})}>
       {MARQUEE_ITEMS.map((item, i) => (
         <span key={i} className="flex items-center gap-7">
-          {item.accent ? (
+          {item.tone === 'price' ? (
             <span className="text-[#006085] font-serif italic font-normal text-[18px] leading-[15px] tracking-tight">
+              {item.label}
+            </span>
+          ) : item.tone === 'success' ? (
+            <span className="text-[#4a7818] font-serif italic font-normal text-[18px] leading-[15px] tracking-tight">
               {item.label}
             </span>
           ) : (

@@ -6,8 +6,8 @@ import Image from 'next/image';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { LOGIN_URL, SIGNUP_URL } from '@/lib/pricing';
-import { RESOURCES_TABS } from './resources-menu-data';
 import { ResourcesMegaMenu } from './ResourcesMegaMenu';
+import { ResourcesMobileAccordion } from './ResourcesMobileAccordion';
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -76,7 +76,7 @@ export function Header() {
     >
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 h-[72px] flex items-center justify-between">
         <Link href="/" className="flex items-center shrink-0" aria-label="PopGás Sistema">
-          <Image src="/images/png_cor-principal.png" alt="PopGás Sistema" width={120} height={60} className="h-12 w-auto" priority />
+          <Image src="/images/png_cor-principal.png" alt="PopGás Sistema" width={120} height={60} className="h-12 sm:h-16 w-auto" priority />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-[rgba(15,19,34,0.62)]">
@@ -135,65 +135,83 @@ export function Header() {
 
       {mobileOpen && (
         <div
-          className="lg:hidden fixed inset-0 z-50 bg-white"
+          className="lg:hidden fixed inset-0 z-50 bg-white flex flex-col"
           role="dialog"
           aria-modal="true"
           aria-label="Menu de navegação"
         >
-          <div className="max-w-[1280px] mx-auto px-6 py-4 flex items-center justify-between border-b border-[rgba(15,19,34,0.08)]">
+          <div className="shrink-0 px-6 py-4 flex items-center justify-between border-b border-[rgba(15,19,34,0.08)]">
             <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center" aria-label="PopGás Sistema">
-              <Image src="/images/png_cor-principal.png" alt="PopGás Sistema" width={120} height={60} className="h-12 w-auto" />
+              <Image src="/images/png_cor-principal.png" alt="PopGás Sistema" width={120} height={60} className="h-12 sm:h-16 w-auto" />
             </Link>
             <button
               onClick={() => setMobileOpen(false)}
               aria-label="Fechar menu"
-              className="text-[#0a1322]"
+              className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-[rgba(15,19,34,0.05)] text-[#0a1322] transition-colors"
             >
               <X className="w-6 h-6" />
             </button>
           </div>
-          <nav className="px-6 py-6 flex flex-col gap-1 text-base">
-            <details className="border-b border-[rgba(15,19,34,0.08)] py-3">
-              <summary className="cursor-pointer font-semibold text-[#0a1322]">Recursos</summary>
-              <div className="mt-3 ml-3 flex flex-col gap-2.5">
-                {RESOURCES_TABS.map(tab => (
-                  <Link
-                    key={tab.id}
-                    href={tab.moduleHref}
-                    onClick={() => setMobileOpen(false)}
-                    className="text-sm text-[rgba(15,19,34,0.78)] py-0.5"
-                  >
-                    {tab.label}
-                  </Link>
-                ))}
-                <Link
-                  href="/recursos"
-                  onClick={() => setMobileOpen(false)}
-                  className="text-sm font-semibold text-[#006085] py-1"
-                >
-                  Ver todos os recursos →
-                </Link>
-              </div>
-            </details>
-            <Link href="/planos" onClick={() => setMobileOpen(false)} className="border-b border-[rgba(15,19,34,0.08)] py-3 font-semibold text-[#0a1322]">Planos</Link>
-            <Link href="/cases" onClick={() => setMobileOpen(false)} className="border-b border-[rgba(15,19,34,0.08)] py-3 font-semibold text-[#0a1322]">Cases</Link>
-            <Link href="/blog" onClick={() => setMobileOpen(false)} className="border-b border-[rgba(15,19,34,0.08)] py-3 font-semibold text-[#0a1322]">Blog</Link>
-            <Link href="/contato" onClick={() => setMobileOpen(false)} className="border-b border-[rgba(15,19,34,0.08)] py-3 font-semibold text-[#0a1322]">Contato</Link>
+          <nav className="flex-1 overflow-y-auto px-5 py-6">
+            <div className="font-mono text-[10px] uppercase tracking-[2px] text-[rgba(15,19,34,0.45)] font-semibold mb-3 px-1">
+              Recursos por área
+            </div>
+            <ResourcesMobileAccordion onNavigate={() => setMobileOpen(false)} />
+
+            <div className="font-mono text-[10px] uppercase tracking-[2px] text-[rgba(15,19,34,0.45)] font-semibold mt-7 mb-3 px-1">
+              Navegação
+            </div>
+            <div className="flex flex-col">
+              <Link
+                href="/planos"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center justify-between px-3 py-3.5 text-[15px] font-semibold text-[#0a1322] border-b border-[rgba(15,19,34,0.06)] hover:bg-[rgba(15,19,34,0.02)] transition-colors"
+              >
+                Planos
+                <span className="text-[rgba(15,19,34,0.30)]" aria-hidden>→</span>
+              </Link>
+              <Link
+                href="/cases"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center justify-between px-3 py-3.5 text-[15px] font-semibold text-[#0a1322] border-b border-[rgba(15,19,34,0.06)] hover:bg-[rgba(15,19,34,0.02)] transition-colors"
+              >
+                Cases
+                <span className="text-[rgba(15,19,34,0.30)]" aria-hidden>→</span>
+              </Link>
+              <Link
+                href="/blog"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center justify-between px-3 py-3.5 text-[15px] font-semibold text-[#0a1322] border-b border-[rgba(15,19,34,0.06)] hover:bg-[rgba(15,19,34,0.02)] transition-colors"
+              >
+                Blog
+                <span className="text-[rgba(15,19,34,0.30)]" aria-hidden>→</span>
+              </Link>
+              <Link
+                href="/contato"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center justify-between px-3 py-3.5 text-[15px] font-semibold text-[#0a1322] hover:bg-[rgba(15,19,34,0.02)] transition-colors"
+              >
+                Contato
+                <span className="text-[rgba(15,19,34,0.30)]" aria-hidden>→</span>
+              </Link>
+            </div>
+          </nav>
+          <div className="shrink-0 px-5 py-4 border-t border-[rgba(15,19,34,0.08)] bg-[#fafafa] flex flex-col gap-2.5">
             <Link
               href={LOGIN_URL}
               onClick={() => setMobileOpen(false)}
-              className="mt-4 px-4 py-3 text-center text-base font-medium text-[rgba(15,19,34,0.7)] border border-[rgba(15,19,34,0.10)] rounded-full"
+              className="w-full px-4 py-3 text-center text-[15px] font-semibold text-[#0a1322] border border-[rgba(15,19,34,0.14)] rounded-full hover:border-[rgba(15,19,34,0.30)] transition-colors"
             >
               Entrar
             </Link>
             <Link
               href={ctaUrl}
               onClick={() => setMobileOpen(false)}
-              className="mt-2 px-4 py-3 bg-[#006085] hover:bg-[#0095cc] text-white text-center text-base font-bold rounded-full transition-colors shadow-[0_4px_14px_rgba(0,96,133,0.18)]"
+              className="w-full px-4 py-3 bg-[#006085] hover:bg-[#0095cc] text-white text-center text-[15px] font-bold rounded-full transition-colors shadow-[0_4px_14px_rgba(0,96,133,0.18)]"
             >
               Começar grátis →
             </Link>
-          </nav>
+          </div>
         </div>
       )}
     </header>

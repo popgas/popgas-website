@@ -22,16 +22,16 @@ export default function PlanosPage() {
           Object.values(MODULES).map(m => ({ name: m.name, price: m.monthlyPrice }))
         )}
       />
-      <section className="pt-16 md:pt-24 pb-12 md:pb-14 bg-gradient-to-b from-[#fbfbfa] to-white">
+      <section className="pt-12 sm:pt-16 md:pt-24 pb-10 sm:pb-12 md:pb-14 bg-gradient-to-b from-[#fbfbfa] to-white">
         <Container className="max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-6 bg-[rgba(0,149,204,0.06)] border border-[rgba(0,149,204,0.20)] rounded-full font-mono text-[11px] uppercase tracking-[0.4px] text-[#006085] font-semibold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-5 sm:mb-6 bg-[rgba(0,149,204,0.06)] border border-[rgba(0,149,204,0.20)] rounded-full font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.4px] text-[#006085] font-semibold">
             <span className="w-1.5 h-1.5 rounded-full bg-[#0095cc]" aria-hidden />
             Planos PopGás
           </div>
-          <h1 className="font-display text-4xl md:text-6xl lg:text-[64px] font-extrabold tracking-[-0.05em] leading-[1.0] text-[#0a1322] mb-5">
+          <h1 className="font-display text-[32px] sm:text-4xl md:text-6xl lg:text-[64px] font-extrabold tracking-[-0.05em] leading-[1.05] sm:leading-[1.0] text-[#0a1322] mb-4 sm:mb-5">
             Escolha o plano <em className="italic-accent">certo</em> pra sua operação.
           </h1>
-          <p className="text-base md:text-lg text-[rgba(15,19,34,0.62)] leading-[1.5] tracking-[-0.01em]">
+          <p className="text-[15px] sm:text-base md:text-lg text-[rgba(15,19,34,0.62)] leading-[1.5] tracking-[-0.01em]">
             Sem cartão. Sem fidelidade. Migração assistida.
           </p>
         </Container>

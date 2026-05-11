@@ -114,13 +114,13 @@ export function FeatureComparisonTable() {
             <table className="w-full">
               <thead className="bg-[#fafafa] border-b border-[rgba(15,19,34,0.08)] sticky top-0">
                 <tr>
-                  <th className="text-left px-5 md:px-7 py-4 font-mono text-[10px] uppercase tracking-[1.5px] font-semibold text-[rgba(15,19,34,0.55)] min-w-[280px]">
+                  <th className="text-left px-4 md:px-7 py-4 font-mono text-[10px] uppercase tracking-[1.5px] font-semibold text-[rgba(15,19,34,0.55)] min-w-[200px] md:min-w-[280px] sticky left-0 bg-[#fafafa] z-[1] md:static shadow-[4px_0_6px_-4px_rgba(15,19,34,0.08)] md:shadow-none">
                     Funcionalidade
                   </th>
                   {COLS.map(col => (
                     <th
                       key={col.key}
-                      className="text-center px-3 py-4 font-mono text-[10px] uppercase tracking-[1.5px] font-semibold text-[rgba(15,19,34,0.55)] min-w-[100px]"
+                      className="text-center px-3 py-4 font-mono text-[10px] uppercase tracking-[1.5px] font-semibold text-[rgba(15,19,34,0.55)] min-w-[80px] md:min-w-[100px]"
                     >
                       {col.label}
                     </th>
@@ -164,13 +164,13 @@ function FeatureGroupRows({ group }: { group: FeatureGroup }) {
           key={i}
           className="border-b border-[rgba(15,19,34,0.04)] last:border-b-0 hover:bg-[rgba(0,149,204,0.02)]"
         >
-          <td className="px-5 md:px-7 py-3.5 text-[14px] text-[rgba(15,19,34,0.85)] leading-[1.4] tracking-[-0.005em]">
+          <td className="px-4 md:px-7 py-3.5 text-[13px] md:text-[14px] text-[rgba(15,19,34,0.85)] leading-[1.4] tracking-[-0.005em] sticky left-0 bg-white z-[1] md:static shadow-[4px_0_6px_-4px_rgba(15,19,34,0.06)] md:shadow-none">
             {row.name}
           </td>
           {COLS.map(col => (
             <td key={col.key} className="text-center px-3 py-3.5">
               {row.modules.includes(col.key) ? (
-                <Check className="inline-block w-[18px] h-[18px] text-[#006085]" strokeWidth={2.5} />
+                <Check className="inline-block w-[18px] h-[18px] text-[#64a028]" strokeWidth={2.5} />
               ) : (
                 <X
                   className="inline-block w-[16px] h-[16px] text-[rgba(15,19,34,0.18)]"

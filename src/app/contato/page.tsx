@@ -28,23 +28,23 @@ export default async function ContatoPage({
   const defaultType = resolveType(params.tipo);
 
   return (
-    <section className="py-16 md:py-24">
+    <section className="py-12 sm:py-16 md:py-24">
       <Container>
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-6 bg-[rgba(0,149,204,0.06)] border border-[rgba(0,149,204,0.20)] rounded-full font-mono text-[11px] uppercase tracking-[0.4px] text-[#006085] font-semibold">
+          <div className="text-center mb-10 sm:mb-12">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-5 sm:mb-6 bg-[rgba(0,149,204,0.06)] border border-[rgba(0,149,204,0.20)] rounded-full font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.4px] text-[#006085] font-semibold">
               <span className="w-1.5 h-1.5 rounded-full bg-[#0095cc]" aria-hidden />
               Contato
             </div>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-[-0.045em] leading-[1.05] text-[#0a1322] mb-4">
+            <h1 className="font-display text-[30px] sm:text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-[-0.045em] leading-[1.1] sm:leading-[1.05] text-[#0a1322] mb-3 sm:mb-4">
               Fale com <em className="italic-accent">a gente</em>.
             </h1>
-            <p className="text-base md:text-lg text-[rgba(15,19,34,0.62)] leading-[1.5] tracking-[-0.01em]">
+            <p className="text-[15px] sm:text-base md:text-lg text-[rgba(15,19,34,0.62)] leading-[1.5] tracking-[-0.01em]">
               Dúvidas, demonstrações ou suporte — escolha o canal que preferir.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10 lg:gap-14">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8 sm:gap-10 lg:gap-14">
             <div className="space-y-6">
               <ChannelRow icon={MessageCircle} label="WhatsApp" href="https://wa.me/553432387777">
                 (34) 3238-7777

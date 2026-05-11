@@ -10,7 +10,7 @@ export function FinalCta() {
   });
 
   return (
-    <section className="relative overflow-hidden py-24 md:py-32">
+    <section className="relative overflow-hidden py-16 sm:py-24 md:py-32">
       <div
         aria-hidden
         className="absolute inset-0 -z-10"
@@ -36,11 +36,11 @@ export function FinalCta() {
           Última chamada
         </div>
 
-        <h2 className="font-display font-extrabold tracking-[-0.055em] leading-[0.94] text-[#0a1322] text-[44px] sm:text-7xl lg:text-[96px] mb-6">
+        <h2 className="font-display font-extrabold tracking-[-0.055em] leading-[0.94] text-[#0a1322] text-[38px] sm:text-7xl lg:text-[96px] mb-5 sm:mb-6">
           Pronto para <em className="italic-accent">automatizar</em>?
         </h2>
 
-        <p className="text-base md:text-xl text-[rgba(15,19,34,0.62)] leading-[1.5] mb-12 tracking-[-0.01em]">
+        <p className="text-[15px] sm:text-base md:text-xl text-[rgba(15,19,34,0.62)] leading-[1.5] mb-9 sm:mb-12 tracking-[-0.01em]">
           Sem cartão. Sem fidelidade. Migração assistida.
         </p>
 

@@ -83,7 +83,7 @@ export function ContactForm({ defaultType = 'general' }: { defaultType?: FormDat
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="bg-white border border-[rgba(15,19,34,0.08)] rounded-2xl p-6 md:p-8 space-y-4 shadow-[0_4px_14px_rgba(15,19,34,0.04)]"
+      className="bg-white border border-[rgba(15,19,34,0.08)] rounded-2xl p-5 sm:p-6 md:p-8 space-y-4 shadow-[0_4px_14px_rgba(15,19,34,0.04)]"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Field>

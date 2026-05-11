@@ -12,7 +12,7 @@ export function ModulesGrid() {
   const total = calculateTotal(MODULE_ORDER, 'monthly');
 
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-b from-[#fbfbfa] to-[#f1f5f9]">
+    <section className="py-16 sm:py-20 md:py-28 bg-gradient-to-b from-[#fbfbfa] to-[#f1f5f9]">
       <Container>
         <SectionHeader
           eyebrow="Modular by design"
@@ -91,7 +91,7 @@ function ModuleRow({ module: m, isPremium, isBase }: ModuleRowProps) {
           className={cn(
             'flex-shrink-0 w-[26px] h-[26px] rounded-lg flex items-center justify-center text-white font-bold',
             isPremium
-              ? 'bg-gradient-to-br from-[#006085] to-[#0095cc] shadow-[0_0_0_3px_rgba(0,149,204,0.10)]'
+              ? 'bg-gradient-to-br from-[#4a7818] to-[#64a028] shadow-[0_0_0_3px_rgba(132,160,40,0.12)]'
               : 'bg-[#006085]'
           )}
         >

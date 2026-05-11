@@ -51,7 +51,7 @@ const STEPS: Step[] = [
 
 export function HowItWorks() {
   return (
-    <section className="py-20 md:py-28 bg-white">
+    <section className="py-16 sm:py-20 md:py-28 bg-white">
       <Container>
         <SectionHeader
           eyebrow="Como começar"
@@ -114,12 +114,12 @@ function FormField({ label, value, filled = false }: { label: string; value: str
       <div
         className={`flex items-center justify-between rounded-md px-2.5 py-2 font-mono text-[11px] text-[#0a1322] ${
           filled
-            ? 'bg-[rgba(0,149,204,0.04)] border border-[rgba(0,149,204,0.4)]'
+            ? 'bg-[rgba(132,160,40,0.05)] border border-[rgba(132,160,40,0.40)]'
             : 'bg-[#f8fafc] border border-[#e2e8f0]'
         }`}
       >
         <span className="truncate">{value}</span>
-        {filled && <span className="text-[#006085] font-bold ml-2">✓</span>}
+        {filled && <span className="text-[#64a028] font-bold ml-2">✓</span>}
       </div>
     </div>
   );
@@ -154,7 +154,7 @@ function ProgressRow({
 }) {
   const iconClass =
     icon === 'done'
-      ? 'bg-[#006085] text-white'
+      ? 'bg-[#64a028] text-white'
       : icon === 'now'
         ? 'bg-[rgba(0,149,204,0.15)] border border-[#0095cc] text-[#006085] font-mono text-[9px] font-bold'
         : 'bg-white border border-[rgba(15,19,34,0.15)] text-[rgba(15,19,34,0.4)] font-mono text-[9px]';

@@ -26,19 +26,19 @@ const FEATURES: Feature[] = [
 
 export function VerticalGas() {
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-b from-[#fbfbfa] to-[#f1f5f9]">
+    <section className="py-16 sm:py-20 md:py-28 bg-gradient-to-b from-[#fbfbfa] to-[#f1f5f9]">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-8 sm:gap-10 lg:gap-14 items-center">
           <AnimatedReveal>
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-6 bg-[rgba(0,149,204,0.06)] border border-[rgba(0,149,204,0.20)] rounded-full font-mono text-[11px] uppercase tracking-[0.4px] text-[#006085] font-semibold">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-5 sm:mb-6 bg-[rgba(0,149,204,0.06)] border border-[rgba(0,149,204,0.20)] rounded-full font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.4px] text-[#006085] font-semibold">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#0095cc]" aria-hidden />
                 Vertical especializada
               </div>
-              <h2 className="font-display text-3xl md:text-5xl font-extrabold tracking-[-0.04em] leading-[1.05] text-[#0a1322] mb-5">
+              <h2 className="font-display text-[28px] sm:text-3xl md:text-5xl font-extrabold tracking-[-0.04em] leading-[1.05] text-[#0a1322] mb-4 sm:mb-5">
                 Pensado pelo dono de revenda, <em className="italic-accent">para o dono</em> de revenda.
               </h2>
-              <p className="text-base md:text-[17px] text-[rgba(15,19,34,0.62)] leading-[1.5] tracking-[-0.005em] mb-8">
+              <p className="text-[15px] sm:text-base md:text-[17px] text-[rgba(15,19,34,0.62)] leading-[1.5] tracking-[-0.005em] mb-7 sm:mb-8">
                 Funcionalidades exclusivas para distribuição de gás GLP. Vasilhames, carregamentos, acerto do entregador, máquinas 24h e app do entregador — tudo que sua operação precisa.
               </p>
               <div className="flex flex-col gap-3 mb-8">

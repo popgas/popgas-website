@@ -47,7 +47,7 @@ const PROBLEMS: Problem[] = [
 
 export function ProblemsSection() {
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-b from-[#fbfbfa] to-[#f8fafc]">
+    <section className="py-16 sm:py-20 md:py-28 bg-gradient-to-b from-[#fbfbfa] to-[#f8fafc]">
       <Container>
         <SectionHeader
           eyebrow="Reconhece estas dores?"
@@ -71,7 +71,7 @@ export function ProblemsSection() {
                     />
                     A dor
                   </div>
-                  <p className="font-serif italic font-normal text-[24px] md:text-[26px] leading-[1.15] tracking-[-0.02em] text-[#0a1322]">
+                  <p className="font-serif italic font-normal text-[20px] sm:text-[24px] md:text-[26px] leading-[1.15] tracking-[-0.02em] text-[#0a1322]">
                     {p.question}
                   </p>
                 </div>
@@ -79,7 +79,7 @@ export function ProblemsSection() {
                   ↓
                 </div>
                 <div className="px-6 pb-7 pt-1 flex-1">
-                  <div className="inline-flex items-center gap-1.5 mb-2 font-mono text-[9px] uppercase tracking-[1.5px] text-[#006085] font-semibold">
+                  <div className="inline-flex items-center gap-1.5 mb-2 font-mono text-[9px] uppercase tracking-[1.5px] text-[#4a7818] font-semibold">
                     <span aria-hidden className="font-extrabold">✓</span>
                     A solução
                   </div>

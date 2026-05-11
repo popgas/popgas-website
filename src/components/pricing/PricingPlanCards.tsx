@@ -152,7 +152,7 @@ function BillingToggle({
               'font-mono text-[9px] px-1.5 py-0.5 rounded',
               billing === 'annual'
                 ? 'bg-white/15 text-white'
-                : 'bg-[rgba(0,149,204,0.12)] text-[#006085]'
+                : 'bg-[rgba(132,160,40,0.14)] text-[#4a7818]'
             )}
           >
             -{Math.round(ANNUAL_DISCOUNT * 100)}%
@@ -165,6 +165,9 @@ function BillingToggle({
 
 function PlanCard({ plan, billing }: { plan: Plan; billing: BillingCycle }) {
   const total = calculateTotal(plan.modules, billing);
+  const monthlyTotal = calculateTotal(plan.modules, 'monthly');
+  const annualTotal = total * 12;
+  const annualSavings = (monthlyTotal - total) * 12;
   const ctaUrl = buildSignupUrl({
     modules: plan.modules,
     billing,
@@ -174,14 +177,14 @@ function PlanCard({ plan, billing }: { plan: Plan; billing: BillingCycle }) {
   return (
     <article
       className={cn(
-        'relative h-full bg-white rounded-3xl p-7 md:p-8 flex flex-col transition-all duration-200',
+        'relative h-full bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 flex flex-col transition-all duration-200',
         plan.featured
           ? 'border-2 border-[#0095cc] bg-gradient-to-b from-white to-[rgba(0,149,204,0.04)] shadow-[0_30px_60px_-20px_rgba(0,96,133,0.20)] lg:scale-[1.03] hover:lg:scale-[1.05] hover:-translate-y-1'
           : 'border border-[rgba(15,19,34,0.08)] shadow-[0_1px_3px_rgba(15,19,34,0.04)] hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(15,19,34,0.08)]'
       )}
     >
       {plan.featured && (
-        <span className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center bg-gradient-to-br from-[#006085] to-[#0095cc] text-white px-3.5 py-1 rounded-full font-mono text-[10px] uppercase tracking-[1.5px] font-bold shadow-[0_4px_14px_rgba(0,96,133,0.30)]">
+        <span className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center bg-gradient-to-br from-[#4a7818] to-[#64a028] text-white px-3.5 py-1 rounded-full font-mono text-[10px] uppercase tracking-[1.5px] font-bold shadow-[0_4px_14px_rgba(132,160,40,0.30)]">
           Recomendado
         </span>
       )}
@@ -205,11 +208,25 @@ function PlanCard({ plan, billing }: { plan: Plan; billing: BillingCycle }) {
         {plan.pitch}
       </p>
 
-      <div className="flex items-baseline gap-1.5 mb-5">
-        <span className="font-mono text-[42px] font-bold tracking-[-0.03em] text-[#0a1322] leading-none">
-          R$ {formatPrice(total)}
-        </span>
-        <span className="text-[13px] font-medium text-[rgba(15,19,34,0.55)]">/mês</span>
+      <div className="mb-5">
+        <div className="flex items-baseline gap-1.5">
+          <span className="font-mono text-[42px] font-bold tracking-[-0.03em] text-[#0a1322] leading-none">
+            R$ {formatPrice(total)}
+          </span>
+          <span className="text-[13px] font-medium text-[rgba(15,19,34,0.55)]">/mês</span>
+        </div>
+        {billing === 'annual' && (
+          <div className="mt-3 px-4 py-3 bg-white border border-[rgba(132,160,40,0.25)] rounded-xl shadow-[0_2px_6px_rgba(132,160,40,0.06)]">
+            <div className="flex items-baseline justify-between gap-3">
+              <span className="font-mono text-[9px] uppercase tracking-[1.5px] text-[rgba(15,19,34,0.55)] font-semibold">Total no ano</span>
+              <span className="text-[17px] font-extrabold tracking-[-0.02em] text-[#0a1322]">R$ {formatPrice(annualTotal)}</span>
+            </div>
+            <div className="flex items-center justify-between gap-3 mt-2.5 pt-2.5 border-t border-dashed border-[rgba(132,160,40,0.30)]">
+              <span className="font-mono text-[9px] uppercase tracking-[1.5px] text-[#4a7818] font-bold">Você economiza</span>
+              <span className="text-[14px] font-extrabold text-[#4a7818]">↓ R$ {formatPrice(annualSavings)}</span>
+            </div>
+          </div>
+        )}
       </div>
 
       <Link
@@ -238,7 +255,7 @@ function PlanCard({ plan, billing }: { plan: Plan; billing: BillingCycle }) {
             )}
           >
             {f.included ? (
-              <Check className="w-4 h-4 text-[#006085] flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+              <Check className="w-4 h-4 text-[#64a028] flex-shrink-0 mt-0.5" strokeWidth={2.5} />
             ) : (
               <X className="w-4 h-4 text-[rgba(15,19,34,0.30)] flex-shrink-0 mt-0.5" strokeWidth={2.5} />
             )}
