@@ -151,7 +151,7 @@ export function Hero() {
 
           <div className="flex flex-col sm:flex-row gap-3 items-center justify-center text-sm text-[rgba(15,19,34,0.62)]">
             <div className="flex">
-              {['#cbd5e1', '#94a3b8', '#64748b', '#cbd5e1'].map((c, i) => (
+              {['#fbbf24', '#fb7185', '#60a5fa', '#34d399'].map((c, i) => (
                 <div
                   key={i}
                   className="w-7 h-7 rounded-full border-2 border-[#fbfbfa]"
@@ -159,7 +159,7 @@ export function Hero() {
                 />
               ))}
             </div>
-            <span className="text-[rgba(15,19,34,0.72)] tracking-[1px] text-xs">★★★★★</span>
+            <span className="text-[#fbbf24] tracking-[1px] text-xs">★★★★★</span>
             <span>
               <strong className="text-[#0a1322] font-bold">200+ revendas</strong> confiam no PopGás
             </span>
