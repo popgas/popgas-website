@@ -20,7 +20,7 @@ describe('<Header>', () => {
     render(<Header />);
     const entrarLinks = screen.getAllByRole('link', { name: /entrar/i });
     const ctaLinks = screen.getAllByRole('link', { name: /começar grátis/i });
-    expect(entrarLinks[0]).toHaveAttribute('href', expect.stringContaining('app.popgas.com.br/login'));
-    expect(ctaLinks[0]).toHaveAttribute('href', expect.stringContaining('app.popgas.com.br/signup'));
+    expect(entrarLinks[0]).toHaveAttribute('href', expect.stringContaining('erp.popgas.com.br/login'));
+    expect(ctaLinks[0]).toHaveAttribute('href', expect.stringContaining('erp.popgas.com.br/signup'));
   });
 });
