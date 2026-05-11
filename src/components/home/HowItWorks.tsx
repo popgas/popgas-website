@@ -19,7 +19,7 @@ const STEPS: Step[] = [
       <>
         Wizard guiado preenche dados da empresa via{' '}
         <strong className="text-[#4a7818] font-bold">CNPJ</strong>. Sem cartão de crédito. Trial de{' '}
-        <strong className="text-[#4a7818] font-bold">7 dias</strong>.
+        <strong className="text-[#4a7818] font-bold">14 dias</strong>.
       </>
     ),
     mock: <ScreenshotMock src="/screenshots/parceiros/app-web-cliente.png" alt="App web do cliente PopGás" />,

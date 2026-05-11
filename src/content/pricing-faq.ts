@@ -4,7 +4,7 @@ import type { FaqEntry } from './home-faq';
 export const PRICING_FAQ: FaqEntry[] = [
   {
     question: 'Como funciona o teste grátis?',
-    answer: 'Você se cadastra em 5 minutos e tem 7 dias completos para experimentar todos os módulos do plano escolhido. Sem cartão de crédito. Após o trial, você decide se assina ou descarta.',
+    answer: 'Você se cadastra em 5 minutos e tem 14 dias completos para experimentar todos os módulos do plano escolhido. Sem cartão de crédito. Após o trial, você decide se assina ou descarta.',
   },
   {
     question: 'Preciso informar cartão de crédito?',

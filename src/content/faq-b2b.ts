@@ -12,7 +12,7 @@ export const FAQ_B2B: FaqCategory[] = [
     id: 'planos',
     name: 'Planos & Cobrança',
     items: [
-      { question: 'Quanto custa o plano mais barato?', answer: 'O plano Essencial custa R$ 99,90/mês, com 7 dias grátis para experimentar.' },
+      { question: 'Quanto custa o plano mais barato?', answer: 'O plano Essencial custa R$ 99,90/mês, com 14 dias grátis para experimentar.' },
       { question: 'Posso pagar anualmente?', answer: 'Sim. O plano anual aplica 20% de desconto sobre o preço mensal de cada módulo.' },
       { question: 'Como adiciono um módulo depois?', answer: 'Direto no painel do ERP. Cobrança proporcional aos dias restantes do ciclo. Acesso imediato.' },
       { question: 'O que acontece se não pagar?', answer: 'O sistema entra em "modo bloqueio" 7 dias após o vencimento. Seus dados ficam preservados.' },

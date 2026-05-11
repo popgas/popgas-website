@@ -30,7 +30,7 @@ export default function Image() {
           O ERP que automatiza sua revenda.
         </div>
         <div style={{ fontSize: 28, fontWeight: 500, opacity: 0.9, marginTop: 24 }}>
-          A partir de R$ 99,90/mês · 7 dias grátis
+          A partir de R$ 99,90/mês · 14 dias grátis
         </div>
       </div>
     ),

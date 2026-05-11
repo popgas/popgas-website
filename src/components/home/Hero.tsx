@@ -201,7 +201,7 @@ const MARQUEE_ITEMS: string[] = [
   'WhatsApp',
   'IA',
   'R$ 99,90/mês',
-  '7 dias grátis',
+  '14 dias grátis',
   'Sem cartão',
   'Sem fidelidade',
 ];

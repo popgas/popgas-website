@@ -90,7 +90,7 @@ describe('pricing.PROFILE_PRESETS', () => {
 });
 
 describe('pricing.TRIAL_DAYS', () => {
-  it('is 7 days', () => {
-    expect(TRIAL_DAYS).toBe(7);
+  it('is 14 days', () => {
+    expect(TRIAL_DAYS).toBe(14);
   });
 });
