@@ -1,29 +1,24 @@
 // src/components/pricing/PricingFaq.tsx
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Container } from '@/components/shared/Container';
 import { SectionHeader } from '@/components/shared/SectionHeader';
+import { FaqAccordion } from '@/components/shared/FaqAccordion';
 import { PRICING_FAQ } from '@/content/pricing-faq';
 
 export function PricingFaq() {
   return (
-    <section className="py-20 md:py-28 bg-[#fafafa]">
-      <Container className="max-w-3xl">
+    <section className="py-20 md:py-28 bg-gradient-to-b from-[#fbfbfa] to-[#f1f5f9]">
+      <Container>
         <SectionHeader
           eyebrow="FAQ de pricing"
-          title="Tudo o que você precisa saber antes de assinar."
+          title={
+            <>
+              Tudo que você precisa saber <em className="italic-accent">antes de assinar</em>.
+            </>
+          }
         />
-        <Accordion className="bg-white border border-[#e2e8f0] rounded-2xl">
-          {PRICING_FAQ.map((q, i) => (
-            <AccordionItem key={i} value={`q-${i}`} className="px-6 border-b border-[#e2e8f0] last:border-b-0">
-              <AccordionTrigger className="text-left font-semibold text-[#0f172a] hover:no-underline py-5 text-base">
-                {q.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-[#475569] text-[15px] leading-relaxed pb-5">
-                {q.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+        <div className="max-w-[820px] mx-auto">
+          <FaqAccordion items={PRICING_FAQ} initialOpen={[0, 1]} idPrefix="pricing-faq" />
+        </div>
       </Container>
     </section>
   );

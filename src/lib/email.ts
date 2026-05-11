@@ -4,12 +4,17 @@ import {
   type EnterpriseLeadEmailData,
 } from './email-templates/enterprise-lead';
 
-const RECIPIENTS_ENTERPRISE = [
-  'leonardo.ferreira.caldas@gmail.com',
-  'leonardo@popgas.com.br',
-  'uelliton@popgas.com.br',
-  'uellitonevangelista@gmail.com',
-];
+const DEFAULT_RECIPIENTS = ['leads@popgas.com.br'];
+
+function getEnterpriseRecipients(): string[] {
+  const raw = process.env.RESEND_TO_EMAILS;
+  if (!raw) return DEFAULT_RECIPIENTS;
+  const list = raw
+    .split(',')
+    .map(e => e.trim())
+    .filter(e => e.length > 0 && e.includes('@'));
+  return list.length > 0 ? list : DEFAULT_RECIPIENTS;
+}
 
 let resendClient: Resend | null = null;
 
@@ -28,7 +33,7 @@ export async function sendEnterpriseLeadEmail(data: EnterpriseLeadEmailData): Pr
 
   await getResend().emails.send({
     from,
-    to: RECIPIENTS_ENTERPRISE,
+    to: getEnterpriseRecipients(),
     subject,
     html,
     text,

@@ -14,11 +14,33 @@ interface Result {
   resetAt: number;
 }
 
+const CLEANUP_INTERVAL_MS = 60 * 1000;
+
+/**
+ * In-memory rate limiter.
+ *
+ * IMPORTANT — Serverless caveat:
+ * On Vercel Functions / Lambda, the Map lives inside the function instance.
+ * Cold starts produce a fresh Map; concurrent invocations may use different
+ * instances. Treat this as best-effort protection against simple abuse.
+ * For hard guarantees, swap for Vercel KV / Upstash Redis.
+ */
 export function rateLimit(opts: Options) {
   const buckets = new Map<string, Bucket>();
+  let lastCleanup = Date.now();
+
+  function pruneExpired(now: number) {
+    if (now - lastCleanup < CLEANUP_INTERVAL_MS) return;
+    lastCleanup = now;
+    for (const [k, b] of buckets) {
+      if (b.resetAt < now) buckets.delete(k);
+    }
+  }
 
   function check(key: string): Result {
     const now = Date.now();
+    pruneExpired(now);
+
     const bucket = buckets.get(key);
 
     if (!bucket || bucket.resetAt < now) {
@@ -42,8 +64,14 @@ export function rateLimit(opts: Options) {
   return { check };
 }
 
-// Singleton para uso em routes
+// 5 leads/h por IP (rota /api/lead-enterprise — alto valor, baixo volume)
 export const enterpriseLeadLimiter = rateLimit({
-  windowMs: 60 * 60 * 1000, // 1h
+  windowMs: 60 * 60 * 1000,
   max: 5,
+});
+
+// 10 contatos/15min por IP (rota /api/contact — volume maior, menor valor)
+export const contactLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 10,
 });

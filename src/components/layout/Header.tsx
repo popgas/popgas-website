@@ -27,6 +27,21 @@ export function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Close mobile menu on Escape + lock body scroll while open
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMobileOpen(false);
+    };
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [mobileOpen]);
+
   const ctaUrl = `${SIGNUP_URL}?utm_source=site&utm_campaign=header_cta`;
 
   return (
@@ -101,7 +116,12 @@ export function Header() {
       </div>
 
       {mobileOpen && (
-        <div className="lg:hidden fixed inset-0 z-50 bg-white">
+        <div
+          className="lg:hidden fixed inset-0 z-50 bg-white"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu de navegação"
+        >
           <div className="max-w-[1280px] mx-auto px-6 py-4 flex items-center justify-between border-b border-[rgba(15,19,34,0.08)]">
             <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center" aria-label="PopGás Sistema">
               <Image src="/images/png_cor-principal.png" alt="PopGás Sistema" width={120} height={60} className="h-12 w-auto" />

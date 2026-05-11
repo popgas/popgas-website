@@ -52,7 +52,7 @@ export function ContactForm({ defaultType = 'general' }: { defaultType?: FormDat
     setError(null);
     try {
       const apiType =
-        data.type === 'sales' ? 'GENERAL' : data.type === 'support' ? 'SUPPORT' : 'GENERAL';
+        data.type === 'sales' ? 'ENTERPRISE' : data.type === 'support' ? 'SUPPORT' : 'GENERAL';
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
