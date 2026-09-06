@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 import { LOGIN_URL, SIGNUP_URL } from '@/lib/pricing';
 import { ResourcesMegaMenu } from './ResourcesMegaMenu';
 import { ResourcesMobileAccordion } from './ResourcesMobileAccordion';
+import { SignupLink } from '@/components/tracking/SignupLink';
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -106,12 +107,12 @@ export function Header() {
           >
             Entrar
           </Link>
-          <Link
+          <SignupLink
             href={ctaUrl}
             className="px-5 py-2.5 bg-[#64a028] hover:bg-[#84cc16] text-white text-[13px] font-bold rounded-full transition-colors tracking-tight shadow-[0_4px_14px_rgba(132,160,40,0.25),inset_0_1px_0_rgba(255,255,255,0.18)]"
           >
             Começar grátis →
-          </Link>
+          </SignupLink>
         </div>
 
         <button
@@ -204,13 +205,13 @@ export function Header() {
             >
               Entrar
             </Link>
-            <Link
+            <SignupLink
               href={ctaUrl}
               onClick={() => setMobileOpen(false)}
               className="w-full px-4 py-3 bg-[#64a028] hover:bg-[#84cc16] text-white text-center text-[15px] font-bold rounded-full transition-colors shadow-[0_4px_14px_rgba(132,160,40,0.25)]"
             >
               Começar grátis →
-            </Link>
+            </SignupLink>
           </div>
         </div>
       )}

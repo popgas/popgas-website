@@ -12,6 +12,7 @@ import {
   type ModuleId,
 } from '@/lib/pricing';
 import { cn } from '@/lib/utils';
+import { SignupLink } from '@/components/tracking/SignupLink';
 
 type BillingCycle = 'monthly' | 'annual';
 
@@ -229,7 +230,7 @@ function PlanCard({ plan, billing }: { plan: Plan; billing: BillingCycle }) {
         )}
       </div>
 
-      <Link
+      <SignupLink
         href={ctaUrl}
         className={cn(
           'block text-center py-3.5 px-5 rounded-xl font-bold text-sm tracking-[-0.01em] mb-7 transition-colors',
@@ -239,7 +240,7 @@ function PlanCard({ plan, billing }: { plan: Plan; billing: BillingCycle }) {
         )}
       >
         {plan.ctaLabel}
-      </Link>
+      </SignupLink>
 
       <div className="font-mono text-[9px] uppercase tracking-[1.5px] text-[rgba(15,19,34,0.5)] font-semibold mb-3">
         Inclui

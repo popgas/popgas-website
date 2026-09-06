@@ -7,6 +7,7 @@ import { Play } from 'lucide-react';
 import { Container } from '@/components/shared/Container';
 import { VideoModal } from '@/components/shared/VideoModal';
 import { buildSignupUrl } from '@/lib/pricing';
+import { SignupLink } from '@/components/tracking/SignupLink';
 
 const ROTATING_PHRASES = ['automatiza', 'digitaliza', 'moderniza', 'transforma', 'escala'];
 
@@ -128,12 +129,12 @@ export function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-3.5 justify-center mb-10 sm:mb-12">
-            <Link
+            <SignupLink
               href={ctaUrl}
               className="inline-flex items-center justify-center px-8 py-4 bg-[#64a028] hover:bg-[#84cc16] text-white font-bold text-base rounded-full transition-colors tracking-tight shadow-[0_8px_24px_rgba(132,160,40,0.28),inset_0_1px_0_rgba(255,255,255,0.20)]"
             >
               Começar grátis →
-            </Link>
+            </SignupLink>
             <VideoModal
               videoId="mnVJSrz9Jlo"
               triggerClassName="inline-flex items-center justify-center gap-2 px-7 py-4 border border-[rgba(15,19,34,0.15)] hover:border-[rgba(15,19,34,0.45)] bg-white/50 hover:bg-white/80 text-[#0a1322] font-semibold text-[15px] rounded-full transition-all tracking-tight backdrop-blur-sm"
