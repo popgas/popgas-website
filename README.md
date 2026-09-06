@@ -22,7 +22,6 @@ npm run dev
 | `DATABASE_URL` | Postgres do Neon |
 | `RESEND_API_KEY` | Chave do Resend (e-mail) |
 | `RESEND_FROM_EMAIL` | Remetente verificado, ex: `leads@popgas.com.br` |
-| `NEXT_PUBLIC_GA_ID` | ID do GA4, ex: `G-XXXXXXXXXX` |
 
 ## Scripts
 

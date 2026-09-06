@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Container } from '@/components/shared/Container';
 import { buildSignupUrl } from '@/lib/pricing';
+import { SignupLink } from '@/components/tracking/SignupLink';
 
 export function FinalCta() {
   const ctaUrl = buildSignupUrl({
@@ -45,12 +46,12 @@ export function FinalCta() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3.5 justify-center items-center">
-          <Link
+          <SignupLink
             href={ctaUrl}
             className="inline-flex items-center justify-center px-9 py-4 bg-[#64a028] hover:bg-[#84cc16] text-white font-bold text-base rounded-full transition-colors tracking-tight shadow-[0_8px_24px_rgba(132,160,40,0.28),inset_0_1px_0_rgba(255,255,255,0.20)]"
           >
             Começar grátis →
-          </Link>
+          </SignupLink>
           <Link
             href="/contato"
             className="inline-flex items-center justify-center px-6 py-4 text-[#0a1322] hover:text-[#0a1322] font-semibold text-[15px] tracking-tight"
