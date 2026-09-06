@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono, Instrument_Serif } from 'next/font/google';
+import { Analytics as VercelAnalytics } from '@vercel/analytics/next';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { WhatsAppButton } from '@/components/layout/WhatsAppButton';
@@ -77,6 +78,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <Footer />
         <WhatsAppButton />
         <JsonLd data={organizationLd()} />
+        {/* Vercel Web Analytics: produto da Vercel, independente do GTM (não carrega GA4 nem Pixel) */}
+        <VercelAnalytics />
       </body>
     </html>
   );
