@@ -7,9 +7,15 @@ run_id="$(basename "$artifact_directory" | tr '[:upper:]' '[:lower:]')"
 image="popgas/e2e-website:browser-isolation-$run_id"
 container="popgas-website-browser-isolation-$run_id"
 owner="popgas-website-browser-isolation-$run_id"
+migration_owner="popgas-website-migration-contract-$run_id"
+migration_network="popgas-website-migration-$run_id"
+migration_database="popgas-website-postgres-$run_id"
 revision="$(git rev-parse HEAD)"
 claimed_image=false
 claimed_container=false
+claimed_migration_network=false
+claimed_migration_database=false
+child_pid=''
 
 case "$revision" in
   [0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]*) ;;
@@ -17,9 +23,11 @@ case "$revision" in
 esac
 
 remove_owned_container() {
-  if docker container inspect "$container" >/dev/null 2>&1 \
-    && [ "$(docker container inspect -f '{{index .Config.Labels "com.popgas.e2e.owner"}}' "$container")" = "$owner" ]; then
-    docker container rm --force "$container" >/dev/null 2>&1 || true
+  resource="$1"
+  expected_owner="$2"
+  if docker container inspect "$resource" >/dev/null 2>&1 \
+    && [ "$(docker container inspect -f '{{index .Config.Labels "com.popgas.e2e.owner"}}' "$resource")" = "$expected_owner" ]; then
+    docker container rm --force "$resource" >/dev/null 2>&1 || true
   fi
 }
 
@@ -30,15 +38,33 @@ remove_owned_image() {
   fi
 }
 
+remove_owned_network() {
+  if docker network inspect "$migration_network" >/dev/null 2>&1 \
+    && [ "$(docker network inspect -f '{{index .Labels "com.popgas.e2e.owner"}}' "$migration_network")" = "$migration_owner" ]; then
+    docker network rm "$migration_network" >/dev/null 2>&1 || true
+  fi
+}
+
 cleanup() {
-  [ "$claimed_container" = false ] || remove_owned_container
+  if [ -n "$child_pid" ]; then
+    kill -TERM "$child_pid" >/dev/null 2>&1 || true
+    wait "$child_pid" >/dev/null 2>&1 || true
+    child_pid=''
+  fi
+  [ "$claimed_container" = false ] || remove_owned_container "$container" "$owner"
+  [ "$claimed_migration_database" = false ] || remove_owned_container "$migration_database" "$migration_owner"
+  [ "$claimed_migration_network" = false ] || remove_owned_network
   [ "$claimed_image" = false ] || remove_owned_image
   rm -rf "$artifact_directory"
 }
-trap cleanup EXIT INT TERM
+trap cleanup EXIT
+trap 'exit 130' INT
+trap 'exit 143' TERM
 
 if docker container inspect "$container" >/dev/null 2>&1 \
-  || docker image inspect "$image" >/dev/null 2>&1; then
+  || docker image inspect "$image" >/dev/null 2>&1 \
+  || docker container inspect "$migration_database" >/dev/null 2>&1 \
+  || docker network inspect "$migration_network" >/dev/null 2>&1; then
   echo 'website acceptance resource name already exists' >&2
   exit 1
 fi
@@ -58,10 +84,27 @@ docker build \
   --file e2e.Dockerfile \
   .
 
-POPGAS_WEBSITE_CONTRACT_IMAGE="$image" \
-POPGAS_WEBSITE_CONTRACT_REVISION="$revision" \
-  npx --yes node@22 ./node_modules/vitest/vitest.mjs run \
-    tests/e2e-image-contract.test.ts tests/e2e-image-migration.test.ts
+run_contract_tests() {
+  POPGAS_WEBSITE_CONTRACT_IMAGE="$image" \
+  POPGAS_WEBSITE_CONTRACT_REVISION="$revision" \
+  POPGAS_WEBSITE_MIGRATION_OWNER="$migration_owner" \
+  POPGAS_WEBSITE_MIGRATION_NETWORK="$migration_network" \
+  POPGAS_WEBSITE_MIGRATION_DATABASE="$migration_database" \
+    npx --yes node@22 ./node_modules/vitest/vitest.mjs run \
+      tests/e2e-image-contract.test.ts tests/e2e-image-migration.test.ts &
+  child_pid=$!
+  if wait "$child_pid"; then
+    child_status=0
+  else
+    child_status=$?
+  fi
+  child_pid=''
+  return "$child_status"
+}
+
+claimed_migration_network=true
+claimed_migration_database=true
+run_contract_tests
 
 runtime_user="$(docker image inspect --format '{{.Config.User}}' "$image")"
 [ "$runtime_user" = nextjs ] || [ "$runtime_user" = 1001 ]
