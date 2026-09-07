@@ -164,7 +164,7 @@ export function Hero() {
             ))}
           </ul>
 
-          <div className="relative mt-12 sm:mt-16 max-w-[1100px] mx-auto">
+          <div className="relative mt-12 sm:mt-16 max-w-[896px] mx-auto">
             <div
               aria-hidden
               className="absolute -inset-x-6 -inset-y-10 sm:-inset-x-10 sm:-inset-y-16 rounded-[40px] pointer-events-none"
@@ -176,13 +176,13 @@ export function Hero() {
             />
             <div className="relative rounded-2xl sm:rounded-[20px] overflow-hidden border border-[rgba(15,19,34,0.10)] bg-white shadow-[0_40px_80px_-20px_rgba(15,19,34,0.20),0_8px_24px_rgba(15,19,34,0.10)]">
               <Image
-                src="/screenshots/01-pedidos-lista.png"
-                alt="Tela de pedidos realizados do PopGás Sistema"
-                width={3200}
-                height={2000}
+                src="/screenshots/banner-ia-whatsapp.png"
+                alt="IA no WhatsApp para revendas de gás e app web personalizado com o PopGás Sistema"
+                width={1920}
+                height={963}
                 priority
                 className="w-full h-auto block"
-                sizes="(min-width: 1100px) 1100px, 100vw"
+                sizes="(min-width: 896px) 896px, 100vw"
               />
             </div>
           </div>
