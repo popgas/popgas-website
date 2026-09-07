@@ -25,6 +25,7 @@ export const fiscalContent: ModuleContent = {
           title: 'Emissão de NF-e e NFC-e',
           description:
             'Emita a nota a partir do pedido, da compra ou do zero, com retorno da autorização em segundos. A NFC-e pode sair automaticamente na entrega para as formas de pagamento e produtos que você escolher.',
+          screenshotPath: '/screenshots/features/nfe-e-nfce.png',
           icon: 'file-text',
         },
         {
@@ -32,6 +33,7 @@ export const fiscalContent: ModuleContent = {
           title: 'NFS-e nacional',
           description:
             'Nota fiscal de serviço no padrão nacional para instalações, manutenções e outros serviços que a revenda presta, com sugestão do código de tributação por IA.',
+          screenshotPath: '/screenshots/features/nfse.png',
           icon: 'file-text',
         },
         {
@@ -39,6 +41,7 @@ export const fiscalContent: ModuleContent = {
           title: 'Carta de correção',
           description:
             'Corrija dados de uma nota já autorizada sem cancelar: a CC-e é enviada e validada junto à SEFAZ direto pela tela da nota.',
+          screenshotPath: '/screenshots/features/carta-de-correcao.png',
           icon: 'edit',
         },
         {
@@ -46,6 +49,7 @@ export const fiscalContent: ModuleContent = {
           title: 'Manifestação de notas recebidas',
           description:
             'Notas emitidas contra o seu CNPJ aparecem no sistema para ciência, confirmação, desconhecimento ou operação não realizada, e podem virar recebimento de mercadoria com um clique.',
+          screenshotPath: '/screenshots/features/manifestacao.png',
           icon: 'check-square',
         },
         {
@@ -53,6 +57,7 @@ export const fiscalContent: ModuleContent = {
           title: 'CT-e e MDF-e',
           description:
             'Conhecimento de transporte para fretes e manifesto eletrônico para os caminhões que saem com carga, com os dados fiscais dos veículos e motoristas já cadastrados na frota.',
+          screenshotPath: '/screenshots/features/cte-e-mdfe.png',
           icon: 'truck',
         },
       ],
@@ -70,6 +75,7 @@ export const fiscalContent: ModuleContent = {
           title: 'Cálculo automático de impostos',
           description:
             'ICMS, ICMS monofásico do GLP, PIS/COFINS, IPI, ISS e DIFAL calculados conforme o regime tributário, o CFOP e o NCM de cada produto. A IA sugere natureza de operação e CFOP de devolução.',
+          screenshotPath: '/screenshots/features/calculo-de-impostos.png',
           icon: 'percent',
         },
         {
@@ -77,6 +83,7 @@ export const fiscalContent: ModuleContent = {
           title: 'Configurações fiscais por produto',
           description:
             'NCM, CFOP, CST/CSOSN e alíquotas ficam no cadastro do produto. Regimes tributários, CNAEs, naturezas de operação e a tabela de ICMS interestadual são configurados uma vez e valem para todas as notas.',
+          screenshotPath: '/screenshots/features/configuracoes-por-produto.png',
           icon: 'tag',
         },
         {
@@ -84,6 +91,7 @@ export const fiscalContent: ModuleContent = {
           title: 'Numeração e inutilização',
           description:
             'Controle da sequência de numeração de NF-e e NFC-e por unidade e série, com inutilização de faixas junto à SEFAZ quando necessário.',
+          screenshotPath: '/screenshots/features/numeracao-e-inutilizacao.png',
           icon: 'hash',
         },
       ],
@@ -101,6 +109,7 @@ export const fiscalContent: ModuleContent = {
           title: 'SPED Fiscal',
           description:
             'Geração mensal do arquivo do SPED Fiscal por unidade a partir das notas emitidas e recebidas, com validação antes do download. Alinhe os blocos de apuração com o seu contador.',
+          screenshotPath: '/screenshots/features/sped-fiscal.png',
           icon: 'database',
         },
         {
@@ -108,6 +117,7 @@ export const fiscalContent: ModuleContent = {
           title: 'Exportação de XMLs e relatório mensal',
           description:
             'Baixe em lote os XMLs do mês fechado e o relatório mensal para enviar ao contador, sem precisar abrir nota por nota.',
+          screenshotPath: '/screenshots/features/exportacao-de-xmls.png',
           icon: 'download',
         },
         {
@@ -115,6 +125,7 @@ export const fiscalContent: ModuleContent = {
           title: 'Monitoramento de erros de emissão',
           description:
             'Notas rejeitadas ou pendentes ficam em uma fila própria com o motivo da rejeição, para corrigir e reenviar sem perder a numeração.',
+          screenshotPath: '/screenshots/features/monitoramento-de-erros.png',
           icon: 'file-search',
         },
       ],

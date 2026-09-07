@@ -25,6 +25,7 @@ export const essencialContent: ModuleContent = {
           title: 'Gestão completa de pedidos',
           description:
             'Cada pedido passa por um fluxo claro: aberto, confirmado, saiu para entrega, entregue ou cancelado com motivo. Pedidos entregues podem ser reabertos para correção, e a lista mostra cliente, endereço, prazo, valor e forma de pagamento sem abrir nada.',
+          screenshotPath: '/screenshots/features/gestao-de-pedidos.png',
           icon: 'package',
         },
         {
@@ -32,6 +33,7 @@ export const essencialContent: ModuleContent = {
           title: 'Balcão e telefone com bina',
           description:
             'Tela de novo pedido com busca de cliente por nome ou telefone, endereços salvos, produtos com preço da tabela vigente e cálculo automático de troco. Quando o telefone toca, a bina integrada identifica o cliente e abre o cadastro na hora.',
+          screenshotPath: '/screenshots/features/lancamento-rapido.png',
           icon: 'phone',
         },
         {
@@ -39,6 +41,7 @@ export const essencialContent: ModuleContent = {
           title: 'Cadastro completo de clientes',
           description:
             'CPF ou CNPJ, telefones, e-mail e vários endereços por cliente, cada um com coordenadas no mapa. Histórico de pedidos, saldo em conta e observações ficam na mesma ficha, e a importação em lote traz sua base atual em planilha.',
+          screenshotPath: '/screenshots/features/cadastro-de-clientes.png',
           icon: 'users',
         },
         {
@@ -46,6 +49,7 @@ export const essencialContent: ModuleContent = {
           title: 'Múltiplas formas de pagamento',
           description:
             'Dinheiro com troco, cartão de débito e crédito na maquininha, PIX com QR code, boleto para clientes empresa e saldo em conta do cliente. Você escolhe quais formas cada canal de venda aceita.',
+          screenshotPath: '/screenshots/features/formas-de-pagamento.png',
           icon: 'credit-card',
         },
         {
@@ -53,6 +57,7 @@ export const essencialContent: ModuleContent = {
           title: 'Preços, promoções e descontos',
           description:
             'Tabelas de preço por unidade e por canal, com vigência programada. Descontos por cupom, primeira compra, leve mais pague menos, brinde e crédito do cliente são calculados automaticamente na hora do pedido.',
+          screenshotPath: '/screenshots/features/precos-e-promocoes.png',
           icon: 'calculator',
         },
         {
@@ -60,6 +65,7 @@ export const essencialContent: ModuleContent = {
           title: 'Histórico e frequência de compra',
           description:
             'Veja quando cada cliente comprou pela última vez, o intervalo médio entre pedidos e quem está atrasado para a próxima compra. Segmente clientes em risco, inativos ou VIP para ações de retenção.',
+          screenshotPath: '/screenshots/features/historico-de-compras.png',
           icon: 'history',
         },
       ],
@@ -71,12 +77,14 @@ export const essencialContent: ModuleContent = {
         'Seu cliente pede sozinho, pelo app ou pelo navegador, e acompanha o entregador no mapa. Tudo com a marca da sua revenda.',
       screenshotPath: '/screenshots/app-cliente-rastreamento.png',
       screenshotAlt: 'App do cliente mostrando o entregador a caminho no mapa',
+      screenshotPortrait: true,
       features: [
         {
           id: 'app-do-cliente-catalogo',
           title: 'Pedido no celular e no navegador',
           description:
             'Seu cliente faz o pedido sozinho, escolhe endereço, forma de pagamento e tipo de entrega. Você monta o catálogo com categorias, destaques e ofertas por horário, e aplica logo, cores e nome da sua revenda. Sem instalar nada, se ele preferir o navegador.',
+          screenshotPath: '/screenshots/features/app-do-cliente-catalogo.png',
           icon: 'layout-grid',
         },
         {
@@ -84,6 +92,8 @@ export const essencialContent: ModuleContent = {
           title: 'Rastreamento em tempo real',
           description:
             'Assim que o entregador sai, o cliente vê a posição dele no mapa e uma linha do tempo com cada etapa do pedido. Você acompanha todos os entregadores ao vivo no painel.',
+          screenshotPath: '/screenshots/app-cliente-rastreamento.png',
+          screenshotPortrait: true,
           icon: 'map-pin',
         },
         {
@@ -91,6 +101,7 @@ export const essencialContent: ModuleContent = {
           title: 'Avaliação pós-entrega',
           description:
             'Depois de cada entrega o cliente avalia tempo e atendimento do entregador de 1 a 5 estrelas, com comentário. As notas alimentam o relatório de avaliações e o ranking dos entregadores.',
+          screenshotPath: '/screenshots/features/avaliacao-pos-entrega.png',
           icon: 'star',
         },
       ],
@@ -108,6 +119,7 @@ export const essencialContent: ModuleContent = {
           title: 'Rota, venda na porta e acerto',
           description:
             'Carregamento do veículo, transferências entre entregadores, pedidos da rota com navegação, lançamento de venda na porta do cliente e acerto de contas no fim do dia. Escala de trabalho, ausências e pontuação também ficam no app.',
+          screenshotPath: '/screenshots/features/app-do-entregador-rota.png',
           icon: 'truck',
         },
         {
@@ -115,6 +127,7 @@ export const essencialContent: ModuleContent = {
           title: 'Posição de cada entregador no mapa',
           description:
             'O app envia a localização enquanto o entregador está em rota. No painel você vê todos os entregadores e unidades no mapa e sabe quem está mais perto de cada pedido.',
+          screenshotPath: '/screenshots/features/rastreamento-gps.png',
           icon: 'navigation',
         },
         {
@@ -122,6 +135,7 @@ export const essencialContent: ModuleContent = {
           title: 'Vasilhames, carregamentos e acerto',
           description:
             'As rotinas específicas da revenda de gás (carregamento do caminhão, controle de vasilhames, acerto diário do entregador, escala e penalidades) estão detalhadas na página da vertical.',
+          screenshotPath: '/screenshots/features/operacao-de-gas.png',
           icon: 'cylinder',
           link: { href: '/recursos/revendas-de-gas#operacao', label: 'Ver na vertical de gás' },
         },
@@ -140,6 +154,7 @@ export const essencialContent: ModuleContent = {
           title: 'Multi-loja e permissões',
           description:
             'Cadastre várias unidades, cada uma com estoque, caixa e entregadores próprios, e veja tudo consolidado. Perfis de acesso definem o que cada operador pode ver e fazer, com trilha de auditoria.',
+          screenshotPath: '/screenshots/features/multi-loja-e-permissoes.png',
           icon: 'building-2',
         },
         {
@@ -147,6 +162,7 @@ export const essencialContent: ModuleContent = {
           title: 'Dashboards e relatórios de vendas',
           description:
             'Dashboard de pedidos com faturamento, ticket médio, tempo de entrega e mapa de calor. Relatórios de cancelamentos, atrasos, resumo diário e movimentações por colaborador, todos exportáveis para Excel.',
+          screenshotPath: '/screenshots/features/dashboards-de-vendas.png',
           icon: 'bar-chart-3',
         },
       ],

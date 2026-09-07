@@ -6,6 +6,10 @@ export interface FeatureItem {
   title: string;
   description: string;
   icon?: string;
+  /** Miniatura da tela do ERP (ou do app) que mostra a funcionalidade. */
+  screenshotPath?: string;
+  /** Imagem em retrato (tela de celular): renderiza em moldura de smartphone. */
+  screenshotPortrait?: boolean;
   /** Quando a "casa" da funcionalidade é outro módulo, aponta pra lá em vez de duplicar. */
   link?: { href: string; label: string };
 }
@@ -17,6 +21,8 @@ export interface ModuleSection {
   intro: string;
   screenshotPath?: string;
   screenshotAlt?: string;
+  /** Imagem em retrato (tela de celular): renderiza em moldura de smartphone. */
+  screenshotPortrait?: boolean;
   features: FeatureItem[];
 }
 

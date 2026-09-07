@@ -25,6 +25,7 @@ export const techIaContent: ModuleContent = {
           title: 'Atendente de IA no WhatsApp',
           description:
             'A IA conhece seus produtos, preços, áreas de entrega e horários. Ela responde o cliente, monta o carrinho, confirma endereço e forma de pagamento e cria o pedido no sistema, sem intervenção humana.',
+          screenshotPath: '/screenshots/features/atendente-de-ia.png',
           icon: 'sparkles',
         },
         {
@@ -32,6 +33,7 @@ export const techIaContent: ModuleContent = {
           title: 'Modelos de IA de última geração',
           description:
             'A plataforma usa modelos do Google e, via OpenRouter, da OpenAI e da Anthropic, e escolhe o mais adequado para cada etapa da conversa. Você não precisa configurar nada disso.',
+          screenshotPath: '/screenshots/features/modelos-de-ia.png',
           icon: 'sparkles',
         },
         {
@@ -39,6 +41,7 @@ export const techIaContent: ModuleContent = {
           title: 'Base de conhecimento própria',
           description:
             'Cadastre as regras da sua revenda (política de troca, formas de pagamento, dúvidas frequentes) e a IA responde com base nelas, sem inventar.',
+          screenshotPath: '/screenshots/features/base-de-conhecimento.png',
           icon: 'book-open',
         },
         {
@@ -46,6 +49,7 @@ export const techIaContent: ModuleContent = {
           title: 'WhatsApp oficial (Meta) ou número comum',
           description:
             'Conecte um número pela API oficial do WhatsApp Business ou use um número comum lendo um QR code. Dá para ter mais de um número por revenda, cada um com sua finalidade.',
+          screenshotPath: '/screenshots/features/whatsapp-oficial-ou-numero-comum.png',
           icon: 'message-circle',
         },
       ],
@@ -63,6 +67,7 @@ export const techIaContent: ModuleContent = {
           title: 'Todas as conversas em uma tela',
           description:
             'Separadas em atendimentos, fila e chatbot. Cada conversa mostra o número de origem, o atendente responsável e o histórico completo, com envio de texto, áudio e arquivos.',
+          screenshotPath: '/screenshots/features/conversas-em-uma-tela.png',
           icon: 'message-square',
         },
         {
@@ -70,6 +75,7 @@ export const techIaContent: ModuleContent = {
           title: 'Transferência para atendente humano',
           description:
             'Quando o cliente pede ou quando a IA percebe que não vai resolver, a conversa vai para a fila da equipe. O atendente assume com todo o contexto e devolve para o bot quando terminar.',
+          screenshotPath: '/screenshots/features/transferencia-humana.png',
           icon: 'user-check',
         },
         {
@@ -77,6 +83,7 @@ export const techIaContent: ModuleContent = {
           title: 'Filas de atendimento',
           description:
             'Crie filas por assunto ou por unidade (vendas, suporte, loja centro) e defina quais atendentes recebem cada uma, tanto para WhatsApp quanto para a bina do telefone.',
+          screenshotPath: '/screenshots/features/filas-de-atendimento.png',
           icon: 'list-ordered',
         },
       ],
@@ -94,6 +101,7 @@ export const techIaContent: ModuleContent = {
           title: 'Notificações automáticas de pedido',
           description:
             'Pedido confirmado, pagamento recebido, saiu para entrega com link de rastreamento, entregador chegando, entregue e cancelado. Cada mensagem usa um template aprovado pela Meta e você liga só as que quiser.',
+          screenshotPath: '/screenshots/features/notificacoes-de-pedido.png',
           icon: 'bell',
         },
         {
@@ -101,6 +109,7 @@ export const techIaContent: ModuleContent = {
           title: 'Campanhas de marketing',
           description:
             'Envie promoções segmentadas para clientes inativos, em risco ou VIP pelo WhatsApp, com cupom e link de pedido. Acompanhe enviadas, lidas e conversões, e integre com anúncios do Meta Ads.',
+          screenshotPath: '/screenshots/features/campanhas.png',
           icon: 'message-square-text',
         },
         {
@@ -108,6 +117,7 @@ export const techIaContent: ModuleContent = {
           title: 'Dashboards de IA e WhatsApp',
           description:
             'Volume de conversas, taxa de resolução pela IA, pedidos criados pelo bot, custo por conversa e entregabilidade das mensagens, tudo por período.',
+          screenshotPath: '/screenshots/features/dashboards-de-ia.png',
           icon: 'activity',
         },
       ],
