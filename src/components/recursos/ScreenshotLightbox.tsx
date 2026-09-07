@@ -46,16 +46,20 @@ export function ScreenshotLightbox({ src, alt, portrait = false, children, class
           >
             <X className="w-4 h-4" /> Fechar
           </button>
-          <div className="mt-12 rounded-2xl overflow-hidden border border-white/10 bg-white shadow-2xl">
+          {/* No celular a tela do ERP abre maior que a largura e rola para o lado (pinch-zoom continua disponível). */}
+          <div className={`mt-12 rounded-2xl border border-white/10 bg-white shadow-2xl ${portrait ? 'overflow-hidden' : 'overflow-auto max-w-full overscroll-contain'}`}>
             <Image
               src={src}
               alt={alt}
               width={portrait ? 450 : 1600}
               height={portrait ? 921 : 1000}
-              className={portrait ? 'block w-auto h-[86vh]' : 'block w-full h-auto max-h-[86vh] object-contain'}
-              sizes={portrait ? '480px' : '96vw'}
+              className={portrait ? 'block w-auto h-[86vh]' : 'block h-auto w-[1100px] max-w-none md:w-full md:max-w-full md:max-h-[86vh] md:object-contain'}
+              sizes={portrait ? '480px' : '(min-width: 768px) 96vw, 1100px'}
             />
           </div>
+          {!portrait && (
+            <p className="md:hidden mt-2 text-[12px] text-white/70 text-center">Deslize para os lados para ver a tela inteira · use dois dedos para ampliar</p>
+          )}
           <p className="mt-3 text-[13px] text-white/80 text-center">{alt}</p>
         </div>
       </dialog>
