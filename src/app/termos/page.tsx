@@ -27,7 +27,7 @@ export default function TermosPage() {
           <h2 className="text-xl font-bold text-[#0f172a]">3. Cancelamento</h2>
           <p>Sem fidelidade. Cancele a qualquer momento via painel ou suporte; acesso garantido até o fim do ciclo pago.</p>
           <h2 className="text-xl font-bold text-[#0f172a]">4. Disponibilidade</h2>
-          <p>Compromisso de SLA 99,9% medido mensalmente. Detalhes em <a href="https://status.popgas.com.br" className="text-[#06b6d4]">status.popgas.com.br</a>.</p>
+          <p>Trabalhamos para manter o serviço disponível de forma contínua, com infraestrutura em nuvem redundante. Manutenções programadas são comunicadas com antecedência pelo painel.</p>
           <h2 className="text-xl font-bold text-[#0f172a]">5. Foro</h2>
           <p>Comarca de Uberlândia/MG, com renúncia a qualquer outro.</p>
         </div>

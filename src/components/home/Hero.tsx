@@ -98,7 +98,7 @@ export function Hero() {
               className="w-1.5 h-1.5 rounded-full bg-[#64a028] shadow-[0_0_6px_rgba(132,160,40,0.45)]"
               style={{ animation: 'pulse-cyan 2.4s ease-in-out infinite' }}
             />
-            IA + WhatsApp em todos os planos com módulo Tech
+            Vendas, estoque, fiscal, WhatsApp e IA num só sistema
           </div>
 
           <h1 className="font-display font-extrabold tracking-[-0.05em] leading-[0.96] text-[#0a1322] max-w-[980px] mx-auto text-[38px] sm:text-6xl lg:text-[88px] mb-6 sm:mb-7">
@@ -162,7 +162,7 @@ export function Hero() {
             </div>
             <span className="text-[#fbbf24] tracking-[1px] text-xs">★★★★★</span>
             <span>
-              <strong className="text-[#0a1322] font-bold">200+ revendas</strong> confiam no PopGás
+              Nascido em uma <strong className="text-[#0a1322] font-bold">revenda real</strong>, em operação desde 2015
             </span>
           </div>
 
@@ -178,10 +178,10 @@ export function Hero() {
             />
             <div className="relative rounded-2xl sm:rounded-[20px] overflow-hidden border border-[rgba(15,19,34,0.10)] bg-white shadow-[0_40px_80px_-20px_rgba(15,19,34,0.20),0_8px_24px_rgba(15,19,34,0.10)]">
               <Image
-                src="/screenshots/parceiros/dashboard.png"
-                alt="Dashboard PopGás Sistema"
-                width={1920}
-                height={963}
+                src="/screenshots/01-pedidos-lista.png"
+                alt="Tela de pedidos realizados do PopGás Sistema"
+                width={3200}
+                height={2000}
                 priority
                 className="w-full h-auto block"
                 sizes="(min-width: 1100px) 1100px, 100vw"

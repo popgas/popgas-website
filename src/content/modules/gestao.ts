@@ -5,30 +5,89 @@ export const gestaoContent: ModuleContent = {
   moduleKey: 'gestao',
   hero: {
     eyebrow: 'MÓDULO ADICIONAL · + R$ 49,90/mês',
-    title: 'Estoque e financeiro integrados.',
+    title: 'Estoque e financeiro integrados às vendas.',
     subtitle:
-      'Transforme o sistema em uma plataforma de gestão operacional. Controle financeiro centralizado com integração total às vendas.',
+      'Cada pedido entregue movimenta o estoque e o caixa sozinho. Contas a pagar e a receber, conciliação bancária, centros de custo e DRE gerencial, sem planilha paralela.',
   },
   screenshotPath: '/screenshots/06-financeiro-contas.png',
   screenshotAlt: 'Tela de contas a pagar do PopGás Sistema',
   features: [
-    { title: 'Estoque por lotes e condições', description: 'Controle por lote com condições (bom, avariado, recall) e múltiplos depósitos.', icon: 'package' },
-    { title: 'Movimentações com rastreabilidade', description: 'Cada entrada/saída registrada e auditável.', icon: 'arrow-up-down' },
-    { title: 'Transferência entre depósitos', description: 'Mova produtos entre warehouses com workflow de confirmação.', icon: 'truck' },
-    { title: 'Recebimento de mercadorias', description: 'Entrada com vínculo a fornecedor e nota fiscal.', icon: 'inbox' },
-    { title: 'Inventário e contagem física', description: 'Processo de contagem com relatório de divergências.', icon: 'clipboard-check' },
-    { title: 'Contas a pagar e a receber', description: 'Parcelamento, agendamento, baixa e estorno.', icon: 'wallet' },
-    { title: 'Boletos bancários (EFI)', description: 'Geração e gestão automática integrada à EFI Pagamentos.', icon: 'file-text' },
-    { title: 'Conciliação bancária', description: 'Importação de extrato e conciliação com movimentações internas.', icon: 'check-circle' },
-    { title: 'Centros de custo', description: 'Alocação de despesas por centro/projeto.', icon: 'building-2' },
-    { title: 'Plano de contas e DRE', description: 'Estrutura contábil completa com demonstrativo gerencial.', icon: 'bar-chart-3' },
-    { title: 'Acerto do entregador', description: 'Cálculo e conferência financeira do fechamento diário.', icon: 'calculator' },
-    { title: 'Resumo diário de contas', description: 'Saldo diário automático de cada conta bancária.', icon: 'calendar' },
-    { title: '+30 relatórios e dashboards', description: 'Estoque, Financeiro, Vendas, Marketing e operação — controle total da revenda em um só lugar.', icon: 'bar-chart-3' },
+    {
+      title: 'Estoque por lotes e condições',
+      description:
+        'Cada entrada gera um lote com custo unitário e quantidade. Produtos são separados por condição (bom estado, avariado, vencido ou devolvido) e por depósito, então você sabe exatamente o que tem e quanto custou.',
+      icon: 'package',
+    },
+    {
+      title: 'Movimentações com rastreabilidade',
+      description:
+        'Toda entrada e saída fica registrada com usuário, data, origem e destino. A conferência diária de estoque compara o físico com o sistema e mostra as diferenças por produto.',
+      icon: 'arrow-up-down',
+    },
+    {
+      title: 'Transferência entre depósitos e veículos',
+      description:
+        'Mova produtos entre lojas, depósitos e caminhões. Transferências entre entregadores exigem aceite de quem recebe, e a remessa de vasilhames pode gerar a nota fiscal de remessa automaticamente.',
+      icon: 'truck',
+    },
+    {
+      title: 'Recebimento de mercadorias',
+      description:
+        'Registre a compra com fornecedor, nota fiscal e valores. A entrada cria os lotes no estoque e, se quiser, já lança a conta a pagar correspondente no financeiro.',
+      icon: 'inbox',
+    },
+    {
+      title: 'Contas a pagar e a receber',
+      description:
+        'Lançamentos com parcelamento, recorrência mensal, agendamento e baixa individual ou em lote. Dashboards mostram o que vence hoje, o que está atrasado e o prazo médio de pagamento e recebimento.',
+      icon: 'wallet',
+    },
+    {
+      title: 'Caixa e acerto do entregador',
+      description:
+        'Abertura e fechamento de caixa por loja, sangrias e suprimentos. No fim do dia o acerto de cada entregador confere pedidos, dinheiro, cartão, PIX, despesas e troco, e fecha com um clique.',
+      icon: 'calculator',
+    },
+    {
+      title: 'Conciliação bancária com IA',
+      description:
+        'Importe o extrato OFX do banco e o sistema casa cada lançamento com os pedidos, recebimentos e pagamentos do período. A IA sugere as conciliações que faltam e você só confirma.',
+      icon: 'check-circle',
+    },
+    {
+      title: 'Contas financeiras e saldo diário',
+      description:
+        'Cadastre contas bancárias, caixas e contas de recebimento de cartão e PIX. Transferências entre contas ficam registradas e o saldo de cada uma é fechado dia a dia, automaticamente.',
+      icon: 'calendar',
+    },
+    {
+      title: 'Centros de custo',
+      description:
+        'Classifique despesas por centro de custo (combustível, frota, folha, impostos) e por loja. O relatório de despesas por centro mostra para onde o dinheiro está indo.',
+      icon: 'building-2',
+    },
+    {
+      title: 'DRE gerencial',
+      description:
+        'Monte a estrutura do seu demonstrativo de resultado com as linhas que fazem sentido para a revenda e acompanhe receita, custos, despesas e resultado mês a mês, com comparativo de períodos.',
+      icon: 'bar-chart-3',
+    },
+    {
+      title: 'Manutenção de frota e combustível',
+      description:
+        'Registre abastecimentos, manutenções preventivas e corretivas por veículo. O sistema calcula custo por quilômetro e por unidade entregue, e alerta quando o gasto foge do padrão.',
+      icon: 'wrench',
+    },
+    {
+      title: 'Mais de 25 relatórios e dashboards',
+      description:
+        'Faturamento detalhado e comparativo, estoque diário, estoque fiscal, compras, tempo de entrega, cancelamentos, crédito de clientes e muito mais. Tudo com filtros e exportação para Excel.',
+      icon: 'bar-chart-3',
+    },
   ],
   synergies: [
-    { moduleKey: 'essencial', reason: 'Estoque baixa quando pedido é confirmado' },
-    { moduleKey: 'fiscal', reason: 'Movimentações alimentam SPED e NF-e' },
+    { moduleKey: 'essencial', reason: 'Pedido entregue baixa o estoque e entra no caixa do entregador' },
+    { moduleKey: 'fiscal', reason: 'Compras e remessas de vasilhame geram os documentos fiscais' },
   ],
   nextModule: { slug: 'fiscal', name: 'Fiscal' },
 };

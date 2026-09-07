@@ -12,7 +12,7 @@ import { MODULES, formatPrice } from '@/lib/pricing';
 export const metadata: Metadata = {
   title: 'Recursos — 4 módulos modulares',
   description:
-    'Mais de 180 funcionalidades distribuídas em 4 módulos contratáveis. Comece simples, cresça conforme precisa.',
+    'Mais de 120 funcionalidades distribuídas em 4 módulos contratáveis. Comece simples, cresça conforme precisa.',
 };
 
 const MODULE_CARDS = [
@@ -31,7 +31,7 @@ export default function RecursosPage() {
             Tudo o que sua revenda precisa em um sistema.
           </h1>
           <p className="text-lg text-[#475569]">
-            Mais de 180 funcionalidades distribuídas em 4 módulos contratáveis.
+            Mais de 120 funcionalidades distribuídas em 4 módulos contratáveis, todas usadas todo dia na nossa própria revenda.
           </p>
           <Link
             href="/planos"
@@ -95,7 +95,7 @@ export default function RecursosPage() {
                   Para revendas de gás
                 </h3>
                 <p className="text-[#475569] mb-4">
-                  Funcionalidades exclusivas para distribuição de gás GLP: vasilhames, carregamentos, acerto, máquinas 24h.
+                  Funcionalidades exclusivas para distribuição de gás GLP: vasilhames, carregamentos, acerto do entregador, escala e frota.
                 </p>
                 <div className="text-sm font-semibold text-[#0f172a] inline-flex items-center gap-1.5 group-hover:gap-2 transition-all">
                   Ver vertical completa <ArrowRight className="w-3.5 h-3.5" />

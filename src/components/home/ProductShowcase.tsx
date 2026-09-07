@@ -28,67 +28,67 @@ const FEATURES: Feature[] = [
     eyebrow: 'Atendimento 24/7',
     title: (
       <>
-        IA negocia e <em className="italic-accent">fecha pedidos</em> sozinha.
+        IA atende e <em className="italic-accent">fecha pedidos</em> sozinha.
       </>
     ),
     description:
-      'Sua inteligência artificial conversa com cada cliente no WhatsApp como um vendedor experiente — responde dúvidas, oferece descontos personalizados e lança o pedido direto no sistema. Tudo automático.',
+      'A inteligência artificial conversa com cada cliente no WhatsApp como um atendente experiente: responde dúvidas com as regras da sua revenda, monta o carrinho, confirma endereço e pagamento e lança o pedido direto no sistema.',
     bullets: [
-      'Negociação natural com o tom da sua revenda',
-      'Cria pedido direto sem precisar transferir pra humano',
-      <>Reduz fila de atendimento em <strong className="text-[#4a7818] font-bold">até 70%</strong></>,
+      'Atende no tom da sua revenda, com a sua base de conhecimento',
+      'Cria o pedido direto, sem precisar transferir pra humano',
+      'Transfere pra sua equipe quando o cliente pede ou o assunto foge do escopo',
     ],
     tag: 'Tech & IA',
     ctaLabel: 'Ver módulo Tech & IA',
     ctaHref: '/recursos/tech-ia',
-    imageSrc: '/screenshots/parceiros/ia-vendas-whatsapp.png',
-    imageAlt: 'IA de vendas negociando via WhatsApp',
-    imageW: 1184,
-    imageH: 880,
+    imageSrc: '/screenshots/04-conversa-whatsapp.png',
+    imageAlt: 'Central de atendimento do WhatsApp com a IA transferindo a conversa para um atendente',
+    imageW: 3200,
+    imageH: 2000,
   },
   {
-    eyebrow: 'Logística com IA',
+    eyebrow: 'Logística',
     title: (
       <>
-        Rotas que <em className="italic-accent">se otimizam</em> sozinhas.
+        Entregadores <em className="italic-accent">no mapa</em>, em tempo real.
       </>
     ),
     description:
-      'A IA distribui os pedidos pelos entregadores considerando trânsito em tempo real, distância, prioridades e capacidade de cada veículo. Menos km, mais entregas no mesmo turno.',
+      'Defina como os pedidos são distribuídos (por prazo ou pela melhor rota), acompanhe a posição de cada entregador no mapa e deixe o cliente ver o dele chegando. Áreas de atendimento, taxas e tipos de entrega configurados por unidade.',
     bullets: [
-      'Reduz tempo médio de entrega',
-      'Considera trânsito e prioridades automaticamente',
-      'Distribui carga proporcional por entregador',
+      'Distribuição de rotas por prazo ou melhor rota',
+      'Rastreamento GPS de todos os entregadores',
+      'Áreas de cobertura com taxa e prazo por região',
     ],
     tag: 'Vertical Gás',
     ctaLabel: 'Ver vertical de gás',
     ctaHref: '/recursos/revendas-de-gas',
-    imageSrc: '/screenshots/parceiros/distribuicao-rota.png',
-    imageAlt: 'Distribuição de rota com IA',
-    imageW: 1920,
-    imageH: 1080,
+    imageSrc: '/screenshots/erp/rastrear-entregadores.png',
+    imageAlt: 'Mapa de rastreamento de entregadores e unidades do PopGás Sistema',
+    imageW: 1600,
+    imageH: 1000,
   },
   {
     eyebrow: 'No bolso do entregador',
     title: (
       <>
-        App pro <em className="italic-accent">campo</em>, dashboard pra você.
+        App pro <em className="italic-accent">campo</em>, acerto pra você.
       </>
     ),
     description:
-      'O entregador faz tudo pelo celular: recebe pedidos, lança vendas direto ao cliente, acerta contas, vê a escala da semana e suas premiações. Você vê tudo em tempo real.',
+      'O entregador faz tudo pelo celular: confere o carregamento, recebe pedidos na rota, lança vendas na porta do cliente, registra despesas e fecha o acerto do dia. Você confere cada acerto no painel, com dinheiro, cartão, PIX e troco separados.',
     bullets: [
       'Carregamentos, transferências e acerto diário',
       'Lança pedido na porta do cliente',
-      'Escala de trabalho + ranking de premiações',
+      'Escala de trabalho, ausências e pontuação',
     ],
     tag: 'Essencial',
     ctaLabel: 'Ver módulo Essencial',
     ctaHref: '/recursos/essencial',
-    imageSrc: '/screenshots/parceiros/app-entregador.png',
-    imageAlt: 'App do entregador no celular',
-    imageW: 1920,
-    imageH: 1080,
+    imageSrc: '/screenshots/07-acerto-entregador.png',
+    imageAlt: 'Tela de acerto de contas dos entregadores no PopGás Sistema',
+    imageW: 3200,
+    imageH: 2000,
     videoId: 'rYeGom5f7oo',
     videoOrientation: 'portrait',
   },
@@ -96,69 +96,69 @@ const FEATURES: Feature[] = [
     eyebrow: 'Pedido self-service',
     title: (
       <>
-        App próprio com <em className="italic-accent">sua marca</em>.
+        App do cliente com <em className="italic-accent">sua marca</em>.
       </>
     ),
     description:
-      'Aplicativo web 100% personalizado com a identidade da sua revenda. Cliente faz pedido, acompanha entrega em tempo real e usa cupons de desconto — direto pelo navegador, sem precisar baixar nada.',
+      'Seu cliente faz o pedido sozinho, pelo app ou direto no navegador, sem instalar nada. Escolhe endereço, forma de pagamento e tipo de entrega, usa cupons e acompanha o entregador no mapa até a porta.',
     bullets: [
-      'Interface adaptada à sua marca',
-      'Cupons, promoções e descontos configuráveis',
-      'Cliente acompanha entrega em tempo real',
+      'Logo, cores e nome da sua revenda',
+      'Cupons, brindes e ofertas por horário',
+      'Cliente acompanha a entrega em tempo real',
     ],
     tag: 'Essencial',
     ctaLabel: 'Ver módulo Essencial',
     ctaHref: '/recursos/essencial',
-    imageSrc: '/screenshots/parceiros/app-web-cliente.png',
-    imageAlt: 'Aplicativo web do cliente',
-    imageW: 1920,
-    imageH: 1080,
+    imageSrc: '/screenshots/app-cliente-rastreamento.png',
+    imageAlt: 'App do cliente mostrando o entregador a caminho no mapa',
+    imageW: 450,
+    imageH: 800,
     videoId: 'ix-zV3e0An4',
     videoOrientation: 'landscape',
   },
   {
-    eyebrow: 'Central telefônica integrada',
+    eyebrow: 'Cliente sempre informado',
     title: (
       <>
-        PABX com <em className="italic-accent">IA que avalia</em> seu atendimento.
+        Avisos automáticos <em className="italic-accent">no WhatsApp</em>.
       </>
     ),
     description:
-      'Bina identifica o cliente assim que ele liga — atendente já vê histórico, endereço e pedidos anteriores. Cada chamada é gravada e a IA pontua a qualidade do atendimento automaticamente.',
+      'Pedido confirmado, pagamento recebido, saiu para entrega com link de rastreamento, entregador chegando, entregue e cancelado. Cada aviso usa um template aprovado pela Meta e você liga só os que quiser.',
     bullets: [
-      'Bina automática com histórico do cliente',
-      'Gravação + transcrição de chamadas',
-      <><strong className="text-[#4a7818] font-bold">Score de qualidade por IA</strong> em cada atendimento</>,
+      'Templates aprovados pela Meta, prontos pra usar',
+      'Link de rastreamento no "saiu para entrega"',
+      'Campanhas segmentadas pelo mesmo canal',
     ],
     tag: 'Tech & IA',
     ctaLabel: 'Ver módulo Tech & IA',
     ctaHref: '/recursos/tech-ia',
-    imageSrc: '/screenshots/parceiros/pabx-nuvem.png',
-    imageAlt: 'PABX em nuvem integrado',
-    imageW: 1472,
-    imageH: 704,
+    imageSrc: '/screenshots/erp/templates-whatsapp.png',
+    imageAlt: 'Templates de mensagens do WhatsApp cadastrados no PopGás Sistema',
+    imageW: 3200,
+    imageH: 2000,
   },
   {
     eyebrow: 'Controle total',
     title: (
       <>
-        +30 relatórios. <em className="italic-accent">Zero planilhas</em>.
+        +25 relatórios. <em className="italic-accent">Zero planilhas</em>.
       </>
     ),
     description:
-      'Dashboards de pedidos, clientes, contas a pagar e receber, mais de 30 relatórios cruzando estoque, financeiro, vendas e marketing. Você sabe exatamente o que está acontecendo, sem precisar exportar nada.',
+      'Dashboards de pedidos, clientes, contas a pagar e a receber, e mais de 25 relatórios cruzando estoque, financeiro, vendas e entregas. Você sabe exatamente o que está acontecendo, sem montar planilha.',
     bullets: [
-      'Dashboards em tempo real (web + mobile)',
-      'Estoque, vendas, financeiro, marketing',
-      'Exportação automática quando precisar',
+      'Dashboards de vendas, financeiro e atendimento',
+      'Estoque, faturamento, tempo de entrega, cancelamentos',
+      'Exportação para Excel quando precisar',
     ],
     tag: 'Gestão',
     ctaLabel: 'Ver módulo Gestão',
     ctaHref: '/recursos/gestao',
-    imageSrc: '/screenshots/parceiros/relatorios.png',
-    imageAlt: 'Relatórios e dashboards',
-    imageW: 1920,
-    imageH: 1080,
+    imageSrc: '/screenshots/erp/dashboard-contas-a-pagar.png',
+    imageAlt: 'Dashboard de contas a pagar do PopGás Sistema',
+    imageW: 3200,
+    imageH: 2000,
   },
 ];
 
@@ -186,15 +186,24 @@ export function ProductShowcase() {
 }
 
 function FeatureRow({ feature, reverse }: { feature: Feature; reverse: boolean }) {
+  const portrait = feature.imageH > feature.imageW;
   const imageBlock = (
-    <div className="relative w-full h-full rounded-2xl overflow-hidden border border-[rgba(15,19,34,0.08)] bg-white shadow-[0_24px_48px_-12px_rgba(15,19,34,0.14),0_4px_14px_rgba(15,19,34,0.06)]">
+    <div
+      className={`relative w-full h-full rounded-2xl overflow-hidden border border-[rgba(15,19,34,0.08)] shadow-[0_24px_48px_-12px_rgba(15,19,34,0.14),0_4px_14px_rgba(15,19,34,0.06)] ${
+        portrait ? 'bg-gradient-to-br from-[#f4f7ee] to-[#e6eedb] py-6 sm:py-8' : 'bg-white'
+      }`}
+    >
       <Image
         src={feature.imageSrc}
         alt={feature.imageAlt}
         width={feature.imageW}
         height={feature.imageH}
-        className="w-full h-auto block"
-        sizes="(min-width: 1024px) 540px, (min-width: 640px) 90vw, 100vw"
+        className={
+          portrait
+            ? 'block mx-auto w-auto h-[400px] sm:h-[480px] rounded-[22px] border-[6px] border-[#0a1322] shadow-[0_16px_40px_rgba(15,19,34,0.25)]'
+            : 'w-full h-auto block'
+        }
+        sizes={portrait ? '300px' : '(min-width: 1024px) 540px, (min-width: 640px) 90vw, 100vw'}
       />
       {feature.videoId && (
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">

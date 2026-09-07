@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { ArrowRight, Cylinder, Truck, Calculator, Monitor } from 'lucide-react';
+import { ArrowRight, Cylinder, Truck, Calculator, Navigation } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { Container } from '@/components/shared/Container';
 import { AnimatedReveal } from '@/components/shared/AnimatedReveal';
@@ -21,7 +21,7 @@ const FEATURES: Feature[] = [
   { icon: Cylinder, label: 'Gestão de vasilhames' },
   { icon: Truck, label: 'Carregamentos de veículos' },
   { icon: Calculator, label: 'Acerto do entregador' },
-  { icon: Monitor, label: 'Máquinas de autoatendimento 24h' },
+  { icon: Navigation, label: 'Rastreamento GPS dos entregadores' },
 ];
 
 export function VerticalGas() {
@@ -39,7 +39,7 @@ export function VerticalGas() {
                 Pensado pelo dono de revenda, <em className="italic-accent">para o dono</em> de revenda.
               </h2>
               <p className="text-[15px] sm:text-base md:text-[17px] text-[rgba(15,19,34,0.62)] leading-[1.5] tracking-[-0.005em] mb-7 sm:mb-8">
-                Funcionalidades exclusivas para distribuição de gás GLP. Vasilhames, carregamentos, acerto do entregador, máquinas 24h e app do entregador — tudo que sua operação precisa.
+                Funcionalidades exclusivas para distribuição de gás GLP. Vasilhames, carregamentos, acerto do entregador, rastreamento GPS e app do entregador — tudo que sua operação precisa.
               </p>
               <div className="flex flex-col gap-3 mb-8">
                 {FEATURES.map(f => (
@@ -88,7 +88,7 @@ function OperationalMockup() {
     <div className="bg-white border border-[rgba(15,19,34,0.08)] rounded-[20px] p-5 md:p-6 shadow-[0_30px_60px_-20px_rgba(15,19,34,0.10)]">
       <div className="flex items-center justify-between mb-4 pb-3.5 border-b border-[rgba(15,19,34,0.06)]">
         <div className="font-mono text-[11px] uppercase tracking-[1.5px] font-semibold text-[#4a7818]">
-          Operação · Hoje
+          Operação · Exemplo
         </div>
         <div className="flex items-center gap-1.5 font-mono text-[10px] text-[rgba(15,19,34,0.55)]">
           <span
@@ -96,7 +96,7 @@ function OperationalMockup() {
             style={{ boxShadow: '0 0 6px rgba(132,204,22,0.6)', animation: 'pulse-cyan 2s ease-in-out infinite' }}
             aria-hidden
           />
-          Ao vivo
+          Exemplo
         </div>
       </div>
       <div className="grid grid-cols-3 gap-2 mb-4">

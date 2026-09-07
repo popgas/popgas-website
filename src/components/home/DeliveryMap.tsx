@@ -34,13 +34,12 @@ export function DeliveryMap() {
         boxZoom: false,
         keyboard: false,
         touchZoom: false,
-        attributionControl: false,
+        attributionControl: true,
       }).setView(HUB, 13);
 
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-        subdomains: 'abcd',
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
-        attribution: '© OpenStreetMap, © CARTO',
+        attribution: '© OpenStreetMap contributors',
       }).addTo(map);
 
       const hubIcon = L.divIcon({

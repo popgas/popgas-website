@@ -1,9 +1,9 @@
 import { Container } from '@/components/shared/Container';
 
 const STATS = [
-  { num: '1', unit: 'M+', label: 'Pedidos' },
+  { num: '1', unit: 'M+', label: 'Pedidos na nossa operação' },
   { num: 'R$ 50', unit: 'M+', label: 'Transacionados' },
-  { num: '10', unit: 'K+', label: 'Clientes/mês' },
+  { num: '10', unit: 'K+', label: 'Clientes atendidos/mês' },
 ];
 
 export function Stats() {
@@ -14,7 +14,7 @@ export function Stats() {
           <div>
             <div className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[2px] text-[#4a7818] font-bold mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#64a028]" aria-hidden />
-              Em produção desde 2015
+              Na nossa própria revenda desde 2015
             </div>
             <h2 className="font-display text-[26px] sm:text-[30px] md:text-[32px] font-bold tracking-[-0.035em] leading-[1.1] text-[#0a1322]">
               Não é piloto, é <span className="italic-accent">produção real</span>.

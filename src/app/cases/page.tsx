@@ -7,6 +7,7 @@ import { ContactForm } from '@/components/shared/ContactForm';
 export const metadata: Metadata = {
   title: 'Cases de sucesso',
   description: 'Histórias de revendas que transformaram suas operações com o PopGás Sistema.',
+  robots: { index: false, follow: false },
 };
 
 export default function CasesPage() {

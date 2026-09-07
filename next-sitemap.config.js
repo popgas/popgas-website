@@ -5,7 +5,7 @@ module.exports = {
   generateRobotsTxt: true,
   changefreq: 'weekly',
   priority: 0.7,
-  exclude: ['/api/*'],
+  exclude: ['/api/*', '/cases'],
   robotsTxtOptions: {
     policies: [
       { userAgent: '*', allow: '/' },

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Instagram, Linkedin, Youtube } from 'lucide-react';
 import { Container } from '@/components/shared/Container';
-import { HELP_DOCS_URL, STATUS_URL } from '@/lib/pricing';
+import { HELP_DOCS_URL } from '@/lib/pricing';
 
 const COLUMNS = [
   {
@@ -12,7 +12,6 @@ const COLUMNS = [
       { label: 'Planos', href: '/planos', external: false },
       { label: 'Para revendas de gás', href: '/recursos/revendas-de-gas', external: false },
       { label: 'Integrações', href: '/recursos#integracoes', external: false },
-      { label: 'Status do sistema', href: STATUS_URL, external: true },
       { label: 'Novidades', href: '/blog', external: false },
     ],
   },
@@ -22,7 +21,6 @@ const COLUMNS = [
       { label: 'Sobre nós', href: '/sobre-nos', external: false },
       { label: 'Blog', href: '/blog', external: false },
       { label: 'Contato comercial', href: '/contato', external: false },
-      { label: 'Cases', href: '/cases', external: false },
     ],
   },
   {
@@ -31,7 +29,6 @@ const COLUMNS = [
       { label: 'Central de ajuda', href: HELP_DOCS_URL, external: true },
       { label: 'Falar com suporte', href: '/contato?tipo=suporte', external: false },
       { label: 'WhatsApp', href: 'https://wa.me/553432387777', external: true },
-      { label: 'Status & SLA', href: STATUS_URL, external: true },
     ],
   },
   {

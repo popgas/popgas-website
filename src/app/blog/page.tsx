@@ -82,14 +82,14 @@ const staticPosts = [
   },
 ];
 
-const allCategories = [
-  'Gestão',
-  'Tecnologia',
-  'Fiscal',
-  'Estratégia',
-  'Informativos',
-  'Promoções',
-];
+const HIDDEN_SLUGS = new Set([
+  'indique-ganhe-agora-e-renda-popgas',
+  'preco-do-gas-de-cozinha-vai-aumentar-r-5-00-setembro-2025',
+  'horario-de-funcionamento-dia-de-natal-25-12-2024',
+  'feliz-natal-e-um-prospero-ano-novo',
+  'preco-do-gas-de-cozinha-vai-aumentar-r-5-00-setembro-2024',
+  'promocao-dia-das-maes',
+]);
 
 const sidebarPages = [
   { title: 'Início', href: '/' },
@@ -135,6 +135,10 @@ export default async function BlogPage() {
     posts = staticPosts;
   }
 
+  // Posts do site antigo (voltados ao consumidor final) continuam acessíveis pela URL,
+  // mas não aparecem na listagem do site B2B.
+  posts = posts.filter(post => !HIDDEN_SLUGS.has(post.slug));
+
   const sortedPosts = [...posts].sort((a, b) => {
     if (a.sticky && !b.sticky) return -1;
     if (!a.sticky && b.sticky) return 1;
@@ -153,7 +157,7 @@ export default async function BlogPage() {
             Conteúdo para <em className="italic-accent">revendas</em>.
           </h1>
           <p className="text-base md:text-lg text-[rgba(15,19,34,0.62)] leading-[1.5] tracking-[-0.01em]">
-            Gestão, tecnologia, fiscal e estratégia — direto pra quem opera distribuidora de gás.
+            Gestão, tecnologia e fiscal para quem opera distribuidora de gás. Estamos começando: novos artigos em breve.
           </p>
         </Container>
       </section>
@@ -203,63 +207,14 @@ export default async function BlogPage() {
                 </article>
               ))}
 
-              <nav
-                className="flex items-center gap-1 pt-4"
-                aria-label="Paginação"
-              >
-                <span className="inline-flex h-9 min-w-9 px-3 items-center justify-center text-[13px] font-bold rounded-full bg-[#006085] text-white">
-                  1
-                </span>
-                {[2, 3].map(n => (
-                  <span
-                    key={n}
-                    className="inline-flex h-9 min-w-9 px-3 items-center justify-center text-[13px] cursor-pointer rounded-full border border-[rgba(15,19,34,0.10)] hover:border-[#64a028] hover:text-[#4a7818] text-[#0a1322] transition-colors"
-                  >
-                    {n}
-                  </span>
-                ))}
-                <span className="text-[13px] px-2 text-[rgba(15,19,34,0.40)]">…</span>
-                <span className="inline-flex h-9 min-w-9 px-3 items-center justify-center text-[13px] cursor-pointer rounded-full border border-[rgba(15,19,34,0.10)] hover:border-[#64a028] hover:text-[#4a7818] text-[#0a1322] transition-colors">
-                  14
-                </span>
-                <span className="inline-flex h-9 px-4 items-center justify-center text-[13px] cursor-pointer rounded-full border border-[rgba(15,19,34,0.10)] hover:border-[#64a028] hover:text-[#4a7818] text-[#0a1322] transition-colors ml-1">
-                  Próxima →
-                </span>
-              </nav>
+              {sortedPosts.length === 0 && (
+                <p className="text-[15px] text-[rgba(15,19,34,0.62)]">
+                  Estamos preparando os primeiros artigos. Enquanto isso, conheça os <Link href="/recursos" className="text-[#4a7818] font-semibold">recursos do sistema</Link>.
+                </p>
+              )}
             </main>
 
             <aside className="w-full lg:w-[280px] shrink-0">
-              <SidebarSection title="Pesquisar">
-                <form className="flex gap-2" role="search">
-                  <input
-                    type="text"
-                    placeholder="Pesquisar..."
-                    className="flex-1 border border-[rgba(15,19,34,0.14)] hover:border-[rgba(15,19,34,0.25)] rounded-[10px] px-3.5 py-2.5 text-[14px] outline-none focus:border-[#64a028] focus:ring-4 focus:ring-[rgba(132,160,40,0.12)] transition-all text-[#0a1322] placeholder:text-[rgba(15,19,34,0.40)]"
-                  />
-                  <button
-                    type="submit"
-                    className="px-4 py-2.5 text-[13px] font-bold text-white bg-[#006085] hover:bg-[#0095cc] rounded-[10px] transition-colors"
-                  >
-                    Buscar
-                  </button>
-                </form>
-              </SidebarSection>
-
-              <SidebarSection title="Categorias">
-                <ul className="list-none p-0 m-0">
-                  {allCategories.map(cat => (
-                    <li
-                      key={cat}
-                      className="border-b border-[rgba(15,19,34,0.06)] last:border-b-0"
-                    >
-                      <span className="block py-[7px] text-[14px] leading-[22px] cursor-pointer transition-colors text-[rgba(15,19,34,0.78)] hover:text-[#64a028]">
-                        {cat}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </SidebarSection>
-
               <SidebarSection title="Páginas">
                 <ul className="list-none p-0 m-0">
                   {sidebarPages.map(page => (

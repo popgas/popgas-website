@@ -17,6 +17,6 @@ describe('<Hero>', () => {
 
   it('renders social proof', () => {
     render(<Hero />);
-    expect(screen.getByText(/200\+/)).toBeInTheDocument();
+    expect(screen.getByText(/revenda real/)).toBeInTheDocument();
   });
 });

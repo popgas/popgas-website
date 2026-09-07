@@ -12,12 +12,6 @@ describe('<Footer>', () => {
     expect(screen.getByText(/10\.262\.307\/0001-14/)).toBeInTheDocument();
   });
 
-  it('links to status page', () => {
-    render(<Footer />);
-    const statusLinks = screen.getAllByRole('link', { name: /status/i });
-    expect(statusLinks[0]).toHaveAttribute('href', 'https://status.popgas.com.br');
-  });
-
   it('links to docs', () => {
     render(<Footer />);
     const docsLink = screen.getByRole('link', { name: /central de ajuda/i });

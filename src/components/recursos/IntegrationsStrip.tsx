@@ -4,16 +4,17 @@ import { SectionHeader } from '@/components/shared/SectionHeader';
 
 const INTEGRATIONS = [
   'SEFAZ',
-  'WhatsApp Business',
+  'Focus NFe',
+  'WhatsApp Business (Meta)',
+  'Meta Ads',
+  'Google Gemini',
+  'OpenRouter',
   'Google Maps',
+  'Mapbox',
+  'Efí',
   'Stripe',
-  'EFI Pagamentos',
-  'Firebase',
-  'OpenAI',
-  'Anthropic',
-  'Vonage',
+  'OneSignal',
   'CNPJA',
-  'Meta',
 ];
 
 export function IntegrationsStrip() {
