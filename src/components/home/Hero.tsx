@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Play } from 'lucide-react';
+import { Play, Flame, CalendarCheck, ShieldCheck } from 'lucide-react';
 import { Container } from '@/components/shared/Container';
 import { VideoModal } from '@/components/shared/VideoModal';
 import { buildSignupUrl } from '@/lib/pricing';
@@ -150,21 +150,19 @@ export function Hero() {
             </Link>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 items-center justify-center text-sm text-[rgba(15,19,34,0.62)]">
-            <div className="flex">
-              {['#fbbf24', '#fb7185', '#60a5fa', '#34d399'].map((c, i) => (
-                <div
-                  key={i}
-                  className="w-7 h-7 rounded-full border-2 border-[#fbfbfa]"
-                  style={{ background: c, marginLeft: i === 0 ? 0 : -8 }}
-                />
-              ))}
-            </div>
-            <span className="text-[#fbbf24] tracking-[1px] text-xs">★★★★★</span>
-            <span>
-              Nascido em uma <strong className="text-[#0a1322] font-bold">revenda real</strong>, em operação desde 2015
-            </span>
-          </div>
+          {/* fatos verificáveis no lugar de prova social genérica (estrelas/avatares sem fonte) */}
+          <ul className="flex flex-col sm:flex-row flex-wrap gap-x-7 gap-y-2 items-center justify-center text-[14px] text-[#475569] list-none p-0 m-0">
+            {[
+              { icon: Flame, text: <>Nascido em uma <strong className="text-[#0f172a] font-semibold">revenda real</strong>, em operação desde 2015</> },
+              { icon: CalendarCheck, text: <><strong className="text-[#0f172a] font-semibold">14 dias grátis</strong>, sem cartão</> },
+              { icon: ShieldCheck, text: <>Sem fidelidade, <strong className="text-[#0f172a] font-semibold">cancele quando quiser</strong></> },
+            ].map((item, i) => (
+              <li key={i} className="inline-flex items-center gap-2">
+                <item.icon className="w-4 h-4 text-[#15803d]" strokeWidth={2} aria-hidden />
+                <span>{item.text}</span>
+              </li>
+            ))}
+          </ul>
 
           <div className="relative mt-12 sm:mt-16 max-w-[1100px] mx-auto">
             <div
