@@ -51,7 +51,7 @@ export function ScreenshotLightbox({ src, alt, portrait = false, children, class
               src={src}
               alt={alt}
               width={portrait ? 450 : 1600}
-              height={portrait ? 800 : 1000}
+              height={portrait ? 921 : 1000}
               className={portrait ? 'block w-auto h-[86vh]' : 'block w-full h-auto max-h-[86vh] object-contain'}
               sizes={portrait ? '480px' : '96vw'}
             />

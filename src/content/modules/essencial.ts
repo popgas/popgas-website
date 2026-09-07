@@ -75,7 +75,7 @@ export const essencialContent: ModuleContent = {
       title: 'App do cliente',
       intro:
         'Seu cliente pede sozinho, pelo app ou pelo navegador, e acompanha o entregador no mapa. Tudo com a marca da sua revenda.',
-      screenshotPath: '/screenshots/app-cliente-rastreamento.png',
+      screenshotPath: '/screenshots/app-cliente-rastreamento-full.png',
       screenshotAlt: 'App do cliente mostrando o entregador a caminho no mapa',
       screenshotPortrait: true,
       features: [
@@ -92,7 +92,7 @@ export const essencialContent: ModuleContent = {
           title: 'Rastreamento em tempo real',
           description:
             'Assim que o entregador sai, o cliente vê a posição dele no mapa e uma linha do tempo com cada etapa do pedido. Você acompanha todos os entregadores ao vivo no painel.',
-          screenshotPath: '/screenshots/app-cliente-rastreamento.png',
+          screenshotPath: '/screenshots/app-cliente-rastreamento-full.png',
           screenshotPortrait: true,
           icon: 'map-pin',
         },

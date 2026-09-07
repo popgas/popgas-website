@@ -20,7 +20,7 @@ function PhoneFrame({ src, alt, size = 'lg' }: { src: string; alt: string; size?
         src={src}
         alt={alt}
         width={450}
-        height={800}
+        height={921}
         className={`block w-auto ${h} ${frame} border-[#0f172a] shadow-[0_16px_40px_rgba(15,23,42,0.25)]`}
         sizes={size === 'lg' ? '300px' : '120px'}
       />

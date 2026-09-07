@@ -85,7 +85,7 @@ export default async function FeaturePage({ params }: { params: Promise<Params> 
                   <ScreenshotLightbox src={shot} alt={`${f.title} no PopGás Sistema`} portrait={portrait}>
                     {portrait ? (
                       <div className="flex items-center justify-center bg-gradient-to-br from-[#f1f5f9] to-[#e2e8f0] py-10">
-                        <Image src={shot} alt={`${f.title} no PopGás Sistema`} width={450} height={800} className="block w-auto h-[520px] rounded-[26px] border-[7px] border-[#0f172a] shadow-[0_16px_40px_rgba(15,23,42,0.25)]" sizes="300px" />
+                        <Image src={shot} alt={`${f.title} no PopGás Sistema`} width={450} height={921} className="block w-auto h-[520px] rounded-[26px] border-[7px] border-[#0f172a] shadow-[0_16px_40px_rgba(15,23,42,0.25)]" sizes="300px" />
                       </div>
                     ) : (
                       <Image src={shot} alt={`${f.title} no PopGás Sistema`} width={1600} height={1000} className="block w-full h-auto" sizes="(min-width: 1024px) 860px, 100vw" />
