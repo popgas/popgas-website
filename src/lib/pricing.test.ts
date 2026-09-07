@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   MODULES,
   ANNUAL_DISCOUNT,
@@ -7,6 +7,23 @@ import {
   buildSignupUrl,
   PROFILE_PRESETS,
 } from './pricing';
+
+afterEach(() => {
+  delete process.env.NEXT_PUBLIC_ERP_URL;
+  vi.resetModules();
+});
+
+describe('pricing ERP URLs', () => {
+  it('uses NEXT_PUBLIC_ERP_URL for signup and login links', async () => {
+    process.env.NEXT_PUBLIC_ERP_URL = 'http://localhost:5173';
+    vi.resetModules();
+
+    const { LOGIN_URL, SIGNUP_URL } = await import('./pricing');
+
+    expect(SIGNUP_URL).toBe('http://localhost:5173/signup');
+    expect(LOGIN_URL).toBe('http://localhost:5173/login');
+  });
+});
 
 describe('pricing.calculateTotal', () => {
   it('returns base price when only essencial selected', () => {

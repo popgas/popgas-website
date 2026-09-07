@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  output: 'standalone',
   async redirects() {
     return [
       { source: '/area-de-atendimento', destination: '/', permanent: true },
