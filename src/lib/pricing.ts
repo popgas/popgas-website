@@ -58,7 +58,7 @@ export const MODULES: Record<ModuleId, ModuleDefinition> = {
 
 export const ANNUAL_DISCOUNT = 0.20;
 export const TRIAL_DAYS = 14;
-const ERP_URL = process.env.NEXT_PUBLIC_ERP_URL ?? 'https://erp.popgas.com.br';
+const ERP_URL = process.env.NEXT_PUBLIC_ERP_URL || 'https://erp.popgas.com.br';
 export const SIGNUP_URL = `${ERP_URL}/signup`;
 export const LOGIN_URL = `${ERP_URL}/login`;
 export const HELP_DOCS_URL = 'https://erp.popgas.com.br/docs';

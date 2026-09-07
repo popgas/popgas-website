@@ -14,6 +14,25 @@ afterEach(() => {
 });
 
 describe('pricing ERP URLs', () => {
+  it('uses the legacy ERP origin when NEXT_PUBLIC_ERP_URL is absent', async () => {
+    vi.resetModules();
+
+    const { LOGIN_URL, SIGNUP_URL } = await import('./pricing');
+
+    expect(SIGNUP_URL).toBe('https://erp.popgas.com.br/signup');
+    expect(LOGIN_URL).toBe('https://erp.popgas.com.br/login');
+  });
+
+  it('uses the legacy ERP origin when NEXT_PUBLIC_ERP_URL is empty', async () => {
+    process.env.NEXT_PUBLIC_ERP_URL = '';
+    vi.resetModules();
+
+    const { LOGIN_URL, SIGNUP_URL } = await import('./pricing');
+
+    expect(SIGNUP_URL).toBe('https://erp.popgas.com.br/signup');
+    expect(LOGIN_URL).toBe('https://erp.popgas.com.br/login');
+  });
+
   it('uses NEXT_PUBLIC_ERP_URL for signup and login links', async () => {
     process.env.NEXT_PUBLIC_ERP_URL = 'http://localhost:5173';
     vi.resetModules();
