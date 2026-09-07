@@ -1,11 +1,15 @@
-import { defineConfig, env } from "prisma/config";
+const databaseUrl = process.env.DATABASE_URL;
 
-export default defineConfig({
+if (!databaseUrl) {
+  throw new Error("DATABASE_URL is required for E2E migrations");
+}
+
+export default {
   schema: "prisma/e2e/schema.prisma",
   migrations: {
     path: "prisma/e2e/migrations",
   },
   datasource: {
-    url: env("DATABASE_URL"),
+    url: databaseUrl,
   },
-});
+};

@@ -39,11 +39,12 @@ RUN apt-get update \
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-COPY --from=builder --chown=nextjs:nodejs /app/prisma/e2e/node_modules ./node_modules
-COPY --from=builder --chown=nextjs:nodejs /app/prisma/e2e/package.json /app/prisma/e2e/package-lock.json ./
+COPY --from=builder --chown=nextjs:nodejs /app/prisma/e2e/node_modules /opt/prisma-cli/node_modules
+COPY --from=builder --chown=nextjs:nodejs /app/prisma/e2e/package.json /app/prisma/e2e/package-lock.json /opt/prisma-cli/
 COPY --from=builder --chown=nextjs:nodejs /app/prisma/e2e/schema.prisma ./prisma/e2e/schema.prisma
 COPY --from=builder --chown=nextjs:nodejs /app/prisma/e2e/migrations ./prisma/e2e/migrations
 COPY --from=builder --chown=nextjs:nodejs /app/prisma/e2e/runtime.config.ts ./prisma.config.ts
+RUN ln -s /opt/prisma-cli/node_modules/.bin/prisma /usr/local/bin/prisma
 
 USER nextjs
 

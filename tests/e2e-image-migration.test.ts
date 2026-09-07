@@ -81,6 +81,30 @@ test('applies the isolated E2E migration offline twice to a fresh PostgreSQL dat
     '.',
   ], { stdio: 'pipe' });
 
+  const applicationRuntime = JSON.parse(execFileSync('docker', [
+    'run',
+    '--rm',
+    image,
+    'node',
+    '-e',
+    `const fs = require('node:fs');
+const manifest = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+const version = (name) => JSON.parse(fs.readFileSync(\`node_modules/\${name}/package.json\`, 'utf8')).version;
+console.log(JSON.stringify({
+  packageName: manifest.name,
+  react: version('react'),
+  reactDom: version('react-dom'),
+  prismaInApplicationRuntime: fs.existsSync('node_modules/prisma'),
+}));`,
+  ], { encoding: 'utf8' }));
+
+  expect(applicationRuntime).toEqual({
+    packageName: 'popgas-site',
+    react: '19.2.3',
+    reactDom: '19.2.3',
+    prismaInApplicationRuntime: false,
+  });
+
   migrate();
   migrate();
 
