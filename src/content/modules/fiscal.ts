@@ -9,16 +9,16 @@ export const fiscalContent: ModuleContent = {
     subtitle:
       'NF-e, NFC-e, NFS-e, CT-e e MDF-e emitidos de dentro do sistema, homologados junto à SEFAZ, com impostos calculados automaticamente e o SPED pronto para o contador.',
   },
-  screenshotPath: '/screenshots/05-nfe-emissao-modal.png',
-  screenshotAlt: 'Tela de emissão de nota fiscal do PopGás Sistema',
+  screenshotPath: '/screenshots/05-nfe-ficha.png',
+  screenshotAlt: 'Ficha de uma NF-e autorizada no PopGás Sistema',
   sections: [
     {
       id: 'emissao',
       title: 'Emissão de documentos',
       intro:
         'Todos os documentos fiscais que uma revenda de gás precisa, emitidos a partir do pedido, da compra ou do zero.',
-      screenshotPath: '/screenshots/05-nfe-emissao-modal.png',
-      screenshotAlt: 'Assistente de emissão de nota fiscal com escolha entre NFC-e e NF-e',
+      screenshotPath: '/screenshots/05-nfe-ficha.png',
+      screenshotAlt: 'NF-e autorizada com dados gerais, destinatário e itens',
       features: [
         {
           id: 'nfe-e-nfce',
