@@ -10,6 +10,8 @@ export interface FeatureItem {
   screenshotPath?: string;
   /** Imagem em retrato (tela de celular): renderiza em moldura de smartphone. */
   screenshotPortrait?: boolean;
+  /** Foto real (o aparelho já aparece na imagem): sem moldura desenhada. */
+  screenshotPhoto?: boolean;
   /** Quando a "casa" da funcionalidade é outro módulo, aponta pra lá em vez de duplicar. */
   link?: { href: string; label: string };
 }
@@ -23,6 +25,8 @@ export interface ModuleSection {
   screenshotAlt?: string;
   /** Imagem em retrato (tela de celular): renderiza em moldura de smartphone. */
   screenshotPortrait?: boolean;
+  /** Foto real (o aparelho já aparece na imagem): sem moldura desenhada. */
+  screenshotPhoto?: boolean;
   features: FeatureItem[];
 }
 

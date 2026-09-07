@@ -11,17 +11,19 @@ import { ScreenshotLightbox } from '@/components/recursos/ScreenshotLightbox';
 import type { FeatureItem, ModuleContent } from '@/content/modules/types';
 
 /** Moldura de smartphone para telas em retrato (app do cliente / entregador). */
-function PhoneFrame({ src, alt, size = 'lg' }: { src: string; alt: string; size?: 'lg' | 'sm' }) {
+function PhoneFrame({ src, alt, size = 'lg', photo = false }: { src: string; alt: string; size?: 'lg' | 'sm'; photo?: boolean }) {
   const h = size === 'lg' ? 'h-[420px] sm:h-[520px]' : 'h-[210px]';
-  const frame = size === 'lg' ? 'rounded-[26px] border-[7px]' : 'rounded-[14px] border-[4px]';
+  const frame = photo
+    ? (size === 'lg' ? 'rounded-2xl' : 'rounded-lg')
+    : (size === 'lg' ? 'rounded-[26px] border-[7px]' : 'rounded-[14px] border-[4px]');
   return (
     <div className={`flex items-center justify-center bg-gradient-to-br from-[#f1f5f9] to-[#e2e8f0] ${size === 'lg' ? 'py-8 sm:py-10' : 'py-4'}`}>
       <Image
         src={src}
         alt={alt}
-        width={450}
-        height={921}
-        className={`block w-auto ${h} ${frame} border-[#0f172a] shadow-[0_16px_40px_rgba(15,23,42,0.25)]`}
+        width={photo ? 621 : 450}
+        height={photo ? 1104 : 921}
+        className={`block w-auto ${h} ${frame} ${photo ? 'shadow-[0_12px_32px_rgba(15,23,42,0.18)]' : 'border-[#0f172a] shadow-[0_16px_40px_rgba(15,23,42,0.25)]'}`}
         sizes={size === 'lg' ? '300px' : '120px'}
       />
     </div>
@@ -65,7 +67,7 @@ export function ModuleSections({ content }: { content: ModuleContent }) {
                     <div className="mb-8 rounded-2xl overflow-hidden border border-[#e2e8f0] bg-white shadow-[0_24px_48px_-12px_rgba(15,23,42,0.14),0_4px_14px_rgba(15,23,42,0.06)]">
                       <ScreenshotLightbox src={section.screenshotPath} alt={section.screenshotAlt ?? section.title} portrait={section.screenshotPortrait}>
                         {section.screenshotPortrait ? (
-                          <PhoneFrame src={section.screenshotPath} alt={section.screenshotAlt ?? section.title} />
+                          <PhoneFrame src={section.screenshotPath} alt={section.screenshotAlt ?? section.title} photo={section.screenshotPhoto} />
                         ) : (
                           <Image
                             src={section.screenshotPath}
@@ -110,7 +112,7 @@ export function FeatureCard({ feature, href }: { feature: FeatureItem; href: str
       {feature.screenshotPath && (
         <div className="relative border-b border-[#eef2f7] bg-[#f8fafc]">
           {feature.screenshotPortrait ? (
-            <PhoneFrame src={feature.screenshotPath} alt={feature.title} size="sm" />
+            <PhoneFrame src={feature.screenshotPath} alt={feature.title} size="sm" photo={feature.screenshotPhoto} />
           ) : (
             <div className="aspect-[16/10] overflow-hidden">
               <Image

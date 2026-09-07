@@ -21,6 +21,8 @@ interface Feature {
   imageH: number;
   videoId?: string;
   videoOrientation?: 'landscape' | 'portrait';
+  /** Foto real com o aparelho na imagem: sem moldura desenhada. */
+  imagePhoto?: boolean;
 }
 
 const FEATURES: Feature[] = [
@@ -133,10 +135,11 @@ const FEATURES: Feature[] = [
     tag: 'Tech & IA',
     ctaLabel: 'Ver módulo Tech & IA',
     ctaHref: '/recursos/tech-ia',
-    imageSrc: '/screenshots/erp/templates-whatsapp.png',
-    imageAlt: 'Templates de mensagens do WhatsApp cadastrados no PopGás Sistema',
-    imageW: 3200,
-    imageH: 2000,
+    imageSrc: '/screenshots/whatsapp-notificacoes-foto.png',
+    imageAlt: 'Celular do cliente recebendo as notificações do pedido no WhatsApp',
+    imageW: 621,
+    imageH: 1104,
+    imagePhoto: true,
   },
   {
     eyebrow: 'Controle total',
@@ -200,7 +203,9 @@ function FeatureRow({ feature, reverse }: { feature: Feature; reverse: boolean }
         height={feature.imageH}
         className={
           portrait
-            ? 'block mx-auto w-auto h-[400px] sm:h-[480px] rounded-[22px] border-[6px] border-[#0a1322] shadow-[0_16px_40px_rgba(15,19,34,0.25)]'
+            ? feature.imagePhoto
+              ? 'block mx-auto w-auto h-[400px] sm:h-[480px] rounded-2xl shadow-[0_12px_32px_rgba(15,19,34,0.18)]'
+              : 'block mx-auto w-auto h-[400px] sm:h-[480px] rounded-[22px] border-[6px] border-[#0a1322] shadow-[0_16px_40px_rgba(15,19,34,0.25)]'
             : 'w-full h-auto block'
         }
         sizes={portrait ? '300px' : '(min-width: 1024px) 540px, (min-width: 640px) 90vw, 100vw'}

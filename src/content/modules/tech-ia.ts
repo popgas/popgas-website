@@ -93,15 +93,19 @@ export const techIaContent: ModuleContent = {
       title: 'Notificações e campanhas',
       intro:
         'O mesmo número avisa o cliente sobre cada etapa do pedido e leva promoções para quem parou de comprar.',
-      screenshotPath: '/screenshots/erp/templates-whatsapp.png',
-      screenshotAlt: 'Templates de mensagens do WhatsApp aprovados pela Meta',
+      screenshotPath: '/screenshots/whatsapp-notificacoes-foto.png',
+      screenshotAlt: 'Celular do cliente com as notificações da revenda no WhatsApp: pedido confirmado, pagamento recebido, saiu para entrega, entregador próximo e entregue',
+      screenshotPortrait: true,
+      screenshotPhoto: true,
       features: [
         {
           id: 'notificacoes-de-pedido',
           title: 'Notificações automáticas de pedido',
           description:
             'Pedido confirmado, pagamento recebido, saiu para entrega com link de rastreamento, entregador chegando, entregue e cancelado. Cada mensagem usa um template aprovado pela Meta e você liga só as que quiser.',
-          screenshotPath: '/screenshots/features/notificacoes-de-pedido.png',
+          screenshotPath: '/screenshots/whatsapp-notificacoes-foto.png',
+          screenshotPortrait: true,
+          screenshotPhoto: true,
           icon: 'bell',
         },
         {

@@ -44,6 +44,7 @@ export default async function FeaturePage({ params }: { params: Promise<Params> 
   const price = moduleDef ? `${moduleDef.isBase ? '' : '+ '}R$ ${moduleDef.monthlyPrice.toFixed(2).replace('.', ',')}/mês` : 'Incluída em todos os planos';
   const shot = f.screenshotPath ?? section.screenshotPath;
   const portrait = f.screenshotPath ? !!f.screenshotPortrait : !!section.screenshotPortrait;
+  const photo = f.screenshotPath ? !!f.screenshotPhoto : !!section.screenshotPhoto;
   const siblings = section.features.filter(x => x.id !== f.id);
   const signupModules: ModuleId[] = content.moduleKey === 'gas-vertical' ? ['essencial'] : [content.moduleKey];
   const signupUrl = buildSignupUrl({ modules: signupModules, utmCampaign: `feature_${f.id}` });
@@ -85,7 +86,7 @@ export default async function FeaturePage({ params }: { params: Promise<Params> 
                   <ScreenshotLightbox src={shot} alt={`${f.title} no PopGás Sistema`} portrait={portrait}>
                     {portrait ? (
                       <div className="flex items-center justify-center bg-gradient-to-br from-[#f1f5f9] to-[#e2e8f0] py-10">
-                        <Image src={shot} alt={`${f.title} no PopGás Sistema`} width={450} height={921} className="block w-auto h-[520px] rounded-[26px] border-[7px] border-[#0f172a] shadow-[0_16px_40px_rgba(15,23,42,0.25)]" sizes="300px" />
+                        <Image src={shot} alt={`${f.title} no PopGás Sistema`} width={photo ? 621 : 450} height={photo ? 1104 : 921} className={photo ? 'block w-auto h-[520px] rounded-2xl shadow-[0_12px_32px_rgba(15,23,42,0.18)]' : 'block w-auto h-[520px] rounded-[26px] border-[7px] border-[#0f172a] shadow-[0_16px_40px_rgba(15,23,42,0.25)]'} sizes="300px" />
                       </div>
                     ) : (
                       <Image src={shot} alt={`${f.title} no PopGás Sistema`} width={1600} height={1000} className="block w-full h-auto" sizes="(min-width: 1024px) 860px, 100vw" />
