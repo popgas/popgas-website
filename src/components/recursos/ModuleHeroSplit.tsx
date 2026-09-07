@@ -17,7 +17,7 @@ interface Props {
 
 export function ModuleHeroSplit({
   content,
-  ctaText = 'Adicionar à minha calculadora →',
+  ctaText = 'Ver planos e preços',
   ctaHref,
   reversed = false,
   isPremium = false,

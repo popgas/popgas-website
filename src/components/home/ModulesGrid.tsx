@@ -32,7 +32,7 @@ export function ModulesGrid() {
                 Plataforma completa · 4 módulos
               </div>
               <div className="font-mono text-[10px] tracking-[1px] text-[rgba(15,19,34,0.5)]">
-                Selecione e veja o total →
+                Todos os módulos juntos
               </div>
             </div>
 

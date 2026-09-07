@@ -49,7 +49,7 @@ export default function SobreNosPage() {
             Uberlândia – MG · CEP 38408-262
           </p>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d-48!2d-18.91!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0!2zMTjCsDU0JzM2LjAiUyA0OMKwMTUnMDAuMCJX"
+            src="https://www.google.com/maps?q=R.+Jo%C3%A3o+Balbino,+749,+Santa+M%C3%B4nica,+Uberl%C3%A2ndia+-+MG&output=embed"
             width="100%"
             height="320"
             style={{ border: 0, borderRadius: 16 }}

@@ -89,6 +89,7 @@ const HIDDEN_SLUGS = new Set([
   'feliz-natal-e-um-prospero-ano-novo',
   'preco-do-gas-de-cozinha-vai-aumentar-r-5-00-setembro-2024',
   'promocao-dia-das-maes',
+  'como-deletar-minha-conta-no-aplicativo',
 ]);
 
 const sidebarPages = [

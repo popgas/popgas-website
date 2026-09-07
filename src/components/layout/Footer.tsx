@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Instagram, Linkedin, Youtube } from 'lucide-react';
+import { Instagram, Youtube } from 'lucide-react';
 import { Container } from '@/components/shared/Container';
 import { HELP_DOCS_URL } from '@/lib/pricing';
 
@@ -18,7 +18,6 @@ const COLUMNS = [
     title: 'Empresa',
     items: [
       { label: 'Sobre nós', href: '/sobre-nos', external: false },
-      { label: 'Blog', href: '/blog', external: false },
       { label: 'Contato comercial', href: '/contato', external: false },
     ],
   },
@@ -85,16 +84,7 @@ export function Footer() {
               <Instagram className="w-4 h-4" />
             </a>
             <a
-              href="https://linkedin.com/company/popgas"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="w-9 h-9 rounded-full border border-[#e2e8f0] hover:border-[#0f172a] flex items-center justify-center text-[#475569] hover:text-[#0f172a] transition-colors"
-            >
-              <Linkedin className="w-4 h-4" />
-            </a>
-            <a
-              href="https://youtube.com/@popgas"
+              href="https://www.youtube.com/@popgas_IA"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube"

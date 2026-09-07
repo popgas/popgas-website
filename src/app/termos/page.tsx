@@ -17,8 +17,7 @@ export default function TermosPage() {
         <p className="text-sm text-[#94a3b8] mb-8">Última atualização: 9 de maio de 2026</p>
         <div className="space-y-6 text-[#475569] leading-relaxed text-[15px]">
           <p>
-            <strong>Em revisão jurídica.</strong> Esta versão é um placeholder e será substituída pelo contrato final
-            antes do lançamento público. Em caso de dúvidas, entre em contato pelo e-mail <a href="mailto:juridico@popgas.com.br" className="text-[#06b6d4]">juridico@popgas.com.br</a>.
+            Versão resumida dos termos. Em caso de dúvidas, entre em contato pelo e-mail <a href="mailto:juridico@popgas.com.br" className="text-[#06b6d4]">juridico@popgas.com.br</a>.
           </p>
           <h2 className="text-xl font-bold text-[#0f172a]">1. Aceite dos termos</h2>
           <p>Ao contratar o PopGás Sistema, você (ou a empresa que representa) concorda com estes termos.</p>

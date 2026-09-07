@@ -95,7 +95,6 @@ export function Header() {
             </Link>
           </div>
           <Link href="/planos" className="hover:text-[#0a1322] transition-colors">Planos</Link>
-          <Link href="/blog" className="hover:text-[#0a1322] transition-colors">Blog</Link>
           <Link href="/contato" className="hover:text-[#0a1322] transition-colors">Contato</Link>
         </nav>
 
@@ -168,14 +167,6 @@ export function Header() {
                 className="flex items-center justify-between px-3 py-3.5 text-[15px] font-semibold text-[#0a1322] border-b border-[rgba(15,19,34,0.06)] hover:bg-[rgba(15,19,34,0.02)] transition-colors"
               >
                 Planos
-                <span className="text-[rgba(15,19,34,0.30)]" aria-hidden>→</span>
-              </Link>
-              <Link
-                href="/blog"
-                onClick={() => setMobileOpen(false)}
-                className="flex items-center justify-between px-3 py-3.5 text-[15px] font-semibold text-[#0a1322] border-b border-[rgba(15,19,34,0.06)] hover:bg-[rgba(15,19,34,0.02)] transition-colors"
-              >
-                Blog
                 <span className="text-[rgba(15,19,34,0.30)]" aria-hidden>→</span>
               </Link>
               <Link

@@ -141,8 +141,8 @@ export function FeatureComparisonTable() {
           </div>
         </div>
         <p className="text-xs text-[rgba(15,19,34,0.55)] text-center mt-6 max-w-[680px] mx-auto leading-relaxed">
-          Limites por plano: 1 CNPJ + 1 WhatsApp inclusos · 300 NF-e/mês · 500 conversas IA/mês.
-          Acima dos limites, cobramos um valor por unidade extra (sem bloqueio).
+          Cada plano inclui 1 CNPJ e 1 número de WhatsApp, além de uma franquia mensal de documentos fiscais e de conversas atendidas pela IA.
+          Precisa de mais? Amplie pelo painel ou fale com a gente.
         </p>
       </Container>
     </section>

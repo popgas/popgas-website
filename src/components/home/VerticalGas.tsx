@@ -53,12 +53,6 @@ export function VerticalGas() {
                 >
                   Ver vertical completa <ArrowRight className="w-4 h-4" />
                 </Link>
-                <Link
-                  href="/recursos"
-                  className="inline-flex items-center gap-1.5 px-4 py-3 text-[rgba(15,19,34,0.7)] hover:text-[#0a1322] font-semibold text-sm transition-colors"
-                >
-                  Outros segmentos →
-                </Link>
               </div>
             </div>
           </AnimatedReveal>
