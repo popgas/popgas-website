@@ -12,7 +12,6 @@ const COLUMNS = [
       { label: 'Planos', href: '/planos', external: false },
       { label: 'Para revendas de gás', href: '/recursos/revendas-de-gas', external: false },
       { label: 'Integrações', href: '/recursos#integracoes', external: false },
-      { label: 'Novidades', href: '/blog', external: false },
     ],
   },
   {

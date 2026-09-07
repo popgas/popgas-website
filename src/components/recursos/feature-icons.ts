@@ -1,4 +1,4 @@
-// src/components/recursos/FeatureList.tsx
+// src/components/recursos/feature-icons.ts
 import type { LucideIcon } from 'lucide-react';
 import {
   Activity,
@@ -53,10 +53,6 @@ import {
   Workflow,
   Wrench,
 } from 'lucide-react';
-import { Container } from '@/components/shared/Container';
-import { SectionHeader } from '@/components/shared/SectionHeader';
-import { AnimatedReveal } from '@/components/shared/AnimatedReveal';
-import type { FeatureItem } from '@/content/modules/types';
 
 const ICONS: Record<string, LucideIcon> = {
   activity: Activity,
@@ -112,47 +108,7 @@ const ICONS: Record<string, LucideIcon> = {
   wrench: Wrench,
 };
 
-function getIcon(name?: string): LucideIcon {
+export function getIcon(name?: string): LucideIcon {
   if (!name) return Check;
   return ICONS[name] ?? Check;
-}
-
-interface Props {
-  features: FeatureItem[];
-  title?: string;
-  eyebrow?: string;
-}
-
-export function FeatureList({
-  features,
-  title = 'Tudo o que está incluído',
-  eyebrow = 'Funcionalidades',
-}: Props) {
-  return (
-    <section className="py-16 md:py-24">
-      <Container>
-        <SectionHeader eyebrow={eyebrow} title={title} />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {features.map((f, i) => {
-            const Icon = getIcon(f.icon);
-            return (
-              <AnimatedReveal key={i} delay={i * 0.04}>
-                <div className="h-full p-6 bg-white border border-[rgba(15,19,34,0.06)] rounded-2xl hover:border-[rgba(132,160,40,0.30)] hover:shadow-[0_4px_14px_rgba(132,160,40,0.10)] transition-all">
-                  <div className="w-10 h-10 rounded-lg bg-[rgba(132,160,40,0.10)] text-[#4a7818] flex items-center justify-center mb-4">
-                    <Icon className="w-5 h-5" strokeWidth={2} />
-                  </div>
-                  <h3 className="font-display font-bold text-[#0a1322] mb-2 text-base tracking-[-0.015em]">
-                    {f.title}
-                  </h3>
-                  <p className="text-sm text-[rgba(15,19,34,0.62)] leading-[1.55] tracking-[-0.005em]">
-                    {f.description}
-                  </p>
-                </div>
-              </AnimatedReveal>
-            );
-          })}
-        </div>
-      </Container>
-    </section>
-  );
 }

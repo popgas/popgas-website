@@ -3,7 +3,8 @@ export { gestaoContent } from './gestao';
 export { fiscalContent } from './fiscal';
 export { techIaContent } from './tech-ia';
 export { revendasDeGasContent } from './revendas-de-gas';
-export type { ModuleContent, FeatureItem } from './types';
+export type { ModuleContent, ModuleSection, FeatureItem } from './types';
+export { allFeatures } from './types';
 
 import { essencialContent } from './essencial';
 import { gestaoContent } from './gestao';

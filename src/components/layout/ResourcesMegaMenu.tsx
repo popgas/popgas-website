@@ -2,91 +2,12 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import type { LucideIcon } from 'lucide-react';
-import {
-  ArrowUpDown,
-  BarChart3,
-  Bell,
-  BookOpen,
-  Building2,
-  Calculator,
-  Calendar,
-  Check,
-  CheckCircle,
-  CheckSquare,
-  ClipboardCheck,
-  ClipboardList,
-  CreditCard,
-  Database,
-  Download,
-  Edit,
-  FileText,
-  Gift,
-  Globe,
-  History,
-  Inbox,
-  LayoutGrid,
-  ListOrdered,
-  MapPin,
-  MessageCircle,
-  MessageSquare,
-  MessageSquareText,
-  Package,
-  Percent,
-  Phone,
-  Sparkles,
-  Star,
-  Truck,
-  UserCheck,
-  Users,
-  Wallet,
-  Workflow,
-} from 'lucide-react';
+
 import { cn } from '@/lib/utils';
 import { RESOURCES_TABS } from './resources-menu-data';
+import { getIcon } from '@/components/recursos/feature-icons';
 
-const ICONS: Record<string, LucideIcon> = {
-  'arrow-up-down': ArrowUpDown,
-  'bar-chart-3': BarChart3,
-  bell: Bell,
-  'book-open': BookOpen,
-  'building-2': Building2,
-  calculator: Calculator,
-  calendar: Calendar,
-  'check-circle': CheckCircle,
-  'check-square': CheckSquare,
-  'clipboard-check': ClipboardCheck,
-  'clipboard-list': ClipboardList,
-  'credit-card': CreditCard,
-  database: Database,
-  download: Download,
-  edit: Edit,
-  'file-text': FileText,
-  gift: Gift,
-  globe: Globe,
-  history: History,
-  inbox: Inbox,
-  'layout-grid': LayoutGrid,
-  'list-ordered': ListOrdered,
-  'map-pin': MapPin,
-  'message-circle': MessageCircle,
-  'message-square': MessageSquare,
-  'message-square-text': MessageSquareText,
-  package: Package,
-  percent: Percent,
-  phone: Phone,
-  sparkles: Sparkles,
-  star: Star,
-  truck: Truck,
-  'user-check': UserCheck,
-  users: Users,
-  wallet: Wallet,
-  workflow: Workflow,
-};
 
-function getIcon(name: string): LucideIcon {
-  return ICONS[name] ?? Check;
-}
 
 interface Props {
   onNavigate?: () => void;

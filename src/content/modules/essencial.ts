@@ -11,78 +11,145 @@ export const essencialContent: ModuleContent = {
   },
   screenshotPath: '/screenshots/01-pedidos-lista.png',
   screenshotAlt: 'Tela de pedidos realizados do PopGás Sistema',
-  features: [
+  sections: [
     {
-      title: 'Gestão completa de pedidos',
-      description:
-        'Cada pedido passa por um fluxo claro: aberto, confirmado, saiu para entrega, entregue ou cancelado com motivo. Pedidos entregues podem ser reabertos para correção, e a lista mostra cliente, endereço, prazo, valor e forma de pagamento sem abrir nada.',
-      icon: 'package',
+      id: 'pedidos-e-clientes',
+      title: 'Pedidos e clientes',
+      intro:
+        'Tudo que a equipe de atendimento usa o dia inteiro: lançar pedido, achar o cliente, cobrar do jeito certo e acompanhar cada entrega até o fim.',
+      screenshotPath: '/screenshots/01-pedidos-lista.png',
+      screenshotAlt: 'Lista de pedidos realizados com cliente, endereço, situação e pagamento',
+      features: [
+        {
+          id: 'gestao-de-pedidos',
+          title: 'Gestão completa de pedidos',
+          description:
+            'Cada pedido passa por um fluxo claro: aberto, confirmado, saiu para entrega, entregue ou cancelado com motivo. Pedidos entregues podem ser reabertos para correção, e a lista mostra cliente, endereço, prazo, valor e forma de pagamento sem abrir nada.',
+          icon: 'package',
+        },
+        {
+          id: 'lancamento-rapido',
+          title: 'Balcão e telefone com bina',
+          description:
+            'Tela de novo pedido com busca de cliente por nome ou telefone, endereços salvos, produtos com preço da tabela vigente e cálculo automático de troco. Quando o telefone toca, a bina integrada identifica o cliente e abre o cadastro na hora.',
+          icon: 'phone',
+        },
+        {
+          id: 'cadastro-de-clientes',
+          title: 'Cadastro completo de clientes',
+          description:
+            'CPF ou CNPJ, telefones, e-mail e vários endereços por cliente, cada um com coordenadas no mapa. Histórico de pedidos, saldo em conta e observações ficam na mesma ficha, e a importação em lote traz sua base atual em planilha.',
+          icon: 'users',
+        },
+        {
+          id: 'formas-de-pagamento',
+          title: 'Múltiplas formas de pagamento',
+          description:
+            'Dinheiro com troco, cartão de débito e crédito na maquininha, PIX com QR code, boleto para clientes empresa e saldo em conta do cliente. Você escolhe quais formas cada canal de venda aceita.',
+          icon: 'credit-card',
+        },
+        {
+          id: 'precos-e-promocoes',
+          title: 'Preços, promoções e descontos',
+          description:
+            'Tabelas de preço por unidade e por canal, com vigência programada. Descontos por cupom, primeira compra, leve mais pague menos, brinde e crédito do cliente são calculados automaticamente na hora do pedido.',
+          icon: 'calculator',
+        },
+        {
+          id: 'historico-de-compras',
+          title: 'Histórico e frequência de compra',
+          description:
+            'Veja quando cada cliente comprou pela última vez, o intervalo médio entre pedidos e quem está atrasado para a próxima compra. Segmente clientes em risco, inativos ou VIP para ações de retenção.',
+          icon: 'history',
+        },
+      ],
     },
     {
-      title: 'Lançamento rápido no balcão e no telefone',
-      description:
-        'Tela de novo pedido com busca de cliente por nome ou telefone, endereços salvos, produtos com preço da tabela vigente e cálculo automático de troco. A bina integrada identifica quem está ligando e abre o cadastro na hora.',
-      icon: 'phone',
+      id: 'app-do-cliente',
+      title: 'App do cliente',
+      intro:
+        'Seu cliente pede sozinho, pelo app ou pelo navegador, e acompanha o entregador no mapa. Tudo com a marca da sua revenda.',
+      screenshotPath: '/screenshots/app-cliente-rastreamento.png',
+      screenshotAlt: 'App do cliente mostrando o entregador a caminho no mapa',
+      features: [
+        {
+          id: 'app-do-cliente-catalogo',
+          title: 'Pedido no celular e no navegador',
+          description:
+            'Seu cliente faz o pedido sozinho, escolhe endereço, forma de pagamento e tipo de entrega. Você monta o catálogo com categorias, destaques e ofertas por horário, e aplica logo, cores e nome da sua revenda. Sem instalar nada, se ele preferir o navegador.',
+          icon: 'layout-grid',
+        },
+        {
+          id: 'rastreamento-em-tempo-real',
+          title: 'Rastreamento em tempo real',
+          description:
+            'Assim que o entregador sai, o cliente vê a posição dele no mapa e uma linha do tempo com cada etapa do pedido. Você acompanha todos os entregadores ao vivo no painel.',
+          icon: 'map-pin',
+        },
+        {
+          id: 'avaliacao-pos-entrega',
+          title: 'Avaliação pós-entrega',
+          description:
+            'Depois de cada entrega o cliente avalia tempo e atendimento do entregador de 1 a 5 estrelas, com comentário. As notas alimentam o relatório de avaliações e o ranking dos entregadores.',
+          icon: 'star',
+        },
+      ],
     },
     {
-      title: 'Cadastro completo de clientes',
-      description:
-        'CPF ou CNPJ, telefones, e-mail e vários endereços por cliente, cada um com coordenadas no mapa. Histórico de pedidos, saldo em conta e observações ficam na mesma ficha, e a importação em lote traz sua base atual em planilha.',
-      icon: 'users',
-    },
-    {
-      title: 'Múltiplas formas de pagamento',
-      description:
-        'Dinheiro com troco, cartão de débito e crédito na maquininha, PIX com QR code, boleto para clientes empresa e saldo em conta do cliente. Você escolhe quais formas cada canal de venda aceita.',
-      icon: 'credit-card',
-    },
-    {
-      title: 'Preços, promoções e descontos',
-      description:
-        'Tabelas de preço por unidade e por canal, com vigência programada. Descontos por cupom, primeira compra, leve mais pague menos, brinde e crédito do cliente são calculados automaticamente na hora do pedido.',
-      icon: 'calculator',
-    },
-    {
-      title: 'App do cliente, no celular e no navegador',
-      description:
-        'Seu cliente faz o pedido sozinho, escolhe endereço e forma de pagamento e acompanha a entrega em tempo real. Você monta o catálogo com categorias, destaques e ofertas por horário, e aplica a identidade visual da sua revenda.',
-      icon: 'layout-grid',
-    },
-    {
-      title: 'Rastreamento em tempo real',
-      description:
-        'Assim que o entregador sai, o cliente vê a posição dele no mapa e uma linha do tempo com cada etapa do pedido. Você acompanha todos os entregadores ao vivo no painel.',
-      icon: 'map-pin',
-    },
-    {
-      title: 'Avaliação pós-entrega',
-      description:
-        'Depois de cada entrega o cliente avalia tempo e atendimento do entregador de 1 a 5 estrelas, com comentário. As notas alimentam o relatório de avaliações e o ranking dos entregadores.',
-      icon: 'star',
-    },
-    {
+      id: 'app-do-entregador',
       title: 'App do entregador',
-      description:
-        'Carregamento do veículo, transferências entre entregadores, pedidos da rota com navegação, lançamento de venda na porta do cliente e acerto de contas no fim do dia. Escala de trabalho, ausências e pontuação também ficam no app.',
-      icon: 'truck',
+      intro:
+        'O entregador trabalha pelo celular e você enxerga a rota inteira no painel, em tempo real.',
+      screenshotPath: '/screenshots/erp/rastrear-entregadores.png',
+      screenshotAlt: 'Mapa com a posição dos entregadores e das unidades',
+      features: [
+        {
+          id: 'app-do-entregador-rota',
+          title: 'Rota, venda na porta e acerto',
+          description:
+            'Carregamento do veículo, transferências entre entregadores, pedidos da rota com navegação, lançamento de venda na porta do cliente e acerto de contas no fim do dia. Escala de trabalho, ausências e pontuação também ficam no app.',
+          icon: 'truck',
+        },
+        {
+          id: 'rastreamento-gps',
+          title: 'Posição de cada entregador no mapa',
+          description:
+            'O app envia a localização enquanto o entregador está em rota. No painel você vê todos os entregadores e unidades no mapa e sabe quem está mais perto de cada pedido.',
+          icon: 'navigation',
+        },
+        {
+          id: 'operacao-de-gas',
+          title: 'Vasilhames, carregamentos e acerto',
+          description:
+            'As rotinas específicas da revenda de gás (carregamento do caminhão, controle de vasilhames, acerto diário do entregador, escala e penalidades) estão detalhadas na página da vertical.',
+          icon: 'cylinder',
+          link: { href: '/recursos/revendas-de-gas#operacao', label: 'Ver na vertical de gás' },
+        },
+      ],
     },
     {
-      title: 'Histórico e frequência de compra',
-      description:
-        'Veja quando cada cliente comprou pela última vez, o intervalo médio entre pedidos e quem está atrasado para a próxima compra. Segmente clientes em risco, inativos ou VIP para ações de retenção.',
-      icon: 'history',
-    },
-    {
-      title: 'Multi-loja e permissões',
-      description:
-        'Cadastre várias unidades, cada uma com estoque, caixa e entregadores próprios, e veja tudo consolidado. Perfis de acesso definem o que cada operador pode ver e fazer, com trilha de auditoria.',
-      icon: 'building-2',
-    },
-    {
-      title: 'Dashboards e relatórios de vendas',
-      description:
-        'Dashboard de pedidos com faturamento, ticket médio, tempo de entrega e mapa de calor. Relatórios de cancelamentos, atrasos, resumo diário e movimentações por colaborador, todos exportáveis para Excel.',
-      icon: 'bar-chart-3',
+      id: 'multi-loja-e-relatorios',
+      title: 'Multi-loja e relatórios',
+      intro:
+        'Uma ou dez unidades, cada operador vê só o que precisa, e você vê o consolidado.',
+      screenshotPath: '/screenshots/erp/dashboard-contas-a-pagar.png',
+      screenshotAlt: 'Dashboard com indicadores e gráficos',
+      features: [
+        {
+          id: 'multi-loja-e-permissoes',
+          title: 'Multi-loja e permissões',
+          description:
+            'Cadastre várias unidades, cada uma com estoque, caixa e entregadores próprios, e veja tudo consolidado. Perfis de acesso definem o que cada operador pode ver e fazer, com trilha de auditoria.',
+          icon: 'building-2',
+        },
+        {
+          id: 'dashboards-de-vendas',
+          title: 'Dashboards e relatórios de vendas',
+          description:
+            'Dashboard de pedidos com faturamento, ticket médio, tempo de entrega e mapa de calor. Relatórios de cancelamentos, atrasos, resumo diário e movimentações por colaborador, todos exportáveis para Excel.',
+          icon: 'bar-chart-3',
+        },
+      ],
     },
   ],
   synergies: [
