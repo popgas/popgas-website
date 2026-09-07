@@ -74,7 +74,7 @@ export const RESOURCES_TABS: MenuTab[] = [
     features: [
       { name: 'Contas a Pagar e a Receber', description: 'Parcele, agende, baixe em lote.', icon: 'wallet', href: '/recursos/gestao#contas-a-pagar-e-receber' },
       { name: 'Caixa e Acerto do Entregador', description: 'Fechamento diário com conferência.', icon: 'calculator', href: '/recursos/gestao#caixa-e-acerto' },
-      { name: 'Conciliação Bancária', description: 'Importa OFX e concilia com ajuda da IA.', icon: 'check-circle', href: '/recursos/gestao#conciliacao-bancaria' },
+      { name: 'Conciliação Bancária', description: 'Importa OFX e concilia com ajuda da IA.', icon: 'check-circle', href: '/recursos/gestao#conciliacao' },
       { name: 'DRE Gerencial', description: 'Resultado mês a mês, do seu jeito.', icon: 'bar-chart-3', href: '/recursos/gestao#dre-gerencial' },
       { name: 'Centros de Custo', description: 'Despesas por centro e por loja.', icon: 'building-2', href: '/recursos/gestao#centros-de-custo' },
       { name: '+25 Relatórios', description: 'Estoque, vendas, financeiro, entregas.', icon: 'bar-chart-3', href: '/recursos/gestao#relatorios' },

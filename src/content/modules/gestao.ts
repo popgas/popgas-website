@@ -68,15 +68,15 @@ export const gestaoContent: ModuleContent = {
       title: 'Financeiro',
       intro:
         'Contas a pagar e a receber, caixa, conciliação e DRE, alimentados pelos pedidos que já estão no sistema.',
-      screenshotPath: '/screenshots/06-financeiro-contas.png',
-      screenshotAlt: 'Contas a pagar com centro de custo, unidade, valor e situação',
+      screenshotPath: '/screenshots/erp/dashboard-contas-a-pagar.png',
+      screenshotAlt: 'Dashboard de contas a pagar: contas lançadas, pagas, pendentes e despesas mês a mês',
       features: [
         {
           id: 'contas-a-pagar-e-receber',
           title: 'Contas a pagar e a receber',
           description:
-            'Lançamentos com parcelamento, recorrência mensal, agendamento e baixa individual ou em lote. Dashboards mostram o que vence hoje, o que está atrasado e o prazo médio de pagamento e recebimento.',
-          screenshotPath: '/screenshots/features/contas-a-pagar-e-receber.png',
+            'Lançamentos com parcelamento, recorrência mensal, agendamento e baixa individual ou em lote. O dashboard mostra contas lançadas, pagas e pendentes, o valor vencido, a inadimplência e o prazo médio de pagamento e recebimento.',
+          screenshotPath: '/screenshots/erp/dashboard-contas-a-pagar.png',
           icon: 'wallet',
         },
         {
@@ -86,14 +86,6 @@ export const gestaoContent: ModuleContent = {
             'Abertura e fechamento de caixa por loja, sangrias e suprimentos. No fim do dia o acerto de cada entregador confere pedidos, dinheiro, cartão, PIX, despesas e troco, e fecha com um clique.',
           screenshotPath: '/screenshots/features/caixa-e-acerto.png',
           icon: 'calculator',
-        },
-        {
-          id: 'conciliacao-bancaria',
-          title: 'Conciliação bancária com IA',
-          description:
-            'Importe o extrato OFX do banco e o sistema casa cada lançamento com os pedidos, recebimentos e pagamentos do período. A IA sugere as conciliações que faltam e você só confirma.',
-          screenshotPath: '/screenshots/features/conciliacao-bancaria.png',
-          icon: 'check-circle',
         },
         {
           id: 'contas-e-saldo-diario',
@@ -118,6 +110,40 @@ export const gestaoContent: ModuleContent = {
             'Monte a estrutura do seu demonstrativo de resultado com as linhas que fazem sentido para a revenda e acompanhe receita, custos, despesas e resultado mês a mês, com comparativo de períodos.',
           screenshotPath: '/screenshots/features/dre-gerencial.png',
           icon: 'bar-chart-3',
+        },
+      ],
+    },
+    {
+      id: 'conciliacao',
+      title: 'Conciliação bancária',
+      intro:
+        'Importe o extrato OFX do banco e o sistema casa cada lançamento com os pedidos, recebimentos, transferências e pagamentos do período. A IA sugere as conciliações que faltam, você confere e confirma — sem planilha e sem conferência linha a linha no fim do mês.',
+      screenshotPath: '/screenshots/erp/conciliacao-bancaria-detalhe.png',
+      screenshotAlt: 'Detalhe de uma conciliação bancária: registros do extrato OFX casados com contas a receber, com transações PIX e cartão unificadas',
+      features: [
+        {
+          id: 'conciliacao-bancaria',
+          title: 'Extrato OFX conciliado com ajuda da IA',
+          description:
+            'Cada crédito e débito do extrato é comparado com o que o sistema registrou. A IA propõe o pareamento, marca o que já bate e destaca o que ficou pendente, e você resolve com um clique.',
+          icon: 'check-circle',
+          screenshotPath: '/screenshots/erp/conciliacao-bancaria-detalhe.png',
+        },
+        {
+          id: 'unificar-transacoes',
+          title: 'Unificação de transações',
+          description:
+            'Vários PIX ou antecipações de cartão que caem num único depósito no banco são agrupados numa transação só, para bater com a linha do extrato. Dá para separar de novo quando precisar.',
+          icon: 'arrow-up-down',
+          screenshotPath: '/screenshots/erp/conciliacao-bancaria-detalhe.png',
+        },
+        {
+          id: 'conciliacao-por-conta',
+          title: 'Por conta e por período',
+          description:
+            'Concilie conta bancária por conta bancária, com o total de créditos e débitos do arquivo e o percentual já conciliado sempre à vista. Casa lançamentos com contas a receber, transferências e movimentações.',
+          icon: 'calendar',
+          screenshotPath: '/screenshots/erp/conciliacao-bancaria-detalhe.png',
         },
       ],
     },
