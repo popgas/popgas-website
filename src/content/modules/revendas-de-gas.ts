@@ -9,8 +9,8 @@ export const revendasDeGasContent: ModuleContent = {
     subtitle:
       'Funcionalidades exclusivas para distribuição de gás GLP. Vasilhames, carregamentos, acerto e máquinas 24h — tudo que sua operação precisa.',
   },
-  screenshotPath: '/screenshots/07-estoque-mov.png',
-  screenshotAlt: 'Tela de carregamentos do PopGás Sistema',
+  screenshotPath: '/screenshots/07-acerto-entregador.png',
+  screenshotAlt: 'Tela de acerto de contas do entregador no PopGás Sistema',
   features: [
     { title: 'Carregamentos de veículos', description: 'Montagem de carga com seleção de veículo e produtos.', icon: 'truck' },
     { title: 'Gestão de vasilhames', description: 'Controle de reposição de vasilhames/containers.', icon: 'cylinder' },
