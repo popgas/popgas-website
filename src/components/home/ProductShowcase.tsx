@@ -6,6 +6,7 @@ import { Container } from '@/components/shared/Container';
 import { SectionHeader } from '@/components/shared/SectionHeader';
 import { AnimatedReveal } from '@/components/shared/AnimatedReveal';
 import { VideoModal } from '@/components/shared/VideoModal';
+import { InlineYouTube } from '@/components/shared/InlineYouTube';
 
 interface Feature {
   eyebrow: string;
@@ -23,6 +24,8 @@ interface Feature {
   videoOrientation?: 'landscape' | 'portrait';
   /** Foto real com o aparelho na imagem: sem moldura desenhada. */
   imagePhoto?: boolean;
+  /** Vídeo do YouTube embutido no lugar da imagem (a imagem vira o pôster). */
+  inlineVideoId?: string;
 }
 
 const FEATURES: Feature[] = [
@@ -47,6 +50,7 @@ const FEATURES: Feature[] = [
     imageAlt: 'Central de atendimento do WhatsApp com a IA transferindo a conversa para um atendente',
     imageW: 3200,
     imageH: 2000,
+    inlineVideoId: 'mnVJSrz9Jlo',
   },
   {
     eyebrow: 'Logística',
@@ -190,6 +194,11 @@ export function ProductShowcase() {
 
 function FeatureRow({ feature, reverse }: { feature: Feature; reverse: boolean }) {
   const portrait = feature.imageH > feature.imageW;
+  const inlineVideo = feature.inlineVideoId ? (
+    <div className="relative w-full rounded-2xl overflow-hidden border border-[rgba(15,19,34,0.08)] bg-[#0f172a] shadow-[0_24px_48px_-12px_rgba(15,19,34,0.14),0_4px_14px_rgba(15,19,34,0.06)]">
+      <InlineYouTube videoId={feature.inlineVideoId} title={feature.imageAlt} poster={feature.imageSrc} posterW={feature.imageW} posterH={feature.imageH} tag={feature.tag} />
+    </div>
+  ) : null;
   const imageBlock = (
     <div
       className={`relative w-full h-full rounded-2xl overflow-hidden border border-[rgba(15,19,34,0.08)] shadow-[0_24px_48px_-12px_rgba(15,19,34,0.14),0_4px_14px_rgba(15,19,34,0.06)] ${
@@ -271,10 +280,14 @@ function FeatureRow({ feature, reverse }: { feature: Feature; reverse: boolean }
             }}
             aria-hidden
           />
-          <div className="absolute top-3.5 left-3.5 z-10 inline-flex items-center bg-white border border-[rgba(15,19,34,0.08)] font-mono text-[10px] font-bold tracking-[1px] uppercase text-[rgba(15,19,34,0.62)] px-2.5 py-1 rounded-full shadow-sm">
-            {feature.tag}
-          </div>
-          {feature.videoId ? (
+          {!inlineVideo && (
+            <div className="absolute top-3.5 left-3.5 z-10 inline-flex items-center bg-white border border-[rgba(15,19,34,0.08)] font-mono text-[10px] font-bold tracking-[1px] uppercase text-[rgba(15,19,34,0.62)] px-2.5 py-1 rounded-full shadow-sm">
+              {feature.tag}
+            </div>
+          )}
+          {inlineVideo ? (
+            inlineVideo
+          ) : feature.videoId ? (
             <VideoModal
               videoId={feature.videoId}
               orientation={feature.videoOrientation}
