@@ -164,7 +164,7 @@ const FEATURES: Feature[] = [
 
 export function ProductShowcase() {
   return (
-    <section className="py-16 sm:py-20 md:py-28 bg-gradient-to-b from-white to-[#fbfbfa]">
+    <section className="py-16 sm:py-20 md:py-28 bg-gradient-to-b from-white to-[#fbfbfa] overflow-x-clip">
       <Container>
         <SectionHeader
           eyebrow="Veja em ação"

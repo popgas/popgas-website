@@ -115,6 +115,7 @@ export function FeatureComparisonTable() {
           subtitle="Sem jargão técnico. O que cada módulo realmente faz pra você."
         />
         <div className="bg-white border border-[rgba(15,19,34,0.08)] rounded-3xl overflow-hidden shadow-[0_4px_14px_rgba(15,19,34,0.04)] max-w-[1100px] mx-auto">
+          <p className="md:hidden px-4 py-2.5 text-[12px] text-[#64748b] border-b border-[rgba(15,19,34,0.06)] bg-[#fafafa]">Deslize a tabela para o lado para ver os quatro módulos →</p>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead className="bg-[#fafafa] border-b border-[rgba(15,19,34,0.08)] sticky top-0">
