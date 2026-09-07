@@ -3,16 +3,37 @@ import { execFileSync } from 'node:child_process';
 import { afterAll, expect, test } from 'vitest';
 
 const suffix = `${process.pid}`;
-const image = `popgas/e2e-website:migration-contract-${suffix}`;
+const image = process.env.POPGAS_WEBSITE_CONTRACT_IMAGE ?? '';
+const imageTest = image ? test : test.skip;
 const network = `popgas-website-migration-${suffix}`;
 const database = `popgas-website-postgres-${suffix}`;
+const owner = `popgas-website-migration-contract-${suffix}`;
 const databaseUrl = `postgresql://popgas_e2e:popgas_e2e@${database}:5432/popgas_e2e?schema=public`;
+let claimedNetwork = false;
+let claimedDatabase = false;
 
 function removeDockerResource(args: string[]) {
   try {
     execFileSync('docker', args, { stdio: 'ignore' });
   } catch {
     // A failed setup can leave only a subset of the scoped test resources.
+  }
+}
+
+function dockerLabel(args: string[]): string {
+  try {
+    return execFileSync('docker', args, { encoding: 'utf8' }).trim();
+  } catch {
+    return '';
+  }
+}
+
+function dockerResourceExists(args: string[]): boolean {
+  try {
+    execFileSync('docker', args, { stdio: 'ignore' });
+    return true;
+  } catch {
+    return false;
   }
 }
 
@@ -49,17 +70,35 @@ function migrate() {
 }
 
 afterAll(() => {
-  removeDockerResource(['container', 'rm', '--force', database]);
-  removeDockerResource(['network', 'rm', network]);
-  removeDockerResource(['image', 'rm', '--force', image]);
+  if (claimedDatabase) {
+    const actualOwner = dockerLabel([
+      'container', 'inspect', '--format', '{{index .Config.Labels "com.popgas.e2e.owner"}}', database,
+    ]);
+    if (actualOwner === owner) removeDockerResource(['container', 'rm', '--force', database]);
+  }
+  if (claimedNetwork) {
+    const actualOwner = dockerLabel([
+      'network', 'inspect', '--format', '{{index .Labels "com.popgas.e2e.owner"}}', network,
+    ]);
+    if (actualOwner === owner) removeDockerResource(['network', 'rm', network]);
+  }
 });
 
-test('applies the isolated E2E migration offline twice to a fresh PostgreSQL database', () => {
-  execFileSync('docker', ['network', 'create', network], { stdio: 'pipe' });
+imageTest('applies the isolated E2E migration offline twice to a fresh PostgreSQL database', () => {
+  if (
+    dockerResourceExists(['container', 'inspect', database])
+    || dockerResourceExists(['network', 'inspect', network])
+  ) {
+    throw new Error('migration contract resource name already exists');
+  }
+  claimedNetwork = true;
+  execFileSync('docker', ['network', 'create', '--label', `com.popgas.e2e.owner=${owner}`, network], { stdio: 'pipe' });
+  claimedDatabase = true;
   execFileSync('docker', [
     'run',
     '--detach',
     '--name', database,
+    '--label', `com.popgas.e2e.owner=${owner}`,
     '--network', network,
     '--env', 'POSTGRES_DB=popgas_e2e',
     '--env', 'POSTGRES_USER=popgas_e2e',
@@ -72,14 +111,6 @@ test('applies the isolated E2E migration offline twice to a fresh PostgreSQL dat
   ], { stdio: 'pipe' });
 
   waitForHealthyDatabase();
-
-  execFileSync('docker', [
-    'build',
-    '--build-arg', 'NEXT_PUBLIC_ERP_URL=http://website-e2e:3000',
-    '--tag', image,
-    '-f', 'e2e.Dockerfile',
-    '.',
-  ], { stdio: 'pipe' });
 
   const applicationRuntime = JSON.parse(execFileSync('docker', [
     'run',

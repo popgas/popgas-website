@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import 'leaflet/dist/leaflet.css';
+import { isE2EBrowserIsolation } from '@/lib/e2e-browser-isolation';
 
 const HUB: [number, number] = [-18.9186, -48.2773];
 
@@ -17,6 +18,8 @@ export function DeliveryMap() {
   const mapElRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (isE2EBrowserIsolation) return;
+
     const el = mapElRef.current;
     if (!el) return;
 
@@ -88,5 +91,34 @@ export function DeliveryMap() {
     };
   }, []);
 
+  if (isE2EBrowserIsolation) {
+    return <LocalDeliveryMap />;
+  }
+
   return <div ref={mapElRef} className="w-full h-full bg-[#eff6ff]" aria-label="Mapa de operações" />;
+}
+
+function LocalDeliveryMap() {
+  return (
+    <div
+      data-testid="e2e-local-delivery-map"
+      className="relative w-full h-full overflow-hidden bg-[#eff6ff]"
+      aria-label="Mapa de operações local"
+    >
+      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 520 280" aria-hidden>
+        <rect width="520" height="280" fill="#eff6ff" />
+        <path d="M-10 75 C90 52 122 115 226 86 S390 28 540 58" fill="none" stroke="#dbeafe" strokeWidth="18" />
+        <path d="M55 300 C112 214 184 242 236 174 S342 82 478 -8" fill="none" stroke="#ffffff" strokeWidth="14" />
+        <path d="M260 140 L358 70 M260 140 L394 203 M260 140 L132 78 M260 140 L126 220" fill="none" stroke="#cbd5e1" strokeWidth="2" strokeDasharray="5 5" />
+        <path d="M260 140 L358 70 M260 140 L394 203" fill="none" stroke="#64a028" strokeWidth="3" />
+      </svg>
+      <span className="pin-hub absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" aria-hidden>PG</span>
+      <span className="pin-dot active absolute left-[69%] top-[23%]" aria-hidden />
+      <span className="pin-tag absolute left-[69%] top-[23%]">P13 · 2un</span>
+      <span className="pin-dot active absolute left-[75%] top-[70%]" aria-hidden />
+      <span className="pin-tag absolute left-[75%] top-[70%]">P45 · 1un</span>
+      <span className="pin-dot absolute left-[25%] top-[25%]" aria-hidden />
+      <span className="pin-dot absolute left-[24%] top-[76%]" aria-hidden />
+    </div>
+  );
 }

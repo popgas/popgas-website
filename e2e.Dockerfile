@@ -11,7 +11,9 @@ COPY package.json package-lock.json ./
 COPY prisma ./prisma
 COPY . .
 ARG NEXT_PUBLIC_ERP_URL
+ARG NEXT_PUBLIC_E2E_BROWSER_ISOLATION=true
 ENV NEXT_PUBLIC_ERP_URL=$NEXT_PUBLIC_ERP_URL
+ENV NEXT_PUBLIC_E2E_BROWSER_ISOLATION=$NEXT_PUBLIC_E2E_BROWSER_ISOLATION
 RUN npm ci --cache=/tmp/npm-cache \
   && npm run build \
   && npm --prefix prisma/e2e ci --omit=dev --cache=/tmp/npm-cache \

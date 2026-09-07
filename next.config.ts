@@ -1,7 +1,41 @@
 import type { NextConfig } from 'next';
 
+const isE2EBrowserIsolation =
+  process.env.NEXT_PUBLIC_E2E_BROWSER_ISOLATION === 'true';
+
+const e2eContentSecurityPolicy = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline'",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: blob:",
+  "font-src 'self' data:",
+  "connect-src 'self'",
+  "frame-src 'none'",
+  "worker-src 'self' blob:",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+].join('; ');
+
 const nextConfig: NextConfig = {
   output: 'standalone',
+  ...(isE2EBrowserIsolation
+    ? {
+        async headers() {
+          return [
+            {
+              source: '/(.*)',
+              headers: [
+                {
+                  key: 'Content-Security-Policy',
+                  value: e2eContentSecurityPolicy,
+                },
+              ],
+            },
+          ];
+        },
+      }
+    : {}),
   async redirects() {
     return [
       { source: '/area-de-atendimento', destination: '/', permanent: true },

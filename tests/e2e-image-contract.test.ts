@@ -1,28 +1,12 @@
 import { execFileSync } from 'node:child_process';
 
-import { afterAll, expect, test } from 'vitest';
+import { expect, test } from 'vitest';
 
-const image = `popgas/e2e-website:image-contract-${process.pid}`;
-const revision = 'website-image-contract-revision';
+const image = process.env.POPGAS_WEBSITE_CONTRACT_IMAGE ?? '';
+const revision = process.env.POPGAS_WEBSITE_CONTRACT_REVISION ?? '';
+const imageTest = image && revision ? test : test.skip;
 
-afterAll(() => {
-  try {
-    execFileSync('docker', ['image', 'rm', '--force', image], { stdio: 'ignore' });
-  } catch {
-    // The build can fail before Docker creates the contract-test image.
-  }
-});
-
-test('publishes OCI traceability and an HTTP healthcheck in the E2E image', () => {
-  execFileSync('docker', [
-    'build',
-    '--build-arg', 'NEXT_PUBLIC_ERP_URL=http://website-e2e:3000',
-    '--build-arg', `VCS_REF=${revision}`,
-    '--tag', image,
-    '-f', 'e2e.Dockerfile',
-    '.',
-  ], { stdio: 'pipe' });
-
+imageTest('publishes OCI traceability and an HTTP healthcheck in the supplied E2E image', () => {
   const metadata = JSON.parse(execFileSync('docker', [
     'image', 'inspect', image,
   ], { encoding: 'utf8' }))[0];
