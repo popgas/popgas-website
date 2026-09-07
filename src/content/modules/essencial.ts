@@ -49,7 +49,7 @@ export const essencialContent: ModuleContent = {
           title: 'Múltiplas formas de pagamento',
           description:
             'Dinheiro com troco, cartão de débito e crédito na maquininha, PIX com QR code, boleto para clientes empresa e saldo em conta do cliente. Você escolhe quais formas cada canal de venda aceita.',
-          screenshotPath: '/screenshots/features/formas-de-pagamento.png',
+          screenshotPath: '/screenshots/erp/dashboard-pedidos-pagamento.png',
           icon: 'credit-card',
         },
         {
@@ -143,27 +143,51 @@ export const essencialContent: ModuleContent = {
     },
     {
       id: 'multi-loja-e-relatorios',
-      title: 'Multi-loja e relatórios',
+      title: 'Dashboards, relatórios e multi-loja',
       intro:
-        'Uma ou dez unidades, cada operador vê só o que precisa, e você vê o consolidado.',
-      screenshotPath: '/screenshots/erp/dashboard-contas-a-pagar.png',
-      screenshotAlt: 'Dashboard com indicadores e gráficos',
+        'Faturamento, ticket médio, pontualidade, cancelamentos e mapa de calor dos pedidos, atualizados o dia inteiro. Uma ou dez unidades, com o consolidado na sua tela.',
+      screenshotPath: '/screenshots/erp/dashboard-pedidos-visao-geral.png',
+      screenshotAlt: 'Dashboard de pedidos realizados: faturamento, pedidos entregues, ticket médio e gráfico mensal de pedidos e receita',
       features: [
+        {
+          id: 'dashboards-de-vendas',
+          title: 'Dashboard de pedidos',
+          description:
+            'Faturamento, pedidos entregues, ticket médio, pontualidade e tempo médio de entrega, com comparação ao período anterior. Gráficos de pedidos por mês, por canal de venda (app, WhatsApp, telefone, balcão) e por tipo de entrega.',
+          icon: 'bar-chart-3',
+          screenshotPath: '/screenshots/erp/dashboard-pedidos-composicao.png',
+        },
+        {
+          id: 'mapa-de-calor',
+          title: 'Mapa de calor dos pedidos',
+          description:
+            'Cada pedido do período no mapa da cidade, agrupado por região. Mostra onde a revenda vende mais, onde está perdendo entregas para o atraso e onde vale abrir uma nova unidade ou ajustar a área de atendimento.',
+          icon: 'map-pinned',
+          screenshotPath: '/screenshots/erp/dashboard-pedidos-mapa-calor.png',
+        },
+        {
+          id: 'pedidos-atrasados',
+          title: 'Pedidos atrasados e pontualidade',
+          description:
+            'Taxa de entrega no prazo (OTD), atraso médio e a distribuição dos atrasos em faixas (até 10, 30, 60 minutos ou mais), dia a dia. É o painel para cobrar a operação com número, não com impressão.',
+          icon: 'activity',
+          screenshotPath: '/screenshots/erp/dashboard-pedidos-atrasados.png',
+        },
+        {
+          id: 'pedidos-cancelados',
+          title: 'Pedidos cancelados e recuperação',
+          description:
+            'Quantos pedidos foram cancelados, quanto de receita se perdeu, a taxa de cancelamento e quantos clientes voltaram a comprar em 24 horas. Cada cancelamento leva o motivo cadastrado pela equipe.',
+          icon: 'history',
+          screenshotPath: '/screenshots/erp/dashboard-pedidos-cancelados.png',
+        },
         {
           id: 'multi-loja-e-permissoes',
           title: 'Multi-loja e permissões',
           description:
             'Cadastre várias unidades, cada uma com estoque, caixa e entregadores próprios, e veja tudo consolidado. Perfis de acesso definem o que cada operador pode ver e fazer, com trilha de auditoria.',
-          screenshotPath: '/screenshots/features/multi-loja-e-permissoes.png',
           icon: 'building-2',
-        },
-        {
-          id: 'dashboards-de-vendas',
-          title: 'Dashboards e relatórios de vendas',
-          description:
-            'Dashboard de pedidos com faturamento, ticket médio, tempo de entrega e mapa de calor. Relatórios de cancelamentos, atrasos, resumo diário e movimentações por colaborador, todos exportáveis para Excel.',
-          screenshotPath: '/screenshots/features/dashboards-de-vendas.png',
-          icon: 'bar-chart-3',
+          screenshotPath: '/screenshots/features/multi-loja-e-permissoes.png',
         },
       ],
     },

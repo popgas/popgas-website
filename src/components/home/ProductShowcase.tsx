@@ -162,10 +162,10 @@ const FEATURES: Feature[] = [
     tag: 'Gestão',
     ctaLabel: 'Ver módulo Gestão',
     ctaHref: '/recursos/gestao',
-    imageSrc: '/screenshots/erp/dashboard-contas-a-pagar.png',
-    imageAlt: 'Dashboard de contas a pagar do PopGás Sistema',
-    imageW: 3200,
-    imageH: 2000,
+    imageSrc: '/screenshots/erp/dashboard-pedidos-visao-geral.png',
+    imageAlt: 'Dashboard de pedidos realizados do PopGás Sistema com faturamento, ticket médio e gráfico mensal',
+    imageW: 1600,
+    imageH: 871,
   },
 ];
 

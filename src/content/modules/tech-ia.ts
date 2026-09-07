@@ -120,9 +120,9 @@ export const techIaContent: ModuleContent = {
           id: 'dashboards-de-ia',
           title: 'Dashboards de IA e WhatsApp',
           description:
-            'Volume de conversas, taxa de resolução pela IA, pedidos criados pelo bot, custo por conversa e entregabilidade das mensagens, tudo por período.',
-          screenshotPath: '/screenshots/features/dashboards-de-ia.png',
+            'Volume de conversas, taxa de resolução pela IA, pedidos criados pelo bot e custo por conversa. Para as notificações, entregabilidade por tipo de mensagem: enviadas, entregues, lidas e falhas, com a taxa de cada uma.',
           icon: 'activity',
+          screenshotPath: '/screenshots/erp/dashboard-notificacoes.png',
         },
       ],
     },

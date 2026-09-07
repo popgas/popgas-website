@@ -39,7 +39,7 @@ export const RESOURCES_TABS: MenuTab[] = [
       { name: 'App do Cliente', description: 'Celular e navegador, com a sua marca.', icon: 'layout-grid', href: '/recursos/essencial#app-do-cliente' },
       { name: 'Rastreamento em Tempo Real', description: 'Cliente acompanha o entregador no mapa.', icon: 'map-pin', href: '/recursos/essencial#rastreamento-em-tempo-real' },
       { name: 'App do Entregador', description: 'Rota, venda na porta, acerto, escala.', icon: 'truck', href: '/recursos/essencial#app-do-entregador' },
-      { name: 'Multi-loja e Relatórios', description: 'Unidades, permissões e dashboards.', icon: 'building-2', href: '/recursos/essencial#multi-loja-e-relatorios' },
+      { name: 'Dashboards de Vendas', description: 'Pedidos, atrasos, cancelamentos, mapa de calor.', icon: 'bar-chart-3', href: '/recursos/essencial#multi-loja-e-relatorios' },
     ],
   },
   {
