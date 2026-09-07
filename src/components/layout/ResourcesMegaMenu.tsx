@@ -1,13 +1,29 @@
 'use client';
 
-import { useState } from 'react';
+// Mega-menu "Recursos" — modelo "trilho por área": áreas num trilho vertical à esquerda,
+// título + descrição + CTA e a grade de funcionalidades (3 colunas) à direita.
+// Estilo "Neutro SaaS": Inter, um único verde (ícones e CTA), sem serifa/itálico.
+import { createElement, useState } from 'react';
 import Link from 'next/link';
-
+import { ArrowRight, ShoppingCart, Boxes, Wallet, FileText, Sparkles, Flame } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { RESOURCES_TABS } from './resources-menu-data';
 import { getIcon } from '@/components/recursos/feature-icons';
 
+const AREA_ICON: Record<string, LucideIcon> = {
+  vendas: ShoppingCart,
+  estoque: Boxes,
+  financeiro: Wallet,
+  fiscal: FileText,
+  'whatsapp-ia': Sparkles,
+  'revendas-de-gas': Flame,
+};
 
+function areaCaption(tab: (typeof RESOURCES_TABS)[number]): string {
+  if (tab.id === 'revendas-de-gas') return 'Vertical · todos os planos';
+  return tab.eyebrow.split('·')[0].trim();
+}
 
 interface Props {
   onNavigate?: () => void;
@@ -18,17 +34,19 @@ export function ResourcesMegaMenu({ onNavigate }: Props) {
   const active = RESOURCES_TABS.find(t => t.id === activeId) ?? RESOURCES_TABS[0];
 
   return (
-    <div className="bg-[#fdfcfa] border border-[rgba(15,19,34,0.06)] rounded-[28px] shadow-[0_40px_80px_-20px_rgba(15,19,34,0.15),0_2px_8px_rgba(15,19,34,0.04)] w-[min(1060px,calc(100vw-32px))] overflow-hidden">
-      <div
-        role="tablist"
-        aria-label="Áreas funcionais do produto"
-        className="flex pt-[18px] px-8 gap-x-[22px] items-baseline"
-      >
+    <div className="bg-white border border-[#e2e8f0] rounded-2xl shadow-[0_24px_60px_-20px_rgba(15,23,42,0.18),0_1px_2px_rgba(15,23,42,0.06)] w-[min(1120px,calc(100vw-32px))] overflow-hidden grid grid-cols-[232px_1fr]">
+      {/* trilho de áreas */}
+      <div role="tablist" aria-label="Áreas do produto" aria-orientation="vertical" className="bg-[#f8fafc] border-r border-[#eef2f7] p-2.5 pt-3.5">
+        <div className="px-3 pb-2.5 text-[11px] font-semibold uppercase tracking-[0.06em] text-[#94a3b8]">
+          Recursos por área
+        </div>
         {RESOURCES_TABS.map(tab => {
           const isActive = tab.id === activeId;
+          const Icon = AREA_ICON[tab.id] ?? ShoppingCart;
           return (
             <button
               key={tab.id}
+              id={`mega-tab-${tab.id}`}
               role="tab"
               type="button"
               aria-selected={isActive}
@@ -36,74 +54,65 @@ export function ResourcesMegaMenu({ onNavigate }: Props) {
               onMouseEnter={() => setActiveId(tab.id)}
               onFocus={() => setActiveId(tab.id)}
               className={cn(
-                'relative pb-2 font-mono text-[10px] font-semibold uppercase tracking-[1.5px] transition-colors cursor-pointer outline-none',
-                'focus-visible:text-[#0a1322]',
+                'w-full flex items-center gap-3 px-3 py-2.5 rounded-[10px] text-left transition-colors outline-none',
                 isActive
-                  ? 'text-[#4a7818]'
-                  : 'text-[rgba(15,19,34,0.45)] hover:text-[#0a1322]'
+                  ? 'bg-white shadow-[0_1px_3px_rgba(15,23,42,0.08),inset_0_0_0_1px_#e2e8f0]'
+                  : 'hover:bg-[rgba(15,23,42,0.035)] focus-visible:bg-[rgba(15,23,42,0.035)]'
               )}
             >
-              {isActive && (
-                <span
-                  aria-hidden
-                  className="absolute -top-[18px] left-0 right-0 h-[2px] bg-gradient-to-r from-[#4a7818] to-[#64a028] rounded-[2px]"
-                />
-              )}
-              {tab.label}
+              <span
+                className={cn(
+                  'w-[34px] h-[34px] rounded-[10px] flex items-center justify-center shrink-0 border',
+                  isActive ? 'bg-[#f0fdf4] border-[#bbf7d0] text-[#15803d]' : 'bg-white border-[#e2e8f0] text-[#15803d]'
+                )}
+              >
+                <Icon className="w-4 h-4" strokeWidth={2} />
+              </span>
+              <span className="min-w-0">
+                <span className="block text-[14px] font-bold text-[#0f172a] leading-tight tracking-[-0.01em]">{tab.label}</span>
+                <span className="block text-[11px] text-[#64748b] mt-0.5 leading-tight">{areaCaption(tab)}</span>
+              </span>
             </button>
           );
         })}
       </div>
-      <div className="h-px bg-[rgba(15,19,34,0.06)] mx-8 mt-2" />
-      <div
-        id={`mega-panel-${active.id}`}
-        role="tabpanel"
-        aria-labelledby={`mega-tab-${active.id}`}
-        className="p-8 grid grid-cols-[300px_1fr] gap-10"
-      >
-        <div className="pr-2">
-          <div className="font-mono text-[10px] tracking-[2.5px] uppercase text-[rgba(15,19,34,0.45)] font-semibold mb-3.5">
-            {active.eyebrow}
+
+      {/* painel da área ativa */}
+      <div id={`mega-panel-${active.id}`} role="tabpanel" aria-labelledby={`mega-tab-${active.id}`} className="px-[30px] pt-6 pb-[22px]">
+        <div className="flex items-end justify-between gap-6 pb-3.5 mb-2.5 border-b border-[#eef2f7]">
+          <div>
+            <div className="text-[11px] font-semibold uppercase tracking-[0.06em] text-[#94a3b8] mb-1.5">{active.eyebrow}</div>
+            <h3 className="text-[22px] font-bold tracking-[-0.02em] leading-[1.1] text-[#0f172a] mb-1.5">
+              {active.titlePlain} {active.titleAccent}
+            </h3>
+            <p className="text-[14px] leading-[1.5] text-[#475569] max-w-[560px]">{active.description}</p>
           </div>
-          <h3 className="text-[30px] font-bold leading-[1.05] tracking-[-0.035em] text-[#0a1322] mb-3.5">
-            {active.titlePlain}{' '}
-            <span className="italic-accent">{active.titleAccent}</span>
-          </h3>
-          <p className="text-sm leading-[1.55] text-[rgba(15,19,34,0.6)] mb-[18px] max-w-[280px]">
-            {active.description}
-          </p>
           <Link
             href={active.moduleHref}
             onClick={onNavigate}
-            className="inline-flex items-center gap-2 text-[#4a7818] text-[13px] font-semibold border-b-[1.5px] border-[#4a7818] pb-[3px] hover:gap-3 transition-all"
+            className="shrink-0 mb-1.5 inline-flex items-center gap-2 px-3.5 py-2.5 rounded-lg bg-[#0f172a] hover:bg-[#1e293b] text-white text-[13px] font-semibold whitespace-nowrap transition-colors"
           >
-            {active.ctaLabel} →
+            {active.ctaLabel} <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
-        <div className="grid grid-cols-3 gap-y-1">
-          {active.features.map(f => {
-            const Icon = getIcon(f.icon);
-            return (
-              <Link
-                key={f.name}
-                href={f.href}
-                onClick={onNavigate}
-                className="px-3.5 py-[14px] rounded-lg hover:bg-[rgba(15,19,34,0.03)] transition-colors"
-              >
-                <div className="flex items-start gap-2.5 mb-1">
-                  <span className="w-[22px] h-[22px] text-[#4a7818] flex items-center justify-center pt-0.5 shrink-0">
-                    <Icon className="w-[18px] h-[18px]" strokeWidth={1.6} />
-                  </span>
-                  <span className="text-[14px] font-semibold text-[#0a1322] tracking-[-0.015em] leading-[1.25]">
-                    {f.name}
-                  </span>
-                </div>
-                <p className="text-[11.5px] text-[rgba(15,19,34,0.5)] leading-[1.45] pl-[32px]">
-                  {f.description}
-                </p>
-              </Link>
-            );
-          })}
+
+        <div className="grid grid-cols-3 gap-x-2.5 gap-y-0.5">
+          {active.features.map(f => (
+            <Link
+              key={f.href}
+              href={f.href}
+              onClick={onNavigate}
+              className="block px-3.5 py-3 rounded-[10px] hover:bg-[rgba(15,23,42,0.035)] transition-colors"
+            >
+              <span className="flex items-start gap-2.5">
+                <span className="w-5 pt-0.5 text-[#15803d] flex items-center justify-center shrink-0">
+                  {createElement(getIcon(f.icon), { className: 'w-[17px] h-[17px]', strokeWidth: 1.8 })}
+                </span>
+                <span className="text-[15px] font-semibold text-[#0f172a] tracking-[-0.01em] leading-[1.25]">{f.name}</span>
+              </span>
+              <span className="block text-[12.5px] text-[#64748b] leading-[1.45] pl-[30px] mt-1">{f.description}</span>
+            </Link>
+          ))}
         </div>
       </div>
     </div>

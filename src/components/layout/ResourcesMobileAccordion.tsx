@@ -41,7 +41,7 @@ export function ResourcesMobileAccordion({ onNavigate }: Props) {
             key={tab.id}
             className={cn(
               'border border-[rgba(15,19,34,0.08)] rounded-2xl overflow-hidden transition-colors',
-              isOpen ? 'bg-[#fdfcfa]' : 'bg-white'
+              isOpen ? 'bg-[#f8fafc]' : 'bg-white'
             )}
           >
             <button
@@ -52,7 +52,7 @@ export function ResourcesMobileAccordion({ onNavigate }: Props) {
               className="w-full flex items-center justify-between gap-3 px-4 py-3.5 text-left hover:bg-[rgba(15,19,34,0.02)] transition-colors"
             >
               <div className="flex items-center gap-3 min-w-0">
-                <span className="w-9 h-9 rounded-xl bg-[rgba(132,160,40,0.10)] text-[#4a7818] flex items-center justify-center shrink-0">
+                <span className="w-9 h-9 rounded-xl bg-[#f0fdf4] border border-[#bbf7d0] text-[#15803d] flex items-center justify-center shrink-0">
                   <CategoryIcon className="w-[18px] h-[18px]" strokeWidth={2} />
                 </span>
                 <div className="min-w-0">
@@ -94,9 +94,9 @@ export function ResourcesMobileAccordion({ onNavigate }: Props) {
                           key={f.name}
                           href={f.href}
                           onClick={onNavigate}
-                          className="flex items-start gap-3 py-2 px-2 -mx-2 rounded-lg active:bg-[rgba(132,160,40,0.08)] transition-colors"
+                          className="flex items-start gap-3 py-2 px-2 -mx-2 rounded-lg active:bg-[rgba(15,23,42,0.04)] transition-colors"
                         >
-                          <span className="w-[22px] h-[22px] text-[#4a7818] flex items-center justify-center pt-0.5 shrink-0">
+                          <span className="w-[22px] h-[22px] text-[#15803d] flex items-center justify-center pt-0.5 shrink-0">
                             <Icon className="w-4 h-4" strokeWidth={1.8} />
                           </span>
                           <div className="min-w-0 flex-1">
@@ -114,7 +114,7 @@ export function ResourcesMobileAccordion({ onNavigate }: Props) {
                   <Link
                     href={tab.moduleHref}
                     onClick={onNavigate}
-                    className="inline-flex items-center gap-1.5 mt-2 text-[12.5px] font-semibold text-[#4a7818] border-b-[1.5px] border-[#4a7818] pb-0.5"
+                    className="inline-flex items-center gap-1.5 mt-2 text-[12.5px] font-semibold text-[#15803d] border-b-[1.5px] border-[#15803d] pb-0.5"
                   >
                     {tab.ctaLabel} →
                   </Link>

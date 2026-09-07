@@ -134,7 +134,7 @@ function PlanCard({ plan }: { plan: Plan }) {
         className={cn(
           'mb-2 leading-[1.1] tracking-[-0.025em]',
           plan.featured
-            ? 'font-serif italic font-normal text-[32px] italic-accent'
+            ? 'font-display text-[30px] font-extrabold text-[#0a1322]'
             : 'font-display text-[26px] font-bold text-[#0a1322]'
         )}
       >

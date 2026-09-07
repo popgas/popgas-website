@@ -18,11 +18,12 @@
   --color-border-subtle: #f1f5f9;
   --color-dark-section: #0f172a;
 
-  /* Typography — Geist + Geist Mono + Instrument Serif */
-  --font-sans: var(--font-geist), 'Geist', system-ui, -apple-system, sans-serif;
-  --font-mono: var(--font-geist-mono), 'Geist Mono', ui-monospace, monospace;
-  --font-serif: var(--font-instrument-serif), 'Instrument Serif', Georgia, serif;
-  --font-display: var(--font-geist), 'Geist', system-ui, sans-serif;
+  /* Typography — Inter em tudo (identidade "Neutro SaaS"): sem serifa, sem itálico.
+     `font-mono` continua existindo como utilitário (eyebrows), mas resolve para Inter. */
+  --font-sans: var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-inter), 'Inter', system-ui, sans-serif;
+  --font-serif: var(--font-inter), 'Inter', system-ui, sans-serif;
+  --font-display: var(--font-inter), 'Inter', system-ui, sans-serif;
 
   --radius-sm: 6px;
   --radius-md: 8px;
@@ -76,7 +77,8 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.011em;
+  font-feature-settings: 'cv11' 1, 'ss01' 1, 'calt' 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -94,14 +96,12 @@ body {
 }
 
 .italic-accent {
-  font-family: var(--font-instrument-serif), 'Instrument Serif', Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
-  background: linear-gradient(135deg, #4a7818 0%, #64a028 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  padding-right: 0.04em;
+  /* Mantido o nome da classe (usada em ~30 lugares); o tratamento agora é peso, não itálico. */
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.03em;
 }
 
 /* Leaflet custom markers — used by VerticalGas DeliveryMap */
@@ -130,7 +130,7 @@ body {
   color: white;
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 0 0 4px white, 0 0 0 5px rgba(132,160,40,0.35), 0 8px 24px rgba(74,120,24,0.30);
-  font-family: var(--font-geist), sans-serif;
+  font-family: var(--font-sans);
   font-weight: 800;
   font-size: 11px;
   letter-spacing: -0.5px;
@@ -140,7 +140,7 @@ body {
   border: 1px solid rgba(132,160,40,0.30);
   padding: 4px 8px;
   border-radius: 6px;
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-sans);
   font-size: 9px;
   color: #4a7818;
   font-weight: 600;

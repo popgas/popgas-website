@@ -105,7 +105,7 @@ export function Hero() {
             O ERP que{' '}
             <span
               ref={wordRef}
-              className="inline-block min-w-[0.8ch] font-serif italic font-normal tracking-[-0.025em] bg-gradient-to-br from-[#4a7818] to-[#64a028] bg-clip-text text-transparent"
+              className="inline-block min-w-[0.8ch] font-extrabold tracking-[-0.05em] text-[#4a7818]"
               style={{ paddingRight: '0.02em' }}
             >
               automatiza
@@ -212,7 +212,7 @@ function MarqueeRow({ ariaHidden = false }: { ariaHidden?: boolean }) {
     <div className="flex items-center gap-7 pr-7" {...(ariaHidden ? { 'aria-hidden': true } : {})}>
       {MARQUEE_ITEMS.map((label, i) => (
         <span key={i} className="flex items-center gap-7">
-          <span className="text-[#4a7818] font-serif italic font-normal text-[18px] leading-[15px] tracking-tight">
+          <span className="text-[#4a7818] font-bold text-[16px] leading-[15px] tracking-tight">
             {label}
           </span>
           <span className="text-[rgba(15,19,34,0.22)] select-none" aria-hidden>·</span>
