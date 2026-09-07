@@ -199,7 +199,19 @@ function FeatureRow({ feature, reverse }: { feature: Feature; reverse: boolean }
       <InlineYouTube videoId={feature.inlineVideoId} title={feature.imageAlt} poster={feature.imageSrc} posterW={feature.imageW} posterH={feature.imageH} tag={feature.tag} />
     </div>
   ) : null;
-  const imageBlock = (
+  const imageBlock = feature.imagePhoto ? (
+    // Foto (celular) preenchendo o card, com zoom/recorte — como no site de parceiros.
+    <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-[rgba(15,19,34,0.08)] bg-white shadow-[0_24px_48px_-12px_rgba(15,19,34,0.14),0_4px_14px_rgba(15,19,34,0.06)]">
+      <Image
+        src={feature.imageSrc}
+        alt={feature.imageAlt}
+        width={feature.imageW}
+        height={feature.imageH}
+        className="absolute inset-0 w-full h-full object-cover object-[center_28%]"
+        sizes="(min-width: 1024px) 540px, (min-width: 640px) 90vw, 100vw"
+      />
+    </div>
+  ) : (
     <div
       className={`relative w-full h-full rounded-2xl overflow-hidden border border-[rgba(15,19,34,0.08)] shadow-[0_24px_48px_-12px_rgba(15,19,34,0.14),0_4px_14px_rgba(15,19,34,0.06)] ${
         portrait ? 'bg-gradient-to-br from-[#f4f7ee] to-[#e6eedb] py-6 sm:py-8' : 'bg-white'
@@ -212,9 +224,7 @@ function FeatureRow({ feature, reverse }: { feature: Feature; reverse: boolean }
         height={feature.imageH}
         className={
           portrait
-            ? feature.imagePhoto
-              ? 'block mx-auto w-auto h-[400px] sm:h-[480px] rounded-2xl shadow-[0_12px_32px_rgba(15,19,34,0.18)]'
-              : 'block mx-auto w-auto h-[400px] sm:h-[480px] rounded-[22px] border-[6px] border-[#0a1322] shadow-[0_16px_40px_rgba(15,19,34,0.25)]'
+            ? 'block mx-auto w-auto h-[400px] sm:h-[480px] rounded-[22px] border-[6px] border-[#0a1322] shadow-[0_16px_40px_rgba(15,19,34,0.25)]'
             : 'w-full h-auto block'
         }
         sizes={portrait ? '300px' : '(min-width: 1024px) 540px, (min-width: 640px) 90vw, 100vw'}
