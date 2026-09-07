@@ -13,6 +13,28 @@ export interface TocItem {
 export function ModuleToc({ items }: { items: TocItem[] }) {
   const [active, setActive] = useState<string>(items[0]?.id ?? '');
 
+  // Destaque do card/seção alvo ao chegar por âncora (além do :target do CSS, que
+  // nem sempre é aplicado após navegação client-side).
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const hit = () => {
+      const id = window.location.hash.slice(1);
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.add('anchor-hit');
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(() => el.classList.remove('anchor-hit'), 3500);
+    };
+    hit();
+    window.addEventListener('hashchange', hit);
+    return () => {
+      window.removeEventListener('hashchange', hit);
+      if (timer) clearTimeout(timer);
+    };
+  }, []);
+
   useEffect(() => {
     if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return;
     const sections = items

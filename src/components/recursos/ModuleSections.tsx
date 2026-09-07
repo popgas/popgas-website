@@ -76,7 +76,7 @@ export function FeatureCard({ feature }: { feature: FeatureItem }) {
   return (
     <article
       id={feature.id}
-      className="group h-full p-6 bg-white border border-[rgba(15,19,34,0.06)] rounded-2xl scroll-mt-28 transition-all hover:border-[rgba(132,160,40,0.30)] hover:shadow-[0_4px_14px_rgba(132,160,40,0.10)] target:border-[#64a028] target:ring-4 target:ring-[rgba(132,160,40,0.18)] target:shadow-[0_12px_32px_rgba(132,160,40,0.18)]"
+      className="group h-full p-6 bg-white border border-[rgba(15,19,34,0.06)] rounded-2xl scroll-mt-28 transition-all hover:border-[rgba(132,160,40,0.30)] hover:shadow-[0_4px_14px_rgba(132,160,40,0.10)] target:border-[#64a028] target:ring-4 target:ring-[rgba(132,160,40,0.18)] target:shadow-[0_12px_32px_rgba(132,160,40,0.18)] [&.anchor-hit]:border-[#64a028] [&.anchor-hit]:ring-4 [&.anchor-hit]:ring-[rgba(132,160,40,0.18)] [&.anchor-hit]:shadow-[0_12px_32px_rgba(132,160,40,0.18)]"
     >
       <div className="w-10 h-10 rounded-lg bg-[rgba(132,160,40,0.10)] text-[#4a7818] flex items-center justify-center mb-4">
         {createElement(icon, { className: 'w-5 h-5', strokeWidth: 2 })}
