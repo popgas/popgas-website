@@ -1,0 +1,7 @@
+{
+  "name": "popgas-site-e2e-migration",
+  "private": true,
+  "dependencies": {
+    "prisma": "7.4.2"
+  }
+}
