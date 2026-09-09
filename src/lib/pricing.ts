@@ -57,8 +57,9 @@ export const MODULES: Record<ModuleId, ModuleDefinition> = {
 };
 
 export const TRIAL_DAYS = 14;
-export const SIGNUP_URL = 'https://erp.popgas.com.br/signup';
-export const LOGIN_URL = 'https://erp.popgas.com.br/login';
+const ERP_URL = process.env.NEXT_PUBLIC_ERP_URL || 'https://erp.popgas.com.br';
+export const SIGNUP_URL = `${ERP_URL}/signup`;
+export const LOGIN_URL = `${ERP_URL}/login`;
 export const HELP_DOCS_URL = 'https://erp.popgas.com.br/docs';
 export const WHATSAPP_NUMBER = '553432387777';
 export const WHATSAPP_MESSAGE_B2B =

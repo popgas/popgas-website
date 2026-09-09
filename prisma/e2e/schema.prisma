@@ -1,0 +1,59 @@
+datasource db {
+  provider = "postgresql"
+}
+
+model BlogPost {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  excerpt     String?
+  content     String   @db.Text
+  imageUrl    String?
+  category    String   @default("Uncategorized")
+  published   Boolean  @default(true)
+  publishedAt DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  sticky      Boolean  @default(false)
+}
+
+model FaqItem {
+  id       String @id @default(cuid())
+  question String
+  answer   String @db.Text
+  category String @default("Geral")
+  audience String @default("b2b")
+  order    Int    @default(0)
+
+  @@index([audience, category])
+}
+
+model ContactMessage {
+  id        String      @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  company   String?
+  cnpj      String?
+  message   String      @db.Text
+  type      ContactType @default(GENERAL)
+  source    String?
+  modules   String?
+  billing   String?
+  createdAt DateTime    @default(now())
+
+  @@index([type])
+  @@index([createdAt])
+}
+
+enum ContactType {
+  GENERAL
+  ENTERPRISE
+  SUPPORT
+}
+
+model SiteSettings {
+  id    String @id @default(cuid())
+  key   String @unique
+  value String
+}
