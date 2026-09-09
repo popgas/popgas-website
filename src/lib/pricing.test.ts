@@ -1,7 +1,6 @@
 import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   MODULES,
-  ANNUAL_DISCOUNT,
   TRIAL_DAYS,
   calculateTotal,
   buildSignupUrl,
@@ -46,22 +45,16 @@ describe('pricing ERP URLs', () => {
 
 describe('pricing.calculateTotal', () => {
   it('returns base price when only essencial selected', () => {
-    expect(calculateTotal(['essencial'], 'monthly')).toBe(99.90);
+    expect(calculateTotal(['essencial'])).toBe(99.90);
   });
 
   it('sums modules correctly', () => {
-    expect(calculateTotal(['essencial', 'gestao', 'fiscal'], 'monthly')).toBeCloseTo(199.70, 2);
+    expect(calculateTotal(['essencial', 'gestao', 'fiscal'])).toBeCloseTo(199.70, 2);
   });
 
-  it('applies 20% annual discount', () => {
-    const monthly = calculateTotal(['essencial'], 'monthly');
-    const annual = calculateTotal(['essencial'], 'annual');
-    expect(annual).toBeCloseTo(monthly * (1 - ANNUAL_DISCOUNT), 2);
-  });
-
-  it('total for full plan annual', () => {
-    const total = calculateTotal(['essencial', 'gestao', 'fiscal', 'techia'], 'annual');
-    expect(total).toBeCloseTo(399.60 * 0.8, 2);
+  it('total for full plan', () => {
+    const total = calculateTotal(['essencial', 'gestao', 'fiscal', 'techia']);
+    expect(total).toBeCloseTo(399.60, 2);
   });
 });
 
@@ -79,10 +72,9 @@ describe('pricing.buildSignupUrl', () => {
   it('joins multiple modules by comma', () => {
     const url = buildSignupUrl({
       modules: ['essencial', 'fiscal', 'techia'],
-      billing: 'annual',
     });
     expect(url).toContain('modules=base%2Cfiscal%2Cai');
-    expect(url).toContain('billing=annual');
+    expect(url).toContain('billing=monthly');
   });
 
   it('includes custom utm_campaign when provided', () => {

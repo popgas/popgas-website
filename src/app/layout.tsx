@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono, Instrument_Serif } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import { Analytics as VercelAnalytics } from '@vercel/analytics/next';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
@@ -10,23 +10,10 @@ import { GTM_ID } from '@/lib/analytics';
 import { isE2EBrowserIsolation } from '@/lib/e2e-browser-isolation';
 import './globals.css';
 
-const geist = Geist({
+// Identidade visual "Neutro SaaS": uma única família (Inter), sem serifa e sem itálico.
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-geist',
-  display: 'swap',
-});
-
-const geistMono = Geist_Mono({
-  subsets: ['latin'],
-  variable: '--font-geist-mono',
-  display: 'swap',
-});
-
-const instrumentSerif = Instrument_Serif({
-  subsets: ['latin'],
-  variable: '--font-instrument-serif',
-  weight: '400',
-  style: ['normal', 'italic'],
+  variable: '--font-inter',
   display: 'swap',
 });
 
@@ -48,7 +35,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${geist.variable} ${geistMono.variable} ${instrumentSerif.variable}`}>
+    <html lang="pt-BR" className={inter.variable}>
       <head>
         {!isE2EBrowserIsolation && (
           /* Google Tag Manager — único ponto de tracking (Pixel + GA4 vivem no contêiner) */

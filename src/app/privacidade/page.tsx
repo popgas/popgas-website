@@ -17,7 +17,7 @@ export default function PrivacidadePage() {
         <p className="text-sm text-[#94a3b8] mb-8">Última atualização: 9 de maio de 2026</p>
         <div className="space-y-6 text-[#475569] leading-relaxed text-[15px]">
           <p>
-            <strong>Em revisão jurídica.</strong> Esta versão é um placeholder e será substituída pela política final antes do lançamento.
+            Versão resumida da política. Dúvidas sobre seus dados: dpo@popgas.com.br.
           </p>
           <h2 className="text-xl font-bold text-[#0f172a]">1. Controlador</h2>
           <p>POPGAS COMERCIO E TECNOLOGIA LTDA · CNPJ 10.262.307/0001-14 · Uberlândia/MG.</p>

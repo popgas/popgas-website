@@ -3,13 +3,13 @@ import type { Metadata } from 'next';
 import { Container } from '@/components/shared/Container';
 import { Breadcrumb } from '@/components/recursos/Breadcrumb';
 import { ModuleHeroSplit } from '@/components/recursos/ModuleHeroSplit';
-import { FeatureList } from '@/components/recursos/FeatureList';
+import { ModuleSections } from '@/components/recursos/ModuleSections';
 import { ModuleSynergy } from '@/components/recursos/ModuleSynergy';
 import { FinalCta } from '@/components/home/FinalCta';
 import { techIaContent } from '@/content/modules';
 
 export const metadata: Metadata = {
-  title: 'Tech & IA — IA + WhatsApp + App Web',
+  title: 'Tech & IA — IA e WhatsApp',
   description: techIaContent.hero.subtitle,
 };
 
@@ -27,7 +27,7 @@ export default function Page() {
         reversed
         isPremium
       />
-      <FeatureList features={techIaContent.features} />
+      <ModuleSections content={techIaContent} />
       {techIaContent.synergies && <ModuleSynergy synergies={techIaContent.synergies} />}
       <FinalCta />
     </>

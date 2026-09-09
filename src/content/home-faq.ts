@@ -10,19 +10,19 @@ export const HOME_FAQ: FaqEntry[] = [
   {
     question: 'Preciso migrar meus dados?',
     answer:
-      'Sim, mas nosso time de migração faz isso para você. Importamos clientes, produtos e estoque do seu sistema atual nos primeiros dias do trial. Sem custo adicional.',
+      'Não precisa começar do zero. Você importa sua base de clientes por planilha direto no sistema e nosso time ajuda com produtos e configurações iniciais durante o período de teste. Sem custo adicional.',
     emphasize: ['Sem custo adicional'],
   },
   {
-    question: 'Funciona offline?',
+    question: 'Funciona no celular?',
     answer:
-      'O ERP web requer internet. Para entregas em áreas sem cobertura, nosso app do entregador opera offline e sincroniza quando reconecta.',
-    emphasize: ['app do entregador opera offline'],
+      'O painel do ERP roda no navegador, de qualquer computador ou tablet. O entregador usa o app Android ou iPhone, e seu cliente faz pedidos pelo app ou pelo navegador, sem instalar nada.',
+    emphasize: ['app Android ou iPhone'],
   },
   {
     question: 'Tenho NF-e e NFC-e?',
     answer:
-      'Sim, com o módulo Fiscal (+R$ 49,90/mês). Emissão direta pela SEFAZ, com cálculo automático de impostos, CT-e, MDF-e e SPED.',
+      'Sim, com o módulo Fiscal (+R$ 49,90/mês). Emissão homologada junto à SEFAZ, com cálculo automático de impostos, NFS-e, CT-e, MDF-e e geração do SPED Fiscal.',
     emphasize: ['SEFAZ'],
   },
   {
@@ -34,13 +34,13 @@ export const HOME_FAQ: FaqEntry[] = [
   {
     question: 'A IA atende mesmo no WhatsApp?',
     answer:
-      'Sim. Com o módulo Tech & IA, conectamos seu número (oficial Meta ou whapi.cloud), treinamos a IA com sua base de conhecimento e ela atende 24/7 — escalando para humano quando necessário.',
+      'Sim. Com o módulo Tech & IA, conectamos seu número (oficial Meta ou número comum via QR code), cadastramos as regras da sua revenda e a IA atende 24/7, criando pedidos e transferindo para um atendente quando necessário.',
     emphasize: ['atende 24/7'],
   },
   {
     question: 'Como é o suporte?',
     answer:
-      'Suporte humano em português, dentro do horário comercial, via WhatsApp e e-mail. Plano Tech & IA inclui prioridade.',
-    emphasize: ['prioridade'],
+      'Suporte humano em português, em horário comercial, via WhatsApp e e-mail, além da central de ajuda dentro do sistema com busca por IA.',
+    emphasize: ['Suporte humano em português'],
   },
 ];

@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Play } from 'lucide-react';
+import { Play, Flame, CalendarCheck, ShieldCheck } from 'lucide-react';
 import { Container } from '@/components/shared/Container';
 import { VideoModal } from '@/components/shared/VideoModal';
 import { buildSignupUrl } from '@/lib/pricing';
@@ -98,14 +98,14 @@ export function Hero() {
               className="w-1.5 h-1.5 rounded-full bg-[#64a028] shadow-[0_0_6px_rgba(132,160,40,0.45)]"
               style={{ animation: 'pulse-cyan 2.4s ease-in-out infinite' }}
             />
-            IA + WhatsApp em todos os planos com módulo Tech
+            Vendas, estoque, fiscal, WhatsApp e IA num só sistema
           </div>
 
           <h1 className="font-display font-extrabold tracking-[-0.05em] leading-[0.96] text-[#0a1322] max-w-[980px] mx-auto text-[38px] sm:text-6xl lg:text-[88px] mb-6 sm:mb-7">
             O ERP que{' '}
             <span
               ref={wordRef}
-              className="inline-block min-w-[0.8ch] font-serif italic font-normal tracking-[-0.025em] bg-gradient-to-br from-[#4a7818] to-[#64a028] bg-clip-text text-transparent"
+              className="inline-block min-w-[0.8ch] font-extrabold tracking-[-0.05em] text-[#4a7818]"
               style={{ paddingRight: '0.02em' }}
             >
               automatiza
@@ -150,23 +150,21 @@ export function Hero() {
             </Link>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 items-center justify-center text-sm text-[rgba(15,19,34,0.62)]">
-            <div className="flex">
-              {['#fbbf24', '#fb7185', '#60a5fa', '#34d399'].map((c, i) => (
-                <div
-                  key={i}
-                  className="w-7 h-7 rounded-full border-2 border-[#fbfbfa]"
-                  style={{ background: c, marginLeft: i === 0 ? 0 : -8 }}
-                />
-              ))}
-            </div>
-            <span className="text-[#fbbf24] tracking-[1px] text-xs">★★★★★</span>
-            <span>
-              <strong className="text-[#0a1322] font-bold">200+ revendas</strong> confiam no PopGás
-            </span>
-          </div>
+          {/* fatos verificáveis no lugar de prova social genérica (estrelas/avatares sem fonte) */}
+          <ul className="flex flex-col sm:flex-row flex-wrap gap-x-7 gap-y-2 items-center justify-center text-[14px] text-[#475569] list-none p-0 m-0">
+            {[
+              { icon: Flame, text: <>Nascido em uma <strong className="text-[#0f172a] font-semibold">revenda real</strong>, em operação desde 2015</> },
+              { icon: CalendarCheck, text: <><strong className="text-[#0f172a] font-semibold">14 dias grátis</strong>, sem cartão</> },
+              { icon: ShieldCheck, text: <>Sem fidelidade, <strong className="text-[#0f172a] font-semibold">cancele quando quiser</strong></> },
+            ].map((item, i) => (
+              <li key={i} className="inline-flex items-center gap-2">
+                <item.icon className="w-4 h-4 text-[#15803d]" strokeWidth={2} aria-hidden />
+                <span>{item.text}</span>
+              </li>
+            ))}
+          </ul>
 
-          <div className="relative mt-12 sm:mt-16 max-w-[1100px] mx-auto">
+          <div className="relative mt-12 sm:mt-16 max-w-[896px] mx-auto">
             <div
               aria-hidden
               className="absolute -inset-x-6 -inset-y-10 sm:-inset-x-10 sm:-inset-y-16 rounded-[40px] pointer-events-none"
@@ -178,13 +176,13 @@ export function Hero() {
             />
             <div className="relative rounded-2xl sm:rounded-[20px] overflow-hidden border border-[rgba(15,19,34,0.10)] bg-white shadow-[0_40px_80px_-20px_rgba(15,19,34,0.20),0_8px_24px_rgba(15,19,34,0.10)]">
               <Image
-                src="/screenshots/parceiros/dashboard.png"
-                alt="Dashboard PopGás Sistema"
+                src="/screenshots/banner-ia-whatsapp.png"
+                alt="IA no WhatsApp para revendas de gás e app web personalizado com o PopGás Sistema"
                 width={1920}
                 height={963}
                 priority
                 className="w-full h-auto block"
-                sizes="(min-width: 1100px) 1100px, 100vw"
+                sizes="(min-width: 896px) 896px, 100vw"
               />
             </div>
           </div>
@@ -212,7 +210,7 @@ function MarqueeRow({ ariaHidden = false }: { ariaHidden?: boolean }) {
     <div className="flex items-center gap-7 pr-7" {...(ariaHidden ? { 'aria-hidden': true } : {})}>
       {MARQUEE_ITEMS.map((label, i) => (
         <span key={i} className="flex items-center gap-7">
-          <span className="text-[#4a7818] font-serif italic font-normal text-[18px] leading-[15px] tracking-tight">
+          <span className="text-[#4a7818] font-bold text-[16px] leading-[15px] tracking-tight">
             {label}
           </span>
           <span className="text-[rgba(15,19,34,0.22)] select-none" aria-hidden>·</span>

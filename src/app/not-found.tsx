@@ -67,7 +67,6 @@ export default function NotFound() {
             <QuickLink href="/recursos">Recursos</QuickLink>
             <QuickLink href="/planos">Planos</QuickLink>
             <QuickLink href="/faq">Dúvidas frequentes</QuickLink>
-            <QuickLink href="/blog">Blog</QuickLink>
             <QuickLink href="/sobre-nos">Sobre nós</QuickLink>
           </div>
         </div>

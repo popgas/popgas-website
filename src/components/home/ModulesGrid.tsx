@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils';
 const MODULE_ORDER: ModuleId[] = ['essencial', 'gestao', 'fiscal', 'techia'];
 
 export function ModulesGrid() {
-  const total = calculateTotal(MODULE_ORDER, 'monthly');
+  const total = calculateTotal(MODULE_ORDER);
 
   return (
     <section className="py-16 sm:py-20 md:py-28 bg-gradient-to-b from-[#fbfbfa] to-[#f1f5f9]">
@@ -32,7 +32,7 @@ export function ModulesGrid() {
                 Plataforma completa · 4 módulos
               </div>
               <div className="font-mono text-[10px] tracking-[1px] text-[rgba(15,19,34,0.5)]">
-                Selecione e veja o total →
+                Todos os módulos juntos
               </div>
             </div>
 

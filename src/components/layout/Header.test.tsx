@@ -12,7 +12,6 @@ describe('<Header>', () => {
     render(<Header />);
     expect(screen.getAllByRole('link', { name: /recursos/i }).length).toBeGreaterThan(0);
     expect(screen.getAllByRole('link', { name: /^planos$/i }).length).toBeGreaterThan(0);
-    expect(screen.getAllByRole('link', { name: /blog/i }).length).toBeGreaterThan(0);
     expect(screen.getAllByRole('link', { name: /contato/i }).length).toBeGreaterThan(0);
   });
 

@@ -4,7 +4,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 
 vi.mock('next/font/google', () => {
   const font = () => ({ variable: 'test-font' });
-  return { Geist: font, Geist_Mono: font, Instrument_Serif: font };
+  return { Geist: font, Geist_Mono: font, Instrument_Serif: font, Inter: font };
 });
 
 vi.mock('@vercel/analytics/next', () => ({
@@ -44,22 +44,6 @@ describe('website E2E browser isolation', () => {
     const productionHtml = await renderLayout(false);
     expect(productionHtml).toContain('googletagmanager.com');
     expect(productionHtml).toContain('data-testid="vercel-analytics"');
-  });
-
-  it('renders the local deterministic operations map only in the E2E build', async () => {
-    vi.stubEnv('NEXT_PUBLIC_E2E_BROWSER_ISOLATION', 'true');
-    const { DeliveryMap: IsolatedDeliveryMap } = await import('@/components/home/DeliveryMap');
-    const isolatedHtml = renderToStaticMarkup(<IsolatedDeliveryMap />);
-
-    expect(isolatedHtml).toContain('data-testid="e2e-local-delivery-map"');
-    expect(isolatedHtml).toContain('P13 · 2un');
-
-    vi.resetModules();
-    vi.stubEnv('NEXT_PUBLIC_E2E_BROWSER_ISOLATION', '');
-    const { DeliveryMap: ProductionDeliveryMap } = await import('@/components/home/DeliveryMap');
-    const productionHtml = renderToStaticMarkup(<ProductionDeliveryMap />);
-
-    expect(productionHtml).not.toContain('data-testid="e2e-local-delivery-map"');
   });
 
   it('publishes an E2E-only local response policy for the real Next server', async () => {

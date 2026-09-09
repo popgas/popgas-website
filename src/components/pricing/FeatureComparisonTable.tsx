@@ -23,25 +23,29 @@ const GROUPS: FeatureGroup[] = [
     title: 'Vendas e atendimento',
     description: 'O básico pra atender bem e fechar pedidos sem perder tempo.',
     rows: [
-      { name: 'Gestão de Clientes — CRM', modules: ['essencial'] },
+      { name: 'Cadastro de Clientes (CPF/CNPJ, vários endereços)', modules: ['essencial'] },
       { name: 'Gestão de Pedidos', modules: ['essencial'] },
-      { name: 'Meios de Pagamento (Dinheiro · PIX · Cartão · Saldo)', modules: ['essencial'] },
-      { name: 'App do Cliente', modules: ['essencial'] },
+      { name: 'Meios de Pagamento (Dinheiro · PIX · Cartão · Boleto · Saldo)', modules: ['essencial'] },
+      { name: 'Tabelas de Preço, Cupons e Brindes', modules: ['essencial'] },
+      { name: 'App do Cliente (celular e navegador)', modules: ['essencial'] },
       { name: 'Rastreamento de Entregas em Tempo Real', modules: ['essencial'] },
       { name: 'Avaliação Pós-Entrega', modules: ['essencial'] },
-      { name: 'Programa de Indicação — Renda PopGás', modules: ['essencial'] },
-      { name: 'Push Notifications', modules: ['essencial'] },
+      { name: 'App do Entregador', modules: ['essencial'] },
+      { name: 'Bina Integrada ao Telefone', modules: ['essencial'] },
+      { name: 'Multi-loja e Perfis de Acesso', modules: ['essencial'] },
+      { name: 'Notificações Push no App', modules: ['essencial'] },
     ],
   },
   {
     title: 'Estoque',
     description: 'Sabe exatamente o que entra, o que sai e onde está.',
     rows: [
-      { name: 'Controle de Estoque', modules: ['gestao'] },
-      { name: 'Gestão de Depósitos', modules: ['gestao'] },
-      { name: 'Lotes e Condições', modules: ['gestao'] },
+      { name: 'Controle de Estoque por Lotes', modules: ['gestao'] },
+      { name: 'Múltiplos Depósitos e Veículos', modules: ['gestao'] },
+      { name: 'Transferências (com aceite entre entregadores)', modules: ['gestao'] },
       { name: 'Recebimento de Mercadorias', modules: ['gestao'] },
-      { name: 'Inventário e Contagem Física', modules: ['gestao'] },
+      { name: 'Conferência de Estoque', modules: ['gestao'] },
+      { name: 'Carregamentos e Vasilhames', modules: ['gestao'] },
       { name: 'Cadastro de Fornecedores', modules: ['gestao'] },
     ],
   },
@@ -51,12 +55,12 @@ const GROUPS: FeatureGroup[] = [
     rows: [
       { name: 'Contas a Pagar', modules: ['gestao'] },
       { name: 'Contas a Receber', modules: ['gestao'] },
-      { name: 'Boleto Bancário', modules: ['gestao'] },
-      { name: 'Conciliação Bancária', modules: ['gestao'] },
-      { name: 'Plano de Contas e DRE', modules: ['gestao'] },
+      { name: 'Conciliação Bancária (OFX + IA)', modules: ['gestao'] },
+      { name: 'DRE Gerencial', modules: ['gestao'] },
       { name: 'Centros de Custo', modules: ['gestao'] },
-      { name: 'Fechamento de Caixa', modules: ['gestao'] },
-      { name: 'Acerto do Entregador', modules: ['gestao'] },
+      { name: 'Caixa e Acerto do Entregador', modules: ['gestao'] },
+      { name: 'Manutenção de Frota e Combustível', modules: ['gestao'] },
+      { name: 'Relatórios de Faturamento e Estoque', modules: ['gestao'] },
     ],
   },
   {
@@ -64,8 +68,9 @@ const GROUPS: FeatureGroup[] = [
     description: 'Nota fiscal emitida em segundos, sem dor de cabeça com a Receita.',
     rows: [
       { name: 'Emissão de NF-e', modules: ['fiscal'] },
-      { name: 'Emissão de NFC-e', modules: ['fiscal'] },
-      { name: 'Carta de Correção', modules: ['fiscal'] },
+      { name: 'Emissão de NFC-e (automática na entrega)', modules: ['fiscal'] },
+      { name: 'NFS-e Nacional', modules: ['fiscal'] },
+      { name: 'Carta de Correção e Manifestação', modules: ['fiscal'] },
       { name: 'CT-e e MDF-e (Transporte e Manifesto)', modules: ['fiscal'] },
       { name: 'Cálculo Automático de Impostos', modules: ['fiscal'] },
       { name: 'SPED Fiscal', modules: ['fiscal'] },
@@ -76,15 +81,15 @@ const GROUPS: FeatureGroup[] = [
     title: 'WhatsApp e Inteligência Artificial',
     description: 'IA atende, cria pedidos sozinha e libera seu time pro que importa.',
     rows: [
-      { name: 'Chatbot com IA — 24/7', modules: ['techia'] },
+      { name: 'Atendente de IA no WhatsApp — 24/7', modules: ['techia'] },
       { name: 'WhatsApp Oficial — Meta Business', modules: ['techia'] },
-      { name: 'WhatsApp Alternativo — whapi', modules: ['techia'] },
-      { name: 'Construtor Visual de Fluxos', modules: ['techia'] },
-      { name: 'Base de Conhecimento (RAG)', modules: ['techia'] },
-      { name: 'Templates de Mensagens', modules: ['techia'] },
-      { name: 'Fila de Atendimento', modules: ['techia'] },
-      { name: 'App Web', modules: ['techia'] },
-      { name: 'Dashboards em Tempo Real', modules: ['techia'] },
+      { name: 'WhatsApp com Número Comum (QR code)', modules: ['techia'] },
+      { name: 'Base de Conhecimento da Revenda', modules: ['techia'] },
+      { name: 'Notificações Automáticas de Pedido', modules: ['techia'] },
+      { name: 'Central de Atendimento e Filas', modules: ['techia'] },
+      { name: 'Transferência para Atendente Humano', modules: ['techia'] },
+      { name: 'Campanhas de Marketing', modules: ['techia'] },
+      { name: 'Dashboards de IA e WhatsApp', modules: ['techia'] },
     ],
   },
 ];
@@ -110,6 +115,7 @@ export function FeatureComparisonTable() {
           subtitle="Sem jargão técnico. O que cada módulo realmente faz pra você."
         />
         <div className="bg-white border border-[rgba(15,19,34,0.08)] rounded-3xl overflow-hidden shadow-[0_4px_14px_rgba(15,19,34,0.04)] max-w-[1100px] mx-auto">
+          <p className="md:hidden px-4 py-2.5 text-[12px] text-[#64748b] border-b border-[rgba(15,19,34,0.06)] bg-[#fafafa]">Deslize a tabela para o lado para ver os quatro módulos →</p>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead className="bg-[#fafafa] border-b border-[rgba(15,19,34,0.08)] sticky top-0">
@@ -136,8 +142,8 @@ export function FeatureComparisonTable() {
           </div>
         </div>
         <p className="text-xs text-[rgba(15,19,34,0.55)] text-center mt-6 max-w-[680px] mx-auto leading-relaxed">
-          Limites por plano: 1 CNPJ + 1 WhatsApp inclusos · 300 NF-e/mês · 500 conversas IA/mês.
-          Acima dos limites, cobramos um valor por unidade extra (sem bloqueio).
+          Cada plano inclui 1 CNPJ e 1 número de WhatsApp, além de uma franquia mensal de documentos fiscais e de conversas atendidas pela IA.
+          Precisa de mais? Amplie pelo painel ou fale com a gente.
         </p>
       </Container>
     </section>
