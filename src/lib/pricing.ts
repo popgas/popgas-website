@@ -57,10 +57,24 @@ export const MODULES: Record<ModuleId, ModuleDefinition> = {
 };
 
 export const TRIAL_DAYS = 14;
-const ERP_URL = process.env.NEXT_PUBLIC_ERP_URL || 'https://erp.popgas.com.br';
+const DEFAULT_ERP_URL = 'https://erp.popgas.com.br';
+
+export function resolveErpUrl(configuredUrl = process.env.NEXT_PUBLIC_ERP_URL): string {
+  if (!configuredUrl) return DEFAULT_ERP_URL;
+
+  const parsedUrl = new URL(configuredUrl);
+  const isLocalDevelopment = parsedUrl.protocol === 'http:' && ['localhost', '127.0.0.1'].includes(parsedUrl.hostname);
+  if ((!isLocalDevelopment && parsedUrl.protocol !== 'https:') || parsedUrl.pathname !== '/' || parsedUrl.search || parsedUrl.hash) {
+    throw new Error('NEXT_PUBLIC_ERP_URL must be an HTTPS origin (or localhost) without path, query or hash');
+  }
+
+  return parsedUrl.origin;
+}
+
+const ERP_URL = resolveErpUrl();
 export const SIGNUP_URL = `${ERP_URL}/signup`;
 export const LOGIN_URL = `${ERP_URL}/login`;
-export const HELP_DOCS_URL = 'https://erp.popgas.com.br/docs';
+export const HELP_DOCS_URL = `${ERP_URL}/docs`;
 export const WHATSAPP_NUMBER = '553432387777';
 export const WHATSAPP_MESSAGE_B2B =
   'Olá! Quero conhecer o sistema PopGás para minha revenda.';
