@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pt-BR" className={inter.variable}>
       <head>
-        {GTM_ID && !isE2EBrowserIsolation && (
+        {!isE2EBrowserIsolation && (
           /* Google Tag Manager — único ponto de tracking (Pixel + GA4 vivem no contêiner) */
           <script
             dangerouslySetInnerHTML={{
@@ -51,7 +51,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         )}
       </head>
       <body>
-        {GTM_ID && !isE2EBrowserIsolation && (
+        {!isE2EBrowserIsolation && (
           <noscript>
             <iframe
               src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
