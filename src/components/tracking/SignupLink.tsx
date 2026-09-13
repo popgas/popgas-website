@@ -1,12 +1,13 @@
 'use client';
 
-import { useEffect, useState, type ReactNode } from 'react';
+import { useEffect, useState, type MouseEventHandler, type ReactNode } from 'react';
+import { track } from '@/lib/analytics';
 import { appendAttribution, captureAttributionFromLocation } from '@/lib/attribution';
 
 interface SignupLinkProps {
   href: string;
   className?: string;
-  onClick?: () => void;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
   children: ReactNode;
 }
 
@@ -21,8 +22,20 @@ export function SignupLink({ href, className, onClick, children }: SignupLinkPro
     setResolvedHref(appendAttribution(href, captureAttributionFromLocation()));
   }, [href]);
 
+  const handleClick: MouseEventHandler<HTMLAnchorElement> = (event) => {
+    const target = new URL(resolvedHref, window.location.href);
+
+    track({
+      name: 'signup_redirect',
+      modules: target.searchParams.get('modules') ?? 'base',
+      billing: target.searchParams.get('billing') ?? 'monthly',
+    });
+
+    onClick?.(event);
+  };
+
   return (
-    <a href={resolvedHref} className={className} onClick={onClick}>
+    <a href={resolvedHref} className={className} onClick={handleClick}>
       {children}
     </a>
   );

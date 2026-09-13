@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { SignupLink } from './SignupLink';
 
 const BASE = 'https://erp.popgas.com.br/signup?modules=base&billing=monthly&utm_source=site&utm_campaign=home_hero';
@@ -7,6 +7,7 @@ const BASE = 'https://erp.popgas.com.br/signup?modules=base&billing=monthly&utm_
 describe('<SignupLink>', () => {
   beforeEach(() => {
     window.sessionStorage.clear();
+    window.dataLayer = undefined;
     window.history.replaceState({}, '', '/');
   });
 
@@ -49,5 +50,36 @@ describe('<SignupLink>', () => {
     expect(url.searchParams.get('utm_campaign')).toBe('lancamento');
     expect(url.searchParams.get('utm_content')).toBe('criativo_a');
     expect(url.searchParams.get('fbclid')).toBe('IwAR2');
+  });
+
+  it('tracks a signup_redirect with the selected modules and billing before navigation', () => {
+    render(
+      <SignupLink href={BASE} onClick={(event) => event.preventDefault()}>
+        Começar grátis →
+      </SignupLink>,
+    );
+
+    fireEvent.click(screen.getByRole('link', { name: /começar grátis/i }));
+
+    expect(window.dataLayer).toEqual([
+      { event: 'signup_redirect', modules: 'base', billing: 'monthly' },
+    ]);
+  });
+
+  it('uses the default signup selection when a generic CTA has no plan parameters', () => {
+    render(
+      <SignupLink
+        href="https://erp.popgas.com.br/signup?utm_source=site&utm_campaign=header_cta"
+        onClick={(event) => event.preventDefault()}
+      >
+        Começar grátis →
+      </SignupLink>,
+    );
+
+    fireEvent.click(screen.getByRole('link', { name: /começar grátis/i }));
+
+    expect(window.dataLayer).toEqual([
+      { event: 'signup_redirect', modules: 'base', billing: 'monthly' },
+    ]);
   });
 });
