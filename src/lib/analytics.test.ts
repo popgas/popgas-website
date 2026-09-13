@@ -6,12 +6,13 @@ describe('analytics.track', () => {
     window.dataLayer = undefined;
   });
 
-  it('exposes the GTM container id', () => {
-    expect(GTM_ID).toBe('GTM-K6435QMB');
+  it('does not enable GTM without an explicit environment value', () => {
+    expect(GTM_ID).toBeNull();
+    expect(resolveGtmId(undefined)).toBeNull();
   });
 
-  it('accepts an isolated sandbox GTM container id', () => {
-    expect(resolveGtmId('GTM-SANDBOX123')).toBe('GTM-SANDBOX123');
+  it('accepts the production GTM container id', () => {
+    expect(resolveGtmId('GTM-K6435QMB')).toBe('GTM-K6435QMB');
   });
 
   it('rejects an invalid GTM container id before rendering it into HTML', () => {

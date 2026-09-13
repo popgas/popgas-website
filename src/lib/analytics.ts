@@ -6,11 +6,9 @@ declare global {
   }
 }
 
-const DEFAULT_GTM_ID = 'GTM-K6435QMB';
-
-/** Permite isolar o tracking de ambientes não produtivos sem mudar o contêiner da produção. */
-export function resolveGtmId(configuredId = process.env.NEXT_PUBLIC_GTM_ID): string {
-  if (!configuredId) return DEFAULT_GTM_ID;
+/** O GTM só é carregado quando o ambiente fornece explicitamente o contêiner. */
+export function resolveGtmId(configuredId = process.env.NEXT_PUBLIC_GTM_ID): string | null {
+  if (!configuredId) return null;
 
   if (!/^GTM-[A-Z0-9]+$/.test(configuredId)) {
     throw new Error('NEXT_PUBLIC_GTM_ID must be a valid Google Tag Manager container ID');
@@ -19,7 +17,7 @@ export function resolveGtmId(configuredId = process.env.NEXT_PUBLIC_GTM_ID): str
   return configuredId;
 }
 
-/** Meta Pixel e GA4 são carregados pelo GTM, nunca diretamente pela aplicação. */
+/** Produção configura o ID; preview, sandbox e E2E permanecem sem tracking. */
 export const GTM_ID = resolveGtmId();
 
 export type AnalyticsEvent =
