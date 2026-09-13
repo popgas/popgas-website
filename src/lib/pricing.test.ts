@@ -36,10 +36,11 @@ describe('pricing ERP URLs', () => {
     process.env.NEXT_PUBLIC_ERP_URL = 'http://localhost:5173';
     vi.resetModules();
 
-    const { LOGIN_URL, SIGNUP_URL } = await import('./pricing');
+    const { HELP_DOCS_URL, LOGIN_URL, SIGNUP_URL } = await import('./pricing');
 
     expect(SIGNUP_URL).toBe('http://localhost:5173/signup');
     expect(LOGIN_URL).toBe('http://localhost:5173/login');
+    expect(HELP_DOCS_URL).toBe('http://localhost:5173/docs');
   });
 });
 
