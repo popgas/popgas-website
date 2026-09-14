@@ -19,6 +19,7 @@ const e2eContentSecurityPolicy = [
 
 const nextConfig: NextConfig = {
   output: 'standalone',
+  allowedDevOrigins: [process.env.POPGAS_PUBLIC_HOST ?? 'popgas.vps'],
   ...(isE2EBrowserIsolation
     ? {
         async headers() {

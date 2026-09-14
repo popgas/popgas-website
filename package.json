@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:vps": "node scripts/dev-vps.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
