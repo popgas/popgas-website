@@ -64,6 +64,15 @@ export const HELP_DOCS_URL = `${ERP_URL}/docs`;
 export const WHATSAPP_NUMBER = '553432387777';
 export const WHATSAPP_MESSAGE_B2B =
   'Olá! Quero conhecer o sistema PopGás para minha revenda.';
+export const WHATSAPP_MESSAGE_SPECIALIST =
+  'Olá! Quero que um especialista entre em contato comigo.';
+/** Chat de demonstração da IA (revenda de exemplo), aberto no "Teste nossa IA". */
+export const AI_DEMO_CHAT_URL =
+  process.env.NEXT_PUBLIC_AI_DEMO_CHAT_URL || 'https://soldeverao.popgas.chat/6pb48apd';
+
+export function buildWhatsAppUrl(message: string): string {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
 
 export interface ProfilePreset {
   id: 'iniciante' | 'gestao-administrativa' | 'foco-automacao' | 'completa';
