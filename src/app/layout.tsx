@@ -8,6 +8,7 @@ import { JsonLd, organizationLd } from '@/components/seo/JsonLd';
 import { AttributionCapture } from '@/components/tracking/AttributionCapture';
 import { GTM_ID } from '@/lib/analytics';
 import { isE2EBrowserIsolation } from '@/lib/e2e-browser-isolation';
+import { THEME_INIT_SCRIPT } from '@/lib/theme';
 import './globals.css';
 
 // Identidade visual "Neutro SaaS": uma única família (Inter), sem serifa e sem itálico.
@@ -35,8 +36,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={inter.variable}>
+    <html lang="pt-BR" className={inter.variable} suppressHydrationWarning>
       <head>
+        {/* Aplica o tema salvo antes da pintura (o script mexe na classe do <html>, daí o suppressHydrationWarning). */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         {!isE2EBrowserIsolation && (
           /* Google Tag Manager — único ponto de tracking (Pixel + GA4 vivem no contêiner) */
           <script

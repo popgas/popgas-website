@@ -12,7 +12,7 @@ export function ModulesGrid() {
   const total = calculateTotal(MODULE_ORDER);
 
   return (
-    <section className="py-16 sm:py-20 md:py-28 bg-gradient-to-b from-[#fbfbfa] to-[#f1f5f9]">
+    <section className="py-16 sm:py-20 md:py-28 bg-gradient-to-b from-[#fbfbfa] to-[#f1f5f9] dark:from-[#141E1A] dark:to-[#141E1A]">
       <Container>
         <SectionHeader
           eyebrow="Modular by design"
@@ -25,13 +25,13 @@ export function ModulesGrid() {
         />
 
         <AnimatedReveal>
-          <div className="max-w-[920px] mx-auto bg-white rounded-3xl border border-[rgba(15,19,34,0.08)] shadow-[0_30px_60px_-20px_rgba(15,19,34,0.10)] overflow-hidden">
+          <div className="max-w-[920px] mx-auto bg-white dark:bg-[#1B2722] rounded-3xl border border-[rgba(15,19,34,0.08)] dark:border-[#2E3E35] shadow-[0_30px_60px_-20px_rgba(15,19,34,0.10)] overflow-hidden">
             {/* Panel header */}
-            <div className="px-6 md:px-8 py-5 bg-[rgba(132,160,40,0.05)] border-b border-[rgba(15,19,34,0.06)] flex flex-col md:flex-row md:items-center md:justify-between gap-1.5">
-              <div className="font-mono text-[12px] uppercase tracking-[2px] font-semibold text-[#4a7818]">
+            <div className="px-6 md:px-8 py-5 bg-[rgba(132,160,40,0.05)] dark:bg-[#20301F] border-b border-[rgba(15,19,34,0.06)] dark:border-[#2F4A27] flex flex-col md:flex-row md:items-center md:justify-between gap-1.5">
+              <div className="font-mono text-[12px] uppercase tracking-[2px] font-semibold text-[#4a7818] dark:text-[#9CCB6B]">
                 Plataforma completa · 4 módulos
               </div>
-              <div className="font-mono text-[10px] tracking-[1px] text-[rgba(15,19,34,0.5)]">
+              <div className="font-mono text-[10px] tracking-[1px] text-[rgba(15,19,34,0.5)] dark:text-[#8F9A92]">
                 Todos os módulos juntos
               </div>
             </div>
@@ -45,7 +45,7 @@ export function ModulesGrid() {
             })}
 
             {/* Total footer */}
-            <div className="px-6 md:px-8 py-6 bg-[#0a1322] text-white flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="px-6 md:px-8 py-6 bg-[#0a1322] dark:bg-[#0D1411] text-white flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div>
                 <div className="font-mono text-[11px] uppercase tracking-[2px] text-white/55 mb-1">
                   Plataforma completa
@@ -79,7 +79,7 @@ function ModuleRow({ module: m, isPremium, isBase }: ModuleRowProps) {
   return (
     <div
       className={cn(
-        'border-b border-[rgba(15,19,34,0.06)] transition-colors px-5 md:px-8 py-5',
+        'border-b border-[rgba(15,19,34,0.06)] dark:border-[#2E3E35] transition-colors px-5 md:px-8 py-5',
         isPremium
           ? 'bg-gradient-to-r from-[rgba(132,160,40,0.05)] to-[rgba(74,120,24,0.05)] hover:from-[rgba(132,160,40,0.08)] hover:to-[rgba(74,120,24,0.07)]'
           : 'hover:bg-[rgba(132,160,40,0.03)]'
@@ -106,7 +106,7 @@ function ModuleRow({ module: m, isPremium, isBase }: ModuleRowProps) {
               <span
                 className={cn(
                   'font-mono text-[9px] uppercase tracking-[1.5px] font-semibold',
-                  isBase ? 'text-[#4a7818]' : 'text-[rgba(15,19,34,0.5)]'
+                  isBase ? 'text-[#4a7818] dark:text-[#9CCB6B]' : 'text-[rgba(15,19,34,0.5)] dark:text-[#8F9A92]'
                 )}
               >
                 {isBase ? 'Plano Base' : '+ Módulo'}
@@ -117,23 +117,23 @@ function ModuleRow({ module: m, isPremium, isBase }: ModuleRowProps) {
                 </span>
               )}
             </div>
-            <div className="font-display text-lg font-bold tracking-[-0.02em] text-[#0a1322]">
+            <div className="font-display text-lg font-bold tracking-[-0.02em] text-[#0a1322] dark:text-[#E8EEE6]">
               {m.name}
             </div>
           </div>
 
           {/* Description */}
-          <p className="font-sans text-[13px] leading-[1.45] text-[rgba(15,19,34,0.6)] tracking-[-0.005em]">
+          <p className="font-sans text-[13px] leading-[1.45] text-[rgba(15,19,34,0.6)] dark:text-[#A3AFA6] tracking-[-0.005em]">
             {m.shortDescription}
           </p>
 
           {/* Price */}
           <div className="md:text-right md:min-w-[130px]">
-            <span className="font-mono text-base md:text-[17px] font-semibold tracking-[-0.02em] text-[#0a1322]">
+            <span className="font-mono text-base md:text-[17px] font-semibold tracking-[-0.02em] text-[#0a1322] dark:text-[#E8EEE6]">
               {isBase ? 'R$ ' : '+ R$ '}
               {formatPrice(m.monthlyPrice)}
             </span>
-            <span className="font-mono text-[10px] text-[rgba(15,19,34,0.5)] ml-1 md:ml-0 md:block md:mt-0.5 tracking-[0.5px]">
+            <span className="font-mono text-[10px] text-[rgba(15,19,34,0.5)] dark:text-[#8F9A92] ml-1 md:ml-0 md:block md:mt-0.5 tracking-[0.5px]">
               /mês
             </span>
           </div>

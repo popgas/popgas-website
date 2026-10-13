@@ -40,26 +40,26 @@ export function ModuleHeroSplit({
             <div
               className={cn(
                 'inline-block px-3 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-full mb-5',
-                isPremium ? 'gradient-bg-premium text-white' : 'bg-[#dbeafe] text-[#1e40af]'
+                isPremium ? 'gradient-bg-premium text-white' : 'bg-[#dbeafe] dark:bg-[#1c2a40] text-[#1e40af] dark:text-[#93b4f5]'
               )}
             >
               {content.hero.eyebrow}
             </div>
-            <h1 className="text-3xl md:text-5xl font-extrabold tracking-[-0.03em] leading-[1.1] text-[#0f172a] mb-5">
+            <h1 className="text-3xl md:text-5xl font-extrabold tracking-[-0.03em] leading-[1.1] text-[#0f172a] dark:text-[#E8EEE6] mb-5">
               {isPremium ? <GradientText>{content.hero.title}</GradientText> : content.hero.title}
             </h1>
-            <p className="text-base md:text-lg text-[#475569] leading-relaxed mb-8">
+            <p className="text-base md:text-lg text-[#475569] dark:text-[#A3AFA6] leading-relaxed mb-8">
               {content.hero.subtitle}
             </p>
             <Link
               href={ctaHref}
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#0f172a] hover:bg-[#1a2845] text-white font-semibold rounded-xl transition-colors"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#0f172a] dark:bg-[#E8EEE6] hover:bg-[#1a2845] dark:hover:bg-white text-white dark:text-[#0a1322] font-semibold rounded-xl transition-colors"
             >
               {ctaText} <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
           <div className="relative">
-            <div className="aspect-[4/3] bg-white border border-[#e2e8f0] rounded-2xl overflow-hidden shadow-[0_30px_60px_-20px_rgba(15,23,42,0.25)] relative">
+            <div className="aspect-[4/3] bg-white dark:bg-[#1B2722] border border-[#e2e8f0] dark:border-[#2E3E35] rounded-2xl overflow-hidden shadow-[0_30px_60px_-20px_rgba(15,23,42,0.25)] relative">
               <Image
                 src={content.screenshotPath}
                 alt={content.screenshotAlt}

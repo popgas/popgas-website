@@ -55,7 +55,7 @@ export function InlineYouTube({ videoId, title, poster, posterW, posterH, tag }:
         </span>
       </span>
       {tag && (
-        <span className="absolute top-3.5 left-3.5 inline-flex items-center bg-white border border-[rgba(15,19,34,0.08)] text-[10px] font-bold tracking-[1px] uppercase text-[rgba(15,19,34,0.62)] px-2.5 py-1 rounded-full shadow-sm">
+        <span className="absolute top-3.5 left-3.5 inline-flex items-center bg-white dark:bg-[#1B2722] border border-[rgba(15,19,34,0.08)] dark:border-[#2E3E35] text-[10px] font-bold tracking-[1px] uppercase text-[rgba(15,19,34,0.62)] dark:text-[#C3CCC5] px-2.5 py-1 rounded-full shadow-sm">
           {tag}
         </span>
       )}

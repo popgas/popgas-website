@@ -26,12 +26,12 @@ export function IntegrationsStrip() {
           title="Integrado nativamente, sem dor de cabeça."
           subtitle="As integrações que sua revenda precisa, prontas para usar desde o primeiro dia."
         />
-        <div className="bg-white border border-[#e2e8f0] rounded-2xl p-8 md:p-12">
+        <div className="bg-white dark:bg-[#1B2722] border border-[#e2e8f0] dark:border-[#2E3E35] rounded-2xl p-8 md:p-12">
           <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-5">
             {INTEGRATIONS.map(name => (
               <div
                 key={name}
-                className="text-base font-bold text-[#475569] hover:text-[#0f172a] transition-colors opacity-65 hover:opacity-100"
+                className="text-base font-bold text-[#475569] dark:text-[#A3AFA6] hover:text-[#0f172a] dark:hover:text-[#E8EEE6] transition-colors opacity-65 hover:opacity-100"
               >
                 {name}
               </div>

@@ -13,7 +13,7 @@ export default function NotFound() {
     <section className="relative overflow-hidden -mt-[72px] pt-[72px]">
       <div
         aria-hidden
-        className="absolute inset-0 -z-10"
+        className="absolute inset-0 -z-10 dark:hidden"
         style={{
           background: `
             radial-gradient(ellipse 75% 55% at 18% 0%, #f7fee7 0%, transparent 55%),
@@ -24,23 +24,24 @@ export default function NotFound() {
           filter: 'blur(56px)',
         }}
       />
+      <div aria-hidden className="absolute inset-0 -z-10 hidden dark:block aurora-light" />
       <div aria-hidden className="absolute inset-0 -z-10 grain-light pointer-events-none" />
 
       <Container className="text-center py-24 md:py-32">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-9 bg-white/70 border border-[rgba(15,19,34,0.10)] rounded-full font-mono text-[11px] uppercase tracking-[0.4px] text-[rgba(15,19,34,0.78)] backdrop-blur-md shadow-[0_1px_3px_rgba(15,19,34,0.04)]">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-9 bg-white/70 dark:bg-[#1B2722]/70 border border-[rgba(15,19,34,0.10)] dark:border-[#2E3E35] rounded-full font-mono text-[11px] uppercase tracking-[0.4px] text-[rgba(15,19,34,0.78)] dark:text-[#C3CCC5] backdrop-blur-md shadow-[0_1px_3px_rgba(15,19,34,0.04)]">
           <span className="w-1.5 h-1.5 rounded-full bg-[#64a028]" aria-hidden />
           Erro 404
         </div>
 
-        <h1 className="font-display font-extrabold tracking-[-0.05em] leading-[0.94] text-[#0a1322] text-[88px] sm:text-[120px] lg:text-[160px] mb-2">
+        <h1 className="font-display font-extrabold tracking-[-0.05em] leading-[0.94] text-[#0a1322] dark:text-[#E8EEE6] text-[88px] sm:text-[120px] lg:text-[160px] mb-2">
           <span className="italic-accent">404</span>
         </h1>
 
-        <h2 className="font-display text-3xl md:text-4xl font-extrabold tracking-[-0.04em] text-[#0a1322] mb-4">
+        <h2 className="font-display text-3xl md:text-4xl font-extrabold tracking-[-0.04em] text-[#0a1322] dark:text-[#E8EEE6] mb-4">
           Página não encontrada.
         </h2>
 
-        <p className="text-base md:text-lg text-[rgba(15,19,34,0.62)] leading-[1.5] tracking-[-0.01em] max-w-[520px] mx-auto mb-12">
+        <p className="text-base md:text-lg text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6] leading-[1.5] tracking-[-0.01em] max-w-[520px] mx-auto mb-12">
           A página que você está procurando não existe ou foi movida. Use os links abaixo para voltar para casa.
         </p>
 
@@ -53,14 +54,14 @@ export default function NotFound() {
           </Link>
           <Link
             href="/contato"
-            className="inline-flex items-center justify-center gap-2 px-6 py-4 text-[#0a1322] hover:text-[#0a1322] font-semibold text-[15px] tracking-tight"
+            className="inline-flex items-center justify-center gap-2 px-6 py-4 text-[#0a1322] dark:text-[#E8EEE6] hover:text-[#0a1322] dark:hover:text-[#E8EEE6] font-semibold text-[15px] tracking-tight"
           >
             <MessageCircle className="w-4 h-4" /> Fale com a gente
           </Link>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-[rgba(15,19,34,0.08)] max-w-[640px] mx-auto">
-          <div className="font-mono text-[10px] uppercase tracking-[1.5px] text-[rgba(15,19,34,0.5)] font-semibold mb-4">
+        <div className="mt-16 pt-8 border-t border-[rgba(15,19,34,0.08)] dark:border-[#2E3E35] max-w-[640px] mx-auto">
+          <div className="font-mono text-[10px] uppercase tracking-[1.5px] text-[rgba(15,19,34,0.5)] dark:text-[#8F9A92] font-semibold mb-4">
             Talvez você esteja procurando
           </div>
           <div className="flex flex-wrap justify-center gap-2">
@@ -79,7 +80,7 @@ function QuickLink({ href, children }: { href: string; children: React.ReactNode
   return (
     <Link
       href={href}
-      className="px-4 py-2 bg-white/60 border border-[rgba(15,19,34,0.10)] hover:border-[#64a028] hover:text-[#4a7818] rounded-full text-sm font-medium text-[rgba(15,19,34,0.78)] transition-colors backdrop-blur-sm tracking-[-0.005em]"
+      className="px-4 py-2 bg-white/60 dark:bg-[#1B2722]/60 border border-[rgba(15,19,34,0.10)] dark:border-[#2E3E35] hover:border-[#64a028] hover:text-[#4a7818] dark:hover:text-[#B5DB8C] rounded-full text-sm font-medium text-[rgba(15,19,34,0.78)] dark:text-[#C3CCC5] transition-colors backdrop-blur-sm tracking-[-0.005em]"
     >
       {children}
     </Link>

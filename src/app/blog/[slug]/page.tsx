@@ -224,14 +224,13 @@ export default async function BlogPostPage({
   }
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white dark:bg-[#1B2722] min-h-screen">
       <div className="mx-auto max-w-[1100px] px-4 py-10">
         {/* Back link */}
         <div className="mb-6">
           <Link
             href="/blog"
-            className="text-[13px] no-underline transition-colors duration-200 hover:text-[#729E2F]"
-            style={{ color: "#729E2F" }}
+            className="text-[13px] no-underline transition-colors duration-200 text-[#729E2F] hover:text-[#729E2F] dark:text-[#9CCB6B] dark:hover:text-[#B5DB8C]"
           >
             &laquo; Voltar para o Blog
           </Link>
@@ -240,39 +239,35 @@ export default async function BlogPostPage({
         <article>
           {/* Category & Date */}
           <div
-            className="text-[12px] mb-2 flex items-center gap-2"
-            style={{ color: "#999999" }}
+            className="text-[12px] mb-2 flex items-center gap-2 text-[#999999] dark:text-[#8F9A92]"
           >
-            <span style={{ color: "#729E2F" }}>{post.category}</span>
+            <span className="text-[#729E2F] dark:text-[#9CCB6B]">{post.category}</span>
             <span>|</span>
             <span>{formatDate(new Date(post.publishedAt))}</span>
           </div>
 
           {/* Title */}
           <h1
-            className="text-[28px] font-semibold leading-[38px] mb-6"
-            style={{ color: "#24355A" }}
+            className="text-[28px] font-semibold leading-[38px] mb-6 text-[#24355A] dark:text-[#E8EEE6]"
           >
             {post.title}
           </h1>
 
           {/* Divider */}
-          <hr className="border-t border-[#e8e8e8] mb-6" />
+          <hr className="border-t border-[#e8e8e8] dark:border-[#2E3E35] mb-6" />
 
           {/* Content */}
           <div
-            className="blog-content text-[15px] leading-[25px]"
-            style={{ color: "#222222" }}
+            className="blog-content text-[15px] leading-[25px] text-[#222222] dark:text-[#C3CCC5]"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
         </article>
 
         {/* Bottom back link */}
-        <div className="mt-10 pt-6 border-t border-[#e8e8e8]">
+        <div className="mt-10 pt-6 border-t border-[#e8e8e8] dark:border-[#2E3E35]">
           <Link
             href="/blog"
-            className="text-[13px] no-underline transition-colors duration-200 hover:text-[#729E2F]"
-            style={{ color: "#729E2F" }}
+            className="text-[13px] no-underline transition-colors duration-200 text-[#729E2F] hover:text-[#729E2F] dark:text-[#9CCB6B] dark:hover:text-[#B5DB8C]"
           >
             &laquo; Voltar para o Blog
           </Link>
@@ -409,6 +404,44 @@ export default async function BlogPostPage({
               padding: 2px 6px;
               border-radius: 3px;
               font-size: 14px;
+            }
+            .dark .blog-content h2,
+            .dark .blog-content h3,
+            .dark .blog-content h4,
+            .dark .blog-content strong {
+              color: #E8EEE6;
+            }
+            .dark .blog-content a {
+              color: #9CCB6B;
+            }
+            .dark .blog-content a:hover {
+              color: #B5DB8C;
+            }
+            .dark .blog-content figcaption {
+              color: #8F9A92;
+            }
+            .dark .blog-content th {
+              background-color: #17221D;
+              color: #E8EEE6;
+              border-color: #2E3E35;
+            }
+            .dark .blog-content td {
+              border-color: #2E3E35;
+            }
+            .dark .blog-content tr:nth-child(even) {
+              background-color: #17221D;
+            }
+            .dark .blog-content blockquote {
+              background-color: #20301F;
+              color: #C3CCC5;
+            }
+            .dark .blog-content hr {
+              border-top-color: #2E3E35;
+            }
+            .dark .blog-content pre,
+            .dark .blog-content code {
+              background-color: #0D1411;
+              color: #E8EEE6;
             }
           `,
         }}

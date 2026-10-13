@@ -150,14 +150,14 @@ export default async function BlogPage() {
     <>
       <section className="pt-16 md:pt-20 pb-8">
         <Container className="max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-6 bg-[rgba(132,160,40,0.08)] border border-[rgba(132,160,40,0.30)] rounded-full font-mono text-[11px] uppercase tracking-[0.4px] text-[#4a7818] font-semibold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-6 bg-[rgba(132,160,40,0.08)] dark:bg-[#20301F] border border-[rgba(132,160,40,0.30)] dark:border-[#2F4A27] rounded-full font-mono text-[11px] uppercase tracking-[0.4px] text-[#4a7818] dark:text-[#9CCB6B] font-semibold">
             <span className="w-1.5 h-1.5 rounded-full bg-[#64a028]" aria-hidden />
             Blog
           </div>
-          <h1 className="font-display text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-[-0.045em] leading-[1.05] text-[#0a1322] mb-4">
+          <h1 className="font-display text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-[-0.045em] leading-[1.05] text-[#0a1322] dark:text-[#E8EEE6] mb-4">
             Conteúdo para <em className="italic-accent">revendas</em>.
           </h1>
-          <p className="text-base md:text-lg text-[rgba(15,19,34,0.62)] leading-[1.5] tracking-[-0.01em]">
+          <p className="text-base md:text-lg text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6] leading-[1.5] tracking-[-0.01em]">
             Gestão, tecnologia e fiscal para quem opera distribuidora de gás. Estamos começando: novos artigos em breve.
           </p>
         </Container>
@@ -170,9 +170,9 @@ export default async function BlogPage() {
               {sortedPosts.map(post => (
                 <article
                   key={post.id}
-                  className="border-b border-[rgba(15,19,34,0.08)] pb-7 mb-7 last:border-b-0"
+                  className="border-b border-[rgba(15,19,34,0.08)] dark:border-[#2E3E35] pb-7 mb-7 last:border-b-0"
                 >
-                  <h2 className="font-display text-xl md:text-2xl font-bold tracking-[-0.02em] leading-[1.25] text-[#0a1322] mb-2">
+                  <h2 className="font-display text-xl md:text-2xl font-bold tracking-[-0.02em] leading-[1.25] text-[#0a1322] dark:text-[#E8EEE6] mb-2">
                     <Link
                       href={`/blog/${post.slug}`}
                       className="hover:text-[#64a028] transition-colors"
@@ -181,27 +181,27 @@ export default async function BlogPage() {
                     </Link>
                   </h2>
 
-                  <div className="flex items-center gap-2 flex-wrap font-mono text-[11px] text-[rgba(15,19,34,0.55)] mb-3 tracking-[0.5px]">
+                  <div className="flex items-center gap-2 flex-wrap font-mono text-[11px] text-[rgba(15,19,34,0.55)] dark:text-[#A3AFA6] mb-3 tracking-[0.5px]">
                     <span>{formatDate(new Date(post.publishedAt))}</span>
-                    <span className="text-[rgba(15,19,34,0.25)]">·</span>
-                    <span className="text-[#4a7818] font-semibold uppercase">{post.category}</span>
+                    <span className="text-[rgba(15,19,34,0.25)] dark:text-[#5F6D64]">·</span>
+                    <span className="text-[#4a7818] dark:text-[#9CCB6B] font-semibold uppercase">{post.category}</span>
                     {post.sticky && (
                       <>
-                        <span className="text-[rgba(15,19,34,0.25)]">·</span>
+                        <span className="text-[rgba(15,19,34,0.25)] dark:text-[#5F6D64]">·</span>
                         <span className="font-semibold uppercase text-[#64a028]">Destaque</span>
                       </>
                     )}
                   </div>
 
                   {post.excerpt && (
-                    <p className="text-[15px] leading-[1.6] text-[rgba(15,19,34,0.7)] mb-3 tracking-[-0.005em]">
+                    <p className="text-[15px] leading-[1.6] text-[rgba(15,19,34,0.7)] dark:text-[#C3CCC5] mb-3 tracking-[-0.005em]">
                       {post.excerpt}
                     </p>
                   )}
 
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="inline-flex items-center gap-1 text-[13px] font-semibold text-[#4a7818] hover:text-[#64a028] transition-colors"
+                    className="inline-flex items-center gap-1 text-[13px] font-semibold text-[#4a7818] dark:text-[#9CCB6B] hover:text-[#64a028] transition-colors"
                   >
                     Leia mais →
                   </Link>
@@ -209,8 +209,8 @@ export default async function BlogPage() {
               ))}
 
               {sortedPosts.length === 0 && (
-                <p className="text-[15px] text-[rgba(15,19,34,0.62)]">
-                  Estamos preparando os primeiros artigos. Enquanto isso, conheça os <Link href="/recursos" className="text-[#4a7818] font-semibold">recursos do sistema</Link>.
+                <p className="text-[15px] text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6]">
+                  Estamos preparando os primeiros artigos. Enquanto isso, conheça os <Link href="/recursos" className="text-[#4a7818] dark:text-[#9CCB6B] font-semibold">recursos do sistema</Link>.
                 </p>
               )}
             </main>
@@ -221,11 +221,11 @@ export default async function BlogPage() {
                   {sidebarPages.map(page => (
                     <li
                       key={page.href}
-                      className="border-b border-[rgba(15,19,34,0.06)] last:border-b-0"
+                      className="border-b border-[rgba(15,19,34,0.06)] dark:border-[#2E3E35] last:border-b-0"
                     >
                       <Link
                         href={page.href}
-                        className="block py-[7px] text-[14px] leading-[22px] transition-colors text-[rgba(15,19,34,0.78)] hover:text-[#64a028]"
+                        className="block py-[7px] text-[14px] leading-[22px] transition-colors text-[rgba(15,19,34,0.78)] dark:text-[#C3CCC5] hover:text-[#64a028]"
                       >
                         {page.title}
                       </Link>
@@ -244,7 +244,7 @@ export default async function BlogPage() {
 function SidebarSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="mb-8">
-      <h3 className="font-mono text-[10px] font-semibold uppercase tracking-[1.5px] text-[rgba(15,19,34,0.55)] mb-3">
+      <h3 className="font-mono text-[10px] font-semibold uppercase tracking-[1.5px] text-[rgba(15,19,34,0.55)] dark:text-[#A3AFA6] mb-3">
         {title}
       </h3>
       {children}

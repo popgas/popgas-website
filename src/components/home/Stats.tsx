@@ -41,9 +41,9 @@ const METRICS: Metric[] = [
 ];
 
 const FACTS: { icon: LucideIcon; text: ReactNode }[] = [
-  { icon: Flame, text: <>Nascido em uma <strong className="text-[#0f172a] font-semibold">revenda real</strong>, em operação desde {FOUNDED_YEAR}</> },
-  { icon: CalendarCheck, text: <><strong className="text-[#0f172a] font-semibold">14 dias grátis</strong>, sem cartão</> },
-  { icon: ShieldCheck, text: <>Sem fidelidade, <strong className="text-[#0f172a] font-semibold">cancele quando quiser</strong></> },
+  { icon: Flame, text: <>Nascido em uma <strong className="text-[#0f172a] dark:text-[#E8EEE6] font-semibold">revenda real</strong>, em operação desde {FOUNDED_YEAR}</> },
+  { icon: CalendarCheck, text: <><strong className="text-[#0f172a] dark:text-[#E8EEE6] font-semibold">14 dias grátis</strong>, sem cartão</> },
+  { icon: ShieldCheck, text: <>Sem fidelidade, <strong className="text-[#0f172a] dark:text-[#E8EEE6] font-semibold">cancele quando quiser</strong></> },
 ];
 
 /** Progresso 0→1 (ease-out) quando a seção entra na tela; 1 direto com movimento reduzido. */
@@ -88,17 +88,17 @@ export function Stats() {
   const progress = useCountUp(sectionRef);
 
   return (
-    <section ref={sectionRef} id="metricas" className="py-16 sm:py-20 md:py-24 bg-white border-y border-[rgba(15,19,34,0.06)]">
+    <section ref={sectionRef} id="metricas" className="py-16 sm:py-20 md:py-24 bg-white dark:bg-[#1B2722] border-y border-[rgba(15,19,34,0.06)] dark:border-[#2E3E35]">
       <Container>
         <div className="max-w-[1100px] mx-auto flex flex-col gap-10 sm:gap-12">
           <div className="flex flex-col gap-4">
-            <h2 className="font-display text-[32px] sm:text-[42px] md:text-[52px] font-extrabold tracking-[-0.04em] leading-[1.04] text-[#0a1322]">
+            <h2 className="font-display text-[32px] sm:text-[42px] md:text-[52px] font-extrabold tracking-[-0.04em] leading-[1.04] text-[#0a1322] dark:text-[#E8EEE6]">
               Feito por quem vive o dia a dia do gás.
             </h2>
-            <ul className="flex flex-col sm:flex-row flex-wrap gap-x-8 gap-y-3 text-[15px] sm:text-[16px] text-[#5B6472] list-none p-0 m-0">
+            <ul className="flex flex-col sm:flex-row flex-wrap gap-x-8 gap-y-3 text-[15px] sm:text-[16px] text-[#5B6472] dark:text-[#A3AFA6] list-none p-0 m-0">
               {FACTS.map((item, i) => (
                 <li key={i} className="inline-flex items-center gap-2">
-                  <item.icon className="w-[18px] h-[18px] text-[#4a7818] shrink-0" strokeWidth={2} aria-hidden />
+                  <item.icon className="w-[18px] h-[18px] text-[#4a7818] dark:text-[#9CCB6B] shrink-0" strokeWidth={2} aria-hidden />
                   <span>{item.text}</span>
                 </li>
               ))}
@@ -112,13 +112,13 @@ export function Stats() {
                 className={
                   m.dark
                     ? 'flex flex-col gap-3.5 rounded-[22px] px-[26px] py-7 bg-[#1F3A12] text-white'
-                    : 'flex flex-col gap-3.5 rounded-[22px] px-[26px] py-7 bg-[#F7F8F5] border border-[#E8EBE4] text-[#0a1322]'
+                    : 'flex flex-col gap-3.5 rounded-[22px] px-[26px] py-7 bg-[#F7F8F5] dark:bg-[#141E1A] border border-[#E8EBE4] dark:border-[#2E3E35] text-[#0a1322] dark:text-[#E8EEE6]'
                 }
               >
                 <span
                   aria-hidden
                   className={`w-11 h-11 rounded-xl flex items-center justify-center ${
-                    m.dark ? 'bg-[#2F5219] text-[#B9DA8F]' : 'bg-[#E8F0DC] text-[#4a7818]'
+                    m.dark ? 'bg-[#2F5219] text-[#B9DA8F]' : 'bg-[#E8F0DC] dark:bg-[#263C26] text-[#4a7818] dark:text-[#9CCB6B]'
                   }`}
                 >
                   <m.icon className="w-[22px] h-[22px]" strokeWidth={2} />
@@ -128,12 +128,12 @@ export function Stats() {
                   <span aria-hidden>
                     {m.prefix}
                     {m.format(m.value * progress)}
-                    <span className={m.dark ? 'text-[#B9DA8F]' : 'text-[#6E9E3A]'}>{m.suffix}</span>
+                    <span className={m.dark ? 'text-[#B9DA8F]' : 'text-[#6E9E3A] dark:text-[#9CCB6B]'}>{m.suffix}</span>
                   </span>
                 </div>
                 <div className="flex flex-col gap-0.5">
                   <strong className="text-[16px]">{m.label}</strong>
-                  <span className={`text-[14px] ${m.dark ? 'text-[#C9D8B6]' : 'text-[#5B6472]'}`}>{m.detail}</span>
+                  <span className={`text-[14px] ${m.dark ? 'text-[#C9D8B6]' : 'text-[#5B6472] dark:text-[#A3AFA6]'}`}>{m.detail}</span>
                 </div>
               </div>
             ))}

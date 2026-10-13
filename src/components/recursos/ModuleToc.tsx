@@ -56,10 +56,10 @@ export function ModuleToc({ items }: { items: TocItem[] }) {
   return (
     <aside className="hidden lg:block">
       <nav aria-label="Nesta página" className="sticky top-28">
-        <div className="font-mono text-[10px] font-bold uppercase tracking-[2px] text-[rgba(15,19,34,0.45)] mb-3">
+        <div className="font-mono text-[10px] font-bold uppercase tracking-[2px] text-[rgba(15,19,34,0.45)] dark:text-[#8F9A92] mb-3">
           Nesta página
         </div>
-        <ol className="list-none p-0 m-0 border-l border-[rgba(15,19,34,0.08)]">
+        <ol className="list-none p-0 m-0 border-l border-[rgba(15,19,34,0.08)] dark:border-[#2E3E35]">
           {items.map(item => {
             const isActive = item.id === active;
             return (
@@ -69,8 +69,8 @@ export function ModuleToc({ items }: { items: TocItem[] }) {
                   className={cn(
                     'block -ml-px pl-4 py-1.5 text-[14px] font-semibold border-l-2 transition-colors',
                     isActive
-                      ? 'border-[#64a028] text-[#0a1322]'
-                      : 'border-transparent text-[rgba(15,19,34,0.55)] hover:text-[#0a1322]'
+                      ? 'border-[#64a028] text-[#0a1322] dark:text-[#E8EEE6]'
+                      : 'border-transparent text-[rgba(15,19,34,0.55)] dark:text-[#A3AFA6] hover:text-[#0a1322] dark:hover:text-[#E8EEE6]'
                   )}
                 >
                   {item.title}
@@ -81,7 +81,7 @@ export function ModuleToc({ items }: { items: TocItem[] }) {
                       <li key={f.id}>
                         <a
                           href={`#${f.id}`}
-                          className="block py-1 text-[12.5px] text-[rgba(15,19,34,0.55)] hover:text-[#4a7818] transition-colors leading-snug"
+                          className="block py-1 text-[12.5px] text-[rgba(15,19,34,0.55)] dark:text-[#A3AFA6] hover:text-[#4a7818] dark:hover:text-[#9CCB6B] transition-colors leading-snug"
                         >
                           {f.title}
                         </a>

@@ -61,17 +61,17 @@ export function EnterpriseLeadDialog({ trigger }: Props) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger render={trigger as React.ReactElement} />
-      <DialogContent className="max-w-lg">
+      <DialogContent className="max-w-lg dark:bg-[#1B2722] dark:text-[#E8EEE6] dark:ring-[#2E3E35]">
         <DialogHeader>
-          <DialogTitle>Falar com vendas Enterprise</DialogTitle>
+          <DialogTitle className="dark:text-[#E8EEE6]">Falar com vendas Enterprise</DialogTitle>
         </DialogHeader>
         {submitted ? (
           <div className="py-8 text-center">
-            <div className="w-12 h-12 rounded-full bg-[#dcfce7] text-[#16a34a] flex items-center justify-center mx-auto mb-4 text-2xl">
+            <div className="w-12 h-12 rounded-full bg-[#dcfce7] dark:bg-[#263C26] text-[#16a34a] dark:text-[#9CCB6B] flex items-center justify-center mx-auto mb-4 text-2xl">
               ✓
             </div>
             <h3 className="text-lg font-bold mb-2">Recebido!</h3>
-            <p className="text-sm text-[#475569]">
+            <p className="text-sm text-[#475569] dark:text-[#A3AFA6]">
               Nosso time comercial entra em contato em até 24h úteis.
             </p>
             <Button onClick={() => setOpen(false)} className="mt-6">Fechar</Button>
@@ -80,29 +80,29 @@ export function EnterpriseLeadDialog({ trigger }: Props) {
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div>
               <Label htmlFor="name">Nome completo *</Label>
-              <Input id="name" {...register('name')} />
-              {errors.name && <p className="text-xs text-red-600 mt-1">{errors.name.message}</p>}
+              <Input id="name" className="dark:bg-[#141E1A] dark:border-[#2E3E35] dark:text-[#E8EEE6] dark:placeholder:text-[#8F9A92]" {...register('name')} />
+              {errors.name && <p className="text-xs text-red-600 dark:text-red-400 mt-1">{errors.name.message}</p>}
             </div>
             <div className="grid grid-cols-2 gap-3">
               <div>
                 <Label htmlFor="email">E-mail *</Label>
-                <Input id="email" type="email" {...register('email')} />
-                {errors.email && <p className="text-xs text-red-600 mt-1">{errors.email.message}</p>}
+                <Input id="email" className="dark:bg-[#141E1A] dark:border-[#2E3E35] dark:text-[#E8EEE6] dark:placeholder:text-[#8F9A92]" type="email" {...register('email')} />
+                {errors.email && <p className="text-xs text-red-600 dark:text-red-400 mt-1">{errors.email.message}</p>}
               </div>
               <div>
                 <Label htmlFor="phone">Telefone *</Label>
-                <Input id="phone" type="tel" {...register('phone')} />
-                {errors.phone && <p className="text-xs text-red-600 mt-1">{errors.phone.message}</p>}
+                <Input id="phone" className="dark:bg-[#141E1A] dark:border-[#2E3E35] dark:text-[#E8EEE6] dark:placeholder:text-[#8F9A92]" type="tel" {...register('phone')} />
+                {errors.phone && <p className="text-xs text-red-600 dark:text-red-400 mt-1">{errors.phone.message}</p>}
               </div>
             </div>
             <div>
               <Label htmlFor="company">Empresa *</Label>
-              <Input id="company" {...register('company')} />
-              {errors.company && <p className="text-xs text-red-600 mt-1">{errors.company.message}</p>}
+              <Input id="company" className="dark:bg-[#141E1A] dark:border-[#2E3E35] dark:text-[#E8EEE6] dark:placeholder:text-[#8F9A92]" {...register('company')} />
+              {errors.company && <p className="text-xs text-red-600 dark:text-red-400 mt-1">{errors.company.message}</p>}
             </div>
             <div>
               <Label htmlFor="cnpj">CNPJ (opcional)</Label>
-              <Input id="cnpj" {...register('cnpj')} />
+              <Input id="cnpj" className="dark:bg-[#141E1A] dark:border-[#2E3E35] dark:text-[#E8EEE6] dark:placeholder:text-[#8F9A92]" {...register('cnpj')} />
             </div>
             <div>
               <Label htmlFor="message">Conte sobre sua operação *</Label>
@@ -110,12 +110,12 @@ export function EnterpriseLeadDialog({ trigger }: Props) {
                 id="message"
                 {...register('message')}
                 rows={4}
-                className="flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+                className="flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm dark:bg-[#141E1A] dark:border-[#2E3E35] dark:text-[#E8EEE6] dark:placeholder:text-[#8F9A92]"
               />
-              {errors.message && <p className="text-xs text-red-600 mt-1">{errors.message.message}</p>}
+              {errors.message && <p className="text-xs text-red-600 dark:text-red-400 mt-1">{errors.message.message}</p>}
             </div>
             {error && (
-              <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-sm rounded">
+              <div className="p-3 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900 text-red-700 dark:text-red-300 text-sm rounded">
                 {error}
               </div>
             )}

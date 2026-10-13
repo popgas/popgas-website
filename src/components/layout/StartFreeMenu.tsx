@@ -42,32 +42,32 @@ export function StartFreeMenu({ signupUrl, className }: { signupUrl: string; cla
 
       {open && (
         <div
-          className="absolute right-0 top-[calc(100%+12px)] z-50 w-[320px] max-w-[calc(100vw-32px)] p-2 rounded-[20px] bg-white border border-[#E3E7DE] shadow-[0_24px_50px_rgba(15,23,42,0.16)] flex flex-col gap-1"
+          className="absolute right-0 top-[calc(100%+12px)] z-50 w-[320px] max-w-[calc(100vw-32px)] p-2 rounded-[20px] bg-white dark:bg-[#1B2722] border border-[#E3E7DE] dark:border-[#2E3E35] shadow-[0_24px_50px_rgba(15,23,42,0.16)] flex flex-col gap-1"
         >
           <SignupLink
             href={signupUrl}
             onClick={() => setOpen(false)}
-            className="flex items-center gap-3.5 p-3.5 rounded-[14px] bg-[#F3F7EC] hover:bg-[#EAF2DC] text-[#0a1322] transition-colors"
+            className="flex items-center gap-3.5 p-3.5 rounded-[14px] bg-[#F3F7EC] dark:bg-[#20301F] hover:bg-[#EAF2DC] dark:hover:bg-[#263C26] text-[#0a1322] dark:text-[#E8EEE6] transition-colors"
           >
             <span aria-hidden className="shrink-0 w-10 h-10 rounded-xl bg-[#4a7818] text-white flex items-center justify-center">
               <Flame className="w-5 h-5" />
             </span>
             <span className="flex flex-col leading-[1.3]">
               <strong className="text-[15px]">Cadastrar e testar de graça</strong>
-              <span className="text-[13px] text-[#5B6472]">14 dias grátis, sem cartão</span>
+              <span className="text-[13px] text-[#5B6472] dark:text-[#A3AFA6]">14 dias grátis, sem cartão</span>
             </span>
           </SignupLink>
           <a
             href={LOGIN_URL}
             onClick={() => setOpen(false)}
-            className="flex items-center gap-3.5 p-3.5 rounded-[14px] hover:bg-[rgba(15,19,34,0.03)] text-[#0a1322] transition-colors"
+            className="flex items-center gap-3.5 p-3.5 rounded-[14px] hover:bg-[rgba(15,19,34,0.03)] dark:hover:bg-[#24302A] text-[#0a1322] dark:text-[#E8EEE6] transition-colors"
           >
-            <span aria-hidden className="shrink-0 w-10 h-10 rounded-xl bg-[#EEF1F4] text-[#0a1322] flex items-center justify-center">
+            <span aria-hidden className="shrink-0 w-10 h-10 rounded-xl bg-[#EEF1F4] dark:bg-[#263C26] text-[#0a1322] dark:text-[#E8EEE6] flex items-center justify-center">
               <LogIn className="w-5 h-5" />
             </span>
             <span className="flex flex-col leading-[1.3]">
               <strong className="text-[15px]">Acessar minha conta</strong>
-              <span className="text-[13px] text-[#5B6472]">Já sou cliente PopGás</span>
+              <span className="text-[13px] text-[#5B6472] dark:text-[#A3AFA6]">Já sou cliente PopGás</span>
             </span>
           </a>
         </div>

@@ -14,7 +14,7 @@ export function FinalCta() {
     <section className="relative overflow-hidden py-16 sm:py-24 md:py-32">
       <div
         aria-hidden
-        className="absolute inset-0 -z-10"
+        className="absolute inset-0 -z-10 dark:hidden"
         style={{
           background: `
             radial-gradient(ellipse 75% 55% at 18% 100%, #f7fee7 0%, transparent 55%),
@@ -25,10 +25,15 @@ export function FinalCta() {
           filter: 'blur(56px)',
         }}
       />
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 hidden dark:block"
+        style={{ background: 'radial-gradient(circle at 80% 60%, #1F3122 0%, #141E1A 45%)' }}
+      />
       <div aria-hidden className="absolute inset-0 -z-10 grain-light pointer-events-none" />
 
       <Container className="text-center max-w-[920px]">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-9 bg-white/70 border border-[rgba(15,19,34,0.10)] rounded-full font-mono text-[11px] uppercase tracking-[0.4px] text-[rgba(15,19,34,0.78)] backdrop-blur-md shadow-[0_1px_3px_rgba(15,19,34,0.04)]">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-9 bg-white/70 dark:bg-[#1B2722] border border-[rgba(15,19,34,0.10)] dark:border-[#2E3E35] rounded-full font-mono text-[11px] uppercase tracking-[0.4px] text-[rgba(15,19,34,0.78)] dark:text-[#C3CCC5] backdrop-blur-md shadow-[0_1px_3px_rgba(15,19,34,0.04)]">
           <span
             className="w-1.5 h-1.5 rounded-full bg-[#64a028]"
             style={{ boxShadow: '0 0 6px rgba(132,160,40,0.45)', animation: 'pulse-cyan 2.4s ease-in-out infinite' }}
@@ -37,11 +42,11 @@ export function FinalCta() {
           Última chamada
         </div>
 
-        <h2 className="font-display font-extrabold tracking-[-0.055em] leading-[0.94] text-[#0a1322] text-[38px] sm:text-7xl lg:text-[96px] mb-5 sm:mb-6">
+        <h2 className="font-display font-extrabold tracking-[-0.055em] leading-[0.94] text-[#0a1322] dark:text-[#E8EEE6] text-[38px] sm:text-7xl lg:text-[96px] mb-5 sm:mb-6">
           Pronto para <em className="italic-accent">automatizar</em>?
         </h2>
 
-        <p className="text-[15px] sm:text-base md:text-xl text-[rgba(15,19,34,0.62)] leading-[1.5] mb-9 sm:mb-12 tracking-[-0.01em]">
+        <p className="text-[15px] sm:text-base md:text-xl text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6] leading-[1.5] mb-9 sm:mb-12 tracking-[-0.01em]">
           Sem cartão. Sem fidelidade. Migração assistida.
         </p>
 
@@ -54,7 +59,7 @@ export function FinalCta() {
           </SignupLink>
           <Link
             href="/contato"
-            className="inline-flex items-center justify-center px-6 py-4 text-[#0a1322] hover:text-[#0a1322] font-semibold text-[15px] tracking-tight"
+            className="inline-flex items-center justify-center px-6 py-4 text-[#0a1322] hover:text-[#0a1322] dark:text-[#E8EEE6] dark:hover:text-[#B5DB8C] font-semibold text-[15px] tracking-tight"
           >
             Falar com vendas
           </Link>
