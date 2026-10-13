@@ -232,7 +232,7 @@ export function HeroChatDemo() {
       {done && (
         <div
           style={msgAnimation}
-          className="hidden sm:flex absolute z-10 right-0 bottom-[170px] px-3.5 py-2.5 rounded-2xl bg-[#1F3A12] text-white shadow-[0_18px_40px_rgba(15,23,42,0.22)] items-center gap-2.5 text-[13px]"
+          className="hidden sm:flex absolute z-10 right-0 bottom-[112px] px-3.5 py-2.5 rounded-2xl bg-[#1F3A12] text-white shadow-[0_18px_40px_rgba(15,23,42,0.22)] items-center gap-2.5 text-[13px]"
         >
           <span aria-hidden className="w-[30px] h-[30px] rounded-full bg-[#8DBB5C] text-[#0F172A] flex items-center justify-center">
             <Check className="w-4 h-4" strokeWidth={3} />
