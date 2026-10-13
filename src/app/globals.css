@@ -39,7 +39,6 @@
   --animate-cursor-blink: caret-blink 1.05s steps(2, end) infinite;
   --animate-pulse-cyan: pulse-cyan 2.4s ease-in-out infinite;
   --animate-twinkle: twinkle 4s ease-in-out infinite;
-  --animate-marquee: marquee 32s linear infinite;
 }
 
 @keyframes caret-blink {
@@ -53,10 +52,6 @@
 @keyframes twinkle {
   0%, 100% { opacity: 0; transform: scale(0.5); }
   50% { opacity: 0.55; transform: scale(1); }
-}
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
 }
 
 :root {

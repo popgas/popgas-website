@@ -180,8 +180,6 @@ export function Hero() {
           </div>
         </Container>
       </div>
-
-      <HeroMarquee />
     </section>
   );
 }
@@ -195,51 +193,5 @@ function WhatsAppGlyph() {
         fill="#FFFFFF"
       />
     </svg>
-  );
-}
-
-const MARQUEE_ITEMS: string[] = [
-  'Vendas',
-  'Fiscal',
-  'WhatsApp',
-  'IA',
-  'R$ 99,90/mês',
-  '14 dias grátis',
-  'Sem cartão',
-  'Sem fidelidade',
-];
-
-function MarqueeRow({ ariaHidden = false }: { ariaHidden?: boolean }) {
-  return (
-    <div className="flex items-center gap-7 pr-7" {...(ariaHidden ? { 'aria-hidden': true } : {})}>
-      {MARQUEE_ITEMS.map((label, i) => (
-        <span key={i} className="flex items-center gap-7">
-          <span className="text-[#4a7818] font-bold text-[16px] leading-[15px] tracking-tight">
-            {label}
-          </span>
-          <span className="text-[rgba(15,19,34,0.22)] select-none" aria-hidden>·</span>
-        </span>
-      ))}
-    </div>
-  );
-}
-
-function HeroMarquee() {
-  return (
-    <div
-      className="relative overflow-hidden border-y border-[rgba(15,19,34,0.06)] py-[18px] bg-white/60 backdrop-blur-md"
-      style={{
-        WebkitMaskImage: 'linear-gradient(90deg, transparent, black 8%, black 92%, transparent)',
-        maskImage: 'linear-gradient(90deg, transparent, black 8%, black 92%, transparent)',
-      }}
-    >
-      <div
-        className="flex whitespace-nowrap font-display font-semibold text-[15px] text-[rgba(15,19,34,0.55)] tracking-[-0.01em] leading-none"
-        style={{ animation: 'marquee 32s linear infinite' }}
-      >
-        <MarqueeRow />
-        <MarqueeRow ariaHidden />
-      </div>
-    </div>
   );
 }
