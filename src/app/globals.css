@@ -39,15 +39,10 @@
   --shadow-hero: 0 60px 120px -30px rgba(15, 23, 42, 0.25);
 
   /* Animations */
-  --animate-cursor-blink: caret-blink 1.05s steps(2, end) infinite;
   --animate-pulse-cyan: pulse-cyan 2.4s ease-in-out infinite;
   --animate-twinkle: twinkle 4s ease-in-out infinite;
 }
 
-@keyframes caret-blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
-}
 @keyframes pulse-cyan {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.45; }
