@@ -140,16 +140,16 @@ export function HeroChatDemo() {
         aria-label="Simulação de conversa no WhatsApp entre um cliente e a IA do PopGás, que fecha um pedido de gás"
         className="relative w-[300px] sm:w-[340px] h-[610px] sm:h-[690px] p-[11px] rounded-[50px] bg-[#0B1220] shadow-[0_40px_80px_rgba(15,23,42,0.28),inset_0_0_0_2px_#2A3447]"
       >
-        <div className="relative w-full h-full rounded-[40px] overflow-hidden flex flex-col bg-[#EFEAE2] text-[#111B21] text-left">
+        <div className="relative w-full h-full rounded-[40px] overflow-hidden flex flex-col bg-[#EFEAE2] dark:bg-[#0B141A] text-[#111B21] dark:text-[#E9EDEF] text-left">
           {splash && <ChatSplash />}
-          <div className="bg-[#075E54] dark:bg-[#111B21] text-white pt-10 px-3.5 pb-3 flex items-center gap-2.5">
+          <div className="bg-[#075E54] dark:bg-[#202C33] text-white pt-10 px-3.5 pb-3 flex items-center gap-2.5">
             <ChevronLeft className="w-4 h-4" strokeWidth={2.4} aria-hidden />
-            <span className="w-9 h-9 rounded-full bg-[#8DBB5C] text-[#0F172A] flex items-center justify-center font-extrabold text-[13px]">
+            <span className="w-9 h-9 rounded-full bg-[#8DBB5C] text-[#0F172A] dark:text-[#E9EDEF] flex items-center justify-center font-extrabold text-[13px]">
               GÁS
             </span>
             <div className="flex flex-col leading-[1.2] flex-1">
               <strong className="text-[14px]">Revenda Exemplo Gás</strong>
-              <span className="text-[11px] text-[#CDE7E2]">{typing ? 'digitando…' : 'online'}</span>
+              <span className="text-[11px] text-[#CDE7E2] dark:text-[#8696A0]">{typing ? 'digitando…' : 'online'}</span>
             </div>
           </div>
 
@@ -159,14 +159,14 @@ export function HeroChatDemo() {
                 <div
                   key={i}
                   style={msgAnimation}
-                  className="shrink-0 self-start w-[82%] bg-white rounded-xl overflow-hidden text-[12px] shadow-[0_1px_2px_rgba(0,0,0,0.12)]"
+                  className="shrink-0 self-start w-[82%] bg-white dark:bg-[#202C33] rounded-xl overflow-hidden text-[12px] shadow-[0_1px_2px_rgba(0,0,0,0.12)]"
                 >
                   <div className="bg-[#1F3A12] text-white px-2.5 py-2 flex items-center gap-1.5 font-bold">
                     <Check className="w-3.5 h-3.5 text-[#8DBB5C]" strokeWidth={3} aria-hidden />
                     Pedido #741058 confirmado
                   </div>
-                  <div className="px-2.5 py-2 flex flex-col gap-[3px] text-[#3F4756]">
-                    <div className="flex justify-between"><span>1× Gás P13</span><strong className="text-[#0F172A]">R$ 130,00</strong></div>
+                  <div className="px-2.5 py-2 flex flex-col gap-[3px] text-[#3F4756] dark:text-[#D1D7DB]">
+                    <div className="flex justify-between"><span>1× Gás P13</span><strong className="text-[#0F172A] dark:text-[#E9EDEF]">R$ 130,00</strong></div>
                     <div className="flex justify-between"><span>Pagamento</span><span>PIX</span></div>
                     <div className="flex justify-between"><span>Entrega</span><span>até 30 min</span></div>
                   </div>
@@ -177,12 +177,12 @@ export function HeroChatDemo() {
                   style={msgAnimation}
                   className={
                     m.from === 'client'
-                      ? 'shrink-0 self-end max-w-[78%] bg-[#D9FDD3] rounded-[10px_10px_2px_10px] px-[9px] pt-1.5 pb-1 text-[13px] leading-[1.4] shadow-[0_1px_1px_rgba(0,0,0,0.08)]'
-                      : 'shrink-0 self-start max-w-[80%] bg-white rounded-[10px_10px_10px_2px] px-[9px] pt-1.5 pb-1 text-[13px] leading-[1.4] shadow-[0_1px_1px_rgba(0,0,0,0.08)]'
+                      ? 'shrink-0 self-end max-w-[78%] bg-[#D9FDD3] dark:bg-[#005C4B] rounded-[10px_10px_2px_10px] px-[9px] pt-1.5 pb-1 text-[13px] leading-[1.4] shadow-[0_1px_1px_rgba(0,0,0,0.08)]'
+                      : 'shrink-0 self-start max-w-[80%] bg-white dark:bg-[#202C33] rounded-[10px_10px_10px_2px] px-[9px] pt-1.5 pb-1 text-[13px] leading-[1.4] shadow-[0_1px_1px_rgba(0,0,0,0.08)]'
                   }
                 >
                   {m.text}
-                  <div className="text-right text-[10px] text-[#667781]">
+                  <div className="text-right text-[10px] text-[#667781] dark:text-[#8EA4AE]">
                     {m.time}
                     {m.from === 'client' && ' ✓✓'}
                   </div>
@@ -192,7 +192,7 @@ export function HeroChatDemo() {
             {typing && (
               <div
                 style={msgAnimation}
-                className="shrink-0 self-start bg-white rounded-[10px_10px_10px_2px] px-3 py-2.5 flex gap-1 shadow-[0_1px_1px_rgba(0,0,0,0.08)]"
+                className="shrink-0 self-start bg-white dark:bg-[#202C33] rounded-[10px_10px_10px_2px] px-3 py-2.5 flex gap-1 shadow-[0_1px_1px_rgba(0,0,0,0.08)]"
               >
                 <TypingDots className="bg-[#8696A0]" size={7} />
               </div>
@@ -200,7 +200,7 @@ export function HeroChatDemo() {
           </div>
 
           <div className="px-2.5 pt-2 pb-3.5 flex gap-2 items-center">
-            <div className="flex-1 bg-white rounded-full px-3.5 py-[9px] text-[13px] text-[#8696A0]">Mensagem</div>
+            <div className="flex-1 bg-white dark:bg-[#202C33] rounded-full px-3.5 py-[9px] text-[13px] text-[#8696A0]">Mensagem</div>
             <span aria-hidden className="w-[38px] h-[38px] rounded-full bg-[#00A884] flex items-center justify-center">
               <SendHorizontal className="w-4 h-4 text-white" fill="currentColor" />
             </span>
