@@ -68,7 +68,7 @@ export const WHATSAPP_MESSAGE_SPECIALIST =
   'Olá! Quero que um especialista entre em contato comigo.';
 /** Chat de demonstração da IA (revenda de exemplo), aberto no "Teste nossa IA". */
 export const AI_DEMO_CHAT_URL =
-  process.env.NEXT_PUBLIC_AI_DEMO_CHAT_URL || 'https://soldeverao.popgas.chat/6pb48apd';
+  process.env.NEXT_PUBLIC_AI_DEMO_CHAT_URL || 'https://revenda-teste.popgas.chat/arm1ucvg';
 
 export function buildWhatsAppUrl(message: string): string {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
