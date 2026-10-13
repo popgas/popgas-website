@@ -46,36 +46,36 @@ function ModuleMapCard({ content, icon: Icon, premium }: { content: ModuleConten
   const href = `/recursos/${content.slug}`;
   const total = content.sections.reduce((n, s) => n + s.features.length, 0);
   return (
-    <div className="h-full p-7 bg-white border border-[#e2e8f0] rounded-2xl hover:border-[#0f172a] hover:shadow-[0_8px_24px_rgba(15,23,42,0.08)] transition-all flex flex-col">
+    <div className="h-full p-7 bg-white dark:bg-[#1B2722] border border-[#e2e8f0] dark:border-[#2E3E35] rounded-2xl hover:border-[#0f172a] dark:hover:border-[#8F9A92] hover:shadow-[0_8px_24px_rgba(15,23,42,0.08)] transition-all flex flex-col">
       <div className="flex items-start justify-between gap-4 mb-5">
-        <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${premium ? 'gradient-bg-premium text-white' : 'bg-[#fafafa] text-[#0f172a]'}`}>
+        <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${premium ? 'gradient-bg-premium text-white' : 'bg-[#fafafa] dark:bg-[#263C26] text-[#0f172a] dark:text-[#9CCB6B]'}`}>
           <Icon className="w-6 h-6" />
         </div>
         <div className="text-right">
           <div className="text-xs font-bold uppercase tracking-wider text-[#06b6d4]">
             {content.moduleKey === 'gas-vertical' ? 'Vertical' : MODULES[content.moduleKey].isBase ? 'Plano base' : premium ? '+ Módulo · Premium' : '+ Módulo'}
           </div>
-          <div className="text-sm font-semibold text-[#475569]">{priceLabel(content)}</div>
+          <div className="text-sm font-semibold text-[#475569] dark:text-[#A3AFA6]">{priceLabel(content)}</div>
         </div>
       </div>
-      <h3 className="text-2xl font-bold text-[#0f172a] mb-1 tracking-tight">
-        <Link href={href} className="hover:text-[#4a7818] transition-colors">{moduleName(content)}</Link>
+      <h3 className="text-2xl font-bold text-[#0f172a] dark:text-[#E8EEE6] mb-1 tracking-tight">
+        <Link href={href} className="hover:text-[#4a7818] dark:hover:text-[#9CCB6B] transition-colors">{moduleName(content)}</Link>
       </h3>
-      <p className="text-sm text-[#475569] leading-relaxed mb-5">{content.hero.title}</p>
+      <p className="text-sm text-[#475569] dark:text-[#A3AFA6] leading-relaxed mb-5">{content.hero.title}</p>
 
       <ol className="list-none p-0 m-0 flex flex-col gap-3 mb-6">
         {content.sections.map(section => (
           <li key={section.id}>
             <Link
               href={`${href}#${section.id}`}
-              className="text-[15px] font-semibold text-[#0f172a] hover:text-[#4a7818] transition-colors"
+              className="text-[15px] font-semibold text-[#0f172a] dark:text-[#E8EEE6] hover:text-[#4a7818] dark:hover:text-[#9CCB6B] transition-colors"
             >
               {section.title}
             </Link>
-            <div className="text-[13px] text-[#64748b] leading-snug mt-0.5">
+            <div className="text-[13px] text-[#64748b] dark:text-[#A3AFA6] leading-snug mt-0.5">
               {section.features.map((f, i) => (
                 <span key={f.id}>
-                  <Link href={`${href}#${f.id}`} className="hover:text-[#4a7818] hover:underline underline-offset-2">
+                  <Link href={`${href}#${f.id}`} className="hover:text-[#4a7818] dark:hover:text-[#9CCB6B] hover:underline underline-offset-2">
                     {f.title}
                   </Link>
                   {i < section.features.length - 1 ? ' · ' : ''}
@@ -88,7 +88,7 @@ function ModuleMapCard({ content, icon: Icon, premium }: { content: ModuleConten
 
       <Link
         href={href}
-        className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-[#0f172a] hover:gap-2.5 transition-all"
+        className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-[#0f172a] dark:text-[#E8EEE6] hover:gap-2.5 transition-all"
       >
         Ver {total} funcionalidades <ArrowRight className="w-3.5 h-3.5" />
       </Link>
@@ -99,17 +99,17 @@ function ModuleMapCard({ content, icon: Icon, premium }: { content: ModuleConten
 export default function RecursosPage() {
   return (
     <>
-      <section className="pt-16 md:pt-24 pb-12 bg-gradient-to-b from-[#fafafa] to-white">
+      <section className="pt-16 md:pt-24 pb-12 bg-gradient-to-b from-[#fafafa] to-white dark:from-[#141E1A] dark:to-[#141E1A]">
         <Container className="max-w-3xl text-center">
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-[-0.04em] leading-[1.05] text-[#0f172a] mb-5">
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-[-0.04em] leading-[1.05] text-[#0f172a] dark:text-[#E8EEE6] mb-5">
             Tudo o que sua revenda precisa em um sistema.
           </h1>
-          <p className="text-lg text-[#475569]">
+          <p className="text-lg text-[#475569] dark:text-[#A3AFA6]">
             Mais de 120 funcionalidades distribuídas em 4 módulos contratáveis e uma vertical para revendas de gás, todas usadas todo dia na nossa própria revenda. Clique em qualquer item para ir direto à explicação.
           </p>
           <Link
             href="/planos"
-            className="mt-7 inline-flex items-center gap-2 px-7 py-3 bg-[#0f172a] hover:bg-[#1a2845] text-white font-semibold rounded-xl transition-colors"
+            className="mt-7 inline-flex items-center gap-2 px-7 py-3 bg-[#0f172a] dark:bg-[#E8EEE6] hover:bg-[#1a2845] dark:hover:bg-white text-white dark:text-[#0a1322] font-semibold rounded-xl transition-colors"
           >
             Ver planos →
           </Link>
@@ -129,7 +129,7 @@ export default function RecursosPage() {
         </Container>
       </section>
 
-      <section className="py-16 md:py-24 bg-gradient-to-br from-[#fafafa] to-white border-y border-[#e2e8f0]">
+      <section className="py-16 md:py-24 bg-gradient-to-br from-[#fafafa] to-white dark:from-[#17221D] dark:to-[#141E1A] border-y border-[#e2e8f0] dark:border-[#2E3E35]">
         <Container>
           <SectionHeader eyebrow="Vertical especializada" title="Para revendas de gás." subtitle="Funcionalidades exclusivas para distribuição de GLP, incluídas em todos os planos." />
           <div className="max-w-4xl mx-auto">

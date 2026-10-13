@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -12,10 +12,12 @@ interface Props {
   iconClassName?: string;
   /** Chamado ao abrir o chat (ex.: fechar o menu mobile). */
   onOpen?: () => void;
+  /** Conteúdo próprio do botão; sem ele, mostra o robozinho + "Teste nossa IA". */
+  children?: ReactNode;
 }
 
 /** Botão "Teste nossa IA" com o robozinho animado; abre o chat de demonstração num celular. */
-export function TryAiButton({ className, iconClassName, onOpen }: Props) {
+export function TryAiButton({ className, iconClassName, onOpen, children }: Props) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -42,8 +44,12 @@ export function TryAiButton({ className, iconClassName, onOpen }: Props) {
         }}
         className={cn('inline-flex items-center gap-2 cursor-pointer', className)}
       >
-        <AiRobotIcon className={cn('w-9 h-9 shrink-0', iconClassName)} />
-        Teste nossa IA
+        {children ?? (
+          <>
+            <AiRobotIcon className={cn('w-9 h-9 shrink-0', iconClassName)} />
+            Teste nossa IA
+          </>
+        )}
       </button>
 
       {/* Portal: o header usa backdrop-blur, que prenderia o `fixed` dentro dele. */}

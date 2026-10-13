@@ -41,18 +41,18 @@ const COLUMNS = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-[rgba(15,19,34,0.08)] pt-16 pb-8">
+    <footer className="border-t border-[rgba(15,19,34,0.08)] dark:border-[#2E3E35] pt-16 pb-8">
       <Container>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12">
           {COLUMNS.map(col => (
             <div key={col.title}>
-              <h4 className="text-sm font-bold text-[#0f172a] mb-4">{col.title}</h4>
+              <h4 className="text-sm font-bold text-[#0f172a] dark:text-[#E8EEE6] mb-4">{col.title}</h4>
               <ul className="space-y-2.5">
                 {col.items.map(item => (
                   <li key={item.label}>
                     <Link
                       href={item.href}
-                      className="text-sm text-[#475569] hover:text-[#0f172a] transition-colors"
+                      className="text-sm text-[#475569] dark:text-[#A3AFA6] hover:text-[#0f172a] dark:hover:text-[#E8EEE6] transition-colors"
                       {...(item.external
                         ? { target: '_blank', rel: 'noopener noreferrer' }
                         : {})}
@@ -65,10 +65,11 @@ export function Footer() {
             </div>
           ))}
         </div>
-        <div className="border-t border-[rgba(15,19,34,0.08)] pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div className="border-t border-[rgba(15,19,34,0.08)] dark:border-[#2E3E35] pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <Image src="/logo.svg" alt="PopGás" width={28} height={28} />
-            <div className="text-xs text-[#475569]">
+            <Image src="/logo.svg" alt="PopGás" width={28} height={28} className="dark:hidden" />
+            <Image src="/images/logo-dark.png" alt="" width={719} height={178} className="hidden dark:block h-4 w-auto" />
+            <div className="text-xs text-[#475569] dark:text-[#A3AFA6]">
               © 2026 PopGás Tecnologia · CNPJ 10.262.307/0001-14<br />
               POPGAS COMERCIO E TECNOLOGIA LTDA · Uberlândia/MG
             </div>
@@ -79,7 +80,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="w-9 h-9 rounded-full border border-[#e2e8f0] hover:border-[#0f172a] flex items-center justify-center text-[#475569] hover:text-[#0f172a] transition-colors"
+              className="w-9 h-9 rounded-full border border-[#e2e8f0] dark:border-[#2E3E35] hover:border-[#0f172a] dark:hover:border-[#3d5045] flex items-center justify-center text-[#475569] dark:text-[#A3AFA6] hover:text-[#0f172a] dark:hover:text-[#E8EEE6] transition-colors"
             >
               <Instagram className="w-4 h-4" />
             </a>
@@ -88,7 +89,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube"
-              className="w-9 h-9 rounded-full border border-[#e2e8f0] hover:border-[#0f172a] flex items-center justify-center text-[#475569] hover:text-[#0f172a] transition-colors"
+              className="w-9 h-9 rounded-full border border-[#e2e8f0] dark:border-[#2E3E35] hover:border-[#0f172a] dark:hover:border-[#3d5045] flex items-center justify-center text-[#475569] dark:text-[#A3AFA6] hover:text-[#0f172a] dark:hover:text-[#E8EEE6] transition-colors"
             >
               <Youtube className="w-4 h-4" />
             </a>

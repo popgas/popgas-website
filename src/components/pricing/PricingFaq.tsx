@@ -6,7 +6,7 @@ import { PRICING_FAQ } from '@/content/pricing-faq';
 
 export function PricingFaq() {
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-b from-[#fbfbfa] to-[#f1f5f9]">
+    <section className="py-20 md:py-28 bg-gradient-to-b from-[#fbfbfa] to-[#f1f5f9] dark:from-[#141E1A] dark:to-[#17221D]">
       <Container>
         <SectionHeader
           eyebrow="FAQ de pricing"

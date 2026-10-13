@@ -5,7 +5,7 @@ import { HOME_FAQ } from '@/content/home-faq';
 
 export function HomeFaqSection() {
   return (
-    <section className="py-16 sm:py-20 md:py-28 bg-gradient-to-b from-[#fbfbfa] to-[#f1f5f9]">
+    <section className="py-16 sm:py-20 md:py-28 bg-gradient-to-b from-[#fbfbfa] to-[#f1f5f9] dark:from-[#17221D] dark:to-[#17221D]">
       <Container>
         <SectionHeader
           eyebrow="Dúvidas frequentes"

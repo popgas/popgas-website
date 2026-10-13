@@ -40,8 +40,8 @@ export function ResourcesMobileAccordion({ onNavigate }: Props) {
           <div
             key={tab.id}
             className={cn(
-              'border border-[rgba(15,19,34,0.08)] rounded-2xl overflow-hidden transition-colors',
-              isOpen ? 'bg-[#f8fafc]' : 'bg-white'
+              'border border-[rgba(15,19,34,0.08)] dark:border-[#2E3E35] rounded-2xl overflow-hidden transition-colors',
+              isOpen ? 'bg-[#f8fafc] dark:bg-[#17221D]' : 'bg-white dark:bg-[#1B2722]'
             )}
           >
             <button
@@ -49,24 +49,24 @@ export function ResourcesMobileAccordion({ onNavigate }: Props) {
               onClick={() => toggleCategory(tab.id)}
               aria-expanded={isOpen}
               aria-controls={`mobile-recursos-${tab.id}`}
-              className="w-full flex items-center justify-between gap-3 px-4 py-3.5 text-left hover:bg-[rgba(15,19,34,0.02)] transition-colors"
+              className="w-full flex items-center justify-between gap-3 px-4 py-3.5 text-left hover:bg-[rgba(15,19,34,0.02)] dark:hover:bg-[#24302A] transition-colors"
             >
               <div className="flex items-center gap-3 min-w-0">
-                <span className="w-9 h-9 rounded-xl bg-[#f0fdf4] border border-[#bbf7d0] text-[#15803d] flex items-center justify-center shrink-0">
+                <span className="w-9 h-9 rounded-xl bg-[#f0fdf4] dark:bg-[#263C26] border border-[#bbf7d0] dark:border-[#2F4A27] text-[#15803d] dark:text-[#9CCB6B] flex items-center justify-center shrink-0">
                   <CategoryIcon className="w-[18px] h-[18px]" strokeWidth={2} />
                 </span>
                 <div className="min-w-0">
-                  <div className="text-[15px] font-bold text-[#0a1322] tracking-[-0.01em] leading-tight">
+                  <div className="text-[15px] font-bold text-[#0a1322] dark:text-[#E8EEE6] tracking-[-0.01em] leading-tight">
                     {tab.label}
                   </div>
-                  <div className="font-mono text-[9.5px] uppercase tracking-[1.2px] text-[rgba(15,19,34,0.50)] font-semibold mt-1">
+                  <div className="font-mono text-[9.5px] uppercase tracking-[1.2px] text-[rgba(15,19,34,0.50)] dark:text-[#8F9A92] font-semibold mt-1">
                     {tab.eyebrow}
                   </div>
                 </div>
               </div>
               <ChevronDown
                 className={cn(
-                  'w-5 h-5 text-[rgba(15,19,34,0.4)] shrink-0 transition-transform duration-200',
+                  'w-5 h-5 text-[rgba(15,19,34,0.4)] dark:text-[#8F9A92] shrink-0 transition-transform duration-200',
                   isOpen && 'rotate-180'
                 )}
                 aria-hidden
@@ -81,8 +81,8 @@ export function ResourcesMobileAccordion({ onNavigate }: Props) {
               )}
             >
               <div className="overflow-hidden">
-                <div className="px-4 pb-4 pt-1 border-t border-[rgba(15,19,34,0.06)]">
-                  <p className="text-[13px] text-[rgba(15,19,34,0.62)] leading-[1.5] mb-3 mt-3">
+                <div className="px-4 pb-4 pt-1 border-t border-[rgba(15,19,34,0.06)] dark:border-[#2E3E35]">
+                  <p className="text-[13px] text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6] leading-[1.5] mb-3 mt-3">
                     {tab.titlePlain}{' '}
                     <span className="italic-accent">{tab.titleAccent}</span>
                   </p>
@@ -94,16 +94,16 @@ export function ResourcesMobileAccordion({ onNavigate }: Props) {
                           key={f.name}
                           href={f.href}
                           onClick={onNavigate}
-                          className="flex items-start gap-3 py-2 px-2 -mx-2 rounded-lg active:bg-[rgba(15,23,42,0.04)] transition-colors"
+                          className="flex items-start gap-3 py-2 px-2 -mx-2 rounded-lg active:bg-[rgba(15,23,42,0.04)] dark:active:bg-[#24302A] transition-colors"
                         >
-                          <span className="w-[22px] h-[22px] text-[#15803d] flex items-center justify-center pt-0.5 shrink-0">
+                          <span className="w-[22px] h-[22px] text-[#15803d] dark:text-[#9CCB6B] flex items-center justify-center pt-0.5 shrink-0">
                             <Icon className="w-4 h-4" strokeWidth={1.8} />
                           </span>
                           <div className="min-w-0 flex-1">
-                            <div className="text-[13.5px] font-semibold text-[#0a1322] tracking-[-0.01em] leading-tight">
+                            <div className="text-[13.5px] font-semibold text-[#0a1322] dark:text-[#E8EEE6] tracking-[-0.01em] leading-tight">
                               {f.name}
                             </div>
-                            <div className="text-[11.5px] text-[rgba(15,19,34,0.55)] leading-[1.4] mt-0.5">
+                            <div className="text-[11.5px] text-[rgba(15,19,34,0.55)] dark:text-[#A3AFA6] leading-[1.4] mt-0.5">
                               {f.description}
                             </div>
                           </div>
@@ -114,7 +114,7 @@ export function ResourcesMobileAccordion({ onNavigate }: Props) {
                   <Link
                     href={tab.moduleHref}
                     onClick={onNavigate}
-                    className="inline-flex items-center gap-1.5 mt-2 text-[12.5px] font-semibold text-[#15803d] border-b-[1.5px] border-[#15803d] pb-0.5"
+                    className="inline-flex items-center gap-1.5 mt-2 text-[12.5px] font-semibold text-[#15803d] dark:text-[#9CCB6B] border-b-[1.5px] border-[#15803d] dark:border-[#9CCB6B] pb-0.5"
                   >
                     {tab.ctaLabel} →
                   </Link>
@@ -128,7 +128,7 @@ export function ResourcesMobileAccordion({ onNavigate }: Props) {
       <Link
         href="/recursos"
         onClick={onNavigate}
-        className="flex items-center justify-center gap-2 mt-3 py-3 text-[13px] font-mono uppercase tracking-[1.5px] font-semibold text-[rgba(15,19,34,0.62)] hover:text-[#4a7818] transition-colors"
+        className="flex items-center justify-center gap-2 mt-3 py-3 text-[13px] font-mono uppercase tracking-[1.5px] font-semibold text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6] hover:text-[#4a7818] dark:hover:text-[#B5DB8C] transition-colors"
       >
         Ver todos os recursos →
       </Link>

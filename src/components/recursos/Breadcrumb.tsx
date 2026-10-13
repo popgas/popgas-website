@@ -11,7 +11,7 @@ export function Breadcrumb({ items }: { items: Item[] }) {
   return (
     <nav
       aria-label="breadcrumb"
-      className="flex items-center gap-1.5 text-sm text-[rgba(15,19,34,0.62)] mb-6"
+      className="flex items-center gap-1.5 text-sm text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6] mb-6"
     >
       <ol className="flex items-center gap-1.5 list-none p-0 m-0">
         {items.map((item, i) => {
@@ -21,13 +21,13 @@ export function Breadcrumb({ items }: { items: Item[] }) {
               {item.href && !isLast ? (
                 <Link
                   href={item.href}
-                  className="hover:text-[#0a1322] transition-colors"
+                  className="hover:text-[#0a1322] dark:hover:text-[#E8EEE6] transition-colors"
                 >
                   {item.label}
                 </Link>
               ) : (
                 <span
-                  className="text-[#0a1322] font-semibold"
+                  className="text-[#0a1322] dark:text-[#E8EEE6] font-semibold"
                   aria-current={isLast ? 'page' : undefined}
                 >
                   {item.label}
@@ -35,7 +35,7 @@ export function Breadcrumb({ items }: { items: Item[] }) {
               )}
               {!isLast && (
                 <ChevronRight
-                  className="w-3.5 h-3.5 text-[rgba(15,19,34,0.30)]"
+                  className="w-3.5 h-3.5 text-[rgba(15,19,34,0.30)] dark:text-[#8F9A92]"
                   aria-hidden
                 />
               )}

@@ -24,7 +24,7 @@ export function FaqAccordion({ items, initialOpen = [], idPrefix = 'faq' }: FaqA
   };
 
   return (
-    <div className="bg-white border border-[rgba(15,19,34,0.08)] rounded-3xl overflow-hidden shadow-[0_4px_14px_rgba(15,19,34,0.04)]">
+    <div className="bg-white dark:bg-[#1B2722] border border-[rgba(15,19,34,0.08)] dark:border-[#2E3E35] rounded-3xl overflow-hidden shadow-[0_4px_14px_rgba(15,19,34,0.04)]">
       {items.map((item, i) => (
         <FaqRow
           key={i}
@@ -52,20 +52,20 @@ function FaqRow({ item, isOpen, isLast, onToggle, id }: FaqRowProps) {
   const contentId = `${id}-content`;
 
   return (
-    <div className={cn('border-b border-[rgba(15,19,34,0.08)]', isLast && 'border-b-0')}>
+    <div className={cn('border-b border-[rgba(15,19,34,0.08)] dark:border-[#2E3E35]', isLast && 'border-b-0')}>
       <button
         id={triggerId}
         onClick={onToggle}
         aria-expanded={isOpen}
         aria-controls={contentId}
-        className="w-full flex items-center justify-between gap-4 px-6 md:px-7 py-5 md:py-6 text-left hover:bg-[rgba(132,160,40,0.04)] transition-colors"
+        className="w-full flex items-center justify-between gap-4 px-6 md:px-7 py-5 md:py-6 text-left hover:bg-[rgba(132,160,40,0.04)] dark:hover:bg-[#20301F] transition-colors"
       >
-        <h3 className="font-display text-base md:text-lg font-semibold text-[#0a1322] tracking-[-0.015em] leading-snug">
+        <h3 className="font-display text-base md:text-lg font-semibold text-[#0a1322] dark:text-[#E8EEE6] tracking-[-0.015em] leading-snug">
           {item.question}
         </h3>
         <div
           className={cn(
-            'flex-shrink-0 w-8 h-8 rounded-full bg-[rgba(132,160,40,0.10)] text-[#4a7818] flex items-center justify-center transition-transform duration-300',
+            'flex-shrink-0 w-8 h-8 rounded-full bg-[rgba(132,160,40,0.10)] dark:bg-[#263C26] text-[#4a7818] dark:text-[#9CCB6B] flex items-center justify-center transition-transform duration-300',
             isOpen && 'rotate-180'
           )}
           aria-hidden
@@ -83,7 +83,7 @@ function FaqRow({ item, isOpen, isLast, onToggle, id }: FaqRowProps) {
         )}
       >
         <div className="overflow-hidden">
-          <p className="px-6 md:px-7 pb-5 md:pb-6 text-[15px] leading-[1.6] text-[rgba(15,19,34,0.62)] tracking-[-0.005em]">
+          <p className="px-6 md:px-7 pb-5 md:pb-6 text-[15px] leading-[1.6] text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6] tracking-[-0.005em]">
             {renderAnswerWithEmphasis(item.answer, item.emphasize)}
           </p>
         </div>
@@ -108,7 +108,7 @@ function renderAnswerWithEmphasis(answer: string, emphasize?: string[]): ReactNo
           result.push(
             <strong
               key={`em-${segIdx}-${i}-${phrase}`}
-              className="text-[#4a7818] font-semibold"
+              className="text-[#4a7818] dark:text-[#9CCB6B] font-semibold"
             >
               {phrase}
             </strong>

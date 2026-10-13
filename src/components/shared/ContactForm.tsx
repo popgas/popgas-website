@@ -18,12 +18,12 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 const labelClass =
-  'block font-mono text-[10px] uppercase tracking-[1.5px] text-[rgba(15,19,34,0.55)] font-semibold mb-2';
+  'block font-mono text-[10px] uppercase tracking-[1.5px] text-[rgba(15,19,34,0.55)] dark:text-[#A3AFA6] font-semibold mb-2';
 
 const inputClass =
-  'w-full border border-[rgba(15,19,34,0.14)] hover:border-[rgba(15,19,34,0.25)] rounded-[10px] px-3.5 py-3 ' +
-  'font-sans text-sm text-[#0a1322] bg-white tracking-[-0.005em] ' +
-  'placeholder:text-[rgba(15,19,34,0.40)] ' +
+  'w-full border border-[rgba(15,19,34,0.14)] hover:border-[rgba(15,19,34,0.25)] dark:border-[#2E3E35] dark:hover:border-[#3d5045] rounded-[10px] px-3.5 py-3 ' +
+  'font-sans text-sm text-[#0a1322] dark:text-[#E8EEE6] bg-white dark:bg-[#17221D] tracking-[-0.005em] ' +
+  'placeholder:text-[rgba(15,19,34,0.40)] dark:placeholder:text-[#8F9A92] ' +
   'transition-all outline-none ' +
   'focus:border-[#64a028] focus:ring-4 focus:ring-[rgba(132,160,40,0.12)] focus:hover:border-[#64a028]';
 
@@ -31,6 +31,7 @@ const selectClass = cn(
   inputClass,
   'appearance-none bg-no-repeat pr-9',
   '[background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23475569%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27m6%209%206%206%206-6%27%2F%3E%3C%2Fsvg%3E")] ' +
+  'dark:[background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2716%27%20height%3D%2716%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23A3AFA6%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27m6%209%206%206%206-6%27%2F%3E%3C%2Fsvg%3E")] ' +
   '[background-position:right_14px_center]'
 );
 
@@ -72,10 +73,10 @@ export function ContactForm({ defaultType = 'general' }: { defaultType?: FormDat
 
   if (submitted) {
     return (
-      <div className="p-8 bg-[#dcfce7] border border-[#86efac] rounded-2xl text-center">
+      <div className="p-8 bg-[#dcfce7] dark:bg-[#20301F] border border-[#86efac] dark:border-[#2F4A27] rounded-2xl text-center">
         <div className="text-2xl mb-3">✓</div>
-        <h3 className="font-bold text-[#16a34a] mb-2">Mensagem enviada!</h3>
-        <p className="text-sm text-[#15803d]">Retornamos em até 24h úteis.</p>
+        <h3 className="font-bold text-[#16a34a] dark:text-[#9CCB6B] mb-2">Mensagem enviada!</h3>
+        <p className="text-sm text-[#15803d] dark:text-[#B5DB8C]">Retornamos em até 24h úteis.</p>
       </div>
     );
   }
@@ -83,7 +84,7 @@ export function ContactForm({ defaultType = 'general' }: { defaultType?: FormDat
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="bg-white border border-[rgba(15,19,34,0.08)] rounded-2xl p-5 sm:p-6 md:p-8 space-y-4 shadow-[0_4px_14px_rgba(15,19,34,0.04)]"
+      className="bg-white dark:bg-[#1B2722] border border-[rgba(15,19,34,0.08)] dark:border-[#2E3E35] rounded-2xl p-5 sm:p-6 md:p-8 space-y-4 shadow-[0_4px_14px_rgba(15,19,34,0.04)]"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Field>
@@ -156,7 +157,7 @@ export function ContactForm({ defaultType = 'general' }: { defaultType?: FormDat
       </Field>
 
       {error && (
-        <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg">
+        <div className="p-3 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900 text-red-700 dark:text-red-300 text-sm rounded-lg">
           {error}
         </div>
       )}
@@ -178,7 +179,7 @@ function Field({ children }: { children: React.ReactNode }) {
 
 function ErrorMsg({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-xs text-red-600 mt-1.5 font-medium" role="alert">
+    <p className="text-xs text-red-600 dark:text-red-400 mt-1.5 font-medium" role="alert">
       {children}
     </p>
   );

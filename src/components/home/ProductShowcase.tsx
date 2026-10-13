@@ -175,7 +175,7 @@ const FEATURES: Feature[] = [
 
 export function ProductShowcase() {
   return (
-    <section className="py-16 sm:py-20 md:py-28 bg-gradient-to-b from-white to-[#fbfbfa] overflow-x-clip">
+    <section className="py-16 sm:py-20 md:py-28 bg-gradient-to-b from-white to-[#fbfbfa] dark:from-[#1B2722] dark:to-[#1B2722] overflow-x-clip">
       <Container>
         <SectionHeader
           eyebrow="Veja em ação"
@@ -199,13 +199,13 @@ export function ProductShowcase() {
 function FeatureRow({ feature, reverse }: { feature: Feature; reverse: boolean }) {
   const portrait = feature.imageH > feature.imageW;
   const inlineVideo = feature.inlineVideoId ? (
-    <div className="relative w-full rounded-2xl overflow-hidden border border-[rgba(15,19,34,0.08)] bg-[#0f172a] shadow-[0_24px_48px_-12px_rgba(15,19,34,0.14),0_4px_14px_rgba(15,19,34,0.06)]">
+    <div className="relative w-full rounded-2xl overflow-hidden border border-[rgba(15,19,34,0.08)] dark:border-[#2E3E35] bg-[#0f172a] shadow-[0_24px_48px_-12px_rgba(15,19,34,0.14),0_4px_14px_rgba(15,19,34,0.06)]">
       <InlineYouTube videoId={feature.inlineVideoId} title={feature.imageAlt} poster={feature.imageSrc} posterW={feature.imageW} posterH={feature.imageH} tag={feature.tag} />
     </div>
   ) : null;
   const imageBlock = feature.imagePhoto ? (
     // Foto (celular) preenchendo o card, com zoom/recorte — como no site de parceiros.
-    <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-[rgba(15,19,34,0.08)] bg-white shadow-[0_24px_48px_-12px_rgba(15,19,34,0.14),0_4px_14px_rgba(15,19,34,0.06)]">
+    <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-[rgba(15,19,34,0.08)] dark:border-[#2E3E35] bg-white dark:bg-[#1B2722] shadow-[0_24px_48px_-12px_rgba(15,19,34,0.14),0_4px_14px_rgba(15,19,34,0.06)]">
       <Image
         src={feature.imageSrc}
         alt={feature.imageAlt}
@@ -217,8 +217,8 @@ function FeatureRow({ feature, reverse }: { feature: Feature; reverse: boolean }
     </div>
   ) : (
     <div
-      className={`relative w-full h-full rounded-2xl overflow-hidden border border-[rgba(15,19,34,0.08)] shadow-[0_24px_48px_-12px_rgba(15,19,34,0.14),0_4px_14px_rgba(15,19,34,0.06)] ${
-        portrait ? 'bg-gradient-to-br from-[#f4f7ee] to-[#e6eedb] py-6 sm:py-8' : 'bg-white'
+      className={`relative w-full h-full rounded-2xl overflow-hidden border border-[rgba(15,19,34,0.08)] dark:border-[#2E3E35] shadow-[0_24px_48px_-12px_rgba(15,19,34,0.14),0_4px_14px_rgba(15,19,34,0.06)] ${
+        portrait ? 'bg-gradient-to-br from-[#f4f7ee] to-[#e6eedb] dark:from-[#20301F] dark:to-[#1B2722] py-6 sm:py-8' : 'bg-white dark:bg-[#1B2722]'
       }`}
     >
       <Image
@@ -235,8 +235,8 @@ function FeatureRow({ feature, reverse }: { feature: Feature; reverse: boolean }
       />
       {feature.videoId && (
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <span className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/95 backdrop-blur-sm shadow-[0_8px_24px_rgba(0,0,0,0.25)] flex items-center justify-center transition-transform duration-200 group-hover:scale-110">
-            <Play className="w-6 h-6 sm:w-7 sm:h-7 text-[#4a7818] fill-current ml-0.5" />
+          <span className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/95 dark:bg-[#1B2722]/95 backdrop-blur-sm shadow-[0_8px_24px_rgba(0,0,0,0.25)] flex items-center justify-center transition-transform duration-200 group-hover:scale-110">
+            <Play className="w-6 h-6 sm:w-7 sm:h-7 text-[#4a7818] dark:text-[#9CCB6B] fill-current ml-0.5" />
           </span>
         </div>
       )}
@@ -248,7 +248,7 @@ function FeatureRow({ feature, reverse }: { feature: Feature; reverse: boolean }
       <div
         className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center ${
           feature.highlight
-            ? 'p-5 sm:p-8 lg:p-12 rounded-[32px] bg-[#F3F7EC] border border-[#D3E3BE] shadow-[0_30px_60px_rgba(77,122,31,0.10)]'
+            ? 'p-5 sm:p-8 lg:p-12 rounded-[32px] bg-[#F3F7EC] dark:bg-[#20301F] border border-[#D3E3BE] dark:border-[#2F4A27] shadow-[0_30px_60px_rgba(77,122,31,0.10)]'
             : ''
         }`}
       >
@@ -259,27 +259,27 @@ function FeatureRow({ feature, reverse }: { feature: Feature; reverse: boolean }
                 Destaque
               </span>
             )}
-            <div className="inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[2px] text-[#4a7818]">
+            <div className="inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[2px] text-[#4a7818] dark:text-[#9CCB6B]">
               <span className="w-1.5 h-1.5 rounded-full bg-[#64a028]" aria-hidden />
               {feature.eyebrow}
             </div>
           </div>
-          <h3 className="font-display text-[28px] sm:text-[30px] md:text-[32px] font-bold tracking-[-0.035em] leading-[1.1] text-[#0a1322] mb-3.5">
+          <h3 className="font-display text-[28px] sm:text-[30px] md:text-[32px] font-bold tracking-[-0.035em] leading-[1.1] text-[#0a1322] dark:text-[#E8EEE6] mb-3.5">
             {feature.title}
           </h3>
-          <p className="text-[15px] sm:text-base text-[rgba(15,19,34,0.65)] leading-[1.55] mb-5">
+          <p className="text-[15px] sm:text-base text-[rgba(15,19,34,0.65)] dark:text-[#A3AFA6] leading-[1.55] mb-5">
             {feature.description}
           </p>
           <ul className="flex flex-col gap-2 mb-6">
             {feature.bullets.map((b, i) => (
-              <li key={i} className="flex items-start gap-2.5 text-[14px] text-[rgba(15,19,34,0.72)] leading-[1.5]">
-                <span className="text-[#64a028] font-extrabold shrink-0" aria-hidden>✓</span>
+              <li key={i} className="flex items-start gap-2.5 text-[14px] text-[rgba(15,19,34,0.72)] dark:text-[#C3CCC5] leading-[1.5]">
+                <span className="text-[#64a028] dark:text-[#9CCB6B] font-extrabold shrink-0" aria-hidden>✓</span>
                 <span>{b}</span>
               </li>
             ))}
           </ul>
           {feature.highlight ? (
-            <div className="flex flex-wrap items-center justify-between gap-x-5 gap-y-4 px-[22px] py-5 rounded-[20px] bg-[#0f172a] text-white">
+            <div className="flex flex-wrap items-center justify-between gap-x-5 gap-y-4 px-[22px] py-5 rounded-[20px] bg-[#0f172a] dark:bg-[#0D1411] text-white">
               <div className="flex flex-col gap-0.5 flex-[1_1_200px]">
                 <strong className="text-[17px]">Converse com a IA agora</strong>
                 <span className="text-[14px] text-[#C9D3E0]">Mande uma mensagem como se fosse um cliente seu.</span>
@@ -293,7 +293,7 @@ function FeatureRow({ feature, reverse }: { feature: Feature; reverse: boolean }
             <div className="flex items-center gap-5 flex-wrap">
               <Link
                 href={feature.ctaHref}
-                className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#4a7818] border-b-[1.5px] border-[#64a028] pb-0.5 hover:gap-2.5 transition-all"
+                className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#4a7818] dark:text-[#9CCB6B] dark:hover:text-[#B5DB8C] border-b-[1.5px] border-[#64a028] dark:border-[#6E9E3A] pb-0.5 hover:gap-2.5 transition-all"
               >
                 {feature.ctaLabel} →
               </Link>
@@ -301,7 +301,7 @@ function FeatureRow({ feature, reverse }: { feature: Feature; reverse: boolean }
                 <VideoModal
                   videoId={feature.videoId}
                   orientation={feature.videoOrientation}
-                  triggerClassName="inline-flex items-center gap-1.5 text-[13px] font-bold text-[rgba(15,19,34,0.62)] hover:text-[#0a1322] transition-colors"
+                  triggerClassName="inline-flex items-center gap-1.5 text-[13px] font-bold text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6] hover:text-[#0a1322] dark:hover:text-[#E8EEE6] transition-colors"
                 >
                   <Play className="w-3.5 h-3.5 fill-current" />
                   Ver demonstração
@@ -321,7 +321,7 @@ function FeatureRow({ feature, reverse }: { feature: Feature; reverse: boolean }
             aria-hidden
           />
           {!inlineVideo && (
-            <div className="absolute top-3.5 left-3.5 z-10 inline-flex items-center bg-white border border-[rgba(15,19,34,0.08)] font-mono text-[10px] font-bold tracking-[1px] uppercase text-[rgba(15,19,34,0.62)] px-2.5 py-1 rounded-full shadow-sm">
+            <div className="absolute top-3.5 left-3.5 z-10 inline-flex items-center bg-white dark:bg-[#1B2722] border border-[rgba(15,19,34,0.08)] dark:border-[#2E3E35] font-mono text-[10px] font-bold tracking-[1px] uppercase text-[rgba(15,19,34,0.62)] dark:text-[#C3CCC5] px-2.5 py-1 rounded-full shadow-sm">
               {feature.tag}
             </div>
           )}

@@ -32,14 +32,14 @@ export default async function ContatoPage({
       <Container>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10 sm:mb-12">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-5 sm:mb-6 bg-[rgba(132,160,40,0.08)] border border-[rgba(132,160,40,0.30)] rounded-full font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.4px] text-[#4a7818] font-semibold">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-5 sm:mb-6 bg-[rgba(132,160,40,0.08)] dark:bg-[#20301F] border border-[rgba(132,160,40,0.30)] dark:border-[#2F4A27] rounded-full font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.4px] text-[#4a7818] dark:text-[#9CCB6B] font-semibold">
               <span className="w-1.5 h-1.5 rounded-full bg-[#64a028]" aria-hidden />
               Contato
             </div>
-            <h1 className="font-display text-[30px] sm:text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-[-0.045em] leading-[1.1] sm:leading-[1.05] text-[#0a1322] mb-3 sm:mb-4">
+            <h1 className="font-display text-[30px] sm:text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-[-0.045em] leading-[1.1] sm:leading-[1.05] text-[#0a1322] dark:text-[#E8EEE6] mb-3 sm:mb-4">
               Fale com <em className="italic-accent">a gente</em>.
             </h1>
-            <p className="text-[15px] sm:text-base md:text-lg text-[rgba(15,19,34,0.62)] leading-[1.5] tracking-[-0.01em]">
+            <p className="text-[15px] sm:text-base md:text-lg text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6] leading-[1.5] tracking-[-0.01em]">
               Dúvidas, demonstrações ou suporte — escolha o canal que preferir.
             </p>
           </div>
@@ -56,14 +56,14 @@ export default async function ContatoPage({
                 (34) 3238-7777
               </ChannelRow>
               <div className="flex gap-3">
-                <div className="w-10 h-10 rounded-lg bg-[rgba(132,160,40,0.08)] border border-[rgba(132,160,40,0.30)] flex items-center justify-center flex-shrink-0 text-[#4a7818]">
+                <div className="w-10 h-10 rounded-lg bg-[rgba(132,160,40,0.08)] dark:bg-[#20301F] border border-[rgba(132,160,40,0.30)] dark:border-[#2F4A27] flex items-center justify-center flex-shrink-0 text-[#4a7818] dark:text-[#9CCB6B]">
                   <MapPin className="w-5 h-5" strokeWidth={2} />
                 </div>
                 <div>
-                  <div className="font-mono text-[10px] font-semibold uppercase tracking-[1.5px] text-[rgba(15,19,34,0.55)] mb-1.5">
+                  <div className="font-mono text-[10px] font-semibold uppercase tracking-[1.5px] text-[rgba(15,19,34,0.55)] dark:text-[#A3AFA6] mb-1.5">
                     Endereço
                   </div>
-                  <div className="text-sm text-[#0a1322] leading-[1.55]">
+                  <div className="text-sm text-[#0a1322] dark:text-[#E8EEE6] leading-[1.55]">
                     R. João Balbino, 749<br />
                     Santa Mônica, Uberlândia – MG<br />
                     CEP 38408-262
@@ -90,20 +90,20 @@ interface ChannelRowProps {
 function ChannelRow({ icon: Icon, label, href, subtitle, children }: ChannelRowProps) {
   return (
     <div className="flex gap-3">
-      <div className="w-10 h-10 rounded-lg bg-[rgba(132,160,40,0.08)] border border-[rgba(132,160,40,0.30)] flex items-center justify-center flex-shrink-0 text-[#4a7818]">
+      <div className="w-10 h-10 rounded-lg bg-[rgba(132,160,40,0.08)] dark:bg-[#20301F] border border-[rgba(132,160,40,0.30)] dark:border-[#2F4A27] flex items-center justify-center flex-shrink-0 text-[#4a7818] dark:text-[#9CCB6B]">
         <Icon className="w-5 h-5" strokeWidth={2} />
       </div>
       <div>
-        <div className="font-mono text-[10px] font-semibold uppercase tracking-[1.5px] text-[rgba(15,19,34,0.55)] mb-1.5">
+        <div className="font-mono text-[10px] font-semibold uppercase tracking-[1.5px] text-[rgba(15,19,34,0.55)] dark:text-[#A3AFA6] mb-1.5">
           {label}
         </div>
         <a
           href={href}
-          className="text-base font-semibold text-[#0a1322] hover:text-[#64a028] transition-colors"
+          className="text-base font-semibold text-[#0a1322] dark:text-[#E8EEE6] hover:text-[#64a028] transition-colors"
         >
           {children}
         </a>
-        {subtitle && <div className="text-xs text-[rgba(15,19,34,0.5)] mt-1 font-medium">{subtitle}</div>}
+        {subtitle && <div className="text-xs text-[rgba(15,19,34,0.5)] dark:text-[#8F9A92] mt-1 font-medium">{subtitle}</div>}
       </div>
     </div>
   );

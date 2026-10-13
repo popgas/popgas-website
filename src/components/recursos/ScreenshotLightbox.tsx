@@ -27,7 +27,7 @@ export function ScreenshotLightbox({ src, alt, portrait = false, children, class
         aria-label={`Ampliar: ${alt}`}
       >
         {children}
-        <span className="absolute top-3 right-3 inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-white/90 border border-[#e2e8f0] text-[12px] font-semibold text-[#0f172a] shadow-sm opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity">
+        <span className="absolute top-3 right-3 inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-white/90 dark:bg-[#1B2722]/90 border border-[#e2e8f0] dark:border-[#2E3E35] text-[12px] font-semibold text-[#0f172a] dark:text-[#E8EEE6] shadow-sm opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity">
           <Maximize2 className="w-3.5 h-3.5" /> Ampliar
         </span>
       </button>
@@ -42,12 +42,12 @@ export function ScreenshotLightbox({ src, alt, portrait = false, children, class
             type="button"
             onClick={close}
             aria-label="Fechar"
-            className="absolute -top-1 right-0 z-10 inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-white text-[#0f172a] text-[13px] font-semibold shadow"
+            className="absolute -top-1 right-0 z-10 inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-white dark:bg-[#1B2722] text-[#0f172a] dark:text-[#E8EEE6] text-[13px] font-semibold shadow"
           >
             <X className="w-4 h-4" /> Fechar
           </button>
           {/* No celular a tela do ERP abre maior que a largura e rola para o lado (pinch-zoom continua disponível). */}
-          <div className={`mt-12 rounded-2xl border border-white/10 bg-white shadow-2xl ${portrait ? 'overflow-hidden' : 'overflow-auto max-w-full overscroll-contain'}`}>
+          <div className={`mt-12 rounded-2xl border border-white/10 bg-white dark:bg-[#1B2722] shadow-2xl ${portrait ? 'overflow-hidden' : 'overflow-auto max-w-full overscroll-contain'}`}>
             <Image
               src={src}
               alt={alt}

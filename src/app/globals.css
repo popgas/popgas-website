@@ -1,5 +1,8 @@
 @import 'tailwindcss';
 
+/* Tema escuro por classe no <html> (ThemeToggle + script anti-flash no layout). */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   /* Brand palette — logo blue family */
   --color-brand-primary: #24355A;
@@ -53,6 +56,14 @@
   0%, 100% { opacity: 0; transform: scale(0.5); }
   50% { opacity: 0.55; transform: scale(1); }
 }
+@keyframes chat-msg-in {
+  from { opacity: 0; transform: translateY(10px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes chat-dot {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.45; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
 
 :root {
   --background: var(--color-background);
@@ -67,6 +78,12 @@ html {
   overflow-x: clip;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
+}
+
+html.dark {
+  color-scheme: dark;
+  --background: #141E1A;
+  --foreground: #E8EEE6;
 }
 
 body {
@@ -100,6 +117,10 @@ body {
   letter-spacing: -0.03em;
 }
 
+.dark .italic-accent {
+  color: #E8EEE6;
+}
+
 .gradient-bg-premium {
   background: linear-gradient(135deg, #3c6418 0%, #64a028 100%);
 }
@@ -111,6 +132,17 @@ body {
     radial-gradient(ellipse 80% 50% at 50% 95%, #dcfce7 0%, transparent 65%);
   opacity: 0.55;
   filter: blur(56px);
+}
+
+.dark .aurora-light {
+  background:
+    radial-gradient(ellipse 75% 55% at 18% 0%, #1f3122 0%, transparent 55%),
+    radial-gradient(ellipse 65% 60% at 88% 25%, #223524 0%, transparent 60%),
+    radial-gradient(ellipse 80% 50% at 50% 95%, #1b2722 0%, transparent 65%);
+}
+
+.dark .grain-light {
+  opacity: 0.04;
 }
 
 .grain-light {

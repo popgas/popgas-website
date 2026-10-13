@@ -1,4 +1,5 @@
 import { Hero } from '@/components/home/Hero';
+import { DemoVideoSection } from '@/components/home/DemoVideoSection';
 import { Stats } from '@/components/home/Stats';
 import { ProductShowcase } from '@/components/home/ProductShowcase';
 import { ModulesGrid } from '@/components/home/ModulesGrid';
@@ -9,6 +10,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <DemoVideoSection />
       <Stats />
       <ProductShowcase />
       <ModulesGrid />

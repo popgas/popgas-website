@@ -20,7 +20,7 @@ export function ModuleSynergy({ synergies }: Props) {
   if (synergies.length === 0) return null;
 
   return (
-    <section className="py-16 md:py-24 bg-[#fafafa]">
+    <section className="py-16 md:py-24 bg-[#fafafa] dark:bg-[#17221D]">
       <Container>
         <SectionHeader
           eyebrow="Funciona melhor com"
@@ -34,15 +34,15 @@ export function ModuleSynergy({ synergies }: Props) {
               <Link
                 key={s.moduleKey}
                 href={MODULE_HREF[s.moduleKey]}
-                className="group p-6 bg-white border border-[#e2e8f0] rounded-2xl hover:border-[#0f172a] transition-colors"
+                className="group p-6 bg-white dark:bg-[#1B2722] border border-[#e2e8f0] dark:border-[#2E3E35] rounded-2xl hover:border-[#0f172a] dark:hover:border-[#8F9A92] transition-colors"
               >
                 <div className="text-xs font-bold uppercase tracking-wider text-[#06b6d4] mb-2">
                   + {m.name}
                 </div>
-                <p className="text-base font-medium text-[#0f172a] leading-snug mb-4">
+                <p className="text-base font-medium text-[#0f172a] dark:text-[#E8EEE6] leading-snug mb-4">
                   {s.reason}
                 </p>
-                <div className="text-sm font-semibold text-[#0f172a] inline-flex items-center gap-1.5 group-hover:gap-2 transition-all">
+                <div className="text-sm font-semibold text-[#0f172a] dark:text-[#E8EEE6] inline-flex items-center gap-1.5 group-hover:gap-2 transition-all">
                   Ver módulo <ArrowRight className="w-3.5 h-3.5" />
                 </div>
               </Link>
