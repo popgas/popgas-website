@@ -1,20 +1,7 @@
-'use client';
-
-import { useEffect, useRef } from 'react';
 import { Container } from '@/components/shared/Container';
 import { SignupLink } from '@/components/tracking/SignupLink';
 import { buildSignupUrl, buildWhatsAppUrl, WHATSAPP_MESSAGE_SPECIALIST } from '@/lib/pricing';
 import { HeroChatDemo } from './HeroChatDemo';
-
-const ROTATING_PHRASES = ['moderniza', 'automatiza'];
-// Reserva a largura da palavra mais longa para o título não mudar de linha enquanto digita.
-const LONGEST_PHRASE = ROTATING_PHRASES.reduce((a, b) => (b.length > a.length ? b : a));
-
-const TYPE_SPEED = 75;
-const DELETE_SPEED = 38;
-const HOLD_AT_FULL = 1800;
-const HOLD_AT_EMPTY = 220;
-const INITIAL_DELAY = 2400;
 
 export function Hero() {
   const ctaUrl = buildSignupUrl({
@@ -22,53 +9,6 @@ export function Hero() {
     billing: 'monthly',
     utmCampaign: 'home_hero',
   });
-
-  const wordRef = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    const el = wordRef.current;
-    if (!el) return;
-
-    let phraseIndex = 0;
-    let charIndex = ROTATING_PHRASES[0].length;
-    let isDeleting = false;
-    let timer: ReturnType<typeof setTimeout>;
-
-    const tick = () => {
-      const current = ROTATING_PHRASES[phraseIndex];
-      if (!isDeleting) {
-        charIndex++;
-        el.textContent = current.slice(0, charIndex);
-        if (charIndex >= current.length) {
-          isDeleting = true;
-          timer = setTimeout(tick, HOLD_AT_FULL);
-          return;
-        }
-        timer = setTimeout(tick, TYPE_SPEED);
-      } else {
-        charIndex--;
-        el.textContent = current.slice(0, Math.max(0, charIndex));
-        if (charIndex <= 0) {
-          isDeleting = false;
-          phraseIndex = (phraseIndex + 1) % ROTATING_PHRASES.length;
-          charIndex = 0;
-          timer = setTimeout(tick, HOLD_AT_EMPTY);
-          return;
-        }
-        timer = setTimeout(tick, DELETE_SPEED);
-      }
-    };
-
-    timer = setTimeout(() => {
-      isDeleting = true;
-      tick();
-    }, INITIAL_DELAY);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <section className="relative overflow-hidden -mt-[72px] pt-[72px]">
@@ -103,27 +43,7 @@ export function Hero() {
 
             <h1 className="font-display font-extrabold tracking-[-0.05em] leading-[0.98] text-[#0a1322] dark:text-[#E8EEE6] text-[38px] sm:text-6xl lg:text-[76px]">
               O ERP que{' '}
-              <span className="relative inline-block whitespace-nowrap text-left">
-                <span aria-hidden className="invisible">{LONGEST_PHRASE}|</span>
-                <span className="absolute left-0 top-0">
-                  <span
-                    ref={wordRef}
-                    className="font-extrabold tracking-[-0.05em] text-[#4a7818] dark:text-[#9CCB6B]"
-                    style={{ paddingRight: '0.02em' }}
-                  >
-                    {ROTATING_PHRASES[0]}
-                  </span>
-                  <span
-                    aria-hidden
-                    className="inline-block ml-0.5 font-display font-light text-[#64a028] dark:text-[#9CCB6B]"
-                    style={{ transform: 'translateY(-0.05em)', animation: 'caret-blink 1.05s steps(2, end) infinite' }}
-                  >
-                    |
-                  </span>
-                </span>
-              </span>
-              <br />
-              sua revenda.
+              <span className="text-[#4a7818] dark:text-[#9CCB6B]">moderniza</span> sua revenda.
             </h1>
 
             <p className="text-[15px] sm:text-base md:text-xl text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6] leading-[1.5] font-normal tracking-[-0.01em]">
