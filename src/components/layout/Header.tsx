@@ -8,7 +8,9 @@ import { cn } from '@/lib/utils';
 import { LOGIN_URL, SIGNUP_URL } from '@/lib/pricing';
 import { ResourcesMegaMenu } from './ResourcesMegaMenu';
 import { ResourcesMobileAccordion } from './ResourcesMobileAccordion';
+import { StartFreeMenu } from './StartFreeMenu';
 import { SignupLink } from '@/components/tracking/SignupLink';
+import { TryAiButton } from '@/components/shared/TryAiButton';
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -95,23 +97,13 @@ export function Header() {
             </Link>
           </div>
           <Link href="/planos" className="hover:text-[#0a1322] transition-colors">Planos</Link>
-          <Link href="/contato" className="hover:text-[#0a1322] transition-colors">Contato</Link>
+          <TryAiButton
+            className="text-[15px] font-bold text-[#0a1322] hover:text-[#4a7818] transition-colors"
+            iconClassName="text-[#4a7818]"
+          />
         </nav>
 
-        <div className="hidden lg:flex items-center gap-2">
-          <Link
-            href={LOGIN_URL}
-            className="px-4 py-2 text-sm font-medium text-[rgba(15,19,34,0.7)] hover:text-[#0a1322] transition-colors"
-          >
-            Entrar
-          </Link>
-          <SignupLink
-            href={ctaUrl}
-            className="px-5 py-2.5 bg-[#64a028] hover:bg-[#84cc16] text-white text-[13px] font-bold rounded-full transition-colors tracking-tight shadow-[0_4px_14px_rgba(132,160,40,0.25),inset_0_1px_0_rgba(255,255,255,0.18)]"
-          >
-            Começar grátis →
-          </SignupLink>
-        </div>
+        <StartFreeMenu signupUrl={ctaUrl} className="hidden lg:block" />
 
         <button
           className="lg:hidden text-[#0a1322]"
@@ -169,14 +161,11 @@ export function Header() {
                 Planos
                 <span className="text-[rgba(15,19,34,0.30)]" aria-hidden>→</span>
               </Link>
-              <Link
-                href="/contato"
-                onClick={() => setMobileOpen(false)}
-                className="flex items-center justify-between px-3 py-3.5 text-[15px] font-semibold text-[#0a1322] hover:bg-[rgba(15,19,34,0.02)] transition-colors"
-              >
-                Contato
-                <span className="text-[rgba(15,19,34,0.30)]" aria-hidden>→</span>
-              </Link>
+              <TryAiButton
+                onOpen={() => setMobileOpen(false)}
+                className="px-3 py-2 text-[15px] font-bold text-[#0a1322] hover:bg-[rgba(15,19,34,0.02)] transition-colors"
+                iconClassName="text-[#4a7818]"
+              />
             </div>
           </nav>
           <div className="shrink-0 px-5 py-4 border-t border-[rgba(15,19,34,0.08)] bg-[#fafafa] flex flex-col gap-2.5">

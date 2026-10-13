@@ -7,6 +7,7 @@ import { SectionHeader } from '@/components/shared/SectionHeader';
 import { AnimatedReveal } from '@/components/shared/AnimatedReveal';
 import { VideoModal } from '@/components/shared/VideoModal';
 import { InlineYouTube } from '@/components/shared/InlineYouTube';
+import { TryAiButton } from '@/components/shared/TryAiButton';
 
 interface Feature {
   eyebrow: string;
@@ -26,6 +27,8 @@ interface Feature {
   imagePhoto?: boolean;
   /** Vídeo do YouTube embutido no lugar da imagem (a imagem vira o pôster). */
   inlineVideoId?: string;
+  /** Card em destaque com o convite para testar a IA no lugar do link do módulo. */
+  highlight?: boolean;
 }
 
 const FEATURES: Feature[] = [
@@ -37,7 +40,7 @@ const FEATURES: Feature[] = [
       </>
     ),
     description:
-      'A inteligência artificial conversa com cada cliente no WhatsApp como um atendente experiente: responde dúvidas com as regras da sua revenda, monta o carrinho, confirma endereço e pagamento e lança o pedido direto no sistema.',
+      'A IA atende seus clientes no WhatsApp, tira dúvidas e lança o pedido direto no sistema.',
     bullets: [
       'Atende no tom da sua revenda, com a sua base de conhecimento',
       'Cria o pedido direto, sem precisar transferir pra humano',
@@ -51,6 +54,7 @@ const FEATURES: Feature[] = [
     imageW: 3200,
     imageH: 2000,
     inlineVideoId: 'mnVJSrz9Jlo',
+    highlight: true,
   },
   {
     eyebrow: 'Logística',
@@ -241,11 +245,24 @@ function FeatureRow({ feature, reverse }: { feature: Feature; reverse: boolean }
 
   return (
     <AnimatedReveal>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+      <div
+        className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center ${
+          feature.highlight
+            ? 'p-5 sm:p-8 lg:p-12 rounded-[32px] bg-[#F3F7EC] border border-[#D3E3BE] shadow-[0_30px_60px_rgba(77,122,31,0.10)]'
+            : ''
+        }`}
+      >
         <div className={reverse ? 'lg:order-2' : ''}>
-          <div className="inline-flex items-center gap-2 mb-3 font-mono text-[10px] font-bold uppercase tracking-[2px] text-[#4a7818]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#64a028]" aria-hidden />
-            {feature.eyebrow}
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2.5 mb-3">
+            {feature.highlight && (
+              <span className="px-3 py-1.5 rounded-full bg-[#4a7818] text-white text-[11px] font-extrabold uppercase tracking-[0.14em]">
+                Destaque
+              </span>
+            )}
+            <div className="inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[2px] text-[#4a7818]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#64a028]" aria-hidden />
+              {feature.eyebrow}
+            </div>
           </div>
           <h3 className="font-display text-[28px] sm:text-[30px] md:text-[32px] font-bold tracking-[-0.035em] leading-[1.1] text-[#0a1322] mb-3.5">
             {feature.title}
@@ -261,24 +278,37 @@ function FeatureRow({ feature, reverse }: { feature: Feature; reverse: boolean }
               </li>
             ))}
           </ul>
-          <div className="flex items-center gap-5 flex-wrap">
-            <Link
-              href={feature.ctaHref}
-              className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#4a7818] border-b-[1.5px] border-[#64a028] pb-0.5 hover:gap-2.5 transition-all"
-            >
-              {feature.ctaLabel} →
-            </Link>
-            {feature.videoId && (
-              <VideoModal
-                videoId={feature.videoId}
-                orientation={feature.videoOrientation}
-                triggerClassName="inline-flex items-center gap-1.5 text-[13px] font-bold text-[rgba(15,19,34,0.62)] hover:text-[#0a1322] transition-colors"
+          {feature.highlight ? (
+            <div className="flex flex-wrap items-center justify-between gap-x-5 gap-y-4 px-[22px] py-5 rounded-[20px] bg-[#0f172a] text-white">
+              <div className="flex flex-col gap-0.5 flex-[1_1_200px]">
+                <strong className="text-[17px]">Converse com a IA agora</strong>
+                <span className="text-[14px] text-[#C9D3E0]">Mande uma mensagem como se fosse um cliente seu.</span>
+              </div>
+              <TryAiButton
+                className="gap-2.5 text-[18px] font-extrabold text-white hover:text-[#B9DA8F] transition-colors"
+                iconClassName="w-12 h-12 text-[#8DBB5C]"
+              />
+            </div>
+          ) : (
+            <div className="flex items-center gap-5 flex-wrap">
+              <Link
+                href={feature.ctaHref}
+                className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#4a7818] border-b-[1.5px] border-[#64a028] pb-0.5 hover:gap-2.5 transition-all"
               >
-                <Play className="w-3.5 h-3.5 fill-current" />
-                Ver demonstração
-              </VideoModal>
-            )}
-          </div>
+                {feature.ctaLabel} →
+              </Link>
+              {feature.videoId && (
+                <VideoModal
+                  videoId={feature.videoId}
+                  orientation={feature.videoOrientation}
+                  triggerClassName="inline-flex items-center gap-1.5 text-[13px] font-bold text-[rgba(15,19,34,0.62)] hover:text-[#0a1322] transition-colors"
+                >
+                  <Play className="w-3.5 h-3.5 fill-current" />
+                  Ver demonstração
+                </VideoModal>
+              )}
+            </div>
+          )}
         </div>
         <div className={`relative group ${reverse ? 'lg:order-1' : ''}`}>
           <div
