@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { ArrowRight, Check, ChevronLeft, SendHorizontal } from 'lucide-react';
 import { TryAiButton } from '@/components/shared/TryAiButton';
 import { AiRobotIcon } from '@/components/shared/AiRobotIcon';
@@ -22,27 +23,43 @@ const CLIENT_DELAY_MS = 1000;
 const BOT_TYPING_MS = 1400;
 const ORDER_TYPING_MS = 900;
 const RESTART_AFTER_MS = 5000;
+const SPLASH_MS = 2400;
+const AFTER_SPLASH_MS = 600;
 
-/** Toca a conversa mensagem a mensagem (com "digitando…" antes das respostas) e recomeça em loop. */
+/**
+ * Abre com a splash "Conectando a IA ao WhatsApp", toca a conversa mensagem a mensagem
+ * (com "digitando…" antes das respostas) e recomeça em loop, passando de novo pela splash.
+ */
 function useChatPlayback() {
+  const [splash, setSplash] = useState(true);
   const [shown, setShown] = useState(0);
   const [typing, setTyping] = useState(false);
 
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      timer = setTimeout(() => setShown(CHAT_SCRIPT.length), 0);
+      timer = setTimeout(() => {
+        setSplash(false);
+        setShown(CHAT_SCRIPT.length);
+      }, 0);
       return () => clearTimeout(timer);
     }
 
     let i = 0;
+    const playSplash = () => {
+      setSplash(true);
+      timer = setTimeout(() => {
+        setSplash(false);
+        timer = setTimeout(next, AFTER_SPLASH_MS);
+      }, SPLASH_MS);
+    };
     const next = () => {
       if (i >= CHAT_SCRIPT.length) {
         timer = setTimeout(() => {
           i = 0;
           setShown(0);
           setTyping(false);
-          timer = setTimeout(next, 900);
+          playSplash();
         }, RESTART_AFTER_MS);
         return;
       }
@@ -63,17 +80,53 @@ function useChatPlayback() {
         }, msg.from === 'order' ? ORDER_TYPING_MS : BOT_TYPING_MS);
       }
     };
-    timer = setTimeout(next, 700);
+    playSplash();
     return () => clearTimeout(timer);
   }, []);
 
-  return { messages: CHAT_SCRIPT.slice(0, shown), typing, done: shown >= CHAT_SCRIPT.length };
+  return { splash, messages: CHAT_SCRIPT.slice(0, shown), typing, done: shown >= CHAT_SCRIPT.length };
 }
 
 const msgAnimation = { animation: 'chat-msg-in 0.35s ease-out both' } as const;
 
+function TypingDots({ className, size }: { className: string; size: number }) {
+  return (
+    <>
+      {[0, 0.15, 0.3].map(delay => (
+        <span
+          key={delay}
+          className={`rounded-full ${className}`}
+          style={{ width: size, height: size, animation: 'chat-dot 1s ease-in-out infinite', animationDelay: `${delay}s` }}
+        />
+      ))}
+    </>
+  );
+}
+
+/** Tela de abertura do "app": robozinho, logo e "Conectando a IA ao WhatsApp". */
+function ChatSplash() {
+  return (
+    <div
+      className="absolute inset-0 z-[5] bg-[#1F3A12] text-white flex flex-col items-center justify-center gap-[18px] text-center p-6"
+      style={{ animation: 'chat-splash-in 0.4s ease-out both' }}
+    >
+      <span
+        aria-hidden
+        className="w-[104px] h-[104px] rounded-[30px] bg-[#2F5219] text-[#B9DA8F] flex items-center justify-center shadow-[0_0_0_10px_rgba(141,187,92,0.12),0_0_0_22px_rgba(141,187,92,0.06)]"
+      >
+        <AiRobotIcon className="w-16 h-16 [stroke-width:1.6]" />
+      </span>
+      <Image src="/images/logo-dark.png" alt="PopGás" width={719} height={178} className="h-[30px] w-auto mt-3.5" />
+      <span className="text-[13px] text-[#C9D8B6]">Conectando a IA ao WhatsApp</span>
+      <span aria-hidden className="flex gap-1.5">
+        <TypingDots className="bg-[#8DBB5C]" size={8} />
+      </span>
+    </div>
+  );
+}
+
 export function HeroChatDemo() {
-  const { messages, typing, done } = useChatPlayback();
+  const { splash, messages, typing, done } = useChatPlayback();
 
   return (
     <div className="relative flex flex-col items-center gap-[22px] py-5 w-full">
@@ -87,7 +140,8 @@ export function HeroChatDemo() {
         aria-label="Simulação de conversa no WhatsApp entre um cliente e a IA do PopGás, que fecha um pedido de gás"
         className="relative w-[300px] sm:w-[340px] h-[610px] sm:h-[690px] p-[11px] rounded-[50px] bg-[#0B1220] shadow-[0_40px_80px_rgba(15,23,42,0.28),inset_0_0_0_2px_#2A3447]"
       >
-        <div className="w-full h-full rounded-[40px] overflow-hidden flex flex-col bg-[#EFEAE2] text-[#111B21] text-left">
+        <div className="relative w-full h-full rounded-[40px] overflow-hidden flex flex-col bg-[#EFEAE2] text-[#111B21] text-left">
+          {splash && <ChatSplash />}
           <div className="bg-[#075E54] dark:bg-[#111B21] text-white pt-10 px-3.5 pb-3 flex items-center gap-2.5">
             <ChevronLeft className="w-4 h-4" strokeWidth={2.4} aria-hidden />
             <span className="w-9 h-9 rounded-full bg-[#8DBB5C] text-[#0F172A] flex items-center justify-center font-extrabold text-[13px]">
@@ -105,7 +159,7 @@ export function HeroChatDemo() {
                 <div
                   key={i}
                   style={msgAnimation}
-                  className="self-start w-[82%] bg-white rounded-xl overflow-hidden text-[12px] shadow-[0_1px_2px_rgba(0,0,0,0.12)]"
+                  className="shrink-0 self-start w-[82%] bg-white rounded-xl overflow-hidden text-[12px] shadow-[0_1px_2px_rgba(0,0,0,0.12)]"
                 >
                   <div className="bg-[#1F3A12] text-white px-2.5 py-2 flex items-center gap-1.5 font-bold">
                     <Check className="w-3.5 h-3.5 text-[#8DBB5C]" strokeWidth={3} aria-hidden />
@@ -123,8 +177,8 @@ export function HeroChatDemo() {
                   style={msgAnimation}
                   className={
                     m.from === 'client'
-                      ? 'self-end max-w-[78%] bg-[#D9FDD3] rounded-[10px_10px_2px_10px] px-[9px] pt-1.5 pb-1 text-[13px] leading-[1.4] shadow-[0_1px_1px_rgba(0,0,0,0.08)]'
-                      : 'self-start max-w-[80%] bg-white rounded-[10px_10px_10px_2px] px-[9px] pt-1.5 pb-1 text-[13px] leading-[1.4] shadow-[0_1px_1px_rgba(0,0,0,0.08)]'
+                      ? 'shrink-0 self-end max-w-[78%] bg-[#D9FDD3] rounded-[10px_10px_2px_10px] px-[9px] pt-1.5 pb-1 text-[13px] leading-[1.4] shadow-[0_1px_1px_rgba(0,0,0,0.08)]'
+                      : 'shrink-0 self-start max-w-[80%] bg-white rounded-[10px_10px_10px_2px] px-[9px] pt-1.5 pb-1 text-[13px] leading-[1.4] shadow-[0_1px_1px_rgba(0,0,0,0.08)]'
                   }
                 >
                   {m.text}
@@ -138,15 +192,9 @@ export function HeroChatDemo() {
             {typing && (
               <div
                 style={msgAnimation}
-                className="self-start bg-white rounded-[10px_10px_10px_2px] px-3 py-2.5 flex gap-1 shadow-[0_1px_1px_rgba(0,0,0,0.08)]"
+                className="shrink-0 self-start bg-white rounded-[10px_10px_10px_2px] px-3 py-2.5 flex gap-1 shadow-[0_1px_1px_rgba(0,0,0,0.08)]"
               >
-                {[0, 0.15, 0.3].map(delay => (
-                  <span
-                    key={delay}
-                    className="w-[7px] h-[7px] rounded-full bg-[#8696A0]"
-                    style={{ animation: 'chat-dot 1s ease-in-out infinite', animationDelay: `${delay}s` }}
-                  />
-                ))}
+                <TypingDots className="bg-[#8696A0]" size={7} />
               </div>
             )}
           </div>
