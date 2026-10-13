@@ -76,7 +76,6 @@ export function TryAiButton({ className, iconClassName, onOpen }: Props) {
               </button>
             </div>
             <div className="relative w-[380px] max-w-[calc(100vw-32px)] h-[760px] max-h-[calc(100dvh-140px)] p-3 rounded-[52px] bg-[#0B1220] shadow-[0_40px_80px_rgba(0,0,0,0.45),inset_0_0_0_2px_#2A3447]">
-              <div aria-hidden className="absolute top-[22px] left-1/2 -translate-x-1/2 w-[100px] h-[26px] rounded-full bg-[#0B1220] z-10" />
               <div className="w-full h-full rounded-[40px] overflow-hidden bg-[#F7F8F5]">
                 <iframe
                   src={AI_DEMO_CHAT_URL}
