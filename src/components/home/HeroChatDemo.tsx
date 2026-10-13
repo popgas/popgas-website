@@ -219,7 +219,7 @@ export function HeroChatDemo() {
         <ArrowRight className="w-[18px] h-[18px] ml-1 text-[#8DBB5C]" strokeWidth={2.5} aria-hidden />
       </TryAiButton>
 
-      <div className="hidden sm:flex absolute left-0 top-[120px] px-3.5 py-2.5 rounded-2xl bg-white dark:bg-[#1B2722] border border-[#E3E7DE] dark:border-[#2E3E35] shadow-[0_18px_40px_rgba(15,23,42,0.12)] items-center gap-2.5 text-[13px] text-[#0a1322] dark:text-[#E8EEE6]">
+      <div className="hidden sm:flex absolute z-10 left-0 top-[120px] px-3.5 py-2.5 rounded-2xl bg-white dark:bg-[#1B2722] border border-[#E3E7DE] dark:border-[#2E3E35] shadow-[0_18px_40px_rgba(15,23,42,0.12)] items-center gap-2.5 text-[13px] text-[#0a1322] dark:text-[#E8EEE6]">
         <span aria-hidden className="w-[30px] h-[30px] rounded-full bg-[#4D7A1F] text-white flex items-center justify-center">
           <AiRobotIcon className="w-[18px] h-[18px]" />
         </span>
@@ -232,7 +232,7 @@ export function HeroChatDemo() {
       {done && (
         <div
           style={msgAnimation}
-          className="hidden sm:flex absolute right-0 bottom-[170px] px-3.5 py-2.5 rounded-2xl bg-[#1F3A12] text-white shadow-[0_18px_40px_rgba(15,23,42,0.22)] items-center gap-2.5 text-[13px]"
+          className="hidden sm:flex absolute z-10 right-0 bottom-[170px] px-3.5 py-2.5 rounded-2xl bg-[#1F3A12] text-white shadow-[0_18px_40px_rgba(15,23,42,0.22)] items-center gap-2.5 text-[13px]"
         >
           <span aria-hidden className="w-[30px] h-[30px] rounded-full bg-[#8DBB5C] text-[#0F172A] flex items-center justify-center">
             <Check className="w-4 h-4" strokeWidth={3} />
