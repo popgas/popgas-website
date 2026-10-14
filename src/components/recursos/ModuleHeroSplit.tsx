@@ -64,6 +64,7 @@ export function ModuleHeroSplit({
                 src={content.screenshotPath}
                 alt={content.screenshotAlt}
                 fill
+                priority
                 className="object-cover object-left-top"
                 sizes="(max-width: 1024px) 100vw, 600px"
               />

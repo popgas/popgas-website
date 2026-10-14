@@ -9,6 +9,7 @@ import { JsonLd, productLd } from '@/components/seo/JsonLd';
 import { MODULES } from '@/lib/pricing';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/planos' },
   title: 'Planos — A partir de R$ 99,90/mês',
   description:
     'Comece com R$ 99,90/mês. Sem cartão. Sem fidelidade. Migração assistida.',

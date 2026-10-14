@@ -9,6 +9,7 @@ import { FinalCta } from '@/components/home/FinalCta';
 import { gestaoContent } from '@/content/modules';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/recursos/gestao' },
   title: 'Gestão — Estoque e financeiro',
   description: gestaoContent.hero.subtitle,
 };
@@ -18,7 +19,7 @@ export default function Page() {
     <>
       <div className="pt-8">
         <Container>
-          <Breadcrumb items={[{ label: 'Recursos', href: '/recursos' }, { label: 'Gestão' }]} />
+          <Breadcrumb items={[{ label: 'Recursos', href: '/recursos' }, { label: 'Gestão' }]} currentPath="/recursos/gestao" />
         </Container>
       </div>
       <ModuleHeroSplit content={gestaoContent} ctaHref="/planos?preset=gestao-administrativa" reversed/>

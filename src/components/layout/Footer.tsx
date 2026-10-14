@@ -46,7 +46,7 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12">
           {COLUMNS.map(col => (
             <div key={col.title}>
-              <h4 className="text-sm font-bold text-[#0f172a] dark:text-[#E8EEE6] mb-4">{col.title}</h4>
+              <h2 className="text-sm font-bold text-[#0f172a] dark:text-[#E8EEE6] mb-4">{col.title}</h2>
               <ul className="space-y-2.5">
                 {col.items.map(item => (
                   <li key={item.label}>

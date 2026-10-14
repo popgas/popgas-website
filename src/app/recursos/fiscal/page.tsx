@@ -9,6 +9,7 @@ import { FinalCta } from '@/components/home/FinalCta';
 import { fiscalContent } from '@/content/modules';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/recursos/fiscal' },
   title: 'Fiscal — NF-e, NFC-e, NFS-e e SPED',
   description: fiscalContent.hero.subtitle,
 };
@@ -18,7 +19,7 @@ export default function Page() {
     <>
       <div className="pt-8">
         <Container>
-          <Breadcrumb items={[{ label: 'Recursos', href: '/recursos' }, { label: 'Fiscal' }]} />
+          <Breadcrumb items={[{ label: 'Recursos', href: '/recursos' }, { label: 'Fiscal' }]} currentPath="/recursos/fiscal" />
         </Container>
       </div>
       <ModuleHeroSplit content={fiscalContent} ctaHref="/planos?preset=gestao-administrativa"/>

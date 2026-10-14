@@ -31,7 +31,7 @@ export function ModulesGrid() {
               <div className="font-mono text-[12px] uppercase tracking-[2px] font-semibold text-[#4a7818] dark:text-[#9CCB6B]">
                 Plataforma completa · 4 módulos
               </div>
-              <div className="font-mono text-[10px] tracking-[1px] text-[rgba(15,19,34,0.5)] dark:text-[#8F9A92]">
+              <div className="font-mono text-[10px] tracking-[1px] text-[rgba(15,19,34,0.62)] dark:text-[#8F9A92]">
                 Todos os módulos juntos
               </div>
             </div>
@@ -106,7 +106,7 @@ function ModuleRow({ module: m, isPremium, isBase }: ModuleRowProps) {
               <span
                 className={cn(
                   'font-mono text-[9px] uppercase tracking-[1.5px] font-semibold',
-                  isBase ? 'text-[#4a7818] dark:text-[#9CCB6B]' : 'text-[rgba(15,19,34,0.5)] dark:text-[#8F9A92]'
+                  isBase ? 'text-[#4a7818] dark:text-[#9CCB6B]' : 'text-[rgba(15,19,34,0.62)] dark:text-[#8F9A92]'
                 )}
               >
                 {isBase ? 'Plano Base' : '+ Módulo'}
@@ -133,7 +133,7 @@ function ModuleRow({ module: m, isPremium, isBase }: ModuleRowProps) {
               {isBase ? 'R$ ' : '+ R$ '}
               {formatPrice(m.monthlyPrice)}
             </span>
-            <span className="font-mono text-[10px] text-[rgba(15,19,34,0.5)] dark:text-[#8F9A92] ml-1 md:ml-0 md:block md:mt-0.5 tracking-[0.5px]">
+            <span className="font-mono text-[10px] text-[rgba(15,19,34,0.62)] dark:text-[#8F9A92] ml-1 md:ml-0 md:block md:mt-0.5 tracking-[0.5px]">
               /mês
             </span>
           </div>

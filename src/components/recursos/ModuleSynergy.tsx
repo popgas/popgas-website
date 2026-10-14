@@ -36,7 +36,7 @@ export function ModuleSynergy({ synergies }: Props) {
                 href={MODULE_HREF[s.moduleKey]}
                 className="group p-6 bg-white dark:bg-[#1B2722] border border-[#e2e8f0] dark:border-[#2E3E35] rounded-2xl hover:border-[#0f172a] dark:hover:border-[#8F9A92] transition-colors"
               >
-                <div className="text-xs font-bold uppercase tracking-wider text-[#06b6d4] mb-2">
+                <div className="text-xs font-bold uppercase tracking-wider text-[#0E7490] mb-2">
                   + {m.name}
                 </div>
                 <p className="text-base font-medium text-[#0f172a] dark:text-[#E8EEE6] leading-snug mb-4">

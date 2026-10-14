@@ -5,6 +5,7 @@ import { Container } from '@/components/shared/Container';
 import { ContactForm } from '@/components/shared/ContactForm';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/cases' },
   title: 'Cases de sucesso',
   description: 'Histórias de revendas que transformaram suas operações com o PopGás Sistema.',
   robots: { index: false, follow: false },
@@ -33,7 +34,7 @@ export default function CasesPage() {
           </p>
           <Link
             href="/contato?tipo=sales"
-            className="inline-flex items-center justify-center px-6 py-3 bg-[#64a028] hover:bg-[#84cc16] text-white font-bold text-sm rounded-full transition-colors tracking-tight shadow-[0_4px_14px_rgba(132,160,40,0.25)]"
+            className="inline-flex items-center justify-center px-6 py-3 bg-[#4A7818] hover:bg-[#3D6614] text-white font-bold text-sm rounded-full transition-colors tracking-tight shadow-[0_4px_14px_rgba(132,160,40,0.25)]"
           >
             Quero contar minha história →
           </Link>

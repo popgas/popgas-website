@@ -19,6 +19,7 @@ import {
 } from '@/content/modules';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/recursos' },
   title: 'Recursos — 4 módulos + vertical de gás',
   description:
     'Mais de 120 funcionalidades distribuídas em 4 módulos contratáveis e uma vertical para revendas de gás. Comece simples, cresça conforme precisa.',
@@ -52,7 +53,7 @@ function ModuleMapCard({ content, icon: Icon, premium }: { content: ModuleConten
           <Icon className="w-6 h-6" />
         </div>
         <div className="text-right">
-          <div className="text-xs font-bold uppercase tracking-wider text-[#06b6d4]">
+          <div className="text-xs font-bold uppercase tracking-wider text-[#0E7490]">
             {content.moduleKey === 'gas-vertical' ? 'Vertical' : MODULES[content.moduleKey].isBase ? 'Plano base' : premium ? '+ Módulo · Premium' : '+ Módulo'}
           </div>
           <div className="text-sm font-semibold text-[#475569] dark:text-[#A3AFA6]">{priceLabel(content)}</div>
@@ -68,7 +69,7 @@ function ModuleMapCard({ content, icon: Icon, premium }: { content: ModuleConten
           <li key={section.id}>
             <Link
               href={`${href}#${section.id}`}
-              className="text-[15px] font-semibold text-[#0f172a] dark:text-[#E8EEE6] hover:text-[#4a7818] dark:hover:text-[#9CCB6B] transition-colors"
+              className="inline-block py-[3px] text-[15px] font-semibold text-[#0f172a] dark:text-[#E8EEE6] hover:text-[#4a7818] dark:hover:text-[#9CCB6B] transition-colors"
             >
               {section.title}
             </Link>

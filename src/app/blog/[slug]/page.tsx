@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { isIndexableBlogSlug } from "@/lib/blog";
 import { prisma } from "@/lib/db";
 
 const staticPosts: Record<
@@ -182,7 +183,9 @@ export async function generateMetadata({
   const staticPost = staticPosts[slug];
   const title = staticPost?.title ?? "Post";
   return {
-    title: `${title} - Blog PopGas`,
+    title: `${title} — Blog`,
+    alternates: { canonical: `/blog/${slug}` },
+    robots: isIndexableBlogSlug(slug) ? undefined : { index: false, follow: true },
   };
 }
 

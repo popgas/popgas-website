@@ -120,13 +120,13 @@ export function FeatureComparisonTable() {
             <table className="w-full">
               <thead className="bg-[#fafafa] dark:bg-[#17221D] border-b border-[rgba(15,19,34,0.08)] dark:border-[#2E3E35] sticky top-0">
                 <tr>
-                  <th className="text-left px-4 md:px-7 py-4 font-mono text-[10px] uppercase tracking-[1.5px] font-semibold text-[rgba(15,19,34,0.55)] dark:text-[#A3AFA6] min-w-[200px] md:min-w-[280px] sticky left-0 bg-[#fafafa] dark:bg-[#17221D] z-[1] md:static shadow-[4px_0_6px_-4px_rgba(15,19,34,0.08)] md:shadow-none">
+                  <th className="text-left px-4 md:px-7 py-4 font-mono text-[10px] uppercase tracking-[1.5px] font-semibold text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6] min-w-[200px] md:min-w-[280px] sticky left-0 bg-[#fafafa] dark:bg-[#17221D] z-[1] md:static shadow-[4px_0_6px_-4px_rgba(15,19,34,0.08)] md:shadow-none">
                     Funcionalidade
                   </th>
                   {COLS.map(col => (
                     <th
                       key={col.key}
-                      className="text-center px-3 py-4 font-mono text-[10px] uppercase tracking-[1.5px] font-semibold text-[rgba(15,19,34,0.55)] dark:text-[#A3AFA6] min-w-[80px] md:min-w-[100px]"
+                      className="text-center px-3 py-4 font-mono text-[10px] uppercase tracking-[1.5px] font-semibold text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6] min-w-[80px] md:min-w-[100px]"
                     >
                       {col.label}
                     </th>
@@ -141,7 +141,7 @@ export function FeatureComparisonTable() {
             </table>
           </div>
         </div>
-        <p className="text-xs text-[rgba(15,19,34,0.55)] dark:text-[#A3AFA6] text-center mt-6 max-w-[680px] mx-auto leading-relaxed">
+        <p className="text-xs text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6] text-center mt-6 max-w-[680px] mx-auto leading-relaxed">
           Cada plano inclui 1 CNPJ e 1 número de WhatsApp, além de uma franquia mensal de documentos fiscais e de conversas atendidas pela IA.
           Precisa de mais? Amplie pelo painel ou fale com a gente.
         </p>
@@ -159,7 +159,7 @@ function FeatureGroupRows({ group }: { group: FeatureGroup }) {
             <h3 className="font-display text-[17px] font-bold text-[#0a1322] dark:text-[#E8EEE6] tracking-[-0.02em]">
               {group.title}
             </h3>
-            <p className="text-[13px] text-[rgba(15,19,34,0.55)] dark:text-[#A3AFA6] leading-snug">
+            <p className="text-[13px] text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6] leading-snug">
               {group.description}
             </p>
           </div>

@@ -9,6 +9,7 @@ import { FinalCta } from '@/components/home/FinalCta';
 import { essencialContent } from '@/content/modules';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/recursos/essencial' },
   title: 'Essencial — Vendas, clientes e entregas',
   description: essencialContent.hero.subtitle,
 };
@@ -18,7 +19,7 @@ export default function Page() {
     <>
       <div className="pt-8">
         <Container>
-          <Breadcrumb items={[{ label: 'Recursos', href: '/recursos' }, { label: 'Essencial' }]} />
+          <Breadcrumb items={[{ label: 'Recursos', href: '/recursos' }, { label: 'Essencial' }]} currentPath="/recursos/essencial" />
         </Container>
       </div>
       <ModuleHeroSplit content={essencialContent} ctaHref="/planos?preset=iniciante"/>

@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from 'vitest';
-import { GTM_ID, track } from './analytics';
+import { GTM_ID, classifyOutboundClick, track } from './analytics';
 
 describe('analytics.track', () => {
   beforeEach(() => {
@@ -24,5 +24,20 @@ describe('analytics.track', () => {
 
     expect(window.dataLayer).toHaveLength(2);
     expect(window.dataLayer?.[1]).toEqual({ event: 'signup_redirect', modules: 'base', billing: 'monthly' });
+  });
+});
+
+describe('classifyOutboundClick', () => {
+  it('classifies WhatsApp, demo video and ERP login links', () => {
+    expect(classifyOutboundClick('https://wa.me/553432386577?text=Oi')).toBe('whatsapp_click');
+    expect(classifyOutboundClick('https://api.whatsapp.com/send?phone=55')).toBe('whatsapp_click');
+    expect(classifyOutboundClick('https://www.youtube.com/watch?v=mnVJSrz9Jlo')).toBe('demo_video_click');
+    expect(classifyOutboundClick('https://erp.popgas.com.br/login')).toBe('login_click');
+  });
+
+  it('ignores internal and unrelated links', () => {
+    expect(classifyOutboundClick('/planos')).toBeNull();
+    expect(classifyOutboundClick('https://erp.popgas.com.br/signup?modules=base')).toBeNull();
+    expect(classifyOutboundClick('https://instagram.com/popgas')).toBeNull();
   });
 });

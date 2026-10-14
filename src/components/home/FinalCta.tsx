@@ -53,7 +53,7 @@ export function FinalCta() {
         <div className="flex flex-col sm:flex-row gap-3.5 justify-center items-center">
           <SignupLink
             href={ctaUrl}
-            className="inline-flex items-center justify-center px-9 py-4 bg-[#64a028] hover:bg-[#84cc16] text-white font-bold text-base rounded-full transition-colors tracking-tight shadow-[0_8px_24px_rgba(132,160,40,0.28),inset_0_1px_0_rgba(255,255,255,0.20)]"
+            className="inline-flex items-center justify-center px-9 py-4 bg-[#4A7818] hover:bg-[#3D6614] text-white font-bold text-base rounded-full transition-colors tracking-tight shadow-[0_8px_24px_rgba(132,160,40,0.28),inset_0_1px_0_rgba(255,255,255,0.20)]"
           >
             Começar grátis →
           </SignupLink>

@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { AI_DEMO_CHAT_URL } from '@/lib/pricing';
+import { track } from '@/lib/analytics';
 import { AiRobotIcon } from './AiRobotIcon';
 
 interface Props {
@@ -40,6 +41,7 @@ export function TryAiButton({ className, iconClassName, onOpen, children }: Prop
         type="button"
         onClick={() => {
           onOpen?.();
+          track({ name: 'ai_demo_open', page: window.location.pathname });
           setOpen(true);
         }}
         className={cn('inline-flex items-center gap-2 cursor-pointer', className)}

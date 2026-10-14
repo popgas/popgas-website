@@ -59,14 +59,14 @@ export function ResourcesMobileAccordion({ onNavigate }: Props) {
                   <div className="text-[15px] font-bold text-[#0a1322] dark:text-[#E8EEE6] tracking-[-0.01em] leading-tight">
                     {tab.label}
                   </div>
-                  <div className="font-mono text-[9.5px] uppercase tracking-[1.2px] text-[rgba(15,19,34,0.50)] dark:text-[#8F9A92] font-semibold mt-1">
+                  <div className="font-mono text-[9.5px] uppercase tracking-[1.2px] text-[rgba(15,19,34,0.62)] dark:text-[#8F9A92] font-semibold mt-1">
                     {tab.eyebrow}
                   </div>
                 </div>
               </div>
               <ChevronDown
                 className={cn(
-                  'w-5 h-5 text-[rgba(15,19,34,0.4)] dark:text-[#8F9A92] shrink-0 transition-transform duration-200',
+                  'w-5 h-5 text-[rgba(15,19,34,0.62)] dark:text-[#8F9A92] shrink-0 transition-transform duration-200',
                   isOpen && 'rotate-180'
                 )}
                 aria-hidden
@@ -103,7 +103,7 @@ export function ResourcesMobileAccordion({ onNavigate }: Props) {
                             <div className="text-[13.5px] font-semibold text-[#0a1322] dark:text-[#E8EEE6] tracking-[-0.01em] leading-tight">
                               {f.name}
                             </div>
-                            <div className="text-[11.5px] text-[rgba(15,19,34,0.55)] dark:text-[#A3AFA6] leading-[1.4] mt-0.5">
+                            <div className="text-[11.5px] text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6] leading-[1.4] mt-0.5">
                               {f.description}
                             </div>
                           </div>

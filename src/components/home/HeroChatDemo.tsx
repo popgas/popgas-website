@@ -182,7 +182,7 @@ export function HeroChatDemo() {
                   }
                 >
                   {m.text}
-                  <div className="text-right text-[10px] text-[#667781] dark:text-[#8EA4AE]">
+                  <div className="text-right text-[10px] text-[#54656F] dark:text-[#8EA4AE]">
                     {m.time}
                     {m.from === 'client' && ' ✓✓'}
                   </div>
@@ -200,7 +200,7 @@ export function HeroChatDemo() {
           </div>
 
           <div className="px-2.5 pt-2 pb-3.5 flex gap-2 items-center">
-            <div className="flex-1 bg-white dark:bg-[#202C33] rounded-full px-3.5 py-[9px] text-[13px] text-[#8696A0]">Mensagem</div>
+            <div className="flex-1 bg-white dark:bg-[#202C33] rounded-full px-3.5 py-[9px] text-[13px] text-[#667781] dark:text-[#8696A0]">Mensagem</div>
             <span aria-hidden className="w-[38px] h-[38px] rounded-full bg-[#00A884] flex items-center justify-center">
               <SendHorizontal className="w-4 h-4 text-white" fill="currentColor" />
             </span>

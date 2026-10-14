@@ -34,7 +34,7 @@ export function StartFreeMenu({ signupUrl, className }: { signupUrl: string; cla
         aria-haspopup="true"
         aria-expanded={open}
         onClick={() => setOpen(v => !v)}
-        className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#64a028] hover:bg-[#84cc16] text-white text-[13px] font-bold rounded-full transition-colors tracking-tight shadow-[0_4px_14px_rgba(132,160,40,0.25),inset_0_1px_0_rgba(255,255,255,0.18)] cursor-pointer"
+        className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#4A7818] hover:bg-[#3D6614] text-white text-[13px] font-bold rounded-full transition-colors tracking-tight shadow-[0_4px_14px_rgba(132,160,40,0.25),inset_0_1px_0_rgba(255,255,255,0.18)] cursor-pointer"
       >
         Começar grátis
         <ChevronDown className={cn('w-3 h-3 transition-transform', open && 'rotate-180')} strokeWidth={3} />

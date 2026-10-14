@@ -31,7 +31,7 @@ export function IntegrationsStrip() {
             {INTEGRATIONS.map(name => (
               <div
                 key={name}
-                className="text-base font-bold text-[#475569] dark:text-[#A3AFA6] hover:text-[#0f172a] dark:hover:text-[#E8EEE6] transition-colors opacity-65 hover:opacity-100"
+                className="text-base font-bold text-[#475569] dark:text-[#A3AFA6] hover:text-[#0f172a] dark:hover:text-[#E8EEE6] transition-colors"
               >
                 {name}
               </div>

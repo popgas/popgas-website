@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { Container } from '@/components/shared/Container';
+import type { Metadata } from 'next';
 import { prisma } from '@/lib/db';
+import { isIndexableBlogSlug, listIndexableBlogPosts } from '@/lib/blog';
 
 const staticPosts = [
   {
@@ -82,16 +84,6 @@ const staticPosts = [
   },
 ];
 
-const HIDDEN_SLUGS = new Set([
-  'indique-ganhe-agora-e-renda-popgas',
-  'preco-do-gas-de-cozinha-vai-aumentar-r-5-00-setembro-2025',
-  'horario-de-funcionamento-dia-de-natal-25-12-2024',
-  'feliz-natal-e-um-prospero-ano-novo',
-  'preco-do-gas-de-cozinha-vai-aumentar-r-5-00-setembro-2024',
-  'promocao-dia-das-maes',
-  'como-deletar-minha-conta-no-aplicativo',
-]);
-
 const sidebarPages = [
   { title: 'Início', href: '/' },
   { title: 'Recursos', href: '/recursos' },
@@ -118,10 +110,16 @@ type BlogPost = {
   imageUrl: string | null;
 };
 
-export const metadata = {
-  title: 'Blog — PopGás Sistema',
-  description: 'Conteúdos sobre gestão, tecnologia e operação para revendas de gás.',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const hasPosts = (await listIndexableBlogPosts()).length > 0;
+  return {
+    title: 'Blog',
+    description: 'Conteúdos sobre gestão, tecnologia e operação para revendas de gás.',
+    alternates: { canonical: '/blog' },
+    // Sem posts B2B publicados a listagem fica vazia: não vale indexar uma página sem conteúdo.
+    robots: hasPosts ? undefined : { index: false, follow: true },
+  };
+}
 
 export default async function BlogPage() {
   let posts: BlogPost[] = [];
@@ -138,7 +136,7 @@ export default async function BlogPage() {
 
   // Posts do site antigo (voltados ao consumidor final) continuam acessíveis pela URL,
   // mas não aparecem na listagem do site B2B.
-  posts = posts.filter(post => !HIDDEN_SLUGS.has(post.slug));
+  posts = posts.filter(post => isIndexableBlogSlug(post.slug));
 
   const sortedPosts = [...posts].sort((a, b) => {
     if (a.sticky && !b.sticky) return -1;
@@ -181,7 +179,7 @@ export default async function BlogPage() {
                     </Link>
                   </h2>
 
-                  <div className="flex items-center gap-2 flex-wrap font-mono text-[11px] text-[rgba(15,19,34,0.55)] dark:text-[#A3AFA6] mb-3 tracking-[0.5px]">
+                  <div className="flex items-center gap-2 flex-wrap font-mono text-[11px] text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6] mb-3 tracking-[0.5px]">
                     <span>{formatDate(new Date(post.publishedAt))}</span>
                     <span className="text-[rgba(15,19,34,0.25)] dark:text-[#5F6D64]">·</span>
                     <span className="text-[#4a7818] dark:text-[#9CCB6B] font-semibold uppercase">{post.category}</span>
@@ -244,9 +242,9 @@ export default async function BlogPage() {
 function SidebarSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="mb-8">
-      <h3 className="font-mono text-[10px] font-semibold uppercase tracking-[1.5px] text-[rgba(15,19,34,0.55)] dark:text-[#A3AFA6] mb-3">
+      <h2 className="font-mono text-[10px] font-semibold uppercase tracking-[1.5px] text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6] mb-3">
         {title}
-      </h3>
+      </h2>
       {children}
     </div>
   );

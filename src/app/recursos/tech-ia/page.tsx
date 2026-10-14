@@ -9,6 +9,7 @@ import { FinalCta } from '@/components/home/FinalCta';
 import { techIaContent } from '@/content/modules';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/recursos/tech-ia' },
   title: 'Tech & IA — IA e WhatsApp',
   description: techIaContent.hero.subtitle,
 };
@@ -18,7 +19,7 @@ export default function Page() {
     <>
       <div className="pt-8">
         <Container>
-          <Breadcrumb items={[{ label: 'Recursos', href: '/recursos' }, { label: 'Tech & IA' }]} />
+          <Breadcrumb items={[{ label: 'Recursos', href: '/recursos' }, { label: 'Tech & IA' }]} currentPath="/recursos/tech-ia" />
         </Container>
       </div>
       <ModuleHeroSplit
