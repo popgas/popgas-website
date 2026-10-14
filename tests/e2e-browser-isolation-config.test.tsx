@@ -14,8 +14,9 @@ vi.mock('@vercel/analytics/next', () => ({
 vi.mock('@/components/layout/Header', () => ({ Header: () => <header /> }));
 vi.mock('@/components/layout/Footer', () => ({ Footer: () => <footer /> }));
 vi.mock('@/components/layout/WhatsAppButton', () => ({ WhatsAppButton: () => null }));
-vi.mock('@/components/seo/JsonLd', () => ({ JsonLd: () => null, organizationLd: () => ({}) }));
+vi.mock('@/components/seo/JsonLd', () => ({ JsonLd: () => null, organizationLd: () => ({}), websiteLd: () => ({}) }));
 vi.mock('@/components/tracking/AttributionCapture', () => ({ AttributionCapture: () => null }));
+vi.mock('@/components/tracking/OutboundClickTracking', () => ({ OutboundClickTracking: () => null }));
 
 afterEach(() => {
   vi.unstubAllEnvs();

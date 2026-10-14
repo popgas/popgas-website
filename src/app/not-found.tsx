@@ -48,7 +48,7 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row gap-3.5 justify-center items-center">
           <Link
             href="/"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#64a028] hover:bg-[#84cc16] text-white font-bold text-base rounded-full transition-colors tracking-tight shadow-[0_8px_24px_rgba(132,160,40,0.28),inset_0_1px_0_rgba(255,255,255,0.20)]"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#4A7818] hover:bg-[#3D6614] text-white font-bold text-base rounded-full transition-colors tracking-tight shadow-[0_8px_24px_rgba(132,160,40,0.28),inset_0_1px_0_rgba(255,255,255,0.20)]"
           >
             <ArrowLeft className="w-4 h-4" /> Voltar para a home
           </Link>
@@ -61,7 +61,7 @@ export default function NotFound() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-[rgba(15,19,34,0.08)] dark:border-[#2E3E35] max-w-[640px] mx-auto">
-          <div className="font-mono text-[10px] uppercase tracking-[1.5px] text-[rgba(15,19,34,0.5)] dark:text-[#8F9A92] font-semibold mb-4">
+          <div className="font-mono text-[10px] uppercase tracking-[1.5px] text-[rgba(15,19,34,0.62)] dark:text-[#8F9A92] font-semibold mb-4">
             Talvez você esteja procurando
           </div>
           <div className="flex flex-wrap justify-center gap-2">

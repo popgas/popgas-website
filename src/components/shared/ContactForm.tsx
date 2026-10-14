@@ -18,7 +18,7 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 const labelClass =
-  'block font-mono text-[10px] uppercase tracking-[1.5px] text-[rgba(15,19,34,0.55)] dark:text-[#A3AFA6] font-semibold mb-2';
+  'block font-mono text-[10px] uppercase tracking-[1.5px] text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6] font-semibold mb-2';
 
 const inputClass =
   'w-full border border-[rgba(15,19,34,0.14)] hover:border-[rgba(15,19,34,0.25)] dark:border-[#2E3E35] dark:hover:border-[#3d5045] rounded-[10px] px-3.5 py-3 ' +
@@ -165,7 +165,7 @@ export function ContactForm({ defaultType = 'general' }: { defaultType?: FormDat
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-[#64a028] hover:bg-[#84cc16] disabled:opacity-60 text-white font-bold text-sm tracking-[-0.01em] py-3.5 rounded-[10px] transition-colors shadow-[0_4px_14px_rgba(132,160,40,0.25)] mt-2"
+        className="w-full bg-[#4A7818] hover:bg-[#3D6614] disabled:opacity-60 text-white font-bold text-sm tracking-[-0.01em] py-3.5 rounded-[10px] transition-colors shadow-[0_4px_14px_rgba(132,160,40,0.25)] mt-2"
       >
         {isSubmitting ? 'Enviando...' : 'Enviar mensagem →'}
       </button>

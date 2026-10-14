@@ -6,6 +6,7 @@ import { Container } from '@/components/shared/Container';
 import { ContactForm } from '@/components/shared/ContactForm';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/contato' },
   title: 'Contato — Fale com a gente',
   description: 'Tire dúvidas, solicite uma demonstração ou abra um ticket de suporte.',
 };
@@ -60,7 +61,7 @@ export default async function ContatoPage({
                   <MapPin className="w-5 h-5" strokeWidth={2} />
                 </div>
                 <div>
-                  <div className="font-mono text-[10px] font-semibold uppercase tracking-[1.5px] text-[rgba(15,19,34,0.55)] dark:text-[#A3AFA6] mb-1.5">
+                  <div className="font-mono text-[10px] font-semibold uppercase tracking-[1.5px] text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6] mb-1.5">
                     Endereço
                   </div>
                   <div className="text-sm text-[#0a1322] dark:text-[#E8EEE6] leading-[1.55]">
@@ -94,7 +95,7 @@ function ChannelRow({ icon: Icon, label, href, subtitle, children }: ChannelRowP
         <Icon className="w-5 h-5" strokeWidth={2} />
       </div>
       <div>
-        <div className="font-mono text-[10px] font-semibold uppercase tracking-[1.5px] text-[rgba(15,19,34,0.55)] dark:text-[#A3AFA6] mb-1.5">
+        <div className="font-mono text-[10px] font-semibold uppercase tracking-[1.5px] text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6] mb-1.5">
           {label}
         </div>
         <a
@@ -103,7 +104,7 @@ function ChannelRow({ icon: Icon, label, href, subtitle, children }: ChannelRowP
         >
           {children}
         </a>
-        {subtitle && <div className="text-xs text-[rgba(15,19,34,0.5)] dark:text-[#8F9A92] mt-1 font-medium">{subtitle}</div>}
+        {subtitle && <div className="text-xs text-[rgba(15,19,34,0.62)] dark:text-[#8F9A92] mt-1 font-medium">{subtitle}</div>}
       </div>
     </div>
   );

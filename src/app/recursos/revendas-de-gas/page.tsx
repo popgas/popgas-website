@@ -8,6 +8,7 @@ import { FinalCta } from '@/components/home/FinalCta';
 import { revendasDeGasContent } from '@/content/modules';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/recursos/revendas-de-gas' },
   title: 'Para revendas de gás — Vertical especializada',
   description: revendasDeGasContent.hero.subtitle,
 };
@@ -17,7 +18,7 @@ export default function Page() {
     <>
       <div className="pt-8">
         <Container>
-          <Breadcrumb items={[{ label: 'Recursos', href: '/recursos' }, { label: 'Para revendas de gás' }]} />
+          <Breadcrumb items={[{ label: 'Recursos', href: '/recursos' }, { label: 'Para revendas de gás' }]} currentPath="/recursos/revendas-de-gas" />
         </Container>
       </div>
       <ModuleHeroSplit content={revendasDeGasContent} ctaHref="/planos?preset=completa"/>

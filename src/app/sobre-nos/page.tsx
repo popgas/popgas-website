@@ -4,6 +4,7 @@ import { Container } from '@/components/shared/Container';
 import { FinalCta } from '@/components/home/FinalCta';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/sobre-nos' },
   title: 'Sobre nós — PopGás Tecnologia',
   description: 'Conheça a história da PopGás: uma revenda de gás de Uberlândia que criou o próprio sistema e agora o oferece a outras revendas.',
 };

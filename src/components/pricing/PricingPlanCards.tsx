@@ -126,11 +126,11 @@ function PlanCard({ plan }: { plan: Plan }) {
         </span>
       )}
 
-      <div className="font-mono text-[10px] uppercase tracking-[1.5px] text-[rgba(15,19,34,0.5)] dark:text-[#A3AFA6] font-semibold mb-3">
+      <div className="font-mono text-[10px] uppercase tracking-[1.5px] text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6] font-semibold mb-3">
         {plan.tag}
       </div>
 
-      <h3
+      <h2
         className={cn(
           'mb-2 leading-[1.1] tracking-[-0.025em]',
           plan.featured
@@ -139,7 +139,7 @@ function PlanCard({ plan }: { plan: Plan }) {
         )}
       >
         {plan.name}
-      </h3>
+      </h2>
 
       <p className="text-sm leading-[1.5] text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6] mb-5 min-h-[42px]">
         {plan.pitch}
@@ -150,7 +150,7 @@ function PlanCard({ plan }: { plan: Plan }) {
           <span className="font-mono text-[42px] font-bold tracking-[-0.03em] text-[#0a1322] dark:text-[#E8EEE6] leading-none">
             R$ {formatPrice(total)}
           </span>
-          <span className="text-[13px] font-medium text-[rgba(15,19,34,0.55)] dark:text-[#A3AFA6]">/mês</span>
+          <span className="text-[13px] font-medium text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6]">/mês</span>
         </div>
       </div>
 
@@ -159,14 +159,14 @@ function PlanCard({ plan }: { plan: Plan }) {
         className={cn(
           'block text-center py-3.5 px-5 rounded-xl font-bold text-sm tracking-[-0.01em] mb-7 transition-colors',
           plan.featured
-            ? 'bg-[#64a028] hover:bg-[#84cc16] text-white shadow-[0_4px_14px_rgba(132,160,40,0.25)]'
+            ? 'bg-[#4A7818] hover:bg-[#3D6614] text-white shadow-[0_4px_14px_rgba(132,160,40,0.25)]'
             : 'bg-white dark:bg-[#1B2722] border border-[rgba(15,19,34,0.10)] dark:border-[#2E3E35] hover:border-[#0a1322] dark:hover:border-[#9CCB6B] text-[#0a1322] dark:text-[#E8EEE6]'
         )}
       >
         {plan.ctaLabel}
       </SignupLink>
 
-      <div className="font-mono text-[9px] uppercase tracking-[1.5px] text-[rgba(15,19,34,0.5)] dark:text-[#A3AFA6] font-semibold mb-3">
+      <div className="font-mono text-[9px] uppercase tracking-[1.5px] text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6] font-semibold mb-3">
         Inclui
       </div>
 
@@ -176,13 +176,13 @@ function PlanCard({ plan }: { plan: Plan }) {
             key={i}
             className={cn(
               'flex items-start gap-2.5 py-1.5 text-[13.5px] leading-[1.45] tracking-[-0.005em]',
-              f.included ? 'text-[rgba(15,19,34,0.78)] dark:text-[#C3CCC5]' : 'text-[rgba(15,19,34,0.40)] dark:text-[#8F9A92]'
+              f.included ? 'text-[rgba(15,19,34,0.78)] dark:text-[#C3CCC5]' : 'text-[rgba(15,19,34,0.62)] dark:text-[#8F9A92]'
             )}
           >
             {f.included ? (
               <Check className="w-4 h-4 text-[#64a028] flex-shrink-0 mt-0.5" strokeWidth={2.5} />
             ) : (
-              <X className="w-4 h-4 text-[rgba(15,19,34,0.30)] dark:text-[#5F6D64] flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+              <X className="w-4 h-4 text-[rgba(15,19,34,0.62)] dark:text-[#5F6D64] flex-shrink-0 mt-0.5" strokeWidth={2.5} />
             )}
             <span>{f.label}</span>
           </li>

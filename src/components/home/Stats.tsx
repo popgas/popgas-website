@@ -128,7 +128,7 @@ export function Stats() {
                   <span aria-hidden>
                     {m.prefix}
                     {m.format(m.value * progress)}
-                    <span className={m.dark ? 'text-[#B9DA8F]' : 'text-[#6E9E3A] dark:text-[#9CCB6B]'}>{m.suffix}</span>
+                    <span className={m.dark ? 'text-[#B9DA8F]' : 'text-[#5E8F2E] dark:text-[#9CCB6B]'}>{m.suffix}</span>
                   </span>
                 </div>
                 <div className="flex flex-col gap-0.5">

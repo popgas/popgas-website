@@ -28,7 +28,10 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   return {
     title: `${found.feature.title} — ${moduleName}`,
     description: found.feature.description,
-    openGraph: found.feature.screenshotPath ? { images: [{ url: found.feature.screenshotPath }] } : undefined,
+    alternates: { canonical: `/recursos/${module}/${feature}` },
+    openGraph: found.feature.screenshotPath
+      ? { type: 'website', locale: 'pt_BR', siteName: 'PopGás Sistema', images: [{ url: found.feature.screenshotPath }] }
+      : undefined,
   };
 }
 
@@ -60,6 +63,7 @@ export default async function FeaturePage({ params }: { params: Promise<Params> 
               { label: section.title, href: `${moduleHref}#${section.id}` },
               { label: f.title },
             ]}
+            currentPath={`${moduleHref}/${f.id}`}
           />
         </Container>
       </div>
@@ -72,7 +76,7 @@ export default async function FeaturePage({ params }: { params: Promise<Params> 
                 <div className="w-11 h-11 rounded-xl bg-[#f0fdf4] dark:bg-[#263C26] border border-[#bbf7d0] dark:border-[#2F4A27] text-[#15803d] dark:text-[#9CCB6B] flex items-center justify-center shrink-0">
                   {createElement(getIcon(f.icon), { className: 'w-5 h-5', strokeWidth: 2 })}
                 </div>
-                <div className="text-[11px] font-semibold uppercase tracking-[0.06em] text-[#94a3b8] dark:text-[#8F9A92]">
+                <div className="text-[11px] font-semibold uppercase tracking-[0.06em] text-[#5B6472] dark:text-[#8F9A92]">
                   {meta.name} · {section.title}
                 </div>
               </div>
@@ -99,7 +103,7 @@ export default async function FeaturePage({ params }: { params: Promise<Params> 
               </p>
 
               <div className="rounded-2xl border border-[#e2e8f0] dark:border-[#2E3E35] bg-[#f8fafc] dark:bg-[#17221D] p-6 md:p-7 mb-10">
-                <div className="text-[11px] font-semibold uppercase tracking-[0.06em] text-[#94a3b8] dark:text-[#8F9A92] mb-2">Faz parte de</div>
+                <div className="text-[11px] font-semibold uppercase tracking-[0.06em] text-[#5B6472] dark:text-[#8F9A92] mb-2">Faz parte de</div>
                 <h2 className="text-xl font-bold text-[#0f172a] dark:text-[#E8EEE6] tracking-[-0.02em] mb-2">
                   <Link href={`${moduleHref}#${section.id}`} className="hover:text-[#15803d] dark:hover:text-[#9CCB6B] transition-colors">{section.title}</Link>
                 </h2>
@@ -151,7 +155,7 @@ export default async function FeaturePage({ params }: { params: Promise<Params> 
 
             <aside className="lg:sticky lg:top-28">
               <div className="rounded-2xl border border-[#e2e8f0] dark:border-[#2E3E35] bg-white dark:bg-[#1B2722] p-6 shadow-[0_1px_3px_rgba(15,23,42,0.04)]">
-                <div className="text-[11px] font-semibold uppercase tracking-[0.06em] text-[#94a3b8] dark:text-[#8F9A92] mb-1.5">
+                <div className="text-[11px] font-semibold uppercase tracking-[0.06em] text-[#5B6472] dark:text-[#8F9A92] mb-1.5">
                   {isVertical ? 'Vertical especializada' : 'Módulo'}
                 </div>
                 <div className="text-2xl font-bold text-[#0f172a] dark:text-[#E8EEE6] tracking-[-0.02em]">{meta.name}</div>
@@ -162,7 +166,7 @@ export default async function FeaturePage({ params }: { params: Promise<Params> 
                     <li key={t} className="flex items-center gap-2 text-[13.5px] text-[#0f172a] dark:text-[#E8EEE6]"><Check className="w-4 h-4 text-[#16a34a] dark:text-[#9CCB6B]" /> {t}</li>
                   ))}
                 </ul>
-                <SignupLink href={signupUrl} className="block text-center py-3 px-5 rounded-xl bg-[#64a028] hover:bg-[#84cc16] text-white font-bold text-sm transition-colors mb-3">
+                <SignupLink href={signupUrl} className="block text-center py-3 px-5 rounded-xl bg-[#4A7818] hover:bg-[#3D6614] text-white font-bold text-sm transition-colors mb-3">
                   Começar grátis →
                 </SignupLink>
                 <Link href={`/planos?preset=${meta.planPreset}`} className="block text-center py-3 px-5 rounded-xl border border-[#e2e8f0] dark:border-[#2E3E35] hover:border-[#0f172a] dark:hover:border-[#8F9A92] text-[#0f172a] dark:text-[#E8EEE6] font-semibold text-sm transition-colors">

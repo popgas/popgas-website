@@ -7,6 +7,7 @@ import { JsonLd, faqPageLd } from '@/components/seo/JsonLd';
 import { FaqAccordion } from '@/components/shared/FaqAccordion';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/faq' },
   title: 'Perguntas frequentes',
   description: 'Tire suas dúvidas sobre planos, migração, segurança e suporte do PopGás Sistema.',
 };

@@ -5,8 +5,9 @@ export const THEME_STORAGE_KEY = 'popgas-theme';
 /**
  * Roda no <head> antes da pintura: aplica o tema salvo e evita o "flash" do tema claro.
  * Sem escolha salva, o site abre no tema claro.
+ * Também liga `.js-reveal` (animações de entrada do AnimatedReveal) quando há JS e movimento permitido.
  */
-export const THEME_INIT_SCRIPT = `(function(){try{if(localStorage.getItem('${THEME_STORAGE_KEY}')==='dark'){document.documentElement.classList.add('dark')}}catch(e){}})();`;
+export const THEME_INIT_SCRIPT = `(function(){var d=document.documentElement;if(!window.matchMedia||!window.matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('js-reveal')}try{if(localStorage.getItem('${THEME_STORAGE_KEY}')==='dark'){d.classList.add('dark')}}catch(e){}})();`;
 
 export function applyTheme(theme: Theme): void {
   document.documentElement.classList.toggle('dark', theme === 'dark');

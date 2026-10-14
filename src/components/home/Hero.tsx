@@ -57,7 +57,7 @@ export function Hero() {
             <div className="flex flex-col sm:flex-row flex-wrap items-center gap-3">
               <SignupLink
                 href={ctaUrl}
-                className="inline-flex items-center justify-center px-7 py-4 bg-[#5E8F2E] hover:bg-[#64a028] text-white font-bold text-[17px] rounded-full transition-colors tracking-tight shadow-[0_10px_28px_rgba(92,138,46,0.30)]"
+                className="inline-flex items-center justify-center px-7 py-4 bg-[#4A7818] hover:bg-[#3D6614] text-white font-bold text-[17px] rounded-full transition-colors tracking-tight shadow-[0_10px_28px_rgba(92,138,46,0.30)]"
               >
                 Começar grátis →
               </SignupLink>

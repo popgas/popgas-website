@@ -23,7 +23,6 @@ export function DemoVideoSection() {
           href={DEMO_VIDEO_URL}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Assistir demonstração do PopGás no YouTube"
           className="group relative block w-full max-w-[900px] rounded-2xl sm:rounded-[26px] overflow-hidden border border-[#E3E7DE] dark:border-[#2E3E35] bg-white dark:bg-[#1B2722] text-[#0a1322] dark:text-[#E8EEE6] shadow-[0_30px_60px_rgba(30,50,20,0.14)]"
         >
           <Image

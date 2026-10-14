@@ -16,8 +16,7 @@
     "db:migrate": "npx prisma migrate dev",
     "db:push": "npx prisma db push",
     "db:studio": "npx prisma studio",
-    "postinstall": "npx prisma generate",
-    "postbuild": "next-sitemap"
+    "postinstall": "npx prisma generate"
   },
   "dependencies": {
     "@base-ui/react": "^1.4.1",
@@ -30,11 +29,9 @@
     "clsx": "^2.1.1",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
-    "framer-motion": "^11.18.2",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.469.0",
     "next": "16.1.6",
-    "next-sitemap": "^4.2.3",
     "prisma": "^7.4.2",
     "react": "19.2.3",
     "react-dom": "19.2.3",

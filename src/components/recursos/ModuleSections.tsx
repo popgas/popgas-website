@@ -51,7 +51,7 @@ export function ModuleSections({ content }: { content: ModuleContent }) {
                 aria-labelledby={`${section.id}-title`}
               >
                 <AnimatedReveal>
-                  <div className="text-[11px] font-semibold uppercase tracking-[0.06em] text-[#94a3b8] dark:text-[#8F9A92] mb-3">
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.06em] text-[#5B6472] dark:text-[#8F9A92] mb-3">
                     {String(i + 1).padStart(2, '0')} · {content.sections.length} seções
                   </div>
                   <h2

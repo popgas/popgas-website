@@ -151,12 +151,12 @@ export function Header() {
             </button>
           </div>
           <nav className="flex-1 overflow-y-auto px-5 py-6">
-            <div className="font-mono text-[10px] uppercase tracking-[2px] text-[rgba(15,19,34,0.45)] dark:text-[#8F9A92] font-semibold mb-3 px-1">
+            <div className="font-mono text-[10px] uppercase tracking-[2px] text-[rgba(15,19,34,0.62)] dark:text-[#8F9A92] font-semibold mb-3 px-1">
               Recursos por área
             </div>
             <ResourcesMobileAccordion onNavigate={() => setMobileOpen(false)} />
 
-            <div className="font-mono text-[10px] uppercase tracking-[2px] text-[rgba(15,19,34,0.45)] dark:text-[#8F9A92] font-semibold mt-7 mb-3 px-1">
+            <div className="font-mono text-[10px] uppercase tracking-[2px] text-[rgba(15,19,34,0.62)] dark:text-[#8F9A92] font-semibold mt-7 mb-3 px-1">
               Navegação
             </div>
             <div className="flex flex-col">
@@ -166,7 +166,7 @@ export function Header() {
                 className="flex items-center justify-between px-3 py-3.5 text-[15px] font-semibold text-[#0a1322] dark:text-[#E8EEE6] border-b border-[rgba(15,19,34,0.06)] dark:border-[#2E3E35] hover:bg-[rgba(15,19,34,0.02)] dark:hover:bg-[#24302A] transition-colors"
               >
                 Planos
-                <span className="text-[rgba(15,19,34,0.30)] dark:text-[#8F9A92]" aria-hidden>→</span>
+                <span className="text-[rgba(15,19,34,0.62)] dark:text-[#8F9A92]" aria-hidden>→</span>
               </Link>
               <TryAiButton
                 onOpen={() => setMobileOpen(false)}
@@ -186,7 +186,7 @@ export function Header() {
             <SignupLink
               href={ctaUrl}
               onClick={() => setMobileOpen(false)}
-              className="w-full px-4 py-3 bg-[#64a028] hover:bg-[#84cc16] text-white text-center text-[15px] font-bold rounded-full transition-colors shadow-[0_4px_14px_rgba(132,160,40,0.25)]"
+              className="w-full px-4 py-3 bg-[#4A7818] hover:bg-[#3D6614] text-white text-center text-[15px] font-bold rounded-full transition-colors shadow-[0_4px_14px_rgba(132,160,40,0.25)]"
             >
               Começar grátis →
             </SignupLink>

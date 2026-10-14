@@ -55,6 +55,18 @@
   from { opacity: 0; transform: translateY(10px) scale(0.97); }
   to { opacity: 1; transform: none; }
 }
+/* AnimatedReveal: só esconde para animar quando o JS ligou .js-reveal no <html>. */
+.js-reveal .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s cubic-bezier(0.21, 1.02, 0.73, 1), transform 0.5s cubic-bezier(0.21, 1.02, 0.73, 1);
+  transition-delay: var(--reveal-delay, 0s);
+}
+.js-reveal .reveal[data-revealed] {
+  opacity: 1;
+  transform: none;
+}
+
 @keyframes chat-splash-in {
   from { opacity: 0; transform: scale(1.04); }
   to { opacity: 1; transform: none; }

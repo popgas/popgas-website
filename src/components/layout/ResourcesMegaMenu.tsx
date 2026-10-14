@@ -37,7 +37,7 @@ export function ResourcesMegaMenu({ onNavigate }: Props) {
     <div className="bg-white dark:bg-[#1B2722] border border-[#e2e8f0] dark:border-[#2E3E35] rounded-2xl shadow-[0_24px_60px_-20px_rgba(15,23,42,0.18),0_1px_2px_rgba(15,23,42,0.06)] w-[min(1120px,calc(100vw-32px))] overflow-hidden grid grid-cols-[232px_1fr]">
       {/* trilho de áreas */}
       <div role="tablist" aria-label="Áreas do produto" aria-orientation="vertical" className="bg-[#f8fafc] dark:bg-[#17221D] border-r border-[#eef2f7] dark:border-[#2E3E35] p-2.5 pt-3.5">
-        <div className="px-3 pb-2.5 text-[11px] font-semibold uppercase tracking-[0.06em] text-[#94a3b8] dark:text-[#8F9A92]">
+        <div className="px-3 pb-2.5 text-[11px] font-semibold uppercase tracking-[0.06em] text-[#5B6472] dark:text-[#8F9A92]">
           Recursos por área
         </div>
         {RESOURCES_TABS.map(tab => {
@@ -81,7 +81,7 @@ export function ResourcesMegaMenu({ onNavigate }: Props) {
       <div id={`mega-panel-${active.id}`} role="tabpanel" aria-labelledby={`mega-tab-${active.id}`} className="px-[30px] pt-6 pb-[22px]">
         <div className="flex items-end justify-between gap-6 pb-3.5 mb-2.5 border-b border-[#eef2f7] dark:border-[#2E3E35]">
           <div>
-            <div className="text-[11px] font-semibold uppercase tracking-[0.06em] text-[#94a3b8] dark:text-[#8F9A92] mb-1.5">{active.eyebrow}</div>
+            <div className="text-[11px] font-semibold uppercase tracking-[0.06em] text-[#5B6472] dark:text-[#8F9A92] mb-1.5">{active.eyebrow}</div>
             <h3 className="text-[22px] font-bold tracking-[-0.02em] leading-[1.1] text-[#0f172a] dark:text-[#E8EEE6] mb-1.5">
               {active.titlePlain} {active.titleAccent}
             </h3>
@@ -90,7 +90,7 @@ export function ResourcesMegaMenu({ onNavigate }: Props) {
           <Link
             href={active.moduleHref}
             onClick={onNavigate}
-            className="shrink-0 mb-1.5 inline-flex items-center gap-2 px-3.5 py-2.5 rounded-lg bg-[#0f172a] hover:bg-[#1e293b] dark:bg-[#5E8F2E] dark:hover:bg-[#64a028] text-white text-[13px] font-semibold whitespace-nowrap transition-colors"
+            className="shrink-0 mb-1.5 inline-flex items-center gap-2 px-3.5 py-2.5 rounded-lg bg-[#0f172a] hover:bg-[#1e293b] dark:bg-[#5E8F2E] dark:hover:bg-[#3D6614] text-white text-[13px] font-semibold whitespace-nowrap transition-colors"
           >
             {active.ctaLabel} <ArrowRight className="w-3.5 h-3.5" />
           </Link>
