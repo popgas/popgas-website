@@ -14,7 +14,7 @@ export const FAQ_B2B: FaqCategory[] = [
     items: [
       { question: 'Quanto custa o plano mais barato?', answer: 'O plano Essencial custa R$ 99,90/mês, com 14 dias grátis para experimentar.' },
       { question: 'Como é a cobrança?', answer: 'Mensal, sem fidelidade, no cartão, PIX ou boleto. O primeiro mês é proporcional aos dias usados.' },
-      { question: 'Como adiciono um módulo depois?', answer: 'Direto no painel do ERP. Cobrança proporcional aos dias restantes do ciclo e acesso imediato.' },
+      { question: 'Como adiciono um módulo depois?', answer: 'Direto no painel do ERP. A diferença proporcional aos dias restantes do ciclo é cobrada na hora, e o módulo é liberado assim que o pagamento é confirmado (no cartão, na hora).' },
       { question: 'O que acontece se não pagar?', answer: 'O sistema avisa sobre a pendência e, passado o prazo de carência do plano, entra em modo bloqueio até a regularização. Seus dados ficam preservados.' },
     ],
   },

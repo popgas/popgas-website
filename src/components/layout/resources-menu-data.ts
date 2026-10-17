@@ -85,7 +85,7 @@ export const RESOURCES_TABS: MenuTab[] = [
     label: 'Fiscal',
     moduleHref: '/recursos/fiscal',
     ctaLabel: 'Ver módulo Fiscal',
-    eyebrow: 'Módulo Fiscal · +R$ 49,90/mês',
+    eyebrow: 'Módulo Fiscal · +R$ 49,50/mês',
     titlePlain: 'Nota fiscal',
     titleAccent: 'sem dor.',
     description:

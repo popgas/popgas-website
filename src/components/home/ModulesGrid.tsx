@@ -3,7 +3,7 @@ import { Check } from 'lucide-react';
 import { Container } from '@/components/shared/Container';
 import { SectionHeader } from '@/components/shared/SectionHeader';
 import { AnimatedReveal } from '@/components/shared/AnimatedReveal';
-import { MODULES, calculateTotal, formatPrice, type ModuleId } from '@/lib/pricing';
+import { INTRO_PROMO, MODULES, calculateTotal, formatPrice, introPromoPeriod, introPromoTotal, type ModuleId } from '@/lib/pricing';
 import { cn } from '@/lib/utils';
 
 const MODULE_ORDER: ModuleId[] = ['essencial', 'gestao', 'fiscal', 'techia'];
@@ -54,6 +54,12 @@ export function ModulesGrid() {
                   R$ {formatPrice(total)}
                   <span className="text-base font-medium text-white/55 ml-1 tracking-normal">/mês</span>
                 </div>
+                {INTRO_PROMO.active && (
+                  <div data-testid="modules-promo-note" className="mt-2 text-[13px] leading-[1.45] text-white/75">
+                    <strong className="font-bold text-[#B5DB8C]">Promoção de entrada:</strong>{' '}
+                    {introPromoPeriod()} você paga R$ {formatPrice(introPromoTotal(MODULE_ORDER))}/mês — módulos adicionais grátis.
+                  </div>
+                )}
               </div>
               <Link
                 href="/planos"
@@ -136,6 +142,11 @@ function ModuleRow({ module: m, isPremium, isBase }: ModuleRowProps) {
             <span className="font-mono text-[10px] text-[rgba(15,19,34,0.62)] dark:text-[#8F9A92] ml-1 md:ml-0 md:block md:mt-0.5 tracking-[0.5px]">
               /mês
             </span>
+            {!isBase && INTRO_PROMO.active && (
+              <span className="block mt-1 font-mono text-[10px] uppercase tracking-[0.8px] font-bold text-[#4a7818] dark:text-[#9CCB6B]">
+                Grátis {introPromoPeriod()}
+              </span>
+            )}
           </div>
         </div>
       </div>

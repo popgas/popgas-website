@@ -22,7 +22,7 @@ export const HOME_FAQ: FaqEntry[] = [
   {
     question: 'Tenho NF-e e NFC-e?',
     answer:
-      'Sim, com o módulo Fiscal (+R$ 49,90/mês). Emissão homologada junto à SEFAZ, com cálculo automático de impostos, NFS-e, CT-e, MDF-e e geração do SPED Fiscal.',
+      'Sim, com o módulo Fiscal (+R$ 49,50/mês). Emissão homologada junto à SEFAZ, com cálculo automático de impostos, NFS-e, CT-e, MDF-e e geração do SPED Fiscal.',
     emphasize: ['SEFAZ'],
   },
   {

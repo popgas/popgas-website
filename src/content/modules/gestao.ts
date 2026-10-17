@@ -4,7 +4,7 @@ export const gestaoContent: ModuleContent = {
   slug: 'gestao',
   moduleKey: 'gestao',
   hero: {
-    eyebrow: 'MÓDULO ADICIONAL · + R$ 49,90/mês · Estoque + Financeiro',
+    eyebrow: 'MÓDULO ADICIONAL · + R$ 49,50/mês · Estoque + Financeiro',
     title: 'Estoque e financeiro integrados às vendas.',
     subtitle:
       'Cada pedido entregue movimenta o estoque e o caixa sozinho. Contas a pagar e a receber, conciliação bancária, centros de custo e DRE gerencial, sem planilha paralela.',

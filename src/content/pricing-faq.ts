@@ -3,6 +3,10 @@ import type { FaqEntry } from './home-faq';
 
 export const PRICING_FAQ: FaqEntry[] = [
   {
+    question: 'Como funciona a promoção de entrada?',
+    answer: 'Nos 3 primeiros meses após contratar, todos os módulos adicionais (Gestão, Fiscal e Tech & IA) saem grátis: você paga só a mensalidade base. WhatsApps adicionais não entram na promoção e seguem com o valor normal. A primeira cobrança, proporcional até o dia 1º do mês seguinte, também sai só com a base e não conta nos 3 meses. Depois, a mensalidade passa a ser a soma dos módulos contratados. Vale uma vez por empresa.',
+  },
+  {
     question: 'Como funciona o teste grátis?',
     answer: 'Você se cadastra em 5 minutos e tem 14 dias para experimentar os módulos do plano escolhido, com sua equipe e seus dados. Sem cartão de crédito. Ao fim do período, você decide se assina.',
   },
@@ -16,7 +20,7 @@ export const PRICING_FAQ: FaqEntry[] = [
   },
   {
     question: 'Posso adicionar um módulo no meio do mês?',
-    answer: 'Sim. A cobrança é proporcional aos dias restantes do ciclo e o módulo fica disponível na hora.',
+    answer: 'Sim. A diferença é proporcional aos dias restantes do ciclo e é cobrada na hora: no cartão, o módulo fica disponível imediatamente; no boleto ou PIX, assim que o pagamento é confirmado. Durante a promoção de entrada, adicionar módulo não tem custo.',
   },
   {
     question: 'Posso descontratar um módulo?',
