@@ -107,7 +107,7 @@ export const RESOURCES_TABS: MenuTab[] = [
     label: 'WhatsApp & IA',
     moduleHref: '/recursos/tech-ia',
     ctaLabel: 'Ver módulo Tech & IA',
-    eyebrow: 'Módulo Tech & IA · +R$ 199,90/mês',
+    eyebrow: 'Módulo Tech & IA · +R$ 199,00/mês',
     titlePlain: 'Atendimento',
     titleAccent: '24/7 com IA.',
     description:

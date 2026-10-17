@@ -47,7 +47,7 @@ export const MODULES: Record<ModuleId, ModuleDefinition> = {
     id: 'ai',
     key: 'techia',
     name: 'Tech & IA',
-    monthlyPrice: 199.90,
+    monthlyPrice: 199.00,
     isBase: false,
     isPremium: true,
     shortDescription: 'IA atendendo no WhatsApp, notificações e campanhas.',
