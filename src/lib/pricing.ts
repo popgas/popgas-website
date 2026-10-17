@@ -27,7 +27,7 @@ export const MODULES: Record<ModuleId, ModuleDefinition> = {
     id: 'gestao',
     key: 'gestao',
     name: 'Gestão',
-    monthlyPrice: 49.90,
+    monthlyPrice: 49.50,
     isBase: false,
     shortDescription: 'Estoque, caixa e financeiro integrados às vendas.',
     color: 'muted',
@@ -37,7 +37,7 @@ export const MODULES: Record<ModuleId, ModuleDefinition> = {
     id: 'fiscal',
     key: 'fiscal',
     name: 'Fiscal',
-    monthlyPrice: 49.90,
+    monthlyPrice: 49.50,
     isBase: false,
     shortDescription: 'NF-e, NFC-e, NFS-e, CT-e, MDF-e e SPED.',
     color: 'muted',
@@ -57,6 +57,30 @@ export const MODULES: Record<ModuleId, ModuleDefinition> = {
 };
 
 export const TRIAL_DAYS = 14;
+
+/**
+ * Promoção de entrada — espelho da promoção configurada no plano do ERP ("Alterar Promoção de
+ * entrada"): nos primeiros `months` meses após contratar, os módulos adicionais (Gestão, Fiscal,
+ * Tech & IA) saem 100% grátis; paga-se só a mensalidade base. WhatsApps adicionais NÃO entram na
+ * promoção (seguem cobrados normalmente). Vale para novas contratações, uma vez por organização. Mudou a promoção no ERP? Ajuste aqui; `active: false`
+ * esconde todos os avisos do site.
+ */
+export const INTRO_PROMO = { active: true, months: 3 } as const;
+
+/** "nos 3 primeiros meses" / "no primeiro mês". */
+export function introPromoPeriod(months: number = INTRO_PROMO.months): string {
+  return months === 1 ? 'no primeiro mês' : `nos ${months} primeiros meses`;
+}
+
+/** Mensalidade durante a promoção: só os módulos base (os adicionais saem grátis). */
+export function introPromoTotal(selectedModules: ModuleId[]): number {
+  return calculateTotal(selectedModules.filter(id => MODULES[id].isBase));
+}
+
+/** A combinação tem algum módulo adicional (que sai grátis na promoção)? */
+export function hasPromoDiscount(selectedModules: ModuleId[]): boolean {
+  return INTRO_PROMO.active && selectedModules.some(id => !MODULES[id].isBase);
+}
 const ERP_URL = process.env.NEXT_PUBLIC_ERP_URL || 'https://erp.popgas.com.br';
 export const SIGNUP_URL = `${ERP_URL}/signup`;
 export const LOGIN_URL = `${ERP_URL}/login`;

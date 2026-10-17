@@ -6,13 +6,13 @@ import { EnterpriseCallout } from '@/components/pricing/EnterpriseCallout';
 import { PricingFaq } from '@/components/pricing/PricingFaq';
 import { FinalCta } from '@/components/home/FinalCta';
 import { JsonLd, productLd } from '@/components/seo/JsonLd';
-import { MODULES } from '@/lib/pricing';
+import { INTRO_PROMO, MODULES, introPromoPeriod } from '@/lib/pricing';
 
 export const metadata: Metadata = {
   alternates: { canonical: '/planos' },
   title: 'Planos — A partir de R$ 99,90/mês',
   description:
-    'Comece com R$ 99,90/mês. Sem cartão. Sem fidelidade. Migração assistida.',
+    'Comece com R$ 99,90/mês. Módulos adicionais grátis nos 3 primeiros meses. Sem cartão. Sem fidelidade. Migração assistida.',
 };
 
 export default function PlanosPage() {
@@ -35,6 +35,11 @@ export default function PlanosPage() {
           <p className="text-[15px] sm:text-base md:text-lg text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6] leading-[1.5] tracking-[-0.01em]">
             Sem cartão. Sem fidelidade. Migração assistida.
           </p>
+          {INTRO_PROMO.active && (
+            <p className="mt-3 text-[15px] sm:text-base font-semibold text-[#3D6614] dark:text-[#9CCB6B] tracking-[-0.01em]">
+              Módulos adicionais grátis {introPromoPeriod()} — você paga só a mensalidade base.
+            </p>
+          )}
         </Container>
       </section>
 

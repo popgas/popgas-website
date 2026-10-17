@@ -6,8 +6,12 @@ import {
   calculateTotal,
   formatPrice,
   buildSignupUrl,
+  hasPromoDiscount,
+  introPromoPeriod,
+  introPromoTotal,
   type ModuleId,
 } from '@/lib/pricing';
+import { IntroPromoBanner } from '@/components/pricing/IntroPromoBanner';
 import { cn } from '@/lib/utils';
 import { SignupLink } from '@/components/tracking/SignupLink';
 
@@ -85,6 +89,8 @@ const PLANS: Plan[] = [
 export function PricingPlanCards() {
   return (
     <div>
+      <IntroPromoBanner className="mb-9" />
+
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 max-w-[1200px] mx-auto items-stretch">
         {PLANS.map(plan => (
           <PlanCard key={plan.id} plan={plan} />
@@ -106,6 +112,10 @@ export function PricingPlanCards() {
 
 function PlanCard({ plan }: { plan: Plan }) {
   const total = calculateTotal(plan.modules);
+  // Promoção de entrada: os módulos adicionais saem grátis no período — o card mostra o valor
+  // pago nesse período e, abaixo, a mensalidade normal depois dele.
+  const promo = hasPromoDiscount(plan.modules);
+  const promoTotal = introPromoTotal(plan.modules);
   const ctaUrl = buildSignupUrl({
     modules: plan.modules,
     utmCampaign: plan.campaign,
@@ -147,11 +157,22 @@ function PlanCard({ plan }: { plan: Plan }) {
 
       <div className="mb-5">
         <div className="flex items-baseline gap-1.5">
-          <span className="font-mono text-[42px] font-bold tracking-[-0.03em] text-[#0a1322] dark:text-[#E8EEE6] leading-none">
-            R$ {formatPrice(total)}
+          <span className="font-mono text-[42px] font-bold tracking-[-0.03em] text-[#0a1322] dark:text-[#E8EEE6] leading-none whitespace-nowrap">
+            R$ {formatPrice(promo ? promoTotal : total)}
           </span>
           <span className="text-[13px] font-medium text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6]">/mês</span>
         </div>
+        {promo && (
+          <div data-testid="plan-promo-note" className="mt-2.5 flex flex-col gap-1 text-[13px] leading-[1.45] text-[rgba(15,19,34,0.62)] dark:text-[#A3AFA6]">
+            <span className="flex items-center gap-1.5 flex-wrap">
+              <span className="inline-flex items-center rounded-full bg-[rgba(132,160,40,0.12)] dark:bg-[#20301F] px-2 py-0.5 font-mono text-[10px] uppercase tracking-[1px] font-bold text-[#3D6614] dark:text-[#9CCB6B]">
+                Módulos grátis
+              </span>
+              <span className="font-semibold text-[#3D6614] dark:text-[#9CCB6B]">{introPromoPeriod()}</span>
+            </span>
+            <span>Depois, R$ {formatPrice(total)}/mês</span>
+          </div>
+        )}
       </div>
 
       <SignupLink

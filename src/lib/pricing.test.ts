@@ -3,6 +3,10 @@ import {
   MODULES,
   TRIAL_DAYS,
   calculateTotal,
+  hasPromoDiscount,
+  INTRO_PROMO,
+  introPromoPeriod,
+  introPromoTotal,
   buildSignupUrl,
   PROFILE_PRESETS,
 } from './pricing';
@@ -50,12 +54,12 @@ describe('pricing.calculateTotal', () => {
   });
 
   it('sums modules correctly', () => {
-    expect(calculateTotal(['essencial', 'gestao', 'fiscal'])).toBeCloseTo(199.70, 2);
+    expect(calculateTotal(['essencial', 'gestao', 'fiscal'])).toBeCloseTo(198.90, 2);
   });
 
   it('total for full plan', () => {
     const total = calculateTotal(['essencial', 'gestao', 'fiscal', 'techia']);
-    expect(total).toBeCloseTo(399.60, 2);
+    expect(total).toBeCloseTo(398.80, 2);
   });
 });
 
@@ -123,3 +127,28 @@ describe('pricing.TRIAL_DAYS', () => {
     expect(TRIAL_DAYS).toBe(14);
   });
 });
+
+describe('pricing.introPromo (promoção de entrada)', () => {
+  it('cobra só a base no período: módulos adicionais grátis', () => {
+    expect(introPromoTotal(['essencial'])).toBe(99.90);
+    expect(introPromoTotal(['essencial', 'gestao', 'fiscal'])).toBe(99.90);
+    expect(introPromoTotal(['essencial', 'gestao', 'fiscal', 'techia'])).toBe(99.90);
+  });
+
+  it('só indica desconto quando a combinação tem módulo adicional', () => {
+    expect(INTRO_PROMO.active).toBe(true);
+    expect(hasPromoDiscount(['essencial'])).toBe(false);
+    expect(hasPromoDiscount(['essencial', 'gestao'])).toBe(true);
+  });
+
+  it('descreve o período', () => {
+    expect(introPromoPeriod()).toBe('nos 3 primeiros meses');
+    expect(introPromoPeriod(1)).toBe('no primeiro mês');
+  });
+
+  it('Gestão e Fiscal custam R$ 49,50', () => {
+    expect(calculateTotal(['gestao'])).toBe(49.50);
+    expect(calculateTotal(['fiscal'])).toBe(49.50);
+  });
+});
+

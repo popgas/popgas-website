@@ -4,7 +4,7 @@ export const fiscalContent: ModuleContent = {
   slug: 'fiscal',
   moduleKey: 'fiscal',
   hero: {
-    eyebrow: 'MÓDULO ADICIONAL · + R$ 49,90/mês',
+    eyebrow: 'MÓDULO ADICIONAL · + R$ 49,50/mês',
     title: 'Nota fiscal sem dor de cabeça.',
     subtitle:
       'NF-e, NFC-e, NFS-e, CT-e e MDF-e emitidos de dentro do sistema, homologados junto à SEFAZ, com impostos calculados automaticamente e o SPED pronto para o contador.',
