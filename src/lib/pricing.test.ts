@@ -59,7 +59,7 @@ describe('pricing.calculateTotal', () => {
 
   it('total for full plan', () => {
     const total = calculateTotal(['essencial', 'gestao', 'fiscal', 'techia']);
-    expect(total).toBeCloseTo(398.80, 2);
+    expect(total).toBeCloseTo(397.90, 2);
   });
 });
 

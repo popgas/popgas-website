@@ -14,9 +14,11 @@ describe('<ModulesGrid>', () => {
 
   it('shows correct prices', () => {
     render(<ModulesGrid />);
-    // /99,90/ matches both "99,90" and "199,90", so use getAllByText
+    // Base aparece na linha do módulo e no aviso da promoção; Gestão e Fiscal têm o mesmo preço.
     expect(screen.getAllByText(/99,90/).length).toBeGreaterThanOrEqual(1);
-    expect(screen.getByText(/199,90/)).toBeInTheDocument();
+    expect(screen.getAllByText(/49,50/)).toHaveLength(2);
+    expect(screen.getByText(/199,00/)).toBeInTheDocument();
+    expect(screen.queryByText(/199,90|49,90/)).not.toBeInTheDocument();
   });
 
   it('marks Tech & IA as premium', () => {
