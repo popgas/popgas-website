@@ -4,7 +4,7 @@ export const techIaContent: ModuleContent = {
   slug: 'tech-ia',
   moduleKey: 'techia',
   hero: {
-    eyebrow: 'MÓDULO PREMIUM · + R$ 199,90/mês',
+    eyebrow: 'MÓDULO PREMIUM · + R$ 199,00/mês',
     title: 'IA e WhatsApp atendendo a sua revenda.',
     subtitle:
       'Conecte o WhatsApp da revenda, deixe a inteligência artificial atender, tirar dúvidas e fechar pedidos 24 horas por dia, e transfira para um atendente quando precisar.',
